@@ -78,7 +78,7 @@ const LoginForm = () => {
             onClick={() => navigate('/signup')}
             className="text-indigo-600 hover:text-indigo-700"
           >
-            Change password
+            Click here
           </button>
         </p>
       </div>

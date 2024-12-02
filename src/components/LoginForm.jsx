@@ -24,7 +24,7 @@ const LoginForm = () => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-indigo-50">
       <div className="w-full max-w-sm bg-white p-8 rounded-lg shadow-lg">
-        <h2 className="text-3xl font-semibold text-indigo-600 text-center mb-6">Login</h2>
+        <h2 className="text-3xl font-semibold text-re-600 text-center mb-6">Login</h2>
 
         {error && <p className="text-red-500 text-sm text-center mb-4">{error}</p>}
 
@@ -55,7 +55,7 @@ const LoginForm = () => {
 
           <button
             type="submit"
-            className="w-full py-2 bg-indigo-600 text-white font-semibold rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            className="w-full py-2 bg-red-600 text-white font-semibold rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
           >
             Log in
           </button>
@@ -67,7 +67,7 @@ const LoginForm = () => {
             onClick={() => navigate('/signup')}
             className="text-indigo-600 hover:text-indigo-700"
           >
-            Change password
+            Click Here
           </button>
         </p>
       </div>
