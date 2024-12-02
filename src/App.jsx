@@ -8,12 +8,14 @@ import ProductFormPre from './components/ProductFormPre';
 import ProductFormChe from './components/ProductFormChe';
 import ProductFormSel from './components/ProductFormSel';
 import ProductFormOut from './components/ProductFormOut';
-import ProductFormStc from './components/ProductFormStc';
+// import ProductFormStc from './components/ProductFormStc';
 import ProductFormBack from './components/ProductFormBack';
 import ProductFormBranPre from './components/ProductFormBranPre';
 import ProductFormBranSel from './components/ProductFormBranSel';
 import ProductFormDep from './components/ProductFormDep';
 import ProductFormEmp from './components/ProductFormEmp';
+
+
 import LoginHome from './components/LoginHome';
 import HomePages from './HomePages';
 import IbyinjiyePage from './pages/viewfiles/IbyinjiyePage';
@@ -43,8 +45,7 @@ function App() {
         <Route path="/ProductFormPre" element={<ProductFormPre />} />
         <Route path="/ProductFormChe" element={<ProductFormChe />} />
         <Route path="/ProductFormSel" element={<ProductFormSel />} />
-        <Route path="/ProductFormOut" element={<ProductFormOut />} />
-        <Route path="/ProductFormStc" element={<ProductFormStc />} />
+        <Route path="/ProductFormOut" element={<ProductFormOut />} /> 
         <Route path="/ProductFormBack" element={<ProductFormBack />} />
         <Route path="/ProductFormBranPre" element={<ProductFormBranPre />} />
         <Route path="/ProductFormBranSel" element={<ProductFormBranSel />} />

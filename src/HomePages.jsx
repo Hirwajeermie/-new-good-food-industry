@@ -28,7 +28,7 @@ const HomePages = () => {
     // Clear authentication token from localStorage
     localStorage.removeItem('userAuthenticated');
     // Redirect to login page
-    navigate('/login-home');
+    navigate('/login-report');
   };
 
   return (

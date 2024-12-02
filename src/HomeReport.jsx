@@ -10,7 +10,7 @@ const HomePages = () => {
     { name: 'Raporo yibigori bishyashya', path: '/ProductForm' },
     { name: 'Raporo yo Gutunganywa 1', path: '/ProductFormPre'},
     { name: 'Raporo yibigori bigiye gukoborwa', path: '/ProductFormChe' },
-    { name: 'Raporo ya Sitoke', path: '/ProductFormStc' },
+   // { name: 'Raporo ya Sitoke', path: '/ProductFormStc' },
     { name: 'Raporo ya Buranda yakozwe', path: '/ProductFormBranPre' },
     { name: 'Raporo ya Buranda Yagurishijwe', path: '/ProductFormBranSel' },
     { name: 'Kawunga Yagiye kwisoko', path: '/ProductFormSel' },
@@ -25,6 +25,13 @@ const HomePages = () => {
   const filteredLinks = links.filter(link =>
     link.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
+
+  const handleLogout = () => {
+    // Clear authentication token from localStorage
+    localStorage.removeItem('userAuthenticated');
+    // Redirect to login page
+    navigate('/login-page');
+  };
 
   return (
     <div className="d-flex flex flex-col items-center justify-center min-h-screen bg-indigo-100 px-4">
@@ -52,6 +59,13 @@ const HomePages = () => {
           </Link>
         ))}
       </div>
+      {/* Logout Button */}
+      <button
+        onClick={handleLogout}
+        className="mt-8 px-6 py-2 bg-red-600 text-white font-semibold rounded-md hover:bg-red-700 focus:outline-none"
+      >
+        Logout
+      </button>
     </div>
   );
 };
