@@ -28,13 +28,17 @@ import Buranda2Page from './pages/viewfiles/Buranda2Page';
 import DepansePage from './pages/viewfiles/DepansePage';
 import AbakoziPage from './pages/viewfiles/AbakoziPage';
 import PrivateRoute from './components/PrivateRoute';
+import NewGoodFoodWebsite from './components/Website';
+import ProductPage from './components/ProductPage';
 
 function App() {
   return (
     <Router>
       <Routes>
         <Route path="/HomeReport" element={<HomeReport />} />
-        <Route path="/" element={<LoginForm />} />
+        <Route path="/login" element={<LoginForm />} />
+        <Route path="/" element={<NewGoodFoodWebsite />} />
+        <Route path="/products" element={<ProductPage />} />
         <Route path="/ProductForm" element={<ProductForm />} />
         <Route path="/ProductFormPre" element={<ProductFormPre />} />
         <Route path="/ProductFormChe" element={<ProductFormChe />} />
