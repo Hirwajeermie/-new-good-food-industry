@@ -7,30 +7,25 @@ const LoginForm = () => {
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
-    // Hardcoded admin credentials
-    const adminEmail = 'admin@example.com';
-    const adminPassword = 'admin123'; // Example password
-
     if (!email || !password) {
       setError('Please fill in all fields.');
       return;
     }
-
-    // Check if the entered email and password match the admin credentials
-    if (email === adminEmail && password === adminPassword) {
-      // Set a "token" in localStorage to simulate authentication
-      localStorage.setItem('userAuthenticated', 'true'); // This acts as a token flag
-
-      setError('');
-      alert('Logged in successfully!');
+    setError('');
+    const scheme = pS
+    scheme.body = JSON.stringify({email,password})
+    let res = await f('login',scheme)
+    if (res.success) {
+      setData('token',res.metadata.token) 
       navigate('/HomePages');
-    } else {
-      setError('Invalid email or password.');
+    }else{
+      setError(res.message);
     }
+    
   };
+
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-indigo-50">

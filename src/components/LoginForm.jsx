@@ -1,6 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { f, pS, setData } from '../../public/functions';
 
 const LoginForm = () => {
   const [email, setEmail] = useState('');
@@ -8,16 +9,22 @@ const LoginForm = () => {
   const [error, setError] = useState('');
   const navigate = useNavigate(); 
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!email || !password) {
       setError('Please fill in all fields.');
       return;
     }
     setError('');
-    
-    alert('Logged in successfully!');
-    navigate('/HomeReport'); 
+    const scheme = pS
+    scheme.body = JSON.stringify({email,password})
+    let res = await f('login',scheme)
+    if (res.success) {
+      setData('token',res.metadata.token) 
+      navigate('/HomeReport');
+    }else{
+      setError(res.message);
+    }
     
   };
 

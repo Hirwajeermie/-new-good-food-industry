@@ -34,7 +34,6 @@ const ProductForm = () => {
     scheme.body = JSON.stringify(formVars)
     let res = await f('record-stock-1',scheme)
   }
-  setData('token','eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJyb2xlIjoiU1lTVEVNIiwiaWF0IjoxNzMwOTM4OTAzfQ.7kFnr-c5ssp195JqBxn3eIY_GzCBUirSaFCU8_4I64w')
   return (
     <form onSubmit={recProd}>
 <div className="p-6 bg-indigo-100 min-h-screen">

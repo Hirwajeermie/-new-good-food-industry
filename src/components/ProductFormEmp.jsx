@@ -1,24 +1,25 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { f, pS } from "../../public/functions";
 
 const ProductFormEmp= () => {
-  const [workers, setWorkers] = useState([
-    { 
-      Date: "01/10/2025",
-      name: "SEMINAGA Bartazar", 
-      phone: "0781056204", 
-      jobTitle: "CEO", 
-      salary: "550,000Frw", 
-      saving: "450,000Frw", 
-      social: "MARRIED", 
-      salaryAdvance: "750,000Frw", 
-      remainSalary: "350,000Frw" 
-    },
-  ]);
+  const [workers, setWorkers] = useState([]);
 
   const [showSuccess, setShowSuccess] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
+  const [isSubmitting, setIsSubmitting] = useState(false),
+  [records,setRecords] = useState([]),
+  hasFetched = useRef(false)
+  useEffect(()=>{
+    if (!hasFetched.current) {
+      const fetchRecs = async ()=>{
+        let schema = pS
+        schema.body = JSON.stringify({date: {}})
+        let recs = await f('employeesReport',pS)
+        setWorkers(recs.metadata.report)
+      }
+      fetchRecs()
+      hasFetched.current = true
+    }
+  },[])
   useEffect(() => {
     if (showSuccess) {
       const timer = setTimeout(() => {
@@ -84,7 +85,7 @@ const ProductFormEmp= () => {
                 <td className="border border-gray-300 p-1 sm:p-2">
                   <input
                     type="text"
-                    value={worker.Date}
+                    value={worker.date}
                     onChange={(e) => {
                       const updatedWorkers = [...workers];
                       updatedWorkers[index].Date = e.target.value;
@@ -97,7 +98,7 @@ const ProductFormEmp= () => {
                 <td className="border border-gray-300 p-1 sm:p-2">
                   <input
                     type="text"
-                    value={worker.name}
+                    value={worker.names}
                     onChange={(e) => {
                       const updatedWorkers = [...workers];
                       updatedWorkers[index].name = e.target.value;
@@ -123,7 +124,7 @@ const ProductFormEmp= () => {
                 <td className="border border-gray-300 p-1 sm:p-2 hidden md:table-cell">
                   <input
                     type="text"
-                    value={worker.jobTitle}
+                    value={worker.title}
                     onChange={(e) => {
                       const updatedWorkers = [...workers];
                       updatedWorkers[index].jobTitle = e.target.value;
@@ -175,7 +176,7 @@ const ProductFormEmp= () => {
                 <td className="border border-gray-300 p-1 sm:p-2 hidden lg:table-cell">
                   <input
                     type="text"
-                    value={worker.salaryAdvance}
+                    value={worker.advance}
                     onChange={(e) => {
                       const updatedWorkers = [...workers];
                       updatedWorkers[index].salaryAdvance = e.target.value;
@@ -188,7 +189,7 @@ const ProductFormEmp= () => {
                 <td className="border border-gray-300 p-1 sm:p-2 hidden lg:table-cell">
                   <input
                     type="text"
-                    value={worker.remainSalary}
+                    value={worker.r_salary}
                     onChange={(e) => {
                       const updatedWorkers = [...workers];
                       updatedWorkers[index].remainSalary = e.target.value;
