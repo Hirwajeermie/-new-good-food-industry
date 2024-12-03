@@ -34,6 +34,8 @@ import Buranda2Page from './pages/viewfiles/Buranda2Page';
 import DepansePage from './pages/viewfiles/DepansePage';
 import AbakoziPage from './pages/viewfiles/AbakoziPage';
 import AmadeniPage from './pages/viewfiles/AmadeniPage';
+import AbishyuyedeniPage from './pages/viewfiles/AbishyuyedeniPage';
+
 
 
 
@@ -75,7 +77,7 @@ function App() {
         <Route path="/Depanse" element={<PrivateRoute element={<DepansePage />} />} />
         <Route path="/List Yabakozi" element={<PrivateRoute element={<AbakoziPage />} />} />
         <Route path="/Amadeni" element={<PrivateRoute element={<AmadeniPage />} />} />
-        <Route path="/Amadeni" element={<PrivateRoute element={<AmadeniPage />} />} />
+        <Route path="/Abishyuyeideni" element={<PrivateRoute element={<AbishyuyedeniPage />} />} />
 
       </Routes>
     </Router>
