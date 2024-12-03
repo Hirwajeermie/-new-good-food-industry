@@ -18,8 +18,8 @@ const HomePages = () => {
     { name: 'Ibyagarutse', path: '/Ibyagarutse' },
     { name: 'Depanse', path: '/Depanse' },
     { name: 'List Yabakozi', path: '/List Yabakozi' },
-    { name: 'Amadani', path: '/Amadeni' },
-    { name: 'Abishyuye amadeni', path: '/Abishyuyeideni' },
+    { name: 'Amadeni', path: '/Amadeni' },
+    { name: 'Abishyuye amadeni', path: '/ProductFormMarket' },
    
   ];
 

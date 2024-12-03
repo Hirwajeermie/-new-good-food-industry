@@ -20,6 +20,7 @@ const HomePages = () => {
     { name: 'List Yabakozi Nimishahara', path: '/ProductFormEmp' },
     { name: 'Amadeni', path: '/ProductFormDebt' },
     { name: 'Abishyuye amadeni', path: '/ProductFormCred' },
+    { name: 'Market report', path: '/ProductFormMarket' },
     
   ];
 

@@ -19,6 +19,7 @@ import ProductFormDebt from './components/ProductFormDebt';
 import PrivateRoute from './components/PrivateRoute';
 import NewGoodFoodWebsite from './components/Website';
 import ProductPage from './components/ProductPage';
+import ProductFormMarket  from './components/ProductFormMarket';
 
 import LoginHome from './components/LoginHome';
 import HomePages from './HomePages';
@@ -59,6 +60,7 @@ function App() {
         <Route path="/ProductFormEmp" element={<ProductFormEmp />} />
         <Route path="/ProductFormCred" element={<ProductFormCred />} />
         <Route path="/ProductFormDebt" element={<ProductFormDebt />} />
+        <Route path="/ProductFormMarket" element={<ProductFormMarket />} />
         <Route path="/view" element={<View />} />
         
         {/* Direct routes that are always accessible */}
@@ -78,6 +80,7 @@ function App() {
         <Route path="/List Yabakozi" element={<PrivateRoute element={<AbakoziPage />} />} />
         <Route path="/Amadeni" element={<PrivateRoute element={<AmadeniPage />} />} />
         <Route path="/Abishyuyeideni" element={<PrivateRoute element={<AbishyuyedeniPage />} />} />
+        
 
       </Routes>
     </Router>
