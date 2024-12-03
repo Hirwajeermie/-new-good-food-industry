@@ -2,23 +2,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { f, pS } from "../../../public/functions";
 
-const initialFormData = {
-  exampleData: [
-    {
-      
-      names: "MUVUNYI Bruce",
-      phone: "0791785898",
-      jobTitle: "CEO",
-      salary: "750,000Frw",
-      saving: "550,000Frw",
-      social:"married",
-      salaryAdvance:"850,000Frw",
-      remainSalary:"350,000Frw",
-
-    },
-  ],
-};
-
  function AbakoziPage() {
   const [records,setRecords] = useState([]),
   hasFetched = useRef(false)

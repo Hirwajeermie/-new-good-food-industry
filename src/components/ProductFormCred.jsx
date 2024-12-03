@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from "react";
+import { f, pS } from "../../public/functions";
 
 function ProductFormCred() {
   const [formData, setFormData] = useState({
-    itariki: "",
-    utanzeRaporo: "",
-    umukiliya: "",
-    amafarangaYararimo: "",
-    ayoYishyuye: "",
-    uburyoYishyuyemo: "", 
-    asigaye: "",
+    reporter: "",
+    client: "",
+    debt: "",
+    p_debt: "",
+    pm: "",
+    r_debt: "", 
     comment: "",
+    date: "",
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [errors, setErrors] = useState({});
@@ -45,8 +46,8 @@ function ProductFormCred() {
   const validateForm = () => {
     const newErrors = {};
     const requiredFields = [
-      'itariki', 'utanzeRaporo', 'umukiliya', 
-      'amafarangaYararimo', 'ayoYishyuye', 'uburyoYishyuyemo', 'asigaye'
+      'reporter', 'client', 'debt', 
+      'p_debt', 'pm', 'r_debt', 'comment','date'
     ];
     
     requiredFields.forEach(field => {
@@ -72,23 +73,25 @@ function ProductFormCred() {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (validateForm()) {
      
       setIsSubmitted(true);
-
+      const scheme = pS
+      scheme.body = JSON.stringify(formData)
+      let res = await f('pdebtsController',scheme)
       
       setFormData({
-        itariki: "",
-        utanzeRaporo: "",
-        umukiliya: "",
-        amafarangaYararimo: "",
-        ayoYishyuye: "",
-        uburyoYishyuyemo: "",
-        asigaye: "",
+        reporter: "",
+        client: "",
+        debt: "",
+        p_debt: "",
+        pm: "",
+        r_debt: "",
         comment: "",
+        date: "",
       });
 
     
@@ -122,18 +125,18 @@ function ProductFormCred() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {[
-                { name: "itariki", label: "Itariki", type: "date" },
-                { name: "utanzeRaporo", label: "Utanze Raporo", type: "text" },
-                { name: "umukiliya", label: "Izina RY'umukiliya", type: "text" },
-                { name: "amafarangaYararimo", label: "AMAFARANGA YARARIMO", type: "number", step: "0.01" },
-                { name: "ayoYishyuye", label: "AYO YISHYUYE", type: "number", step: "0.01" },
+                { name: "date", label: "Itariki", type: "date" },
+                { name: "reporter", label: "Utanze Raporo", type: "text" },
+                { name: "client", label: "Izina RY'umukiliya", type: "text" },
+                { name: "debt", label: "AMAFARANGA YARARIMO", type: "number", step: "0.01" },
+                { name: "p_debt", label: "AYO YISHYUYE", type: "number", step: "0.01" },
                 { 
-                  name: "uburyoYishyuyemo", 
+                  name: "pm", 
                   label: "UBURYO YISHYUYEMO", 
                   type: "select", 
                   options: paymentMethods 
                 },
-                { name: "asigaye", label: "ASIGAYE", type: "number", step: "0.01" }
+                { name: "r_debt", label: "ASIGAYE", type: "number", step: "0.01" }
               ].map((field) => (
                 <div key={field.name} className="relative">
                   <label className="block text-sm font-medium text-indigo-600 mb-1">

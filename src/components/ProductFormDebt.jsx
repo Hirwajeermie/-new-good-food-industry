@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from "react";
+import { f, pS } from "../../public/functions";
 
 function ProductFormDebt() {
   const [formData, setFormData] = useState({
-    itariki: "",
-    utanzeRaporo: "",
-    umukiliya: "",
-    ibiroYatwaye: "",
-    amafaranga: "",
-    ayoYishyuye: "",
-    asigaye: "",
+    date: "",
+    reporter: "",
+    client: "",
+    weight: "",
+    g_amount: "",
+    p_amount: "",
+    r_amount: "",
     comment: "",
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -35,8 +36,8 @@ function ProductFormDebt() {
   const validateForm = () => {
     const newErrors = {};
     const requiredFields = [
-      'itariki', 'utanzeRaporo', 'umukiliya', 
-      'ibiroYatwaye', 'amafaranga', 'asigaye'
+      'date', 'reporter', 'client', 
+      'weight', 'g_amount', 'r_amount', 'p_amount', 'comment'
     ];
     
     requiredFields.forEach(field => {
@@ -46,34 +47,33 @@ function ProductFormDebt() {
     });
 
     // Additional validations
-    if (formData.ibiroYatwaye && parseFloat(formData.ibiroYatwaye) < 0) {
-      newErrors.ibiroYatwaye = "Weight cannot be negative";
+    if (formData.weight && parseFloat(formData.weight) < 0) {
+      newErrors.weight = "Weight cannot be negative";
     }
 
-    if (formData.amafaranga && parseFloat(formData.amafaranga) < 0) {
-      newErrors.amafaranga = "Amount cannot be negative";
+    if (formData.g_amount && parseFloat(formData.g_amount) < 0) {
+      newErrors.g_amount = "Amount cannot be negative";
     }
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
     if (validateForm()) {
-     
       setIsSubmitted(true);
-
-      
+      const scheme = pS
+    scheme.body = JSON.stringify(formData)
+    let res = await f('debtsController',scheme)
       setFormData({
-        itariki: "",
-        utanzeRaporo: "",
-        umukiliya: "",
-        ibiroYatwaye: "",
-        amafaranga: "",
-        ayoYishyuye: "",
-        asigaye: "",
+        date: "",
+        reporter: "",
+        client: "",
+        weight: "",
+        g_amount: "",
+        p_amount: "",
+        r_amount: "",
         comment: "",
       });
 
@@ -108,13 +108,13 @@ function ProductFormDebt() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {[
-                { name: "itariki", label: "Itariki", type: "date" },
-                { name: "utanzeRaporo", label: "Utanze Raporo", type: "text" },
-                { name: "umukiliya", label: "Izina RY'umukiliya", type: "text" },
-                { name: "ibiroYatwaye", label: "IBIRO YATWAYE", type: "number", step: "0.01" },
-                { name: "amafaranga", label: "AMAFARANGA", type: "number", step: "0.01" },
-                { name: "ayoYishyuye", label: "AYO YISHYUYE", type: "number", step: "0.01" },
-                { name: "asigaye", label: "ASIGAYE", type: "number", step: "0.01" }
+                { name: "date", label: "Itariki", type: "date" },
+                { name: "reporter", label: "Utanze Raporo", type: "text" },
+                { name: "client", label: "Izina RY'umukiliya", type: "text" },
+                { name: "weight", label: "IBIRO YATWAYE", type: "number", step: "0.01" },
+                { name: "g_amount", label: "AMAFARANGA", type: "number", step: "0.01" },
+                { name: "p_amount", label: "AYO YISHYUYE", type: "number", step: "0.01" },
+                { name: "r_amount", label: "ASIGAYE", type: "number", step: "0.01" }
               ].map((field) => (
                 <div key={field.name} className="relative">
                   <label className="block text-sm font-medium text-indigo-600 mb-1">

@@ -66,7 +66,6 @@ const ProductFormDep= () => {
     }
     const scheme = pS
     scheme.body = JSON.stringify(nfd)
-    console.log(formData)
     let res = await f('expensesController',scheme)
     setShowMessage(true);
     setTimeout(() => {
