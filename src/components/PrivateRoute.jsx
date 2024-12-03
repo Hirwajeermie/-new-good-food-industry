@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Navigate } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 
 // Check if the user is authenticated by looking for a "token" in localStorage
 const isAuthenticated = () => {

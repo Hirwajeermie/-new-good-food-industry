@@ -6,6 +6,7 @@ const HomePages = () => {
   const navigate = useNavigate();
 
   const links = [
+    { name: 'List Yabakozi', path: '/Amadeni' },
     { name: 'Ibigori bishyashya', path: '/Ibishyashya' },
     { name: 'Gutunganywa 1', path: '/Gutunganya' },
     { name: 'Ibigori byakobowe', path: '/ibisanzwe' },
@@ -17,6 +18,9 @@ const HomePages = () => {
     { name: 'Ibyagarutse', path: '/Ibyagarutse' },
     { name: 'Depanse', path: '/Depanse' },
     { name: 'List Yabakozi', path: '/List Yabakozi' },
+    { name: 'List Yabakozi', path: '/Amadeni' },
+   
+
   ];
 
   // Filter links based on search query

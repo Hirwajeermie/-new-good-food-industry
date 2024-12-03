@@ -18,6 +18,8 @@ const HomePages = () => {
     { name: 'Kawunga Yagarutse', path: '/ProductFormBack' },
     { name: 'Depanse', path: '/ProductFormDep' }, 
     { name: 'List Yabakozi Nimishahara', path: '/ProductFormEmp' },
+    { name: 'Amadeni', path: '/ProductFormDebt' },
+    { name: 'Abishyuye amadeni', path: '/ProductFormCred' },
     
   ];
 

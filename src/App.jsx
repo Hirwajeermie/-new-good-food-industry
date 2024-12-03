@@ -14,7 +14,11 @@ import ProductFormBranPre from './components/ProductFormBranPre';
 import ProductFormBranSel from './components/ProductFormBranSel';
 import ProductFormDep from './components/ProductFormDep';
 import ProductFormEmp from './components/ProductFormEmp';
-
+import ProductFormCred from './components/ProductFormCred';
+import ProductFormDebt from './components/ProductFormDebt';
+import PrivateRoute from './components/PrivateRoute';
+import NewGoodFoodWebsite from './components/Website';
+import ProductPage from './components/ProductPage';
 
 import LoginHome from './components/LoginHome';
 import HomePages from './HomePages';
@@ -29,9 +33,9 @@ import Buranda1Page from './pages/viewfiles/Buranda1Page';
 import Buranda2Page from './pages/viewfiles/Buranda2Page';
 import DepansePage from './pages/viewfiles/DepansePage';
 import AbakoziPage from './pages/viewfiles/AbakoziPage';
-import PrivateRoute from './components/PrivateRoute';
-import NewGoodFoodWebsite from './components/Website';
-import ProductPage from './components/ProductPage';
+import AmadeniPage from './pages/viewfiles/AmadeniPage';
+
+
 
 function App() {
   return (
@@ -51,11 +55,12 @@ function App() {
         <Route path="/ProductFormBranSel" element={<ProductFormBranSel />} />
         <Route path="/ProductFormDep" element={<ProductFormDep />} />
         <Route path="/ProductFormEmp" element={<ProductFormEmp />} />
+        <Route path="/ProductFormCred" element={<ProductFormCred />} />
+        <Route path="/ProductFormDebt" element={<ProductFormDebt />} />
         <Route path="/view" element={<View />} />
         
         {/* Direct routes that are always accessible */}
         <Route path="/login-home" element={<LoginHome />} />
-        
         {/* Protected routes */}
         <Route path="/HomePages" element={<PrivateRoute element={<HomePages />} />} />
         <Route path="/Ibishyashya" element={<PrivateRoute element={<IbishyashyaPage />} />} />
@@ -69,6 +74,9 @@ function App() {
         <Route path="/Buranda 2" element={<PrivateRoute element={<Buranda2Page />} />} />
         <Route path="/Depanse" element={<PrivateRoute element={<DepansePage />} />} />
         <Route path="/List Yabakozi" element={<PrivateRoute element={<AbakoziPage />} />} />
+        <Route path="/Amadeni" element={<PrivateRoute element={<AmadeniPage />} />} />
+        <Route path="/Amadeni" element={<PrivateRoute element={<AmadeniPage />} />} />
+
       </Routes>
     </Router>
   );
