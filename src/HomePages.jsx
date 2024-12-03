@@ -19,8 +19,8 @@ const HomePages = () => {
     { name: 'Depanse', path: '/Depanse' },
     { name: 'List Yabakozi', path: '/List Yabakozi' },
     { name: 'Amadeni', path: '/Amadeni' },
-    { name: 'Abishyuye amadeni', path: '/ProductFormMarket' },
-   
+    { name: 'Abishyuye amadeni', path: '/Abishyuyeideni' },
+    { name: 'Market Report', path: '/Marketreport' },
   ];
 
   // Filter links based on search query
