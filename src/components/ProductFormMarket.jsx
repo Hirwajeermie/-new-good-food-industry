@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from "react";
+import { f, pS } from "../../public/functions";
 
 function ProductFormMarket() {
   const [formData, setFormData] = useState({
-    itariki: "",
-    utanzeRaporo: "",
-    Commandeprice: "",
-    Returnedprice: "",
-    Expensesprice: "",
-    Amadeni:"",
-    Abishyuyeamadeni:"",
-    uburyoYishyuyemo: "", 
+    date: "",
+    reporter: "",
+    commande: "",
+    returned: "",
+    expenses: "",
+    debts:"",
+    p_debts:"",
+    pm: "", 
     comment: "",
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -46,8 +47,8 @@ function ProductFormMarket() {
   const validateForm = () => {
     const newErrors = {};
     const requiredFields = [
-      'itariki', 'utanzeRaporo', 'Commandeprice', 
-      'Returnedprice', 'Expensesprice', 'Amadeni', 'Abishyuyeamadeni','uburyoYishyuyemo',
+      'date', 'reporter', 'commande', 
+      'returned', 'expenses', 'debts', 'p_debts','pm',
     ];
     
     requiredFields.forEach(field => {
@@ -73,28 +74,28 @@ function ProductFormMarket() {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (validateForm()) {
-     
+      
       setIsSubmitted(true);
 
-      
-      setFormData({
-       itariki: "",
-    utanzeRaporo: "",
-    Commandeprice: "",
-    Returnedprice: "",
-    Expensesprice: "",
-    Amadeni:"",
-    Abishyuyeamadeni:"",
-    uburyoYishyuyemo: "", 
-    comment: "",
-      });
 
-    
-      console.log("Form submitted:", formData);
+       let schema = pS
+        schema.body = JSON.stringify(formData)
+        let recs = await f('mrController',pS)
+      setFormData({
+       date: "",
+        reporter: "",
+        commande: "",
+        returned: "",
+        expenses: "",
+        debts:"",
+        p_debts:"",
+        pm: "", 
+        comment: "",
+      });
     }
   };
 
@@ -124,15 +125,15 @@ function ProductFormMarket() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {[
-                { name: "itariki", label: "Itariki", type: "date" },
-                { name: "utanzeRaporo", label: "Utanze Raporo", type: "text" },
-                { name: "Commandeprice", label: "commande&it price", type: "text" },
-                { name: "Returnedprice", label: "Returned&it price", type: "number", step: "0.01" },
-                { name: "Expensesprice", label: "Expenses&it price", type: "number", step: "0.01" },
-                { name: "Amadeni", label: "Amadeni(Name&Amount)", type: "number", step: "0.01" },
-                { name: "Abishyuyeamadeni", label: "Abishyuye Amadeni(Name&Amount)", type: "number", step: "0.01" },
+                { name: "date", label: "Itariki", type: "date" },
+                { name: "reporter", label: "Utanze Raporo", type: "text" },
+                { name: "commande", label: "commande&it price", type: "text" },
+                { name: "returned", label: "Returned&it price", type: "number", step: "0.01" },
+                { name: "expenses", label: "Expenses&it price", type: "number", step: "0.01" },
+                { name: "debts", label: "Amadeni(Name&Amount)", type: "number", step: "0.01" },
+                { name: "p_debts", label: "Abishyuye Amadeni(Name&Amount)", type: "number", step: "0.01" },
                 { 
-                  name: "uburyoYishyuyemo", 
+                  name: "pm", 
                   label: "UBURYO YISHYUYEMO", 
                   type: "select", 
                   options: paymentMethods 

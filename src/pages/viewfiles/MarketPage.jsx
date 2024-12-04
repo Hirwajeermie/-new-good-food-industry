@@ -1,23 +1,23 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import { f, pS } from "../../../public/functions";
 
-const initialFormData = {
-  submittedData: [
-    {
-      itariki: "2024-01-15",
-      utanzeRaporo: "Umuzungu",
-      Commandeprice: "80000",
-      Returnedprice: "50000",
-      Expensesprice: "30000",
-      Amadeni: "20000",
-      Abishyuyeamadeni: "PABLOSCH",
-      uburyoYishyuyemo: "Mobile Money",
-      comment: "Ibyatanzwe byose byagenze neza"
-    }
-  ]
-};
+
 
 function MarketPage() {
-  const [formData] = useState(initialFormData);
+  const [records,setRecords] = useState([]),
+  hasFetched = useRef(false)
+  useEffect(()=>{
+    if (!hasFetched.current) {
+      const fetchRecs = async ()=>{
+        let schema = pS
+        schema.body = JSON.stringify({date: {}})
+        let recs = await f('mrReport',pS)
+        setRecords(recs.metadata.report)
+      }
+      fetchRecs()
+      hasFetched.current = true
+    }
+  },[])
 
   return (
     <div className="container mx-auto p-4 space-y-8">
@@ -60,31 +60,31 @@ function MarketPage() {
               </tr>
             </thead>
             <tbody>
-              {formData.submittedData.map((item, index) => (
+              {records.map((item, index) => (
                 <tr key={index} className="hover:bg-gray-50">
                   <td className="border p-3 text-sm text-gray-600 md:table-cell">
-                    {item.itariki}
+                    {item.date}
                   </td>
                   <td className="border p-3 text-sm text-gray-600 md:table-cell">
-                    {item.utanzeRaporo}
+                    {item.reporter}
                   </td>
                   <td className="border p-3 text-sm text-gray-600 md:table-cell">
-                    {item.Commandeprice}
+                    {item.commande}
                   </td>
                   <td className="border p-3 text-sm text-gray-600 md:table-cell">
-                    {item.Returnedprice}
+                    {item.returned}
                   </td>
                   <td className="border p-3 text-sm text-gray-600 md:table-cell">
-                    {item.Expensesprice}
+                    {item.expenses}
                   </td>
                   <td className="border p-3 text-sm text-gray-600 md:table-cell">
-                    {item.Amadeni}
+                    {item.debts}
                   </td>
                   <td className="border p-3 text-sm text-gray-600 md:table-cell">
-                    {item.Abishyuyeamadeni}
+                    {item.p_debts}
                   </td>
                   <td className="border p-3 text-sm text-gray-600 md:table-cell">
-                    {item.uburyoYishyuyemo}
+                    {item.pm}
                   </td>
                   <td className="border p-3 text-sm text-gray-600 md:table-cell">
                     {item.comment}
@@ -96,7 +96,7 @@ function MarketPage() {
         </div>
 
         
-        <div className="md:hidden space-y-4 mt-6">
+        {/* <div className="md:hidden space-y-4 mt-6">
           {formData.submittedData.map((item, index) => (
             <div 
               key={index} 
@@ -132,7 +132,7 @@ function MarketPage() {
               </div>
             </div>
           ))}
-        </div>
+        </div> */}
       </div>
     </div>
   );
