@@ -39,7 +39,6 @@ import AbishyuyedeniPage from './pages/viewfiles/AbishyuyedeniPage';
 import MarketPage from './pages/viewfiles/MarketPage';
 
 
-
 function App() {
   return (
     <Router>

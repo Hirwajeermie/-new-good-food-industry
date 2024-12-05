@@ -30,7 +30,7 @@ const HomePages = () => {
 
   const handleLogout = () => {
     // Clear authentication token from localStorage
-    localStorage.removeItem('userAuthenticated');
+    localStorage.removeItem('token');
     // Redirect to login page
     navigate('/login-report');
   };
