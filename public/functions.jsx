@@ -1,11 +1,7 @@
 export async function f(url,options){
     try {
       Object.assign(options.headers,{'authorization': getdata('token') ? 'Bearer '+getdata('token') : null})
-<<<<<<< HEAD
-      let z = await fetch(process.env.REACT_APP_API_URL +url,options);
-=======
-      let z = await fetch('https://cfp.onrender.com/' +url,options);
->>>>>>> ff871c786cc1f916e8c0755f6061be339b3e5ed7
+      let z = await fetch('http://127.0.0.1:3001/' +url,options);
       let y = await z.json();
       return y;
     } catch (error) {

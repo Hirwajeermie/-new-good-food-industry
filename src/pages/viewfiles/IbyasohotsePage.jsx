@@ -47,7 +47,7 @@ const IbyasohotsePage = () => {
                       <td className="border bg-gray-400 border-indigo-200 p-2">{item.date}</td>
                       <td className="border border-indigo-200 p-2">{item.reporter}</td>
                       <td className="border border-indigo-200 p-2">{item.distributor}</td>
-                      <td className="border border-indigo-200 p-2">{item.location}</td>
+                      <td className="border border-indigo-200 p-2">{item.loc}</td>
                       <td className="border border-indigo-200 p-2">{item.pm}</td>
                       <td className="border border-indigo-200 p-2">{item.comment}</td>
                     </tr>

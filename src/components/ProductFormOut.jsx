@@ -9,7 +9,7 @@ const ProductFormOut = () => {
     date: '',
     reporter: '',
     distributor: '',
-    client: '',
+    loc: '',
     comment: '',
     pm: '',
     p_sold:{
@@ -359,9 +359,9 @@ const ProductFormOut = () => {
              <input
                type="text"
                id="umucuruzi"
-               value={formData.client}
+               value={formData.loc}
                onChange={handleInputChange}
-               name="client"
+               name="loc"
                className="w-full px-3 py-2 border rounded"
                required
              />
