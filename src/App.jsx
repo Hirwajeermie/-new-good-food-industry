@@ -37,7 +37,7 @@ import AbakoziPage from './pages/viewfiles/AbakoziPage';
 import AmadeniPage from './pages/viewfiles/AmadeniPage';
 import AbishyuyedeniPage from './pages/viewfiles/AbishyuyedeniPage';
 import MarketPage from './pages/viewfiles/MarketPage';
-
+console.log(process.env.REACT_APP_API_URL)
 
 
 function App() {

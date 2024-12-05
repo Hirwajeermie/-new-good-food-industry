@@ -1,7 +1,7 @@
 export async function f(url,options){
     try {
       Object.assign(options.headers,{'authorization': getdata('token') ? 'Bearer '+getdata('token') : null})
-      let z = await fetch('http://127.0.0.1:3001/' +url,options);
+      let z = await fetch(process.env.REACT_APP_API_URL +url,options);
       let y = await z.json();
       return y;
     } catch (error) {
