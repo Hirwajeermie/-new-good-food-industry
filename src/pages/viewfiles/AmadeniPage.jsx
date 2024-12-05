@@ -1,10 +1,15 @@
 import React, { useEffect, useRef, useState } from "react";
 import { adcm, f, pS } from "../../../public/functions";
+import { HardDrive } from "lucide-react";
 
 
  function AmadeniPage() {
   const [records,setRecords] = useState([]),
-  hasFetched = useRef(false)
+  hasFetched = useRef(false),
+  [date,setDate] = useState({
+    start: null,
+    stop: null
+  })
   useEffect(()=>{
     if (!hasFetched.current) {
       const fetchRecs = async ()=>{
@@ -17,14 +22,45 @@ import { adcm, f, pS } from "../../../public/functions";
       hasFetched.current = true
     }
   },[])
-
+  async function handleSubmit(e) {
+    e.preventDefault()
+    let schema = pS
+    schema.body = JSON.stringify({date})
+    let recs = await f('debtsReport',pS)
+    setRecords(recs.metadata.report)
+    console.log(date)
+  }
+  function handleChange(e) {
+    const {name,value} = e.target
+    setDate((prevD=>({
+      ...prevD,
+      [name]: value
+    })))
+    
+  }
   return (
     <div className="container mx-auto p-4 space-y-8">
       <div className="bg-white rounded-lg shadow-md p-6">
         <h2 className="text-2xl font-bold text-center text-blue-800 mb-6">
           AMADENI YATANZWE KUMUNSI
         </h2>
-
+        <div style={{position:"absolute", right: '0',}}>
+          <div style={{display: 'flex'}}>
+            <form onSubmit={handleSubmit} style={{background: 'red'}}>
+              <span>
+                <label>starting date</label>
+                <input type="date" name="start" onChange={handleChange}/>
+              </span>
+              <span>
+                <label>ending date</label>
+                <input type="date" name="stop"  onChange={handleChange}/>
+              </span>
+              <span>
+                <button type="submit">submit</button>
+              </span>
+            </form>
+          </div>
+        </div>
         <div className="overflow-x-auto">
           <table className="min-w-full bg-white border border-gray-300">
             <thead>
