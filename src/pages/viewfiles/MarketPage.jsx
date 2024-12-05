@@ -19,12 +19,68 @@ function MarketPage() {
     }
   },[])
 
+  async function handleSubmit(e) {
+    e.preventDefault()
+    let schema = pS
+    schema.body = JSON.stringify({date})
+    let recs = await f('mrReport',pS)
+    setRecords(recs.metadata.report)
+    console.log(date)
+  }
+  function handleChange(e) {
+    const {name,value} = e.target
+    setDate((prevD=>({
+      ...prevD,
+      [name]: value
+    })))
+  }
+
   return (
     <div className="container mx-auto p-4 space-y-8">
       <div className="bg-white rounded-lg shadow-md p-6">
         <h2 className="text-2xl font-bold text-center text-indigo-800 mb-6">
         RAPORO YA MARKET REPORT
         </h2>
+
+        
+        <div>
+          <div  className="block md:inline-block text-gray-700 hover:text-indigo-600 transition-colors duration-300 cursor-pointer py-2 md:py-0 ">
+            <form onSubmit={handleSubmit}>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-indigo-600">
+                <div>
+                <span className="m-5">
+                <label className="text-black">Starting date</label>
+                <input
+                type="date" 
+                name="start" 
+                onChange={handleChange}
+                className="w-full px-3 py-2 border rounded"
+                />
+               </span>
+                </div>
+                <div>
+                <span className="m-5">
+                <label className="text-black">Ending date</label>
+                <input 
+                type="date" 
+                name="stop" 
+                onChange={handleChange}
+                className="w-full px-3 py-2 border rounded"
+                />
+               </span>
+                </div>
+              </div>
+              <div className="p-3 px-4 pt-2 pb-3 space-y-1 ">
+                <span>
+                <button
+                className="px-16 py-3 bg-indigo-500 text-white rounded hover:bg-indigo-800"
+                 type="submit">submit</button>
+              </span>
+              </div>
+            </form>
+          </div>
+        </div>
+
         <div className="overflow-x-auto">
           <table className="min-w-full bg-white border border-gray-300">
             <thead>
