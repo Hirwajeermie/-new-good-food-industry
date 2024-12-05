@@ -37,6 +37,8 @@ import AbakoziPage from './pages/viewfiles/AbakoziPage';
 import AmadeniPage from './pages/viewfiles/AmadeniPage';
 import AbishyuyedeniPage from './pages/viewfiles/AbishyuyedeniPage';
 import MarketPage from './pages/viewfiles/MarketPage';
+import ForgotPassword from './ForgotPassword';
+import ChangePassword from './ChangePassword';
 
 
 function App() {
@@ -61,6 +63,8 @@ function App() {
         <Route path="/ProductFormDebt" element={<ProductFormDebt />} />
         <Route path="/ProductFormMarket" element={<ProductFormMarket />} />
         <Route path="/view" element={<View />} />
+        <Route path="/ForgotPassword" element={<ForgotPassword />} />
+        <Route path="/ChangePassword" element={<ChangePassword />} />
         
         {/* Direct routes that are always accessible */}
         <Route path="/login-home" element={<LoginHome />} />
