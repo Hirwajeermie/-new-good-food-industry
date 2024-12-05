@@ -264,7 +264,7 @@ const ProductFormSel = () => {
              */}
             <div>
               <label className="block text-xs sm:text-sm font-medium mb-2 text-indigo-600">
-                Amafranga Araya Kw'isoko
+                Amafranga Arava Kw'isoko
               </label>
               <input
                 type="text"
