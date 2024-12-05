@@ -90,30 +90,32 @@ const ProductFormChe = () => {
     const scheme = pS
     scheme.body = JSON.stringify(formData)
     let res = await f('packaging',scheme)
+    if (res.success) {
+        setDate('');
+        setUtanzeRaporo('');
+        setIngano('');
+        setNewFood('');
+        setIfunguro('');
+        setIsezerano('');
+        setMagaju('');
+        setBuranda('');
+        setSelectedAmafu({
+          newFood: false,
+          ifunguro: false,
+          isezerano: false,
+          magaju: false,
+        });
+        setInganoYaEnvelope('') ;
+        setIsEnvelope2kg('');
+        setNewFoodIbiro({ '25': 0, '10': 0, '5': 0 });
+        setIfunguroIbiro({ '25': 0, '10': 0, '5': 0 });
+        setIsezeranoIbiro({ '25': 0, '10': 0, '5': 0 });
+        setMagajuIbiro({ '25': 0, '10': 0, '5': 0 });
+        setEnvelope({ ingano: 0, isEnvelope: 0, buranda: 0 });
+        setComments('');
+        setwaste_f('')
+    }
     // Reset form fields
-    // setDate('');
-    // setUtanzeRaporo('');
-    // setIngano('');
-    // setNewFood('');
-    // setIfunguro('');
-    // setIsezerano('');
-    // setMagaju('');
-    // setBuranda('');
-    // setSelectedAmafu({
-    //   newFood: false,
-    //   ifunguro: false,
-    //   isezerano: false,
-    //   magaju: false,
-    // });
-    // setInganoYaEnvelope('');
-    // setIsEnvelope5kg('');
-    // setNewFoodIbiro({ a: 0, b: 0, c: 0 });
-    // setIfunguroIbiro({ a: 0, b: 0, c: 0 });
-    // setIsezeranoIbiro({ a: 0, b: 0, c: 0 });
-    // setMagajuIbiro({ a: 0, b: 0, c: 0 });
-    // setEnvelope({ ingano: 0, isEnvelope: 0, buranda: 0 });
-    // setComments('');
-    // setwaste_f('')
   };
 
   return (

@@ -55,19 +55,20 @@ function ProductFormBranSel() {
     const scheme = pS
     scheme.body = JSON.stringify(formData)
     let res = await f('leftoversOutController',scheme)
-    
-    const resetForm = {
-      date: "",
-      reporter: "",
-      client: "",
-      weight: "",
-      price: "",
-      g_amount: "",
-      pm:"",
-      r_amount: "",
-      comment: "",
-    };
-    setFormData(resetForm);
+    if (res.success) {
+      const resetForm = {
+        date: "",
+        reporter: "",
+        client: "",
+        weight: "",
+        price: "",
+        g_amount: "",
+        pm:"",
+        r_amount: "",
+        comment: "",
+      };
+      setFormData(resetForm);
+    }
   };
 
   useEffect(() => {

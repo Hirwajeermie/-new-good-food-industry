@@ -28,6 +28,16 @@ const ProductFormPre = () => {
     const scheme = pS
     scheme.body = JSON.stringify(formData)
     let res = await f('record-prepared-c',scheme)
+    if (res.success) {
+      setFormData({
+        date: '',
+        incoming_c: '',
+        waste_f: '',
+        prepared_c: '',
+        reporter: '',
+        comment: ''
+      })
+    }
   };
   
 

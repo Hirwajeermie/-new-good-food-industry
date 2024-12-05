@@ -85,17 +85,19 @@ function ProductFormMarket() {
        let schema = pS
         schema.body = JSON.stringify(formData)
         let recs = await f('mrController',pS)
-      setFormData({
-       date: "",
-        reporter: "",
-        commande: "",
-        returned: "",
-        expenses: "",
-        debts:"",
-        p_debts:"",
-        pm: "", 
-        comment: "",
-      });
+        if (recs.success) {
+          setFormData({
+            date: "",
+            reporter: "",
+            commande: "",
+            returned: "",
+            expenses: "",
+            debts:"",
+            p_debts:"",
+            pm: "", 
+            comment: "",
+          });
+        }
     }
   };
 

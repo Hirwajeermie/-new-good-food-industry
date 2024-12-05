@@ -82,17 +82,18 @@ function ProductFormCred() {
       const scheme = pS
       scheme.body = JSON.stringify(formData)
       let res = await f('pdebtsController',scheme)
-      
-      setFormData({
-        reporter: "",
-        client: "",
-        debt: "",
-        p_debt: "",
-        pm: "",
-        r_debt: "",
-        comment: "",
-        date: "",
-      });
+      if (res.success) {
+        setFormData({
+          reporter: "",
+          client: "",
+          debt: "",
+          p_debt: "",
+          pm: "",
+          r_debt: "",
+          comment: "",
+          date: "",
+        });
+      }
 
     
       console.log("Form submitted:", formData);
