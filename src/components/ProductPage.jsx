@@ -188,8 +188,8 @@ const ProductPage = () => {
       </div>
 
       {/* Footer */}
-      <footer className="bg-white shadow-md mt-12">
-        <div className="container mx-auto px-4 py-6 text-center">
+      <footer className="bg-white shadow-md mt-6">
+        <div className="container mx-auto px-2 py-3 text-center">
           <p className="text-gray-600 text-sm">
             © 2024 Kawunga Mills. All Rights Reserved.
           </p>

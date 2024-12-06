@@ -284,7 +284,7 @@ const NewGoodFoodWebsite = () => {
           </div>
         </div>
             {/* Social Media */}
-        <div className="mt-8">
+        <div className="mt-3">
           <p className="flex justify-center space-x-6">Follow us</p>
           <p className="flex justify-center space-x-6">newgoodfood_rwanda</p>
           <div className="flex justify-center space-x-6">
@@ -305,7 +305,7 @@ const NewGoodFoodWebsite = () => {
       
 
       {/* Footer Section */}
-      <footer className="bg-gray-800 text-white py-8">
+      <footer className="bg-gray-800 text-white py-5">
         <div className="container mx-auto text-center">
           <p className="text-sm">© 2024 Kawunga Mills. All Rights Reserved.</p>
         </div>
