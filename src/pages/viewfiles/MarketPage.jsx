@@ -5,7 +5,11 @@ import { f, pS } from "../../../public/functions";
 
 function MarketPage() {
   const [records,setRecords] = useState([]),
-  hasFetched = useRef(false)
+  hasFetched = useRef(false),
+  [date,setDate] = useState({
+    start: null,
+    stop: null
+  })
   useEffect(()=>{
     if (!hasFetched.current) {
       const fetchRecs = async ()=>{
@@ -25,7 +29,6 @@ function MarketPage() {
     schema.body = JSON.stringify({date})
     let recs = await f('mrReport',pS)
     setRecords(recs.metadata.report)
-    console.log(date)
   }
   function handleChange(e) {
     const {name,value} = e.target

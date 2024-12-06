@@ -305,6 +305,39 @@ const ProductFormOut = () => {
   const scheme = pS
   scheme.body = JSON.stringify(nfd)
   let res = await f('sales-nr',scheme)
+  if (res.success) {
+    setFormData({
+      date: '',
+      reporter: '',
+      distributor: '',
+      loc: '',
+      comment: '',
+      pm: '',
+      p_sold:{
+        NF: [
+          { ibiro: '', imifuka: 0, price: '', total: 0 },
+          { ibiro: '', imifuka: 0, price: '', total: 0 },
+          { ibiro: '', imifuka: 0, price: '', total: 0 }
+        ],
+        IS: [
+          { ibiro: '', imifuka: 0, price: '', total: 0 },
+          { ibiro: '', imifuka: 0, price: '', total: 0 },
+          { ibiro: '', imifuka: 0, price: '', total: 0 }
+        ],
+        IF: [
+          { ibiro: '', imifuka: 0, price: '', total: 0 },
+          { ibiro: '', imifuka: 0, price: '', total: 0 },
+          { ibiro: '', imifuka: 0, price: '', total: 0 }
+        ],
+        MA: [
+          { ibiro: '', imifuka: 0, price: '', total: 0 },
+          { ibiro: '', imifuka: 0, price: '', total: 0 },
+          { ibiro: '', imifuka: 0, price: '', total: 0 }
+        ],
+        envelope: [{ ibiro: '', imifuka: 0, price: '', total: 0 }],
+      }
+    })
+  }
   nfd = formData
  };
 

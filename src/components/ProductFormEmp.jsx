@@ -8,18 +8,18 @@ const ProductFormEmp= () => {
   const [isSubmitting, setIsSubmitting] = useState(false),
   [records,setRecords] = useState([]),
   hasFetched = useRef(false)
-  useEffect(()=>{
-    if (!hasFetched.current) {
-      const fetchRecs = async ()=>{
-        let schema = pS
-        schema.body = JSON.stringify({date: {}})
-        let recs = await f('employeesReport',pS)
-        setWorkers(recs.metadata.report)
-      }
-      fetchRecs()
-      hasFetched.current = true
-    }
-  },[])
+  // useEffect(()=>{
+  //   if (!hasFetched.current) {
+  //     const fetchRecs = async ()=>{
+  //       let schema = pS
+  //       schema.body = JSON.stringify({date: {}})
+  //       let recs = await f('employeesReport',pS)
+  //       setWorkers(recs.metadata.report)
+  //     }
+  //     fetchRecs()
+  //     hasFetched.current = true
+  //   }
+  // },[])
   useEffect(() => {
     if (showSuccess) {
       const timer = setTimeout(() => {
@@ -42,10 +42,14 @@ const ProductFormEmp= () => {
     const scheme = pS
     scheme.body = JSON.stringify(worker)
     let res = await f('employeesController',scheme)
+    if(res.success){
+      setWorkers([])
+    }
     await new Promise(resolve => setTimeout(resolve, 1000));
     
     setIsSubmitting(false);
     setShowSuccess(true);
+    // setWorkers([])
   };
 
  

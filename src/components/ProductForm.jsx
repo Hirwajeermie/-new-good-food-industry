@@ -33,6 +33,22 @@ const ProductForm = () => {
     const scheme = pS
     scheme.body = JSON.stringify(formVars)
     let res = await f('record-stock-1',scheme)
+    if (res.success) {
+      setFormVars({
+        dist_names: '',
+        dist_plate_no: '',
+        weight: '',
+        dryness: '',
+        moldness: '',
+        net_price: '',
+        gross_price: '',
+        amount_paid: '',
+        reporter: '',
+        comment: '',
+        r_amount: '',
+        date: ''
+    })
+    }
   }
   return (
     <form onSubmit={recProd}>

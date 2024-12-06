@@ -155,7 +155,7 @@ const ProductFormSel = () => {
     }; 
     const emptyVar = Object.keys(formData).find((key)=> !formData[key] && key != 'date')
     if (emptyVar) return console.log(emptyVar)
-    let nfd = formData
+    let nfd = structuredClone(formData)
     nfd.NF = transformData(formData.NF)
     nfd.IS = transformData(formData.IS)
     nfd.IF = transformData(formData.IF)
@@ -164,39 +164,38 @@ const ProductFormSel = () => {
     const scheme = pS
     scheme.body = JSON.stringify(nfd)
     let res = await f('sales',scheme)
-    nfd = formData
-    // e.target.reset();
-    // setFormData({
-    //   date: '',
-    //   reporter: '',
-    //   distributor: '',
-    //   client: '',
-    //   g_amount: '',
-    //   r_amount: '',
-    //   no_sacks: '',
-    //   NF: [
-    //     { ibiro: '', imifuka: 0, price: '', total: 0 },
-    //     { ibiro: '', imifuka: 0, price: '', total: 0 },
-    //     { ibiro: '', imifuka: 0, price: '', total: 0 }
-    //   ],
-    //   IS: [
-    //     { ibiro: '', imifuka: 0, price: '', total: 0 },
-    //     { ibiro: '', imifuka: 0, price: '', total: 0 },
-    //     { ibiro: '', imifuka: 0, price: '', total: 0 }
-    //   ],
-    //   IF: [
-    //     { ibiro: '', imifuka: 0, price: '', total: 0 },
-    //     { ibiro: '', imifuka: 0, price: '', total: 0 },
-    //     { ibiro: '', imifuka: 0, price: '', total: 0 }
-    //   ],
-    //   MA: [
-    //     { ibiro: '', imifuka: 0, price: '', total: 0 },
-    //     { ibiro: '', imifuka: 0, price: '', total: 0 },
-    //     { ibiro: '', imifuka: 0, price: '', total: 0 }
-    //   ],
-    //   envelope: [{ ibiro: '', imifuka: 0, price: '', total: 0 }],
-    //   comment: ''
-    // });
+    if (res.success) {
+      setFormData({
+        date: '',
+        reporter: '',
+        distributor: '',
+        g_amount: '',
+        NF: [
+          { ibiro: '', imifuka: 0, price: '', total: 0 },
+          { ibiro: '', imifuka: 0, price: '', total: 0 },
+          { ibiro: '', imifuka: 0, price: '', total: 0 }
+        ],
+        IS: [
+          { ibiro: '', imifuka: 0, price: '', total: 0 },
+          { ibiro: '', imifuka: 0, price: '', total: 0 },
+          { ibiro: '', imifuka: 0, price: '', total: 0 }
+        ],
+        IF: [
+          { ibiro: '', imifuka: 0, price: '', total: 0 },
+          { ibiro: '', imifuka: 0, price: '', total: 0 },
+          { ibiro: '', imifuka: 0, price: '', total: 0 }
+        ],
+        MA: [
+          { ibiro: '', imifuka: 0, price: '', total: 0 },
+          { ibiro: '', imifuka: 0, price: '', total: 0 },
+          { ibiro: '', imifuka: 0, price: '', total: 0 }
+        ],
+        envelope: [{ ibiro: '', imifuka: 0, price: '', total: 0 }],
+        no_sacks: '',
+        comment: '',
+      })
+    }
+    
   };
 
   return (

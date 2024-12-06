@@ -1,11 +1,11 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const HomePages = () => {
   
   const [searchQuery, setSearchQuery] = useState('');
-
+  const navigate = useNavigate();
   const links = [
     { name: 'Raporo yibigori bishyashya', path: '/ProductForm' },
     { name: 'Raporo yo Gutunganywa 1', path: '/ProductFormPre'},
@@ -31,7 +31,7 @@ const HomePages = () => {
 
   const handleLogout = () => {
     // Clear authentication token from localStorage
-    localStorage.removeItem('userAuthenticated');
+    localStorage.removeItem('token');
     // Redirect to login page
     navigate('/login-page');
   };

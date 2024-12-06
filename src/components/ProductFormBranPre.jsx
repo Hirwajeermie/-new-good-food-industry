@@ -39,14 +39,17 @@ function ProductFormBranPre() {
     const scheme = pS
     scheme.body = JSON.stringify(formData)
     let res = await f('leftoversController',scheme)
-    setFormData({
-      date: "",
-      reporter: "",
-      buranda1: "",
-      buranda2: "",
-      buranda3: "",
-      comment: "",
-    });
+    if (res.success) {
+      setFormData({
+        date: "",
+        reporter: "",
+        buranda1: "",
+        buranda2: "",
+        buranda3: "",
+        comment: "",
+      });
+      
+    }
 
     setTimeout(() => {
       setIsSubmitted(false);

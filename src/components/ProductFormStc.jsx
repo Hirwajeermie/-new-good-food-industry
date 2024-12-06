@@ -199,7 +199,35 @@ const ProductFormStc = () => {
     const scheme = pS
     scheme.body = JSON.stringify(nfd)
     let res = await f('stockController',scheme)
-    
+    if (res.success) {
+      setFormData({
+        date: '',
+        reporter: '',
+        sack_no: '',
+          NF: [
+              { ibiro: '', imifuka: 0,current: 0, total: 0},
+              { ibiro: '', imifuka: 0,current: 0, total: 0},
+              { ibiro: '', imifuka: 0,current: 0, total: 0}
+            ],
+            IS: [
+              { ibiro: '', imifuka: 0,current: 0, total: 0},
+              { ibiro: '', imifuka: 0,current: 0, total: 0},
+              { ibiro: '', imifuka: 0,current: 0, total: 0}
+            ],
+            IF: [
+              { ibiro: '', imifuka: 0,current: 0, total: 0},
+              { ibiro: '', imifuka: 0,current: 0, total: 0},
+              { ibiro: '', imifuka: 0,current: 0, total: 0}
+            ],
+            MA: [
+              { ibiro: '', imifuka: 0,current: 0, total: 0},
+              { ibiro: '', imifuka: 0,current: 0, total: 0},
+              { ibiro: '', imifuka: 0,current: 0, total: 0}
+            ],
+            envelope: [{ ibiro: '', imifuka: 0,current: 0, total: 0}],
+        comment: ''
+      })
+    }
     setShowSuccessMessage(true);
     setTimeout(() => {
       setShowSuccessMessage(false);

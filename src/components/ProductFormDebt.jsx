@@ -66,6 +66,7 @@ function ProductFormDebt() {
       const scheme = pS
     scheme.body = JSON.stringify(formData)
     let res = await f('debtsController',scheme)
+    if (res.success) {
       setFormData({
         date: "",
         reporter: "",
@@ -76,6 +77,7 @@ function ProductFormDebt() {
         r_amount: "",
         comment: "",
       });
+    }
 
     
       console.log("Form submitted:", formData);

@@ -151,7 +151,35 @@ import { f, pS } from '../../public/functions';
     scheme.body = JSON.stringify(nfd)
     let res = await f('returnsController',scheme)
     nfd = formData
-    // e.target.reset();
+    if (res.success) {
+      setFormData({
+        date: '',
+        reporter: '',
+        comment: '',
+        NF: [
+          { ibiro: '', imifuka: 0},
+          { ibiro: '', imifuka: 0},
+          { ibiro: '', imifuka: 0}
+        ],
+        IS: [
+          { ibiro: '', imifuka: 0},
+          { ibiro: '', imifuka: 0},
+          { ibiro: '', imifuka: 0}
+        ],
+        IF: [
+          { ibiro: '', imifuka: 0},
+          { ibiro: '', imifuka: 0},
+          { ibiro: '', imifuka: 0}
+        ],
+        MA: [
+          { ibiro: '', imifuka: 0},
+          { ibiro: '', imifuka: 0},
+          { ibiro: '', imifuka: 0}
+        ],
+        envelope: [{ ibiro: '', imifuka: 0}],
+        
+      })
+    }
 
     
     setTimeout(() => {
