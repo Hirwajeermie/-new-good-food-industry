@@ -8,7 +8,7 @@ import hawunga from "../assets/kawunga.png"
 import Newfood1 from "../assets/Newfood1.png"
 import Ifunguroryiza1 from "../assets/Ifunguroryiza1.png"
 import Isezerano1 from "../assets/Isezerano1.png"
-
+import Envelope1 from "../assets/Envelope1.png"
 const ContactIcons = () => {
   return (
     <div className="fixed bottom-6 right-6 z-50 flex flex-col space-y-4">
@@ -157,13 +157,12 @@ const NewGoodFoodWebsite = () => {
           <section className="py-16 bg-gray-50">
             <div className="container mx-auto px-4">
               <h2 className="text-3xl font-bold text-indigo-600 text-center mb-10">Our Products</h2>
-              <div className="grid grid-cols-3 sm:grid-cols-5 md:grid-cols-5 gap-5">
+              <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-4 gap-4">
                 {[
                   { img: Newfood1, name: "NEWFOOD" },
                   { img: Ifunguroryiza1, name: "IFUNGURO RYIZA" },
                   { img: Isezerano1, name: "ISEZERANO" },
-                  { img: hawunga, name: "ISEZERANO ENVELOPE" },
-                  { img: hawunga, name: "IS ENVELOPE/2KG" }
+                  { img: Envelope1, name: "ISEZERANO ENVELOPE" },
                 ].map(({ img, name }) => (
                   <div
                     key={name} 

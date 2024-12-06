@@ -49,7 +49,7 @@ const ForgotPassword = () => {
           )}
 
           {/* Success Message */}
-          {successMessage && (
+          {successMessage && ( 
             <p className="text-sm text-green-500">{successMessage}</p>
           )}
 
