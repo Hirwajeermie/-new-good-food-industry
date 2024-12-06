@@ -15,7 +15,6 @@ const ChangePassword = () => {
       setErrorMessage('All fields are required.');
       return;
     }
-
     if (newPassword !== confirmPassword) {
       setErrorMessage('New password and confirm password must match.');
       return;

@@ -21,6 +21,7 @@ const ForgotPassword = () => {
       setEmail('hirwajeermie@gmail.com');
     }, 1000);
   };
+  
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
@@ -65,5 +66,4 @@ const ForgotPassword = () => {
     </div>
   );
 };
-
 export default ForgotPassword;

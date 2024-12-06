@@ -4,18 +4,19 @@
 import React, { useState } from 'react';
 import { Link, Element } from 'react-scroll';
 import { FaWhatsapp, FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaInstagram, FaFacebook, FaYoutube } from 'react-icons/fa';
-import hawunga from "../assets/kawunga.png"
 import Newfood1 from "../assets/Newfood1.png"
 import Ifunguroryiza1 from "../assets/Ifunguroryiza1.png"
 import Isezerano1 from "../assets/Isezerano1.png"
 import Envelope1 from "../assets/Envelope1.png"
+import logo from "../assets/logo.png"
+
 const ContactIcons = () => {
   return (
     <div className="fixed bottom-6 right-6 z-50 flex flex-col space-y-4">
       {/* WhatsApp Icon with Tooltip */}
       <div className="group relative">
         <a
-          href="https://wa.me/+250791938461"
+          href="https://wa.me/+250782450469"
           target="_blank"
           rel="noopener noreferrer"
           className="bg-green-500 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:bg-green-600 transition-all duration-300 ease-in-out transform hover:scale-110"
@@ -30,7 +31,7 @@ const ContactIcons = () => {
       {/* Call Icon with Tooltip */}
       <div className="group relative">
         <a
-          href="tel:+250791938461"
+          href="tel:+250782450469"
           className="bg-blue-500 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:bg-blue-600 transition-all duration-300 ease-in-out transform hover:scale-110"
         >
           <FaPhoneAlt className="w-6 h-6" />
@@ -54,7 +55,7 @@ const NewGoodFoodWebsite = () => {
           {/* Logo */}
           <div className="flex items-center">
             <img
-              src={hawunga}
+              src={logo}
               alt="NEW GOOD FOOD LTD Logo"
               className="w-10 h-10 mr-3 rounded-full object-cover"
             />
@@ -117,12 +118,12 @@ const NewGoodFoodWebsite = () => {
             <div className="container mx-auto px-4 text-center">
               <div className="flex flex-col items-center mb-8">
                 <img
-                  src={hawunga}
+                  src={logo}
                   alt="NEW GOOD FOOD LTD Logo"
                   className="w-20 h-20 mb-4 rounded-full shadow-md object-cover"
                 />
                 <h1 className="text-3xl md:text-4xl font-bold text-indigo-600 mb-2">NEW GOOD FOOD LTD</h1>
-                <p className="text-xs md:text-sm uppercase tracking-widest text-gray-600 mb-3">Feed Yourself</p>
+                <p className="text-xs md:text-sm uppercase tracking-widest text-gray-600 mb-3">Reach on your Dream with Maize!</p>
                 <p className="text-lg md:text-xl font-semibold text-gray-700 max-w-2xl">
                   We Provide Best Kawunga In Rwanda
                 </p>
@@ -154,7 +155,7 @@ const NewGoodFoodWebsite = () => {
 
         {/* Products Section */}
         <Element name="our-products">
-          <section className="py-16 bg-gray-50">
+          <section className="py-10 bg-gray-50">
             <div className="container mx-auto px-4">
               <h2 className="text-3xl font-bold text-indigo-600 text-center mb-10">Our Products</h2>
               <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-4 gap-4">
@@ -245,8 +246,8 @@ const NewGoodFoodWebsite = () => {
 
         {/* Contact Section */}
         <Element name="contact-us">
-          <section className="bg-indigo-600 text-white py-13">
-            <div className="container mx-auto px-2">
+          <section className="bg-indigo-600 text-white py-2">
+            <div className="container mx-auto px-10">
               <h2 className="text-3xl font-bold mb-10 py-5 text-center">Contact Us</h2>
               
               {/* Contact Info */}
@@ -257,20 +258,22 @@ const NewGoodFoodWebsite = () => {
                     <FaPhoneAlt className="w-5 h-5" />
                   </div>
                   <div>
-              <h3 className="text-lg font-semibold">Phone</h3>
-              <p className="text-sm">+250791785898</p>
-              <p className="text-sm">+8617384878</p>
+              <h3 className="text-lg ">Phone</h3>
+              <p className="text-xl font-semibold">+250 782 450 469</p>
+              <p className="text-xl font-semibold">+250 728 873 599</p>
             </div>
           </div>
            {/* Email */}
+           <div className="flex items-center space-x-4 bg-indigo-700 p-4 rounded-lg">
            <div className="flex items-center space-x-4">
             <div className="p-4 bg-indigo-800 rounded-full">
               <FaEnvelope className="w-6 h-6" />
             </div>
             <div>
-              <h3 className="text-lg font-semibold">Email</h3>
-              <p className="text-sm">muvunyi5743@gmail.com</p>
+              <h3 className="text-lg ">Email</h3>
+              <p className="text-xl font-semibold">newgoodltd12@gmail.com</p>
             </div>
+          </div>
           </div>
             {/* Location */}
             <div className="flex items-center space-x-4">
@@ -278,23 +281,35 @@ const NewGoodFoodWebsite = () => {
               <FaMapMarkerAlt className="w-6 h-6" />
             </div>
             <div>
-              <h3 className="text-lg font-semibold">Location</h3>
-              <p className="text-sm">Shop Location: KABUGA YA MBERE, UMUHANDA KK133</p>
+              <p className="text-base">Shop Location:</p>
+              <p className="text-xl font-semibold">RWANDA, KIGALI CITY </p>
+              <p className="text-xl font-semibold">Nyarugenge District  </p>
+              <p className="text-xl font-semibold">Masaka Sector </p>
+              <p className="text-xl font-semibold">Gitagara Cell </p>
             </div>
           </div>
         </div>
             {/* Social Media */}
         <div className="mt-3">
-          <p className="flex justify-center space-x-6">Follow us</p>
-          <p className="flex justify-center space-x-6">newgoodfood_rwanda</p>
-          <div className="flex justify-center space-x-6">
-            <a href="https://www.instagram.com/newgoodfood_rwanda" target="_blank" rel="noopener noreferrer" className="p-3 bg-indigo-800 rounded-full hover:bg-indigo-700 transition duration-300">
+          <p className="flex justify-center font-semibold space-x-6">Follow us</p>
+          <p className="flex justify-center font-semibold space-x-6">newgoodfood_rwanda</p>
+          <div className="flex p-4 justify-center space-x-6">
+            <a href="https://www.instagram.com/newgoodfood_rwanda" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="p-5 bg-indigo-800 rounded-full hover:bg-indigo-700 transition duration-300">
               <FaInstagram className="w-6 h-6" />
             </a>
-            <a href="https://www.facebook.com/newgoodfood_rwanda" target="_blank" rel="noopener noreferrer" className="p-3 bg-indigo-800 rounded-full hover:bg-indigo-700 transition duration-300">
+            <a href="https://www.facebook.com/newgoodfood_rwanda" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="p-5 bg-indigo-800 rounded-full hover:bg-indigo-700 transition duration-300">
               <FaFacebook className="w-6 h-6" />
             </a>
-            <a href="https://www.youtube.com/newgoodfood_rwanda" target="_blank" rel="noopener noreferrer" className="p-3 bg-indigo-800 rounded-full hover:bg-indigo-700 transition duration-300">
+            <a href="https://www.youtube.com/newgoodfood_rwanda" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="p-5 bg-indigo-800 rounded-full hover:bg-indigo-700 transition duration-300">
               <FaYoutube className="w-6 h-6" />
             </a>
           </div>
