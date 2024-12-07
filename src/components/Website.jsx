@@ -6,7 +6,7 @@ import { Link, Element } from 'react-scroll';
 import { FaWhatsapp, FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaInstagram, FaFacebook, FaYoutube } from 'react-icons/fa';
 import Newfood44 from "../assets/Newfood44.png"
 import Ifunguro22 from "../assets/Ifunguro22.png"
-import Isezerano1 from "../assets/Isezerano1.png"
+import Isezerano33 from "../assets/Isezerano33.png"
 import envilope11 from "../assets/envilope11.png"
 import MASAK88 from "../assets/MASAK88.png"
 
@@ -162,7 +162,7 @@ const NewGoodFoodWebsite = () => {
                 {[
                   { img: Newfood44, name: "NEWFOOD" },
                   { img: Ifunguro22, name: "IFUNGURO RYIZA" },
-                  { img: Isezerano1, name: "ISEZERANO" },
+                  { img: Isezerano33, name: "ISEZERANO" },
                   { img: envilope11, name: "ISEZERANO ENVELOPE" },
                 ].map(({ img, name }) => (
                   <div
