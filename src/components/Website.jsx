@@ -59,7 +59,7 @@ const NewGoodFoodWebsite = () => {
               alt="NEW GOOD FOOD LTD Logo"
               className="w-10 h-10 mr-3 rounded-full object-cover"
             />
-            <span className="font-bold text-lg md:text-xl text-indigo-600">NEW GOOD FOOD LTD</span>
+            <span className="font-bold text-lg md:text-xl text-red-600">NEW GOOD FOOD LTD</span>
           </div>
 
           {/* Mobile Menu Toggle */}
@@ -122,7 +122,7 @@ const NewGoodFoodWebsite = () => {
                   alt="NEW GOOD FOOD LTD Logo"
                   className="w-20 h-20 mb-4 rounded-full shadow-md object-cover"
                 />
-                <h1 className="text-3xl md:text-4xl font-bold text-indigo-600 mb-2">NEW GOOD FOOD LTD</h1>
+                <h1 className="text-3xl md:text-4xl font-bold text-red-600 mb-2">NEW GOOD FOOD LTD</h1>
                 <p className="text-xs md:text-sm uppercase tracking-widest text-gray-600 mb-3">Reach on your Dream with Maize!</p>
                 <p className="text-lg md:text-xl font-semibold text-gray-700 max-w-2xl">
                   We Provide Best Kawunga In Rwanda
@@ -157,7 +157,7 @@ const NewGoodFoodWebsite = () => {
         <Element name="our-products">
           <section className="py-10 bg-gray-50">
             <div className="container mx-auto px-4">
-              <h2 className="text-3xl font-bold text-indigo-600 text-center mb-10">Our Products</h2>
+              <h2 className="text-3xl font-bold text-red-600 text-center mb-10">Our Products</h2>
               <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-4 gap-4">
                 {[
                   { img: Newfood44, name: "NEWFOOD" },
@@ -200,7 +200,7 @@ const NewGoodFoodWebsite = () => {
                 {/* What We Sell Section */}
                 <div className="bg-indigo-50 rounded-lg p-6 border border-indigo-200">
                   <div className="border-b border-indigo-600 pb-4 mb-6">
-                    <h2 className="text-2xl font-bold text-indigo-600">What We Sell</h2>
+                    <h2 className="text-2xl font-bold text-red-600">What We Sell</h2>
                   </div>
                   <div className="grid grid-cols-2 gap-4">
                     {[
@@ -221,7 +221,7 @@ const NewGoodFoodWebsite = () => {
                 <div className="bg-indigo-50 rounded-lg p-6 border border-indigo-200 flex flex-col justify-between">
                   <div>
                     <div className="border-b border-indigo-600 pb-4 mb-6">
-                      <h2 className="text-2xl font-bold text-indigo-600">What We Provide</h2>
+                      <h2 className="text-2xl font-bold text-red-600">What We Provide</h2>
                     </div>
                     <p className="text-gray-700 leading-relaxed mb-6">
                       We specialize in processing high-quality kawunga directly from farms, ensuring pure, unadulterated flour that meets the highest standards of quality and nutrition.
