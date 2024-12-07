@@ -144,7 +144,7 @@ const NewGoodFoodWebsite = () => {
                     key={title} 
                     className="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 border border-indigo-100"
                   >
-                    <h3 className="text-xl font-semibold text-indigo-600 mb-3">{title}</h3>
+                    <h3 className="text-xl font-semibold text-red-600 mb-3">{title}</h3>
                     <p className="text-gray-700">{text}</p>
                   </div>
                 ))}
@@ -174,7 +174,7 @@ const NewGoodFoodWebsite = () => {
                       alt={name} 
                       className="w-full h-20 md:h-full object-cover"
                     />
-                    <div className="p-3 text-center bg-indigo-600 text-white text-sm md:text-base">
+                    <div className="p-3 text-center bg-red-600 text-white text-sm md:text-base">
                       {name}
                     </div>
                   </div>
@@ -183,7 +183,7 @@ const NewGoodFoodWebsite = () => {
               <div className="mt-10 text-center">
                 <a 
                   href="/products" 
-                  className="inline-block bg-indigo-600 text-white text-base md:text-lg font-semibold py-2 px-6 rounded shadow hover:bg-indigo-700 transition duration-300"
+                  className="inline-block bg-red-600 text-white text-base md:text-lg font-semibold py-2 px-6 rounded shadow hover:bg-red-700 transition duration-300"
                 >
                   View All Products
                 </a>
@@ -228,11 +228,11 @@ const NewGoodFoodWebsite = () => {
                     </p>
                   </div>
                   <div className="bg-white p-4 rounded-lg shadow-md">
-                    <div className="flex items-center space-x-4">
-                      <svg className="w-8 h-8 text-indigo-600" fill="currentColor" viewBox="0 0 20 20">
+                    <div className="flex items- text-red-600 center space-x-4">
+                      <svg className="w-8 h-8 text-red-600" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                       </svg>
-                      <span className="text-indigo-800 font-semibold">Quality Guaranteed</span>
+                      <span className="text-red-600 font-semibold">Quality Guaranteed</span>
                     </div>
                     <p className="text-gray-600 text-xs mt-2">
                       Our commitment to excellence ensures you receive the best kawunga products.
@@ -246,15 +246,15 @@ const NewGoodFoodWebsite = () => {
 
         {/* Contact Section */}
         <Element name="contact-us">
-          <section className="bg-indigo-600 text-white py-2">
+          <section className=" text-white py-2">
             <div className="container mx-auto px-10">
               <h2 className="text-3xl font-bold mb-10 py-5 text-center">Contact Us</h2>
               
               {/* Contact Info */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
                 {/* Phone */}
-                <div className="flex items-center space-x-4 bg-indigo-700 p-4 rounded-lg">
-                  <div className="p-3 bg-indigo-800 rounded-full">
+                <div className="flex items-center space-x-4 bg-red-700 p-4 rounded-lg">
+                  <div className="p-3 bg-red-800 rounded-full">
                     <FaPhoneAlt className="w-5 h-5" />
                   </div>
                   <div>
@@ -264,9 +264,9 @@ const NewGoodFoodWebsite = () => {
             </div>
           </div>
            {/* Email */}
-           <div className="flex items-center space-x-4 bg-indigo-700 p-4 rounded-lg">
+           <div className="flex items-center space-x-4 bg-red-700 p-4 rounded-lg">
            <div className="flex items-center space-x-4">
-            <div className="p-4 bg-indigo-800 rounded-full">
+            <div className="p-4 bg-red-800 rounded-full">
               <FaEnvelope className="w-6 h-6" />
             </div>
             <div>
@@ -277,11 +277,10 @@ const NewGoodFoodWebsite = () => {
           </div>
             {/* Location */}
             <div className="flex items-center space-x-4">
-            <div className="p-4 bg-indigo-800 rounded-full">
+            <div className="p-4 bg-red-800 rounded-full">
               <FaMapMarkerAlt className="w-6 h-6" />
             </div>
-            <div>
-              
+            <div className='text-black'>
               <p className="text-xl font-semibold">RWANDA, KIGALI CITY </p>
               <p className="text-xl font-semibold">Nyarugenge District  </p>
               <p className="text-xl font-semibold">Masaka Sector </p>
@@ -297,19 +296,19 @@ const NewGoodFoodWebsite = () => {
             <a href="https://www.instagram.com/newgoodfood_rwanda" 
             target="_blank" 
             rel="noopener noreferrer" 
-            className="p-5 bg-indigo-800 rounded-full hover:bg-indigo-700 transition duration-300">
+            className="p-5 bg-red-800 rounded-full hover:bg-red-700 transition duration-300">
               <FaInstagram className="w-6 h-6" />
             </a>
             <a href="https://www.facebook.com/newgoodfood_rwanda" 
             target="_blank" 
             rel="noopener noreferrer" 
-            className="p-5 bg-indigo-800 rounded-full hover:bg-indigo-700 transition duration-300">
+            className="p-5 bg-red-800 rounded-full hover:bg-red-700 transition duration-300">
               <FaFacebook className="w-6 h-6" />
             </a>
             <a href="https://www.youtube.com/newgoodfood_rwanda" 
             target="_blank" 
             rel="noopener noreferrer" 
-            className="p-5 bg-indigo-800 rounded-full hover:bg-indigo-700 transition duration-300">
+            className="p-5 bg-red-800 rounded-full hover:bg-red-700 transition duration-300">
               <FaYoutube className="w-6 h-6" />
             </a>
           </div>

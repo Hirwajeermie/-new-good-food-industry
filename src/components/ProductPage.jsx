@@ -63,6 +63,20 @@ const ProductPage = () => {
       name: 'ISEZERANO',
       description: '10 Kilograms',
       details: 'Easy-to-store 5kg flour package'
+    },
+    {
+      id: 9,
+      img: hawunga,
+      name: 'ISEZERANO',
+      description: '50 Kilograms',
+      details: 'Easy-to-store 5kg flour package'
+    },
+    {
+      id: 9,
+      img: hawunga,
+      name: 'ISEZERANO',
+      description: '50 Kilograms',
+      details: 'Easy-to-store 5kg flour package'
     }
   
   ];
@@ -88,14 +102,14 @@ const ProductPage = () => {
               alt="Kawunga Logo" 
               className="h-10 w-10 rounded-full"
             />
-            <span className="text-xl font-bold text-indigo-600">Kawunga Mills</span>
+            <span className="text-xl font-bold text-red-600">Kawunga Mills</span>
           </div>
 
           {/* Navigation Buttons */}
           <div className="hidden md:flex items-center space-x-4">
             <button 
               onClick={handleHomeClick}
-              className="flex items-center text-gray-700 hover:text-indigo-600 transition-colors"
+              className="flex items-center text-gray-700 hover:text-red-600 transition-colors"
             >
               <Home className="mr-2" size={20} />
               Home
@@ -106,7 +120,7 @@ const ProductPage = () => {
           <div className="md:hidden">
             <button 
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="text-gray-700 hover:text-indigo-600"
+              className="text-gray-700 hover:text-red-600"
             >
               <Menu size={24} />
             </button>
@@ -130,7 +144,7 @@ const ProductPage = () => {
 
       {/* Main Content */}
       <div className="container mx-auto px-4 py-12">
-        <h1 className="text-3xl md:text-4xl font-bold text-indigo-600 text-center mb-8">
+        <h1 className="text-3xl md:text-4xl font-bold text-red-600 text-center mb-8">
           Our Products
         </h1>
         
@@ -148,7 +162,7 @@ const ProductPage = () => {
                 className="w-full h-32 md:h-48 object-cover"
               />
               <div className="p-2 md:p-4">
-                <h2 className="text-sm md:text-xl font-semibold text-indigo-600 mb-1 md:mb-2 truncate">
+                <h2 className="text-sm md:text-xl font-semibold text-red-600 mb-1 md:mb-2 truncate">
                   {product.name}
                 </h2>
                 <p className="text-xs md:text-base text-gray-700 truncate">

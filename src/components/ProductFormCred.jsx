@@ -24,6 +24,16 @@ function ProductFormCred() {
     { value: "Credit Card", label: "Credit Card" },
     { value: "Other", label: "Ubundi buryo" }
   ];
+  const clientpayment  = [
+    { value: "", label: "Hitamo izina ryurumo ideni" },
+    { value: "Hirwa", label: "Hirwa" },
+    { value: "Kaneza", label: "Kaneza" },
+    { value: "Murenzi", label: "Murenzi" },
+    { value: "Uwimana", label: "Uwimana" },
+    { value: "Bios", label: "Bios" }
+  ];
+  
+  
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -128,7 +138,12 @@ function ProductFormCred() {
               {[
                 { name: "date", label: "Itariki", type: "date" },
                 { name: "reporter", label: "Utanze Raporo", type: "text" },
-                { name: "client", label: "Izina RY'umukiliya", type: "text" },
+                { 
+                  name: "cp", 
+                  label: "Umukiriya wishyuye", 
+                  type: "select", 
+                  options: clientpayment 
+                },
                 { name: "debt", label: "AMAFARANGA YARARIMO", type: "number", step: "0.01" },
                 { name: "p_debt", label: "AYO YISHYUYE", type: "number", step: "0.01" },
                 { 
