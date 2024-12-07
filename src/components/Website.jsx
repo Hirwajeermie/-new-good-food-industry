@@ -8,7 +8,7 @@ import Newfood1 from "../assets/Newfood1.png"
 import Ifunguroryiza1 from "../assets/Ifunguroryiza1.png"
 import Isezerano1 from "../assets/Isezerano1.png"
 import Envelope1 from "../assets/Envelope1.png"
-import logo from "../assets/logo.png"
+import kawunga from "../assets/kawunga.png"
 
 const ContactIcons = () => {
   return (
@@ -55,7 +55,7 @@ const NewGoodFoodWebsite = () => {
           {/* Logo */}
           <div className="flex items-center">
             <img
-              src={logo}
+              src={kawunga}
               alt="NEW GOOD FOOD LTD Logo"
               className="w-10 h-10 mr-3 rounded-full object-cover"
             />
@@ -118,7 +118,7 @@ const NewGoodFoodWebsite = () => {
             <div className="container mx-auto px-4 text-center">
               <div className="flex flex-col items-center mb-8">
                 <img
-                  src={logo}
+                 src={kawunga}
                   alt="NEW GOOD FOOD LTD Logo"
                   className="w-20 h-20 mb-4 rounded-full shadow-md object-cover"
                 />
