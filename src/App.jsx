@@ -39,6 +39,7 @@ import AbishyuyedeniPage from './pages/viewfiles/AbishyuyedeniPage';
 import MarketPage from './pages/viewfiles/MarketPage';
 import ForgotPassword from './ForgotPassword';
 import ChangePassword from './ChangePassword';
+import BannerSlider from './BannerSlider';
 
 
 function App() {
@@ -65,6 +66,7 @@ function App() {
         <Route path="/view" element={<View />} />
         <Route path="/ForgotPassword" element={<ForgotPassword />} />
         <Route path="/ChangePassword" element={<ChangePassword />} />
+        <Route path="/BannerSlider" element={<BannerSlider />} />
         
         {/* Direct routes that are always accessible */}
         <Route path="/login-home" element={<LoginHome />} />

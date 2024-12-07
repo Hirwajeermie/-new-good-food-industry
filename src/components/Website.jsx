@@ -4,11 +4,11 @@
 import React, { useState } from 'react';
 import { Link, Element } from 'react-scroll';
 import { FaWhatsapp, FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaInstagram, FaFacebook, FaYoutube } from 'react-icons/fa';
-import Newfood1 from "../assets/Newfood1.png"
-import Ifunguroryiza1 from "../assets/Ifunguroryiza1.png"
+import Newfood44 from "../assets/Newfood44.png"
+import Ifunguro22 from "../assets/Ifunguro22.png"
 import Isezerano1 from "../assets/Isezerano1.png"
-import Envelope1 from "../assets/Envelope1.png"
-import kawunga from "../assets/kawunga.png"
+import envilope11 from "../assets/envilope11.png"
+import MASAK88 from "../assets/MASAK88.png"
 
 const ContactIcons = () => {
   return (
@@ -55,7 +55,7 @@ const NewGoodFoodWebsite = () => {
           {/* Logo */}
           <div className="flex items-center">
             <img
-              src={kawunga}
+              src={MASAK88}
               alt="NEW GOOD FOOD LTD Logo"
               className="w-10 h-10 mr-3 rounded-full object-cover"
             />
@@ -118,7 +118,7 @@ const NewGoodFoodWebsite = () => {
             <div className="container mx-auto px-4 text-center">
               <div className="flex flex-col items-center mb-8">
                 <img
-                 src={kawunga}
+                 src={MASAK88}
                   alt="NEW GOOD FOOD LTD Logo"
                   className="w-20 h-20 mb-4 rounded-full shadow-md object-cover"
                 />
@@ -160,10 +160,10 @@ const NewGoodFoodWebsite = () => {
               <h2 className="text-3xl font-bold text-indigo-600 text-center mb-10">Our Products</h2>
               <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-4 gap-4">
                 {[
-                  { img: Newfood1, name: "NEWFOOD" },
-                  { img: Ifunguroryiza1, name: "IFUNGURO RYIZA" },
+                  { img: Newfood44, name: "NEWFOOD" },
+                  { img: Ifunguro22, name: "IFUNGURO RYIZA" },
                   { img: Isezerano1, name: "ISEZERANO" },
-                  { img: Envelope1, name: "ISEZERANO ENVELOPE" },
+                  { img: envilope11, name: "ISEZERANO ENVELOPE" },
                 ].map(({ img, name }) => (
                   <div
                     key={name} 
@@ -205,7 +205,7 @@ const NewGoodFoodWebsite = () => {
                   <div className="grid grid-cols-2 gap-4">
                     {[
                       'NEW FOOD FLOUR', 'IFUNGURO RYIZA FLOUR', 'ISEZERANO FLOUR', 
-                      'MAGAJU FLOUR', 'IS/ENVELOPE/5KG', 'KAWUNGA UMUHONDO', 'KAWUNGA UMWERU'
+                       'IS/ENVELOPE/5KG','IS/ENVELOPE/2KG', 'KAWUNGA UMWERU'
                     ].map(item => (
                       <div key={item} className="flex items-center">
                         <svg className="w-5 h-5 mr-3 text-indigo-500" fill="currentColor" viewBox="0 0 20 20">
