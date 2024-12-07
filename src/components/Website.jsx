@@ -281,7 +281,7 @@ const NewGoodFoodWebsite = () => {
               <FaMapMarkerAlt className="w-6 h-6" />
             </div>
             <div>
-              <p className="text-base">Shop Location:</p>
+              
               <p className="text-xl font-semibold">RWANDA, KIGALI CITY </p>
               <p className="text-xl font-semibold">Nyarugenge District  </p>
               <p className="text-xl font-semibold">Masaka Sector </p>
