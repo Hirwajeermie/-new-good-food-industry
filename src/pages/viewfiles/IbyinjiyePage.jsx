@@ -152,7 +152,7 @@ const IbyinjiyePage = () => {
 
                                 {weight === '25' && (
                                   <>
-                                    <td rowSpan="3" className="border border-indigo-200 p-2">{adcm(item.ls.envelope['2']* Number('2'))}</td>
+                                    <td rowSpan="3" className="border border-indigo-200 p-2">{Number('2')}</td>
                                     <td rowSpan="3" className="border border-indigo-200 p-2">{item.ls.envelope['2']}</td>
                                     <td rowSpan="3" className="border border-indigo-200 p-2">{item.r_weights.envelope['2'] - item.ls.envelope['2']}</td>
                                     <td rowSpan="3" className="border border-indigo-200 p-2">{item.r_weights.envelope['2']}</td>
