@@ -2,33 +2,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { adcm, f, pS } from "../../../public/functions";
 
-const initialFormData = {
-  firstTable: [
-    {
-      date: "2024-11-12",
-      utanzeRaporo: "NYAMASWANTE",
-      mazutu: "100",
-      abakarani: "300",
-      tandBoy: "400",
-      shoferi: "300",
-      shambre: "5000",
-      
-    },
-  ],
-  secondTable: [
-    {
-      kurya: "3000",
-      urugendo: "7000",
-      amafarangaAsabwa: "10000",
-      amafarangaAverishije: "80000",
-      amafarangaYose: "180000",
-      icyongeweho: "Ibyatunganyijwe byose byagenze neza",
-    },
-  ],
-};
-
 function DepansePage () {
-  const [formData] = useState(initialFormData);
   const [records,setRecords] = useState([]),
   hasFetched = useRef(false)
   useEffect(()=>{

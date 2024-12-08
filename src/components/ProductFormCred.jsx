@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { f, pS } from "../../public/functions";
 
 function ProductFormCred() {
@@ -14,7 +14,20 @@ function ProductFormCred() {
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [errors, setErrors] = useState({});
-
+  const [records,setRecords] = useState([]),
+  hasFetched = useRef(false)
+  useEffect(()=>{
+    if (!hasFetched.current) {
+      const fetchRecs = async ()=>{
+        let schema = pS
+        schema.body = JSON.stringify({date: {}})
+        let recs = await f('gDebts',pS)
+        setRecords(recs.metadata.report)
+      }
+      fetchRecs()
+      hasFetched.current = true
+    }
+  },[])
   
   const paymentMethods = [
     { value: "", label: "Hitamo Uburyo" },
@@ -24,20 +37,11 @@ function ProductFormCred() {
     { value: "Credit Card", label: "Credit Card" },
     { value: "Other", label: "Ubundi buryo" }
   ];
-  const clientpayment  = [
-    { value: "", label: "Hitamo izina ryurumo ideni" },
-    { value: "Hirwa", label: "Hirwa" },
-    { value: "Kaneza", label: "Kaneza" },
-    { value: "Murenzi", label: "Murenzi" },
-    { value: "Uwimana", label: "Uwimana" },
-    { value: "Bios", label: "Bios" }
-  ];
-  
-  
-
+  const clientpayment  = records.map(rec=>({value: rec.id, label: rec.names}));
+  clientpayment.unshift({value:'', label: 'hitamo uwishyuye'})
   const handleChange = (e) => {
     const { name, value } = e.target;
-    
+    name == 'client' ? changeVars(value) : null
     setFormData((prevData) => ({
       ...prevData, 
       [name]: value
@@ -51,8 +55,16 @@ function ProductFormCred() {
         return newErrors;
       });
     }
-  };
-
+  },
+  changeVars = (value)=>{
+    let target = records.find(r=> r.id == value) 
+    if (target) {
+      setFormData((prevData) => ({
+        ...prevData, 
+        debt: target.debt
+      }));
+    }
+  }
   const validateForm = () => {
     const newErrors = {};
     const requiredFields = [
@@ -104,9 +116,6 @@ function ProductFormCred() {
           date: "",
         });
       }
-
-    
-      console.log("Form submitted:", formData);
     }
   };
 
@@ -139,7 +148,7 @@ function ProductFormCred() {
                 { name: "date", label: "Itariki", type: "date" },
                 { name: "reporter", label: "Utanze Raporo", type: "text" },
                 { 
-                  name: "cp", 
+                  name: "client", 
                   label: "Umukiriya wishyuye", 
                   type: "select", 
                   options: clientpayment 
