@@ -28,7 +28,6 @@ const IbyinjiyePage = () => {
       schema.body = JSON.stringify({date})
       let recs = await f('packaging-track-report',pS)
       setRecords(recs.metadata.report)
-      console.log(date)
     }
     function handleChange(e) {
       const {name,value} = e.target
@@ -160,19 +159,19 @@ const IbyinjiyePage = () => {
                             <tr className="font-bold bg-indigo-50">
                               <td className="border border-indigo-200 p-2">{adcm(Object.entries(item.ls.NF).reduce((sum,[key,index])=>(sum+ (key*index)),0))}</td>
                               <td className="border border-indigo-200 p-2">{adcm(Object.values(item.ls.NF).reduce((sum,index)=>(sum+ (index)),0))}</td>
-                              <td className="border border-indigo-200 p-2" colSpan="2">Total</td>
+                              <td className="border border-indigo-200 p-2" colSpan="2">Total: </td>
                               
                               <td className="border border-indigo-200 p-2">{adcm(Object.entries(item.ls.IS).reduce((sum,[key,index])=>(sum+ (key*index)),0))}</td>
                               <td className="border border-indigo-200 p-2">{adcm(Object.values(item.ls.IS).reduce((sum,index)=>(sum+ (index)),0))}</td>
-                              <td className="border border-indigo-200 p-2" colSpan="2">Total</td>
+                              <td className="border border-indigo-200 p-2" colSpan="2">Total: </td>
                               
                               <td className="border border-indigo-200 p-2">{adcm(Object.entries(item.ls.IF).reduce((sum,[key,index])=>(sum+ (key*index)),0))}</td>
                               <td className="border border-indigo-200 p-2">{adcm(Object.values(item.ls.IF).reduce((sum,index)=>(sum+ (index)),0))}</td>
-                              <td className="border border-indigo-200 p-2" colSpan="2">Total</td>
+                              <td className="border border-indigo-200 p-2" colSpan="2">Total: </td>
                               
                               <td className="border border-indigo-200 p-2">{adcm(Object.entries(item.ls.MA).reduce((sum,[key,index])=>(sum+ (key*index)),0))}</td>
                               <td className="border border-indigo-200 p-2">{adcm(Object.values(item.ls.MA).reduce((sum,index)=>(sum+ (index)),0))}</td>
-                              <td className="border border-indigo-200 p-2" colSpan="2">Total</td>
+                              <td className="border border-indigo-200 p-2" colSpan="2">Total: </td>
                               
                               <td className="border border-indigo-200 p-2">{adcm(item.ls.envelope['2']* Number('2'))}</td>
                               <td className="border border-indigo-200 p-2">{item.ls.envelope['2']}</td>

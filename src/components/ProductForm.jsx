@@ -63,6 +63,7 @@ const ProductForm = () => {
             type="date"
             placeholder="Itariki"
             name='date'
+            value={formVars.date}
             className="p-2 border rounded-md w-full focus:outline-none focus:border-indigo-500"
             onChange={changeVals}
             
@@ -70,6 +71,7 @@ const ProductForm = () => {
           <input
             type="text"
             name='dist_names'
+            value={formVars.dist_names}
             onChange={changeVals}
             placeholder="Amazina y'ubigemuye"
             className="p-2 border rounded-md w-full focus:outline-none focus:border-indigo-500"
@@ -78,6 +80,7 @@ const ProductForm = () => {
             type="text"
             placeholder="Plake y'imodoka"
             name='dist_plate_no'
+            value={formVars.dist_plate_no}
             onChange={changeVals}
             className="p-2 border rounded-md w-full focus:outline-none focus:border-indigo-500"
           />
@@ -89,6 +92,7 @@ const ProductForm = () => {
           <input
             type="text"
             name="weight"
+            value={formVars.weight}
             onChange={changeVals}
             placeholder="Ingano y'ibyinjiye"
             className="p-2 border rounded-md w-full focus:outline-none focus:border-indigo-500"
@@ -96,6 +100,7 @@ const ProductForm = () => {
           <input
             type="text"
             name='dryness'
+            value={formVars.dryness}
             onChange={changeVals}
             placeholder="Ubwume bw'ibigori"
             className="p-2 border rounded-md w-full focus:outline-none focus:border-indigo-500"
@@ -103,6 +108,7 @@ const ProductForm = () => {
           <input
             type="text"
             name='moldness'
+            value={formVars.moldness}
             onChange={changeVals}
             placeholder="Uruhumbu"
             className="p-2 border rounded-md w-full focus:outline-none focus:border-indigo-500"
@@ -115,12 +121,14 @@ const ProductForm = () => {
             type="text"
             placeholder="Igiciro"
             name='net_price'
+            value={formVars.net_price}
             onChange={changeVals}
             className="p-2 border rounded-md w-full focus:outline-none focus:border-indigo-500"
           />
           <input
             type="text"
             name='gross_price'
+            value={formVars.gross_price}
             placeholder="Amafaranga asabwa"
             onChange={changeVals}
             className="p-2 border rounded-md w-full focus:outline-none focus:border-indigo-500"
@@ -128,6 +136,7 @@ const ProductForm = () => {
           <input
             type="text"
             name='amount_paid'
+            value={formVars.amount_paid}
             placeholder="Amafaranga y'ishyuwe"
             onChange={changeVals}
             className="p-2 border rounded-md w-full focus:outline-none focus:border-indigo-500"
@@ -135,6 +144,7 @@ const ProductForm = () => {
            <input
             type="text"
             name='r_amount'
+            value={formVars.r_amount}
             onChange={changeVals}
             placeholder="Amafaranga asigaye"
             className="p-2 border rounded-md w-full focus:outline-none focus:border-indigo-500"

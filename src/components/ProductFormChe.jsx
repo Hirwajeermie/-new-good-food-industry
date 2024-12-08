@@ -93,7 +93,6 @@ const ProductFormChe = () => {
     if (res.success) {
         setDate('');
         setUtanzeRaporo('');
-        setIngano('');
         setNewFood('');
         setIfunguro('');
         setIsezerano('');
