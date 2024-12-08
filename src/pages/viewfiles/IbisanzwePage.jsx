@@ -22,8 +22,8 @@ const  hasFetched = useRef(false),
         fetchRecs()
         hasFetched.current = true
       }
-    },[]),
-    [date,setDate] = useState({
+    },[])
+    const [date,setDate] = useState({
       start: null,
       stop: null
     })
