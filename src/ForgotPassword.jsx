@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
+import { f, gS } from '../public/functions';
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     setErrorMessage('');
     setSuccessMessage('');
@@ -14,12 +15,15 @@ const ForgotPassword = () => {
     if (!email || !emailRegex.test(email)) {
       setErrorMessage('Please enter a valid email address');
       return;
+    }else{
+      const scheme = gS
+      let res = await f(`send-flink/${email}`,scheme)
+      if (res.success) {
+        setSuccessMessage(res.message);
+      }else{
+        setErrorMessage(res.message);
+      }
     }
-
-    setTimeout(() => {
-      setSuccessMessage('A password reset link has been sent to your email.');
-      setEmail('hirwajeermie@gmail.com');
-    }, 1000);
   };
   
 

@@ -1,12 +1,18 @@
 import React, { useState } from 'react';
+import { Navigate, useParams } from 'react-router-dom';
+import { f, pS } from '../public/functions';
 
 const ChangePassword = () => {
   const [newPassword, setNewPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
-  const [successMessage, setSuccessMessage] = useState('');
-
-  const handleSubmit = (event) => {
+  const [successMessage, setSuccessMessage] = useState(''),
+  {token} = useParams()
+  if (!token) {
+    alert('invalid link!')
+    return;
+  } 
+  const handleSubmit = async (event) => {
     event.preventDefault();
     setErrorMessage('');
     setSuccessMessage('');
@@ -24,9 +30,16 @@ const ChangePassword = () => {
       setErrorMessage('New password must be at least 6 characters long.');
       return;
     }
-
+    const scheme = pS
+    scheme.body = JSON.stringify({password: newPassword})
+    let res = await f(`reset-password/${token}`,scheme)
+    if (res.success) {
+      setSuccessMessage(res.message);
+      Navigate('/');
+    }else{
+      alert(res.message);
+    }
     setTimeout(() => {
-      setSuccessMessage('Your password has been changed successfully.');
       setNewPassword('');
       setConfirmPassword('');
     }, 1000);
