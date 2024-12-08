@@ -132,29 +132,29 @@ const IbyinjiyePage = () => {
                               <tr key={weight} className="hover:bg-indigo-50">
                                  <td className="border border-indigo-200 p-2">{Number(weight)}</td>
                                 <td className="border border-indigo-200 p-2">{item.ls.NF[weight]}</td>
-                                <td className="border border-indigo-200 p-2">{item.r_weights.NF[weight] - item.ls.NF[weight]}</td>
+                                <td className="border border-indigo-200 p-2">{item.reporter?  adcm(item.r_weights.NF[weight] - item.ls.NF[weight]) : adcm(item.r_weights.NF[weight] + item.ls.NF[weight])}</td>
                                 <td className="border border-indigo-200 p-2">{item.r_weights.NF[weight]}</td>
 
                                 <td className="border border-indigo-200 p-2">{Number(weight)}</td>
                                 <td className="border border-indigo-200 p-2">{item.ls.IS[weight]}</td>
-                                <td className="border border-indigo-200 p-2">{item.r_weights.IS[weight] - item.ls.IS[weight]}</td>
+                                <td className="border border-indigo-200 p-2">{item.reporter?  adcm(item.r_weights.IS[weight] - item.ls.IS[weight]) : adcm(item.r_weights.IS[weight] + item.ls.IS[weight])}</td>
                                 <td className="border border-indigo-200 p-2">{item.r_weights.IS[weight]}</td>
 
                                 <td className="border border-indigo-200 p-2">{Number(weight)}</td>
                                 <td className="border border-indigo-200 p-2">{item.ls.IF[weight]}</td>
-                                <td className="border border-indigo-200 p-2">{item.r_weights.IF[weight] - item.ls.IF[weight]}</td>
+                                <td className="border border-indigo-200 p-2">{item.reporter?  adcm(item.r_weights.IF[weight] - item.ls.IF[weight]) : adcm(item.r_weights.IF[weight] + item.ls.IF[weight])}</td>
                                 <td className="border border-indigo-200 p-2">{item.r_weights.IF[weight]}</td>
 
                                 <td className="border border-indigo-200 p-2">{Number(weight)}</td>
                                 <td className="border border-indigo-200 p-2">{item.ls.MA[weight]}</td>
-                                <td className="border border-indigo-200 p-2">{item.r_weights.MA[weight] - item.ls.MA[weight]}</td>
+                                <td className="border border-indigo-200 p-2">{item.reporter?  adcm(item.r_weights.MA[weight] - item.ls.MA[weight]) : adcm(item.r_weights.MA[weight] + item.ls.MA[weight])}</td>
                                 <td className="border border-indigo-200 p-2">{item.r_weights.MA[weight]}</td>
 
                                 {weight === '25' && (
                                   <>
-                                    <td rowSpan="3" className="border border-indigo-200 p-2">{Number('2')}</td>
+                                    <td rowSpan="3" className="border border-indigo-200 p-2">{(Number('2'))}</td>
                                     <td rowSpan="3" className="border border-indigo-200 p-2">{item.ls.envelope['2']}</td>
-                                    <td rowSpan="3" className="border border-indigo-200 p-2">{item.r_weights.envelope['2'] - item.ls.envelope['2']}</td>
+                                    <td rowSpan="3" className="border border-indigo-200 p-2">{item.reporter? item.r_weights.envelope['2'] - item.ls.envelope['2']: item.r_weights.envelope['2'] + item.ls.envelope['2']}</td>
                                     <td rowSpan="3" className="border border-indigo-200 p-2">{item.r_weights.envelope['2']}</td>
                                   </>
                                 )}

@@ -32,7 +32,7 @@ const ProductFormEmp= () => {
   const addWorker = () => {
     setWorkers([
       ...workers,
-      { Date:"", name: "", phone: "", jobTitle: "", salary: "", saving: "", social: "", salaryAdvance: "", remainSalary: "" },
+      {name: "", phone: "", jobTitle: "", salary: "", saving: "", social: "", salaryAdvance: "", remainSalary: "" },
     ]);
   };
 
@@ -71,34 +71,20 @@ const ProductFormEmp= () => {
         <table className="w-full border-collapse border border-gray-300 text-xs sm:text-sm">
           <thead>
           <tr className="bg-indigo-500 text-white">
-<th className="border border-gray-300 p-1 sm:p-2 text-left w-[15%]">Date</th>
-<th className="border border-gray-300 p-1 sm:p-2 text-left w-[15%]">Names</th>
-<th className="border border-gray-300 p-1 sm:p-2 text-left w-[10%] hidden sm:table-cell">Phone</th>
-<th className="border border-gray-300 p-1 sm:p-2 text-left w-[14%] hidden md:table-cell">Job Title</th>
-<th className="border border-gray-300 p-1 sm:p-2 text-left w-[10%] hidden md:table-cell">Salary</th>
-<th className="border border-gray-300 p-1 sm:p-2 text-left w-[9%] hidden lg:table-cell">Saving</th>
-<th className="border border-gray-300 p-1 sm:p-2 text-left w-[10%] hidden lg:table-cell">Social</th>
-<th className="border border-gray-300 p-1 sm:p-2 text-left w-[9%] hidden lg:table-cell">Salary Advance</th>
-<th className="border border-gray-300 p-1 sm:p-2 text-left w-[9%] hidden lg:table-cell">Remain Salary</th>
-</tr>
+              <th className="border border-gray-300 p-1 sm:p-2 text-left w-[15%]">Names</th>
+              <th className="border border-gray-300 p-1 sm:p-2 text-left w-[10%] hidden sm:table-cell">Phone</th>
+              <th className="border border-gray-300 p-1 sm:p-2 text-left w-[14%] hidden md:table-cell">Job Title</th>
+              <th className="border border-gray-300 p-1 sm:p-2 text-left w-[10%] hidden md:table-cell">Salary</th>
+              <th className="border border-gray-300 p-1 sm:p-2 text-left w-[9%] hidden lg:table-cell">Saving</th>
+              <th className="border border-gray-300 p-1 sm:p-2 text-left w-[10%] hidden lg:table-cell">Social</th>
+              <th className="border border-gray-300 p-1 sm:p-2 text-left w-[9%] hidden lg:table-cell">Salary Advance</th>
+              <th className="border border-gray-300 p-1 sm:p-2 text-left w-[9%] hidden lg:table-cell">Remain Salary</th>
+            </tr>
             
           </thead>
           <tbody>
             {workers.map((worker, index) => (
               <tr key={index} className="even:bg-gray-50">
-                <td className="border border-gray-300 p-1 sm:p-2">
-                  <input
-                    type="text"
-                    value={worker.date}
-                    onChange={(e) => {
-                      const updatedWorkers = [...workers];
-                      updatedWorkers[index].Date = e.target.value;
-                      setWorkers(updatedWorkers);
-                    }}
-                    className="w-full p-1 sm:p-2 text-xs sm:text-sm rounded border-gray-300 focus:ring-indigo-500 focus:border-indigo-500"
-                    placeholder="Full name"
-                  />
-                </td>
                 <td className="border border-gray-300 p-1 sm:p-2">
                   <input
                     type="text"

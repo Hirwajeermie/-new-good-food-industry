@@ -141,7 +141,7 @@ const IbyagarutsePage= () => {
                                 {weight === '25' && (
                                   <>
                                     <td rowSpan="3" className="border border-indigo-200 p-2">{2}kg</td>
-                                    <td rowSpan="3" className="border border-indigo-200 p-2">{item['envelope'][5]}</td>
+                                    <td rowSpan="3" className="border border-indigo-200 p-2">{item['envelope'][2]}</td>
                                   </>
                                 )}
                               </tr>
