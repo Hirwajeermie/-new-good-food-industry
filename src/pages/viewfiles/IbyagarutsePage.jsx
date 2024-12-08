@@ -3,7 +3,11 @@ import { adcm, f, pS } from '../../../public/functions'
 
 const IbyagarutsePage= () => {
   const [records,setRecords] = useState([]),
-  hasFetched = useRef(false)
+  hasFetched = useRef(false),
+  [date,setDate] = useState({
+    start: null,
+    stop: null
+  })
   useEffect(()=>{
     if (!hasFetched.current) {
       const fetchRecs = async ()=>{

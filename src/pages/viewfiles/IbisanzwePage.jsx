@@ -67,7 +67,11 @@ const  hasFetched = useRef(false),
         fetchRecs()
         hasFetched.current = true
       }
-    },[])
+    },[]),
+    [date,setDate] = useState({
+      start: null,
+      stop: null
+    })
 
 
     async function handleSubmit(e) {

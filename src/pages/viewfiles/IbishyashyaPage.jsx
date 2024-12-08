@@ -13,7 +13,11 @@ const IbishyashyaPage = () => {
         mtotal : 0
       }
     ),
-    hasFetched = useRef(false)
+    hasFetched = useRef(false),
+    [date,setDate] = useState({
+      start: null,
+      stop: null
+    })
     useEffect(()=>{
       if (!hasFetched.current) {
         const fetchRecs = async ()=>{

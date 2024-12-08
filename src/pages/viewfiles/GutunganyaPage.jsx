@@ -23,7 +23,11 @@ const Ibigiyegutunganywa = () => {
       )
     }
     fetchRecs()
-  },[])
+  },[]),
+  [date,setDate] = useState({
+    start: null,
+    stop: null
+  })
 
   async function handleSubmit(e) {
     e.preventDefault()

@@ -4,7 +4,11 @@ import { f, pS } from "../../../public/functions";
 
  function Buranda1Page() {
   const [records,setRecords] = useState([]),
-  hasFetched = useRef(false)
+  hasFetched = useRef(false),
+  [date,setDate] = useState({
+    start: null,
+    stop: null
+  })
   useEffect(()=>{
     if (!hasFetched.current) {
       const fetchRecs = async ()=>{
