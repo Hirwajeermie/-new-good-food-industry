@@ -47,23 +47,23 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/HomeReport" element={<HomeReport />} />
+        <Route path="/HomeReport" element={<PrivateRoute element={<HomeReport />} />} />
         <Route path="/login" element={<LoginForm />} />
         <Route path="/" element={<NewGoodFoodWebsite />} />
-        <Route path="/products" element={<ProductPage />} />
-        <Route path="/ProductForm" element={<ProductForm />} />
-        <Route path="/ProductFormPre" element={<ProductFormPre />} />
-        <Route path="/ProductFormChe" element={<ProductFormChe />} />
-        <Route path="/ProductFormSel" element={<ProductFormSel />} />
-        <Route path="/ProductFormOut" element={<ProductFormOut />} /> 
-        <Route path="/ProductFormBack" element={<ProductFormBack />} />
-        <Route path="/ProductFormBranPre" element={<ProductFormBranPre />} />
-        <Route path="/ProductFormBranSel" element={<ProductFormBranSel />} />
-        <Route path="/ProductFormDep" element={<ProductFormDep />} />
-        <Route path="/ProductFormEmp" element={<ProductFormEmp />} />
-        <Route path="/ProductFormCred" element={<ProductFormCred />} />
-        <Route path="/ProductFormDebt" element={<ProductFormDebt />} />
-        <Route path="/ProductFormMarket" element={<ProductFormMarket />} />
+        <Route path="/products" element={<PrivateRoute element={<ProductPage />} />} />
+        <Route path="/ProductForm" element={<PrivateRoute element={<ProductForm />} />} />
+        <Route path="/ProductFormPre" element={<PrivateRoute element={<ProductFormPre />} />} />
+        <Route path="/ProductFormChe" element={<PrivateRoute element={<ProductFormChe />} />} />
+        <Route path="/ProductFormSel" element={<PrivateRoute element={<ProductFormSel />} />} />
+        <Route path="/ProductFormOut" element={<PrivateRoute element={<ProductFormOut />} /> } />
+        <Route path="/ProductFormBack" element={<PrivateRoute element={<ProductFormBack />} />} />
+        <Route path="/ProductFormBranPre" element={<PrivateRoute element={<ProductFormBranPre />} />} />
+        <Route path="/ProductFormBranSel" element={<PrivateRoute element={<ProductFormBranSel />} />} />
+        <Route path="/ProductFormDep" element={<PrivateRoute element={<ProductFormDep />} />} />
+        <Route path="/ProductFormEmp" element={<PrivateRoute element={<ProductFormEmp />} />} />
+        <Route path="/ProductFormCred" element={<PrivateRoute element={<ProductFormCred />} />} />
+        <Route path="/ProductFormDebt" element={<PrivateRoute element={<ProductFormDebt />} />} />
+        <Route path="/ProductFormMarket" element={<PrivateRoute element={<ProductFormMarket />} />} />
         <Route path="/view" element={<View />} />
         <Route path="/ForgotPassword" element={<ForgotPassword />} />
         <Route path="/ChangePassword/:token" element={<PrivateRouteChl element={<ChangePassword />}/>} />
