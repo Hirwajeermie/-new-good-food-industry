@@ -19,8 +19,7 @@ const LoginForm = () => {
     scheme.body = JSON.stringify({email,password})
     let res = await f('login',scheme)
     if (res.success) {
-      setData('token',res.metadata.token) 
-      navigate('/HomePages');
+      setData('token',res.metadata.token)
     }else{
       setError(res.message);
     }

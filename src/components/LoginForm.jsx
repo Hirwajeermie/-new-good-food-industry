@@ -20,8 +20,12 @@ const LoginForm = () => {
     scheme.body = JSON.stringify({email,password})
     let res = await f('login',scheme)
     if (res.success) {
-      setData('token',res.metadata.token) 
-      navigate('/HomeReport');
+      setData('token',res.metadata.token)
+      if(res.metadata.role == "BOSS"){
+        navigate('/HomePages');
+      }else if (res.metadata.role == "WORKER") {
+        navigate('/HomeReport');
+      }
     }else{
       setError(res.message);
     }

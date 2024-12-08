@@ -17,7 +17,9 @@ const Ibigiyegutunganywa = () => {
       let schema = pS
       schema.body = JSON.stringify({date: {}})
       let recs = await f('preparation-report',pS)
-      setRecords(recs.metadata.report)
+       if (recs.success) {
+          setRecords(recs.metadata.report)
+        }
       setTotals(
         recs.metadata.mainTotals
       )
@@ -34,8 +36,9 @@ const Ibigiyegutunganywa = () => {
     let schema = pS
     schema.body = JSON.stringify({date})
     let recs = await f('preparation-report',pS)
-    setRecords(recs.metadata.report)
-    console.log(date)
+     if (recs.success) {
+          setRecords(recs.metadata.report)
+        }
   }
   function handleChange(e) {
     const {name,value} = e.target

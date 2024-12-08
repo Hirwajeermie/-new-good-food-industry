@@ -14,10 +14,9 @@ const IbyasohotsePage = () => {
         let schema = pS
         schema.body = JSON.stringify({date: {}})
         let recs = await f('sales-nr-report',pS)
-        setRecords(recs.metadata.report)
-        // setTotals(
-        //   recs.metadata.mainTotals
-        // )
+         if (recs.success) {
+          setRecords(recs.metadata.report)
+        }
       }
       fetchRecs()
       hasFetched.current = true
@@ -28,8 +27,9 @@ const IbyasohotsePage = () => {
     let schema = pS
     schema.body = JSON.stringify({date})
     let recs = await f('sales-nr-report',pS)
-    setRecords(recs.metadata.report)
-    console.log(date)
+     if (recs.success) {
+          setRecords(recs.metadata.report)
+        }
   }
   function handleChange(e) {
     const {name,value} = e.target

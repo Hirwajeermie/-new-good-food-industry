@@ -15,10 +15,12 @@ const IbyagurishijwePage = () => {
         let schema = pS
         schema.body = JSON.stringify({date: {}})
         let recs = await f('sales-report',pS)
-        setRecords(recs.metadata.report)
-        setTotals(
-          recs.metadata.mainTotals
-        )
+        if (recs.success) {
+          setRecords(recs.metadata.report)
+        }
+        // setTotals(
+        //   recs.metadata.mainTotals
+        // )
       }
       fetchRecs()
       hasFetched.current = true

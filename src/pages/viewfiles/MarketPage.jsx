@@ -16,7 +16,9 @@ function MarketPage() {
         let schema = pS
         schema.body = JSON.stringify({date: {}})
         let recs = await f('mrReport',pS)
-        setRecords(recs.metadata.report)
+         if (recs.success) {
+          setRecords(recs.metadata.report)
+        }
       }
       fetchRecs()
       hasFetched.current = true
@@ -28,7 +30,9 @@ function MarketPage() {
     let schema = pS
     schema.body = JSON.stringify({date})
     let recs = await f('mrReport',pS)
-    setRecords(recs.metadata.report)
+     if (recs.success) {
+          setRecords(recs.metadata.report)
+        }
   }
   function handleChange(e) {
     const {name,value} = e.target

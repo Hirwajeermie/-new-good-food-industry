@@ -3,9 +3,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { adcm, f, pS } from '../../../public/functions';
 
 const IbishyashyaPage = () => {
-    const [reporterName, setReporterName] = useState('nyamanswa');
-    const [additionalInfo, setAdditionaLInfo] = useState('databuja nabisoje'),
-    [records,setRecords] = useState([]),
+    const [records,setRecords] = useState([]),
     [totals,setTotals] = useState(
       {
         added: 0,
@@ -24,10 +22,12 @@ const IbishyashyaPage = () => {
           let schema = pS
           schema.body = JSON.stringify({date: {}})
           let recs = await f('stock-1-report',pS)
-          setRecords(recs.metadata.report)
-          setTotals(
-            recs.metadata.mainTotals
-          )
+           if (recs.success) {
+              setRecords(recs.metadata.report)
+              setTotals(
+                recs.metadata.mainTotals
+              )
+            }
         }
         fetchRecs()
         hasFetched.current = true
@@ -39,8 +39,12 @@ const IbishyashyaPage = () => {
       let schema = pS
       schema.body = JSON.stringify({date})
       let recs = await f('stock-1-report',pS)
-      setRecords(recs.metadata.report)
-      console.log(date)
+       if (recs.success) {
+          setRecords(recs.metadata.report)
+          setTotals(
+            recs.metadata.mainTotals
+          )
+        }
     }
     function handleChange(e) {
       const {name,value} = e.target

@@ -94,7 +94,6 @@ const IbyinjiyePage = () => {
               </tr>
             </thead>
               {records.map((item, index) => {
-                console.log(item.sack_no)
                 return(<tbody key={index}>
                   <tr key={index} className="hover:bg-indigo-50">
                     <td className="border bg-gray-400 border-indigo-200 p-2">{item.date}</td>

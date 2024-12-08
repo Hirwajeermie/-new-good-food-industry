@@ -15,7 +15,9 @@ import { f, pS } from "../../../public/functions";
         let schema = pS
         schema.body = JSON.stringify({date: {}})
         let recs = await f('leftoversReport',pS)
-        setRecords(recs.metadata.report)
+         if (recs.success) {
+          setRecords(recs.metadata.report)
+        }
       }
       fetchRecs()
       hasFetched.current = true
@@ -27,8 +29,9 @@ import { f, pS } from "../../../public/functions";
     let schema = pS
     schema.body = JSON.stringify({date})
     let recs = await f('leftoversReport',pS)
-    setRecords(recs.metadata.report)
-    console.log(date)
+     if (recs.success) {
+          setRecords(recs.metadata.report)
+        }
   }
   function handleChange(e) {
     const {name,value} = e.target

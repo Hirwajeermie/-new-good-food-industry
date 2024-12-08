@@ -1,54 +1,7 @@
 import React, { useState, useMemo, useRef, useEffect } from 'react'
 import { f, pS } from '../../../public/functions'
 
-// const initialFormData = {
-//   exampleData: [
-//     {
-//       date: '2024-11-12',
-//       utanzeRaporo: 'PABLOSCH',
-//       ingano: '10',
-//       ubwokoBwamafu: { NF: true, IF: false, IS: true, MG: false },
-//       buranda: '300KG',
-//       icyongeweho: 'ibyatunganyijwe byose byagenze neza',
-//       yavuyemo: '350KG',
-//     },
-//   ],
-//   ifuZavuyemo: { nf: '10', if: '50', is: '20', mg: '75' },
-//   newFood: {
-//     nf25: { ibiro: '25', imifuka: '2' },
-//     nf10: { ibiro: '30', imifuka: '3' },
-//     nf5: { ibiro: '20', imifuka: '4' }
-//   },
-//   isezerano: {
-//     is25: { ibiro: '60', imifuka: '2' },
-//     is10: { ibiro: '40', imifuka: '4' },
-//     is5: { ibiro: '25', imifuka: '5' }
-//   },
-//   ifunguro: {
-//     if25: { ibiro: '55', imifuka: '2' },
-//     if10: { ibiro: '35', imifuka: '3' },
-//     if5: { ibiro: '22', imifuka: '4' }
-//   },
-//   magaju: {
-//     mg25: { ibiro: '45', imifuka: '1' },
-//     mg10: { ibiro: '30', imifuka: '3' },
-//     mg5: { ibiro: '18', imifuka: '3' }
-//   },
-//   envelope: {
-//     ibiro: '10',
-//     imifuka: '1'
-//   },
-// }
-// const calculateTotals = (data) => ({
-//   newFoodTotal: Object.values(data.newFood).reduce((acc, curr) => acc + Number(curr.ibiro), 0),
-//   isezeranoTotal: Object.values(data.isezerano).reduce((acc, curr) => acc + Number(curr.ibiro), 0),
-//   ifunguroTotal: Object.values(data.ifunguro).reduce((acc, curr) => acc + Number(curr.ibiro), 0),
-//   magajuTotal: Object.values(data.magaju).reduce((acc, curr) => acc + Number(curr.ibiro), 0),
-//   ifuZavuyemoTotal: Object.values(data.ifuZavuyemo).reduce((acc, curr) => acc + Number(curr), 0),
-//   envelopeTotal: Number(data.envelope.ibiro)
-// })
 const IbisanzwePage = () => {
-  // const [formData, setFormData] = useState(initialFormData)
 
 const  hasFetched = useRef(false),
   [records,setRecords] = useState([])
@@ -59,7 +12,9 @@ const  hasFetched = useRef(false),
           let schema = pS
           schema.body = JSON.stringify({date: {}})
           let recs = await f('packaging-report',pS)
+           if (recs.success) {
           setRecords(recs.metadata.report)
+        }
           // setTotalsn(
           //   recs.metadata.mainTotals
           // )
@@ -79,8 +34,9 @@ const  hasFetched = useRef(false),
       let schema = pS
       schema.body = JSON.stringify({date})
       let recs = await f('packaging-report',pS)
-      setRecords(recs.metadata.report)
-      console.log(date)
+       if (recs.success) {
+          setRecords(recs.metadata.report)
+        }
     }
     function handleChange(e) {
       const {name,value} = e.target

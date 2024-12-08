@@ -32,7 +32,7 @@ const HomePages = () => {
     // Clear authentication token from localStorage
     localStorage.removeItem('token');
     // Redirect to login page
-    navigate('/loginForm');
+    navigate('/login');
   };
 
   return (
