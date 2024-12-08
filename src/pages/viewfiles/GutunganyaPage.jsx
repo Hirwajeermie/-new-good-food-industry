@@ -5,13 +5,10 @@ import { adcm, f, pS } from '../../../public/functions';
 const Ibigiyegutunganywa = () => {
   const [additionalInfo, setAdditionalInfo] = useState('THIS COMMENTS FOR REPORT'),
   [records,setRecords] = useState([]),
-  [totals,setTotals] = useState(
-    {
-      added: 0,
-      initamount: 0,
-      mtotal : 0
-    }
-  )
+  [date,setDate] = useState({
+    start: null,
+    stop: null
+  })
   useEffect(()=>{
     const fetchRecs = async ()=>{
       let schema = pS
@@ -20,16 +17,9 @@ const Ibigiyegutunganywa = () => {
        if (recs.success) {
           setRecords(recs.metadata.report)
         }
-      setTotals(
-        recs.metadata.mainTotals
-      )
     }
     fetchRecs()
-  },[]),
-  [date,setDate] = useState({
-    start: null,
-    stop: null
-  })
+  },[])
 
   async function handleSubmit(e) {
     e.preventDefault()
