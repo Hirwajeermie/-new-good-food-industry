@@ -71,7 +71,7 @@ const LoginForm = () => {
         <p className="mt-4 text-sm text-center text-gray-600">
           forget password ?{' '}
           <button
-            onClick={() => navigate('/signup')}
+            onClick={() => navigate('/ForgotPassword')}
             className="text-indigo-600 hover:text-indigo-700"
           >
             Click here

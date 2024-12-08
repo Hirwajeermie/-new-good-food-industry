@@ -40,6 +40,7 @@ import MarketPage from './pages/viewfiles/MarketPage';
 import ForgotPassword from './ForgotPassword';
 import ChangePassword from './ChangePassword';
 import BannerSlider from './BannerSlider';
+import PrivateRouteChl from './components/checkLink';
 
 
 function App() {
@@ -65,7 +66,7 @@ function App() {
         <Route path="/ProductFormMarket" element={<ProductFormMarket />} />
         <Route path="/view" element={<View />} />
         <Route path="/ForgotPassword" element={<ForgotPassword />} />
-        <Route path="/ChangePassword" element={<ChangePassword />} />
+        <Route path="/ChangePassword/:token" element={<PrivateRouteChl element={<ChangePassword />}/>} />
         <Route path="/BannerSlider" element={<BannerSlider />} />
         
         {/* Direct routes that are always accessible */}
