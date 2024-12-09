@@ -92,6 +92,9 @@ import { f, pS } from "../../../public/functions";
             <thead>
               <tr className="bg-gray-100">
                 <th className="border p-3 text-left text-sm font-semibold text-gray-700">
+                  date
+                </th>
+                <th className="border p-3 text-left text-sm font-semibold text-gray-700">
                   Names
                 </th>
                 <th className="border p-3 text-left text-sm font-semibold text-gray-700">
@@ -120,6 +123,9 @@ import { f, pS } from "../../../public/functions";
             <tbody>
               {records.map((item, index) => (
                 <tr key={index} className="hover:bg-gray-50">
+                  <td className="border p-3 text-sm text-gray-600">
+                    {item.date}
+                  </td>
                   <td className="border p-3 text-sm text-gray-600">
                     {item.names}
                   </td>
