@@ -67,25 +67,25 @@ const ProductFormDep= () => {
     const scheme = pS
     scheme.body = JSON.stringify(nfd)
     let res = await f('expensesController',scheme)
-    if (res.success) {
-      setFormData({
-        date: "",
-        reporter: "",
-        comment: "",
-        expenses: {
-          Mazutu: "",
-          Abakarani: "",
-          Tandboy: "",
-          Shoferi: "",
-          Shambre: "",
-          Kurya: "",
-          Urugendo: "",
-          Amafarangaasabwakubyacurujwe: "",
-          Amafarangaaverishije: "",
-          Andimafaranga: "",
-        },
-      })
-    }
+    // if (res.success) {
+    //   setFormData({
+    //     date: "",
+    //     reporter: "",
+    //     comment: "",
+    //     expenses: {
+    //       Mazutu: "",
+    //       Abakarani: "",
+    //       Tandboy: "",
+    //       Shoferi: "",
+    //       Shambre: "",
+    //       Kurya: "",
+    //       Urugendo: "",
+    //       Amafarangaasabwakubyacurujwe: "",
+    //       Amafarangaaverishije: "",
+    //       Andimafaranga: "",
+    //     },
+    //   })
+    // }
     setShowMessage(true);
     setTimeout(() => {
       setShowMessage(false);
