@@ -113,8 +113,17 @@ function MarketPage() {
                 <th className="border p-3 text-left text-sm font-semibold text-gray-700 md:table-cell">
                 Abishyuye Amadeni(name&amount)
                 </th>
-                <th className="border p-3 text-left text-sm font-semibold text-gray-700 md:table-cell">
+                {/* <th className="border p-3 text-left text-sm font-semibold text-gray-700 md:table-cell">
                 Uburyo yishyuyemo
+                </th>*/}
+                <th className="border p-3 text-left text-sm font-semibold text-gray-700 md:table-cell">
+                Amafaranga Bishyuye Cash
+                </th>
+                <th className="border p-3 text-left text-sm font-semibold text-gray-700 md:table-cell">
+                Amafaranga Bishyuye Kuri Telephone
+                </th>
+                <th className="border p-3 text-left text-sm font-semibold text-gray-700 md:table-cell">
+                Amafaranga Bishyuye Kuri Bank
                 </th>
 
                 <th className="border p-3 text-left text-sm font-semibold text-gray-700 md:table-cell">
@@ -147,7 +156,13 @@ function MarketPage() {
                     {item.p_debts}
                   </td>
                   <td className="border p-3 text-sm text-gray-600 md:table-cell">
-                    {item.pm}
+                    {Cash}
+                  </td>
+                  <td className="border p-3 text-sm text-gray-600 md:table-cell">
+                    {phone}
+                  </td>
+                  <td className="border p-3 text-sm text-gray-600 md:table-cell">
+                    {back}
                   </td>
                   <td className="border p-3 text-sm text-gray-600 md:table-cell">
                     {item.comment}

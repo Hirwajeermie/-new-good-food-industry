@@ -65,7 +65,8 @@ function ProductFormBranSel() {
         g_amount: "",
         pm:"",
         r_amount: "",
-        comment: "",
+        p_person: "",
+
       };
       setFormData(resetForm);
     }
@@ -107,6 +108,7 @@ function ProductFormBranSel() {
                 { name: "price", label: "Igiciro", type: "number" },
                 { name: "g_amount", label: "Amafaranga yose hamwe", type: "number", readOnly: true },
                 { name: "r_amount", label: "Amafaranga asigaye", type: "number" }
+                
               ].map((field) => (
                 <div key={field.name}>
                   <label className="block text-xs sm:text-sm font-medium text-indigo-600 mb-1">
@@ -151,6 +153,7 @@ function ProductFormBranSel() {
         </p>
       )}
     </div>
+    
            
             <div>
               <label className="block text-xs sm:text-sm font-medium text-indigo-600 mb-1">
