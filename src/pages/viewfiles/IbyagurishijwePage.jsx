@@ -107,6 +107,18 @@ const IbyagurishijwePage = () => {
                     <td className="border p-2">{adcm(item.g_amount)}</td>
                     <td className="border p-2">{item.no_sacks}</td>
                     <td className="border p-2">{item.comment}</td>
+                    <tr>
+                    <th className="border bg-indigo-100 p-2 text-left text-indigo-500">No Y'umufuka wa New Food</th>
+                    <th className="border bg-indigo-100 p-2 text-left text-indigo-500">No Y'umufuka w'Ifunguro ryiza</th>
+                    <th className="border bg-indigo-100 p-2 text-left text-indigo-500">No Y'umufuka wi Isezerano</th>
+                    <th className="border bg-indigo-100 p-2 text-left text-indigo-500">No Y'umufuka wi Isezerano Envelope</th>
+                    </tr>
+                    <tr>
+                    <td className="border p-2">{item.no_sacks}</td>
+                    <td className="border p-2">{item.no_sacks}</td>
+                    <td className="border p-2">{item.no_sacks}</td>
+                    <td className="border p-2">{item.no_sacks}</td>
+                    </tr>
                   </tr>
                   <tr>
                     <td colSpan={8}>
