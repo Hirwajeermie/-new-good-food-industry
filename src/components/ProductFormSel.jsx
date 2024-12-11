@@ -291,7 +291,42 @@ const ProductFormSel = () => {
             */}
              <div>
             <label className="block text-xs sm:text-sm font-medium mb-2 text-indigo-600">
-              Nimero Y'umufuka
+              Nimero Y'umufuka wa New Food
+            </label>
+            <input
+              type="text"
+              name="no_sacks"
+              value={formData.no_sacks}
+              onChange={handleInputChange}
+              className="w-full max-w-md px-2 sm:px-4 py-1 sm:py-2 text-sm sm:text-base border rounded focus:outline-none focus:ring-1"
+              required
+            />
+             <label className="block text-xs sm:text-sm font-medium mb-2 text-indigo-600">
+              Nimero Y'umufuka w'Ifunguro ryiza
+            </label>
+            <input
+              type="text"
+              name="no_sacks"
+              value={formData.no_sacks}
+              onChange={handleInputChange}
+              className="w-full max-w-md px-2 sm:px-4 py-1 sm:py-2 text-sm sm:text-base border rounded focus:outline-none focus:ring-1"
+              required
+            />
+          </div>
+          <div>
+            <label className="block text-xs sm:text-sm font-medium mb-2 text-indigo-600">
+              Nimero Y'umufuka wi Isezerano
+            </label>
+            <input
+              type="text"
+              name="no_sacks"
+              value={formData.no_sacks}
+              onChange={handleInputChange}
+              className="w-full max-w-md px-2 sm:px-4 py-1 sm:py-2 text-sm sm:text-base border rounded focus:outline-none focus:ring-1"
+              required
+            />
+             <label className="block text-xs sm:text-sm font-medium mb-2 text-indigo-600">
+              Nimero Y'umufuka wi Isezerano Envelope
             </label>
             <input
               type="text"

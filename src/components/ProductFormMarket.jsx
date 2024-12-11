@@ -140,6 +140,9 @@ function ProductFormMarket() {
                   type: "select", 
                   options: paymentMethods 
                 },
+                { name: "p_debts", label: "Amafaranga Bishyuye Cash", type: "number", step: "0.01" },
+                { name: "p_debts", label: "Amafaranga Bishyuye Kuri Telephone", type: "number", step: "0.01" },
+                { name: "p_debts", label: "Amafaranga Bishyuye Kuri Bank", type: "number", step: "0.01" },
                
               ].map((field) => (
                 <div key={field.name} className="relative">

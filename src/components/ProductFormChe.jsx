@@ -175,7 +175,7 @@ const ProductFormChe = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
             <div>
               <h3 className="text-xl font-bold text-indigo-700 mb-4">UBWOKO BW'AMAFU</h3>
-              {['newFood', 'ifunguro ryiza', 'isezerano', 'magaju'].map((item) => (
+              {['NewFood', 'Ifunguro Ryiza', 'Isezerano', 'Isezerano Envelope'].map((item) => (
                 <div key={item} className="mb-2">
                   <label className="inline-flex items-center">
                     <input 
@@ -236,10 +236,46 @@ const ProductFormChe = () => {
               />
             </div>
             
-             <div>
-              
-            <label className="block text-indigo-700 font-medium mb-2">
-                Nimero y'umufuka
+            <div>
+            <h3 className="text-xl font-bold text-indigo-700 mb-4">NIMERO Y'UMUFUKA</h3>
+             <label className="block text-indigo-700 font-medium mb-2">
+                Nimero y'umufuka wa New food
+              </label>
+              <input 
+                type="text" 
+                placeholder="Nimero" 
+                className="w-full p-2 border rounded-md" 
+                value={sack_no}
+                name='sack_no'
+                onChange={(e) => setSack_no(e.target.value)}
+                required
+              />
+              <label className="block text-indigo-700 font-medium mb-2">
+                Nimero y'umufuka w'Ifunguro ryiza
+              </label>
+              <input 
+                type="text" 
+                placeholder="Nimero" 
+                className="w-full p-2 border rounded-md" 
+                value={sack_no}
+                name='sack_no'
+                onChange={(e) => setSack_no(e.target.value)}
+                required
+              />
+              <label className="block text-indigo-700 font-medium mb-2">
+                Nimero y'umufuka wi Isezerano
+              </label>
+              <input 
+                type="text" 
+                placeholder="Nimero" 
+                className="w-full p-2 border rounded-md" 
+                value={sack_no}
+                name='sack_no'
+                onChange={(e) => setSack_no(e.target.value)}
+                required
+              />
+              <label className="block text-indigo-700 font-medium mb-2">
+                Nimero y'umufuka wi Isezerano Envelope
               </label>
               <input 
                 type="text" 
@@ -251,6 +287,7 @@ const ProductFormChe = () => {
                 required
               />
             </div>
+            
             
           </div>
 

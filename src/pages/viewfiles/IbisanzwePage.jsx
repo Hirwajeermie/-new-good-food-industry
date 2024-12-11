@@ -99,10 +99,10 @@ const  hasFetched = useRef(false),
                 <th className="border border-indigo-200 p-2 text-left">Utanze Raporo</th>
                 <th className="border border-indigo-200 p-2 text-left">Ingano (KG)</th>
                 <th className="border border-indigo-200 p-2 text-left">Ubwoko bwamafu</th>
-                <th className="border border-indigo-200 p-2 text-left">Nimero yumufuka</th>
                 <th className="border border-indigo-200 p-2 text-left">Buranda Yavuyemo</th>
                 <th className="border border-indigo-200 p-2 text-left">Icyongeweho</th>
               </tr>
+              
             </thead>
               {records.map((item, index) => {
                 let isNFAvai = Object.values(item.new_food).find(el=> el),
@@ -121,9 +121,20 @@ const  hasFetched = useRef(false),
                       <td className="border border-indigo-200 p-2">{item.reporter}</td>
                       <td className="border border-indigo-200 p-2">{item.incoming_c}kg</td>
                       <td className="border border-indigo-200 p-2">{avai_f.toString()}</td>
-                      <td className="border border-indigo-200 p-2">{item.sack_no}</td>
                       <td className="border border-indigo-200 p-2">{item.waste_f}kg</td>
                       <td className="border border-indigo-200 p-2">{item.comment}</td>
+                    </tr>
+                    <tr>
+              <th className="border border-indigo-200 text-x p-2 text-left">No yumufuka wa New Food</th>
+              <th className="border border-indigo-200 p-2 text-left">No yumufuka w'Ifunguro ryiza</th>
+              <th className="border border-indigo-200 p-2 text-left">No yumufuka wi Isezerano</th>
+              <th className="border border-indigo-200 p-2 text-left">No yumufuka wi Isezerano Envelope</th>
+                   </tr>
+                    <tr>
+                    <td className="border border-indigo-200 p-2">{item.sack_no}</td>
+                    <td className="border border-indigo-200 p-2">{item.sack_no}</td>
+                    <td className="border border-indigo-200 p-2">{item.sack_no}</td>
+                    <td className="border border-indigo-200 p-2">{item.sack_no}</td>
                     </tr>
                     <tr>
                       <td colSpan={7}>
