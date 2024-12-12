@@ -30,8 +30,8 @@ const ProductForm = () => {
   }
   async function recProd(e) {
     e.preventDefault()
-    const emptyVar = Object.keys(formVars).find((key)=> !formVars[key].length && key != 'date')
-    if (emptyVar) return
+    const emptyVar = Object.keys(formVars).find((key)=> !formVars[key].toString().length && key != 'date')
+    if (emptyVar) return console.log(formVars[emptyVar].length)
     const scheme = pS
     scheme.body = JSON.stringify(formVars)
     let res = await f('record-stock-1',scheme)
