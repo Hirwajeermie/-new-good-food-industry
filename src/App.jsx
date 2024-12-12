@@ -21,7 +21,7 @@ import NewGoodFoodWebsite from './components/Website';
 import ProductPage from './components/ProductPage';
 import ProductFormMarket  from './components/ProductFormMarket';
 
-import LoginHome from './components/LoginHome';
+//import LoginHome from './components/LoginHome';
 import HomePages from './HomePages';
 import IbyinjiyePage from './pages/viewfiles/IbyinjiyePage';
 import IbishyashyaPage from './pages/viewfiles/IbishyashyaPage';
@@ -70,7 +70,9 @@ function App() {
         <Route path="/BannerSlider" element={<BannerSlider />} />
         
         {/* Direct routes that are always accessible */}
+         {/*
         <Route path="/login-home" element={<LoginHome />} />
+        */}
         {/* Protected routes */}
         <Route path="/HomePages" element={<PrivateRoute element={<HomePages />} />} />
         <Route path="/Ibishyashya" element={<PrivateRoute element={<IbishyashyaPage />} />} />

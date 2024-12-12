@@ -459,6 +459,19 @@ const ProductFormOut = () => {
         </p>
       )}
     </div>
+    <div>
+             <label  className="block text-sm font-medium mb-1 text-indigo-600">Amazina y'uwishyuye</label>
+             <input
+               type="text"
+               id="amazinay'uwishyuye"
+               name="reporter"
+               value={formData.p_name}
+               onChange={handleInputChange}
+               className="w-full px-3 py-2 border rounded"
+               required
+             />
+           </div>
+    
          <div className="flex justify-start">
            <div className="flex flex-col w-full">
              <label htmlFor="comment" className="mb-1 text-indigo-600">

@@ -117,6 +117,9 @@ import { adcm, f, pS } from "../../../public/functions";
                   UBURYO BIISHYUYEMO
                 </th>
                 <th className="border p-3 text-left text-sm font-semibold text-gray-700">
+                  AMAZINA Y'UWISHYUYE
+                </th>
+                <th className="border p-3 text-left text-sm font-semibold text-gray-700">
                   ICYONGEWEHO
                 </th>
               </tr>
@@ -147,6 +150,9 @@ import { adcm, f, pS } from "../../../public/functions";
                   </td>
                   <td className="border p-3 text-sm text-gray-600">
                     {adcm(item.pm)}
+                  </td>
+                  <td className="border p-3 text-sm text-gray-600">
+                    {adcm(item.p_name)}
                   </td>
                   <td className="border p-3 text-sm text-gray-600">
                     {item.comment}

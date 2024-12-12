@@ -93,6 +93,7 @@ const IbyasohotsePage = () => {
                 <th className="border border-indigo-200 p-2 text-left">Umucuruzi</th>
                 <th className="border border-indigo-200 p-2 text-left">Aho yakoreye</th>
                 <th className="border border-indigo-200 p-2 text-left">Uburyo bishyuyemo</th>
+                <th className="border border-indigo-200 p-2 text-left">Amazina y'uwishyuye</th>
                 <th className="border border-indigo-200 p-2 text-left">Icyongeweho</th>
                 
               </tr>
@@ -106,10 +107,11 @@ const IbyasohotsePage = () => {
                       <td className="border border-indigo-200 p-2">{item.distributor}</td>
                       <td className="border border-indigo-200 p-2">{item.loc}</td>
                       <td className="border border-indigo-200 p-2">{item.pm}</td>
+                      <td className="border border-indigo-200 p-2">{item.p_name}</td>
                       <td className="border border-indigo-200 p-2">{item.comment}</td>
                     </tr>
                     <tr>
-                      <td colSpan={6}>
+                      <td colSpan={7}>
                         {/*
                           <div className="overflow-x-auto">
                             <h2 className="text-2xl font-bold text-center text-indigo-800 mb-4">
