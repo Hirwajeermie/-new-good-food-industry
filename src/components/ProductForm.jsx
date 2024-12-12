@@ -5,14 +5,15 @@ import { f, pS, setData } from '../../public/functions';
 
 const ProductForm = () => {
   
-  const [formVars,setFormVars] = useState({
+  const [calc,setCalc] = useState(0),
+    [formVars,setFormVars] = useState({
       dist_names: '',
       dist_plate_no: '',
       weight: '',
       dryness: '',
       moldness: '',
       net_price: '',
-      gross_price: '',
+      gross_price: 0,
       amount_paid: '',
       reporter: '',
       comment: '',
@@ -23,7 +24,8 @@ const ProductForm = () => {
     let{name,value} = e.target;
     setFormVars(prevD=>({
       ...prevD,
-      [name]: value
+      [name]: value,
+      gross_price: name == 'net_price'  ? Number(value)* Number(formVars.weight) : name == 'weight' ? Number(value)* Number(formVars.net_price)  : formVars.gross_price 
     }))
   }
   async function recProd(e) {
@@ -41,7 +43,7 @@ const ProductForm = () => {
         dryness: '',
         moldness: '',
         net_price: '',
-        gross_price: '',
+        gross_price: formVars.net_price*formVars.weight,
         amount_paid: '',
         reporter: '',
         comment: '',
@@ -130,7 +132,8 @@ const ProductForm = () => {
             name='gross_price'
             value={formVars.gross_price}
             placeholder="Amafaranga asabwa"
-            onChange={changeVals}
+            readOnly
+            disabled
             className="p-2 border rounded-md w-full focus:outline-none focus:border-indigo-500"
           />
           <input
