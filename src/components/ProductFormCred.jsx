@@ -7,6 +7,7 @@ function ProductFormCred() {
     client: "",
     debt: "",
     p_debt: "",
+    p_name: "",
     pm: "",
     r_debt: "", 
     comment: "",
@@ -110,6 +111,7 @@ function ProductFormCred() {
           client: "",
           debt: "",
           p_debt: "",
+          p_name: "",
           pm: "",
           r_debt: "",
           comment: "",
@@ -155,6 +157,7 @@ function ProductFormCred() {
                 },
                 { name: "debt", label: "AMAFARANGA YARARIMO", type: "number", step: "0.01" },
                 { name: "p_debt", label: "AYO YISHYUYE", type: "number", step: "0.01" },
+                { name: "p_name", label: "AMAZINA Y'UWISHYUYE", type: "text", step: "0.01" },
                 { 
                   name: "pm", 
                   label: "UBURYO YISHYUYEMO", 
@@ -162,6 +165,7 @@ function ProductFormCred() {
                   options: paymentMethods 
                 },
                 { name: "r_debt", label: "ASIGAYE", type: "number", step: "0.01" }
+                
               ].map((field) => (
                 <div key={field.name} className="relative">
                   <label className="block text-sm font-medium text-indigo-600 mb-1">

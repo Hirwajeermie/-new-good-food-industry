@@ -126,7 +126,9 @@ function ProductFormBranSel() {
                     required={!field.readOnly}
                   />
                 </div>
+                
               ))}
+              
             </div>
             
             <div className="mb-2">

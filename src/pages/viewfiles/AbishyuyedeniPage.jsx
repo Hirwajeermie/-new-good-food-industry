@@ -108,6 +108,9 @@ function AbishyuyeAmadeniPage() {
                   UBURYO YISHYUYEMO
                 </th>
                 <th className="border p-3 text-left text-sm font-semibold text-gray-700 md:table-cell">
+                  UWOHEREJE AMAFARANga
+                </th>
+                <th className="border p-3 text-left text-sm font-semibold text-gray-700 md:table-cell">
                   ASIGAYE
                 </th>
                 <th className="border p-3 text-left text-sm font-semibold text-gray-700 md:table-cell">
@@ -135,6 +138,9 @@ function AbishyuyeAmadeniPage() {
                   </td>
                   <td className="border p-3 text-sm text-gray-600 md:table-cell">
                     {adcm(item.pm)}
+                  </td>
+                  <td className="border p-3 text-sm text-gray-600 md:table-cell">
+                    {(item.p_name)}
                   </td>
                   <td className="border p-3 text-sm text-gray-600 md:table-cell">
                     {adcm(item.r_debt)}
