@@ -43,7 +43,7 @@ const ProductForm = () => {
         dryness: '',
         moldness: '',
         net_price: '',
-        gross_price: formVars.net_price*formVars.weight,
+        gross_price: 0,
         amount_paid: '',
         reporter: '',
         comment: '',
