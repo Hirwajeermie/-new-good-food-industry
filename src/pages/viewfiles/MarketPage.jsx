@@ -156,13 +156,13 @@ function MarketPage() {
                     {item.p_debts}
                   </td>
                   <td className="border p-3 text-sm text-gray-600 md:table-cell">
-                    {Cash}
+                    {item.cash}
                   </td>
                   <td className="border p-3 text-sm text-gray-600 md:table-cell">
-                    {phone}
+                    {item.phone}
                   </td>
                   <td className="border p-3 text-sm text-gray-600 md:table-cell">
-                    {back}
+                    {item.bank}
                   </td>
                   <td className="border p-3 text-sm text-gray-600 md:table-cell">
                     {item.comment}

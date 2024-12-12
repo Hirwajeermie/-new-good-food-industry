@@ -42,7 +42,11 @@ const ProductFormChe = () => {
   const [envelope, setEnvelope] = useState({ ingano: 0, isEnvelope: 0, buranda: 0 });
   const [waste_f, setwaste_f] = useState('');
   const [comments, setComments] = useState('');
-  const [sack_no, setSack_no] = useState('');
+  const [sack_no_NF, setSack_no_NF] = useState('');
+  const [sack_no_IF, setSack_no_IF] = useState('');
+  const [sack_no_IS, setSack_no_IS] = useState('');
+  const [sack_no_MA, setSack_no_MA] = useState('');
+
 
   const handleCheckboxChange = (item) => {
     setSelectedAmafu((prev) => ({
@@ -81,7 +85,10 @@ const ProductFormChe = () => {
         envelope:  Number(isEnvelope5kg),
         comment: comments,
         waste_f: Number(waste_f),
-        sack_no
+        sack_no_IF,
+        sack_no_IS,
+        sack_no_MA,
+        sack_no_NF
     };
 
     
@@ -113,6 +120,10 @@ const ProductFormChe = () => {
         setEnvelope({ ingano: 0, isEnvelope: 0, buranda: 0 });
         setComments('');
         setwaste_f('')
+        setSack_no_NF('')
+        setSack_no_IF('')
+        setSack_no_IS('')
+        setSack_no_MA('')
     }
     // Reset form fields
   };
@@ -245,9 +256,9 @@ const ProductFormChe = () => {
                 type="text" 
                 placeholder="Nimero" 
                 className="w-full p-2 border rounded-md" 
-                value={sack_no}
-                name='sack_no'
-                onChange={(e) => setSack_no(e.target.value)}
+                value={sack_no_NF}
+                name='sack_no_NF'
+                onChange={(e) => setSack_no_NF(e.target.value)}
                 required
               />
               <label className="block text-indigo-700 font-medium mb-2">
@@ -257,9 +268,9 @@ const ProductFormChe = () => {
                 type="text" 
                 placeholder="Nimero" 
                 className="w-full p-2 border rounded-md" 
-                value={sack_no}
-                name='sack_no'
-                onChange={(e) => setSack_no(e.target.value)}
+                value={sack_no_IF}
+                name='sack_no_IS'
+                onChange={(e) => setSack_no_IF(e.target.value)}
                 required
               />
               <label className="block text-indigo-700 font-medium mb-2">
@@ -269,9 +280,9 @@ const ProductFormChe = () => {
                 type="text" 
                 placeholder="Nimero" 
                 className="w-full p-2 border rounded-md" 
-                value={sack_no}
+                value={sack_no_IS}
                 name='sack_no'
-                onChange={(e) => setSack_no(e.target.value)}
+                onChange={(e) => setSack_no_IS(e.target.value)}
                 required
               />
               <label className="block text-indigo-700 font-medium mb-2">
@@ -281,9 +292,9 @@ const ProductFormChe = () => {
                 type="text" 
                 placeholder="Nimero" 
                 className="w-full p-2 border rounded-md" 
-                value={sack_no}
+                value={sack_no_MA}
                 name='sack_no'
-                onChange={(e) => setSack_no(e.target.value)}
+                onChange={(e) => setSack_no_MA(e.target.value)}
                 required
               />
             </div>

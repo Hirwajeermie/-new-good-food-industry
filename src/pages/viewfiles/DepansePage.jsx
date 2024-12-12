@@ -114,8 +114,9 @@ function DepansePage () {
               </tr>
             </thead>
             
-              {records.map((item, index) => (
-                <tbody key={index}>
+              {records.map((item, index) => {
+                let addi =  (Object.entries(item).reduce((sum,[key,value])=>{return (key == 'diesel' || key == 'lifters' || key == 'boys' || key == 'driver' || key == 'room' || key == 'food' || key == 'travel' || key == 'r_amount' || key == 'inc_amount')? sum+= Number(value) : sum+=0},0))
+                return (<tbody key={index}>
                   <tr className="hover:bg-gray-50">
                     <td className="border bg-gray-400 p-3 text-sm text-gray-600">{item.date}</td>
                     <td className="border p-3 text-sm text-gray-600">{item.reporter}</td>
@@ -154,10 +155,10 @@ function DepansePage () {
                         <tbody>
                           <tr key={index} className="hover:bg-gray-50">
                             <td className="border p-3 text-sm text-gray-600">{adcm(item.food)} RWF</td>
-                            <td className="border p-3 text-sm text-gray-600">{adcm(item.journey)} RWF</td>
+                            <td className="border p-3 text-sm text-gray-600">{adcm(item.travel)} RWF</td>
                             <td className="border p-3 text-sm text-gray-600">{adcm(item.r_amount)} RWF</td>
                             <td className="border p-3 text-sm text-gray-600">{adcm(item.inc_amount)} RWF</td>
-                            <td className="border p-3 text-sm text-gray-600">{adcm(item.g_amount)} RWF</td>
+                            <td className="border p-3 text-sm text-gray-600">{adcm(addi)} RWF</td>
                             <td className="border p-3 text-sm text-gray-600">{item.comment}</td>
                           </tr>
                         </tbody>
@@ -165,8 +166,8 @@ function DepansePage () {
                     </td>
                   </tr>
 
-                </tbody>
-              ))}
+                </tbody>)
+              })}
           </table>
         
         </div>

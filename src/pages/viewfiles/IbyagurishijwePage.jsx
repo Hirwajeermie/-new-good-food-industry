@@ -94,7 +94,10 @@ const IbyagurishijwePage = () => {
                 <th className="border bg-indigo-100 p-2 text-left text-indigo-500">Utanze Raporo</th>
                 <th className="border bg-indigo-100 p-2 text-left text-indigo-500">Umucuruzi</th>
                 <th className="border bg-indigo-100 p-2 text-left text-indigo-500">Amafaranga Arava Kw'isoko</th>
-                <th className="border bg-indigo-100 p-2 text-left text-indigo-500">Nimero Y'umufuka</th>
+                <th className="border bg-indigo-100 p-2 text-left text-indigo-500">No Y'umufuka wa New Food</th>
+                <th className="border bg-indigo-100 p-2 text-left text-indigo-500">No Y'umufuka w'Ifunguro ryiza</th>
+                <th className="border bg-indigo-100 p-2 text-left text-indigo-500">No Y'umufuka wi Isezerano</th>
+                <th className="border bg-indigo-100 p-2 text-left text-indigo-500">No Y'umufuka wi Isezerano Envelope</th>
                 <th className="border bg-indigo-100 p-2 text-left text-indigo-500">Icyongerwaho</th>
               </tr>
             </thead>
@@ -105,23 +108,14 @@ const IbyagurishijwePage = () => {
                     <td className="border p-2">{item.reporter}</td>
                     <td className="border p-2">{item.distributor}</td>
                     <td className="border p-2">{adcm(item.g_amount)}</td>
-                    <td className="border p-2">{item.no_sacks}</td>
+                    <td className="border p-2">{item.sack_no_NF}</td>
+                    <td className="border p-2">{item.sack_no_IF}</td>
+                    <td className="border p-2">{item.sack_no_IS}</td>
+                    <td className="border p-2">{item.sack_no_MA}</td>
                     <td className="border p-2">{item.comment}</td>
-                    <tr>
-                    <th className="border bg-indigo-100 p-2 text-left text-indigo-500">No Y'umufuka wa New Food</th>
-                    <th className="border bg-indigo-100 p-2 text-left text-indigo-500">No Y'umufuka w'Ifunguro ryiza</th>
-                    <th className="border bg-indigo-100 p-2 text-left text-indigo-500">No Y'umufuka wi Isezerano</th>
-                    <th className="border bg-indigo-100 p-2 text-left text-indigo-500">No Y'umufuka wi Isezerano Envelope</th>
-                    </tr>
-                    <tr>
-                    <td className="border p-2">{item.no_sacks}</td>
-                    <td className="border p-2">{item.no_sacks}</td>
-                    <td className="border p-2">{item.no_sacks}</td>
-                    <td className="border p-2">{item.no_sacks}</td>
-                    </tr>
                   </tr>
                   <tr>
-                    <td colSpan={8}>
+                    <td colSpan={9}>
                       <div className="overflow-x-auto">
                         <table className="min-w-full border-collapse border">
                           <thead>

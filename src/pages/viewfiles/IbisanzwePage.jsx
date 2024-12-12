@@ -131,10 +131,10 @@ const  hasFetched = useRef(false),
               <th className="border border-indigo-200 p-2 text-left">No yumufuka wi Isezerano Envelope</th>
                    </tr>
                     <tr>
-                    <td className="border border-indigo-200 p-2">{item.sack_no}</td>
-                    <td className="border border-indigo-200 p-2">{item.sack_no}</td>
-                    <td className="border border-indigo-200 p-2">{item.sack_no}</td>
-                    <td className="border border-indigo-200 p-2">{item.sack_no}</td>
+                    <td className="border border-indigo-200 p-2">{item.sack_no_NF}</td>
+                    <td className="border border-indigo-200 p-2">{item.sack_no_IF}</td>
+                    <td className="border border-indigo-200 p-2">{item.sack_no_IS}</td>
+                    <td className="border border-indigo-200 p-2">{item.sack_no_MA}</td>
                     </tr>
                     <tr>
                       <td colSpan={7}>

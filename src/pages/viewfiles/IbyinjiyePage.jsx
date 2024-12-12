@@ -98,13 +98,13 @@ const IbyinjiyePage = () => {
             </thead>
               {records.map((item, index) => {
                 return(<tbody key={index}>
-                  <tr key={index} className="hover:bg-indigo-50" style={!item.reporter ? {background: 'red', opacity: .6}: {}}>
+                  <tr key={index} className="hover:bg-indigo-50" style={!item.reporter ? {background: '#ff000040'}: {}}>
                     <td className="border bg-gray-400 border-indigo-200 p-2">{item.date}</td>
                     <td className="border border-indigo-200 p-2">{item.reporter}</td>
                     <td className="border border-indigo-200 p-2">{item.sack_no}</td>
                     <td className="border border-indigo-200 p-2">{item.comment}</td>
                   </tr>
-                  <tr style={!item.reporter ? {background: 'red', opacity: .6}: {}}>
+                  <tr style={!item.reporter ? {background: '#ff000040'}: {}}>
                     <td colSpan={4}>
                       <div className="w-full overflow-x-auto">
                         <table className="w-full bg-white border border-indigo-200 text-sm md:text-base">
