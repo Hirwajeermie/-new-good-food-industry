@@ -199,6 +199,7 @@ const ProductForm = () => {
         <textarea
           placeholder="Utanze raporo"
           name='reporter'
+          value={formVars.reporter}
           onChange={changeVals}
           className="p-2 border rounded-md w-1/3 h-12 :outline-none focus:border-indigo-500"
           rows="3"
@@ -206,6 +207,7 @@ const ProductForm = () => {
         <textarea
           placeholder="Comment"
           name='comment'
+          value={formVars.comment}
           onChange={changeVals}
           className="p-2 border rounded-md w-full h-28 mb-4 focus:outline-none focus:border-indigo-500"
           rows="2"

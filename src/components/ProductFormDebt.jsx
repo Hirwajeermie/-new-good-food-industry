@@ -78,9 +78,6 @@ function ProductFormDebt() {
         comment: "",
       });
     }
-
-    
-      console.log("Form submitted:", formData);
     }
   };
 

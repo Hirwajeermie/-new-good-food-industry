@@ -29,7 +29,10 @@ const ProductFormSel = () => {
       { ibiro: '', imifuka: 0, price: '', total: 0 }
     ],
     envelope: [{ ibiro: '', imifuka: 0, price: '', total: 0 }],
-    no_sacks: '',
+    sack_no_NF: '',
+    sack_no_IF: '',
+    sack_no_IS: '',
+    sack_no_MA: '',
     comment: '',
   });
   const handleGridInputChange = (fieldName, rowIndex, field, value) => {
@@ -191,7 +194,10 @@ const ProductFormSel = () => {
           { ibiro: '', imifuka: 0, price: '', total: 0 }
         ],
         envelope: [{ ibiro: '', imifuka: 0, price: '', total: 0 }],
-        no_sacks: '',
+        sack_no_NF: '',
+        sack_no_IF: '',
+        sack_no_IS: '',
+        sack_no_MA: '',
         comment: '',
       })
     }
@@ -295,8 +301,8 @@ const ProductFormSel = () => {
             </label>
             <input
               type="text"
-              name="no_sacks"
-              value={formData.no_sacks}
+              name="sack_no_NF"
+              value={formData.sack_no_NF}
               onChange={handleInputChange}
               className="w-full max-w-md px-2 sm:px-4 py-1 sm:py-2 text-sm sm:text-base border rounded focus:outline-none focus:ring-1"
               required
@@ -306,8 +312,8 @@ const ProductFormSel = () => {
             </label>
             <input
               type="text"
-              name="no_sacks"
-              value={formData.no_sacks}
+              name="sack_no_IF"
+              value={formData.sack_no_IF}
               onChange={handleInputChange}
               className="w-full max-w-md px-2 sm:px-4 py-1 sm:py-2 text-sm sm:text-base border rounded focus:outline-none focus:ring-1"
               required
@@ -319,8 +325,8 @@ const ProductFormSel = () => {
             </label>
             <input
               type="text"
-              name="no_sacks"
-              value={formData.no_sacks}
+              name="sack_no_IS"
+              value={formData.sack_no_IS}
               onChange={handleInputChange}
               className="w-full max-w-md px-2 sm:px-4 py-1 sm:py-2 text-sm sm:text-base border rounded focus:outline-none focus:ring-1"
               required
@@ -330,8 +336,8 @@ const ProductFormSel = () => {
             </label>
             <input
               type="text"
-              name="no_sacks"
-              value={formData.no_sacks}
+              name="sack_no_MA"
+              value={formData.sack_no_MA}
               onChange={handleInputChange}
               className="w-full max-w-md px-2 sm:px-4 py-1 sm:py-2 text-sm sm:text-base border rounded focus:outline-none focus:ring-1"
               required

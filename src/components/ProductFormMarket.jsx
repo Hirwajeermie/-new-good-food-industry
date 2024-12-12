@@ -10,21 +10,23 @@ function ProductFormMarket() {
     expenses: "",
     debts:"",
     p_debts:"",
-    pm: "", 
+    cash: "",
+    phone: "",
+    bank: "", 
     comment: "",
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [errors, setErrors] = useState({});
 
   
-  const paymentMethods = [
-    { value: "", label: "Hitamo Uburyo" },
-    { value: "Cash", label: "Cash" },
-    { value: "Mobile Money", label: "Mobile Money" },
-    { value: "Bank Transfer", label: "Bank Transfer" },
-    { value: "Credit Card", label: "Credit Card" },
-    { value: "Other", label: "Ubundi buryo" }
-  ];
+  // const paymentMethods = [
+  //   { value: "", label: "Hitamo Uburyo" },
+  //   { value: "Cash", label: "Cash" },
+  //   { value: "Mobile Money", label: "Mobile Money" },
+  //   { value: "Bank Transfer", label: "Bank Transfer" },
+  //   { value: "Credit Card", label: "Credit Card" },
+  //   { value: "Other", label: "Ubundi buryo" }
+  // ];
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -48,7 +50,7 @@ function ProductFormMarket() {
     const newErrors = {};
     const requiredFields = [
       'date', 'reporter', 'commande', 
-      'returned', 'expenses', 'debts', 'p_debts','pm',
+      'returned', 'expenses', 'debts', 'p_debts',
     ];
     
     requiredFields.forEach(field => {
@@ -93,8 +95,10 @@ function ProductFormMarket() {
             returned: "",
             expenses: "",
             debts:"",
+            cash: "",
+            phone: "",
+            bank: "", 
             p_debts:"",
-            pm: "", 
             comment: "",
           });
         }
@@ -134,15 +138,9 @@ function ProductFormMarket() {
                 { name: "expenses", label: "Expenses&it price", type: "number", step: "0.01" },
                 { name: "debts", label: "Amadeni(Name&Amount)", type: "number", step: "0.01" },
                 { name: "p_debts", label: "Abishyuye Amadeni(Name&Amount)", type: "number", step: "0.01" },
-                { 
-                  name: "pm", 
-                  label: "UBURYO YISHYUYEMO", 
-                  type: "select", 
-                  options: paymentMethods 
-                },
-                { name: "p_debts", label: "Amafaranga Bishyuye Cash", type: "number", step: "0.01" },
-                { name: "p_debts", label: "Amafaranga Bishyuye Kuri Telephone", type: "number", step: "0.01" },
-                { name: "p_debts", label: "Amafaranga Bishyuye Kuri Bank", type: "number", step: "0.01" },
+                { name: "cash", label: "Amafaranga Bishyuye Cash", type: "number", step: "0.01" },
+                { name: "phone", label: "Amafaranga Bishyuye Kuri Telephone", type: "number", step: "0.01" },
+                { name: "bank", label: "Amafaranga Bishyuye Kuri Bank", type: "number", step: "0.01" },
                
               ].map((field) => (
                 <div key={field.name} className="relative">

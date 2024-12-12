@@ -108,7 +108,7 @@ function AbishyuyeAmadeniPage() {
                   UBURYO YISHYUYEMO
                 </th>
                 <th className="border p-3 text-left text-sm font-semibold text-gray-700 md:table-cell">
-                  UWOHEREJE AMAFARANga
+                  UWOHEREJE AMAFARANGA
                 </th>
                 <th className="border p-3 text-left text-sm font-semibold text-gray-700 md:table-cell">
                   ASIGAYE

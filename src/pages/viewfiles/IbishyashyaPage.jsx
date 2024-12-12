@@ -123,17 +123,17 @@ const IbishyashyaPage = () => {
             {
               records.map((element,index) => {
                return (
-                <tr key={index}>
+                <tr key={index} style={!element.dist_names ? {backgroundColor: '#ff000040'}: null}>
                     <td className="border bg-gray-400 border-indigo-500 px-4 py-2">({element.date})</td>
                     <td className="border border-indigo-500 px-4 py-2">{element.dist_names}</td>
                     <td className="border border-indigo-500 px-4 py-2">{element.dist_plate_no}</td>
                     <td className="border border-indigo-500 px-4 py-2">{adcm(element.weight)} KG</td>
                     <td className="border border-indigo-500 px-4 py-2">{element.dryness}</td>
                     <td className="border border-indigo-500 px-4 py-2">{element.moldness}</td>
-                    <td className="border border-indigo-500 px-4 py-2">{adcm(element.net_price)} RWF</td>
-                    <td className="border border-indigo-500 px-4 py-2">{adcm(element.gross_price)} RWF</td>
-                    <td className="border border-indigo-500 px-4 py-2">{adcm(element.amount_paid)} RWF</td>
-                    <td className="border border-indigo-500 px-4 py-2">{adcm(element.r_amount)} RWF</td>
+                    <td className="border border-indigo-500 px-4 py-2">{element.dist_names ? adcm(element.net_price) +'RWF': null}</td>
+                    <td className="border border-indigo-500 px-4 py-2">{element.dist_names ? adcm(element.gross_price) +'RWF': null}</td>
+                    <td className="border border-indigo-500 px-4 py-2">{element.dist_names ? adcm(element.amount_paid) +'RWF': null}</td>
+                    <td className="border border-indigo-500 px-4 py-2">{element.dist_names ? adcm(element.r_amount) +'RWF': null}</td>
                     <td className="border border-indigo-500 px-4 py-2">{element.reporter}</td>
                     <td className="border border-indigo-500 px-4 py-2">{element.comment}</td>
                 </tr>)
