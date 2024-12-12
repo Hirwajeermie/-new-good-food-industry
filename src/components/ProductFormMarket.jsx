@@ -133,7 +133,7 @@ function ProductFormMarket() {
               {[
                 { name: "date", label: "Itariki", type: "date" },
                 { name: "reporter", label: "Utanze Raporo", type: "text" },
-                { name: "commande", label: "commande&it price", type: "text" },
+                { name: "commande", label: "commande&it price", type: "number" },
                 { name: "returned", label: "Returned&it price", type: "number", step: "0.01" },
                 { name: "expenses", label: "Expenses&it price", type: "number", step: "0.01" },
                 { name: "debts", label: "Amadeni(Name&Amount)", type: "number", step: "0.01" },
