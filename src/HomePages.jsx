@@ -21,6 +21,7 @@ const HomePages = () => {
     { name: 'Amadeni', path: '/Amadeni' },
     { name: 'Abishyuye amadeni', path: '/Abishyuyeideni' },
     { name: 'Market Report', path: '/Marketreport' },
+    { name: 'Raporo Yimodoka', path: '/Raporoyimodoka' },
   ];
 
   // Filter links based on search query
