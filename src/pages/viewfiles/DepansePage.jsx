@@ -138,7 +138,9 @@ function DepansePage () {
                             <th className="border p-3 text-left text-sm font-semibold text-gray-700">
                               Urugendo
                             </th>
-                            
+                            <th className="border p-3 text-left text-sm font-semibold text-gray-700">
+                              Andi mafaranga
+                            </th>
                             <th className="border p-3 text-left text-sm font-semibold text-gray-700">
                               Amafaranga Yose
                             </th>
@@ -151,7 +153,8 @@ function DepansePage () {
                           <tr key={index} className="hover:bg-gray-50">
                             <td className="border p-3 text-sm text-gray-600">{adcm(item.food)} RWF</td>
                             <td className="border p-3 text-sm text-gray-600">{adcm(item.travel)} RWF</td>
-                            <td className="border p-3 text-sm text-gray-600">{adcm(addi)} RWF</td>
+                            <td className="border p-3 text-sm text-gray-600">{adcm(item.g_amount)} RWF</td>
+                            <td className="border p-3 text-sm text-gray-600">{item.o_m} RWF</td>
                             <td className="border p-3 text-sm text-gray-600">{item.comment}</td>
                           </tr>
                         </tbody>
