@@ -21,6 +21,7 @@ const HomePages = () => {
     { name: 'Amadeni', path: '/Amadeni' },
     { name: 'Abishyuye amadeni', path: '/Abishyuyeideni' },
     { name: 'Market Report', path: '/Marketreport' },
+    { name: 'Raporo Yimfuka', path: '/Raporoyimifuka' },
     { name: 'Raporo Yimodoka', path: '/Raporoyimodoka' },
   ];
 

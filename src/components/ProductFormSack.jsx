@@ -1,23 +1,14 @@
 import React, { useState } from 'react';
 import { f, pS } from '../../public/functions';
 
-const ProductFormChe = () => {
+const ProductFormSack = () => {
   
   const [date, setDate] = useState('');
   const [utanzeRaporo, setUtanzeRaporo] = useState('');
-  const [incoming_c, setincoming_c] = useState('');
   const [newFood, setNewFood] = useState('');
   const [ifunguro, setIfunguro] = useState('');
   const [isezerano, setIsezerano] = useState('');
   const [magaju, setMagaju] = useState('');
-  const [buranda, setBuranda] = useState('');
-  const [selectedAmafu, setSelectedAmafu] = useState({
-    newFood: false,
-    ifunguro: false,
-    isezerano: false,
-    magaju: false,
-  });
-
   const [inganoYaEnvelope, setInganoYaEnvelope] = useState('');
   const [isEnvelope5kg, setIsEnvelope2kg] = useState('');
   const [successMessage, setSuccessMessage] = useState(''); // Success message state
@@ -40,7 +31,6 @@ const ProductFormChe = () => {
   const [isezeranoIbiro, setIsezeranoIbiro] = useState({ '25': 0, '10': 0, '5': 0 });
   const [magajuIbiro, setMagajuIbiro] = useState({ '25': 0, '10': 0, '5': 0 });
   const [envelope, setEnvelope] = useState({ ingano: 0, isEnvelope: 0, buranda: 0 });
-  const [waste_f, setwaste_f] = useState('');
   const [comments, setComments] = useState('');
   const [sack_no_NF, setSack_no_NF] = useState('');
   const [sack_no_IF, setSack_no_IF] = useState('');
@@ -71,20 +61,12 @@ const ProductFormChe = () => {
     const formData = {
         reporter: utanzeRaporo,
         date,
-        incoming_c: Number(incoming_c),
-        selectedAmafu,
-        NF: Number(newFood),
-        IF: Number(ifunguro),
-        IS: Number(isezerano),
-        MA: Number(magaju),
-        waste_e:  Number(buranda),
         new_food: newFoodIbiro,
         ifunguro: ifunguroIbiro,
         isezerano: isezeranoIbiro,
         magaju: magajuIbiro,
         envelope:  Number(isEnvelope5kg),
         comment: comments,
-        waste_f: Number(waste_f),
         sack_no_IF,
         sack_no_IS,
         sack_no_MA,
@@ -100,17 +82,6 @@ const ProductFormChe = () => {
     if (res.success) {
         setDate('');
         setUtanzeRaporo('');
-        setNewFood('');
-        setIfunguro('');
-        setIsezerano('');
-        setMagaju('');
-        setBuranda('');
-        setSelectedAmafu({
-          newFood: false,
-          ifunguro: false,
-          isezerano: false,
-          magaju: false,
-        });
         setInganoYaEnvelope('') ;
         setIsEnvelope2kg('');
         setNewFoodIbiro({ '25': 0, '10': 0, '5': 0 });
@@ -119,7 +90,6 @@ const ProductFormChe = () => {
         setMagajuIbiro({ '25': 0, '10': 0, '5': 0 });
         setEnvelope({ ingano: 0, isEnvelope: 0, buranda: 0 });
         setComments('');
-        setwaste_f('')
         setSack_no_NF('')
         setSack_no_IF('')
         setSack_no_IS('')
@@ -132,7 +102,7 @@ const ProductFormChe = () => {
     <div className="min-h-screen bg-gray-50">
       <div className="container mx-auto p-4">
         <h2 className="text-2xl font-bold text-indigo-700 mb-4 text-center">
-          IBIGORI BIGIYE GUKOBORWA
+          RAPORO Y'IMIFUKA
         </h2>
 
 
@@ -167,144 +137,14 @@ const ProductFormChe = () => {
                 required
               />
             </div>
-            <div>
-              <label className="block text-indigo-700 font-medium mb-2">
-              Ingano Yibigiye Gutunganywa
-              </label>
-              <input 
-                type="text" 
-                placeholder="Ibiro" 
-                className="w-full p-2 border rounded-md" 
-                value={incoming_c}
-                name='incoming_c'
-                onChange={(e) => setincoming_c(e.target.value)}
-                required
-              />
-            </div>
+            
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-            <div>
-              <h3 className="text-xl font-bold text-indigo-700 mb-4">UBWOKO BW'AMAFU</h3>
-              {['NewFood', 'Ifunguro Ryiza', 'Isezerano', 'Isezerano Envelope'].map((item) => (
-                <div key={item} className="mb-2">
-                  <label className="inline-flex items-center">
-                    <input 
-                      type="checkbox" 
-                      className="form-checkbox text-indigo-600" 
-                      checked={selectedAmafu[item]}
-                      name='type'
-                      onChange={() => handleCheckboxChange(item)}
-                      
-                    />
-                    <span className="ml-2 text-indigo-700">{item}</span>
-                  </label>
-                </div>
-              ))}
-            </div>
-            
-            <div>
-             <h3 className="text-xl font-bold text-indigo-700 mb-4">IFU ITEGANKWA KUVAMO</h3>
-              <label className="block text-indigo-700 font-medium mb-2">New Food</label>
-              <input 
-                type="text" 
-                placeholder="Ibiro" 
-                className="w-full p-2 border rounded-md mb-4" 
-                value={newFood}
-                name='nFWeight'
-                onChange={(e) => setNewFood(e.target.value)}
-                required
-              />
-              <label className="block text-indigo-700 font-medium mb-2">Ifunguro ryiza</label>
-              <input 
-                type="text" 
-                placeholder="Ibiro" 
-                className="w-full p-2 border rounded-md mb-4" 
-                value={ifunguro}
-                name='ifWeight'
-                onChange={(e) => setIfunguro(e.target.value)}
-                required
-              />
-              <label className="block text-indigo-700 font-medium mb-2">Isezerano</label>
-              <input 
-                type="text" 
-                placeholder="Ibiro" 
-                className="w-full p-2 border rounded-md mb-4" 
-                value={isezerano}
-                name='isWeight'
-                onChange={(e) => setIsezerano(e.target.value)}
-                required
-              />
-              <label className="block text-indigo-700 font-medium mb-2">Isezerano Envelope</label>
-              <input 
-                type="text" 
-                placeholder="Ibiro" 
-                name='maWeight'
-                className="w-full p-2 border rounded-md" 
-                value={magaju}
-                onChange={(e) => setMagaju(e.target.value)}
-                required
-              />
-            </div>
-            
-            <div>
-            <h3 className="text-xl font-bold text-indigo-700 mb-4">NIMERO Y'UMUFUKA</h3>
-             <label className="block text-indigo-700 font-medium mb-2">
-                Nimero y'umufuka wa New food
-              </label>
-              <input 
-                type="text" 
-                placeholder="Nimero" 
-                className="w-full p-2 border rounded-md" 
-                value={sack_no_NF}
-                name='sack_no_NF'
-                onChange={(e) => setSack_no_NF(e.target.value)}
-                required
-              />
-              <label className="block text-indigo-700 font-medium mb-2">
-                Nimero y'umufuka w'Ifunguro ryiza
-              </label>
-              <input 
-                type="text" 
-                placeholder="Nimero" 
-                className="w-full p-2 border rounded-md" 
-                value={sack_no_IF}
-                name='sack_no_IS'
-                onChange={(e) => setSack_no_IF(e.target.value)}
-                required
-              />
-              <label className="block text-indigo-700 font-medium mb-2">
-                Nimero y'umufuka wi Isezerano
-              </label>
-              <input 
-                type="text" 
-                placeholder="Nimero" 
-                className="w-full p-2 border rounded-md" 
-                value={sack_no_IS}
-                name='sack_no'
-                onChange={(e) => setSack_no_IS(e.target.value)}
-                required
-              />
-              <label className="block text-indigo-700 font-medium mb-2">
-                Nimero y'umufuka wi Isezerano Envelope
-              </label>
-              <input 
-                type="text" 
-                placeholder="Nimero" 
-                className="w-full p-2 border rounded-md" 
-                value={sack_no_MA}
-                name='sack_no'
-                onChange={(e) => setSack_no_MA(e.target.value)}
-                required
-              />
-            </div>
-            
-            
-          </div>
+        
 
       
           <h2 className="text-2xl font-bold text-indigo-700 mb-4 text-center">
-            IFU ZAVUYE MUBYATUNGANYIJWE
+            SITOKE Y'IMIFUKA
           </h2>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
@@ -313,7 +153,7 @@ const ProductFormChe = () => {
               <h2 className="text-center text-white bg-indigo-500 py-2 font-semibold">NEW FOOD</h2>
               <div className="grid grid-cols-2 gap-2">
                 <p className="text-center text-indigo-600 font-medium">Ibiro</p>
-                <p className="text-center text-indigo-600 font-medium">Imifuka</p>
+                <p className="text-center text-indigo-600 font-medium">Ingano</p>
                 {['25', '10', '5'].map((key, index) => (
                   <React.Fragment key={key}>
                     <input
@@ -342,7 +182,7 @@ const ProductFormChe = () => {
               <h2 className="text-center text-white bg-indigo-500 py-2 font-semibold">IFUNGURO RYIZA</h2>
               <div className="grid grid-cols-2 gap-2">
                 <p className="text-center text-indigo-600 font-medium">Ibiro</p>
-                <p className="text-center text-indigo-600 font-medium">Imifuka</p>
+                <p className="text-center text-indigo-600 font-medium">Ingano</p>
                 {['25', '10', '5'].map((key, index) => (
                   <React.Fragment key={key}>
                     <input
@@ -371,7 +211,7 @@ const ProductFormChe = () => {
               <h2 className="text-center text-white bg-indigo-500 py-2 font-semibold">ISEZERANO</h2>
               <div className="grid grid-cols-2 gap-2">
                 <p className="text-center text-indigo-600 font-medium">Ibiro</p>
-                <p className="text-center text-indigo-600 font-medium">Imifuka</p>
+                <p className="text-center text-indigo-600 font-medium">Ingano</p>
                 {['25', '10', '5'].map((key, index) => (
                   <React.Fragment key={key}>
                     <input
@@ -400,7 +240,7 @@ const ProductFormChe = () => {
               <h2 className="text-center text-white bg-indigo-500 py-2 font-semibold">Isezerano Envelope</h2>
               <div className="grid grid-cols-2 gap-2">
                 <p className="text-center text-indigo-600 font-medium">Ibiro</p>
-                <p className="text-center text-indigo-600 font-medium">Envelope</p>
+                <p className="text-center text-indigo-600 font-medium">Ingano</p>
                 {['25', '10', '5' ].map((key, index) => (
                   <React.Fragment key={key}>
                     <input
@@ -438,7 +278,7 @@ const ProductFormChe = () => {
              className="bg-gray-200 p-2 rounded"
              onChange={handleInganoChange}
           />
-          <label className="block text-indigo-600 font-semibold mb-2">I.S Envelope 2KG</label>
+          <label className="block text-indigo-600 font-semibold mb-2">Ingano</label>
          <input
              type="number"
              placeholder="0"
@@ -449,20 +289,6 @@ const ProductFormChe = () => {
 
           />
       </div>
-         <div>
-            <label className="block text-center text-indigo-600 font-medium">Buranda Yavuyemo</label>
-            <input
-            type="number"
-            value={waste_f}
-            name='waste_f'
-            placeholder="Buranda Yavuyemo"
-            className="bg-gray-200 p-2 rounded"
-            onChange={(e) => setwaste_f(e.target.value)}
-            required
-
-
-            />
-        </div>
           </div>
  
          <textarea
@@ -495,4 +321,4 @@ const ProductFormChe = () => {
   );
 };
 
-export default ProductFormChe;
+export default ProductFormSack;

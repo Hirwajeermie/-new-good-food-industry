@@ -21,6 +21,7 @@ import NewGoodFoodWebsite from './components/Website';
 import ProductPage from './components/ProductPage';
 import ProductFormMarket  from './components/ProductFormMarket';
 import ProductFormCar  from './components/ProductFormCar';
+import ProductFormSack  from './components/ProductFormSack';
 
 //import LoginHome from './components/LoginHome';
 import HomePages from './HomePages';
@@ -39,6 +40,7 @@ import AmadeniPage from './pages/viewfiles/AmadeniPage';
 import AbishyuyedeniPage from './pages/viewfiles/AbishyuyedeniPage';
 import MarketPage from './pages/viewfiles/MarketPage';
 import ImodokaPage from './pages/viewfiles/ImodokaPage';
+import ImifukaPage from './pages/viewfiles/ImifukaPage';
 import ForgotPassword from './ForgotPassword';
 import ChangePassword from './ChangePassword';
 import BannerSlider from './BannerSlider';
@@ -67,6 +69,7 @@ function App() {
         <Route path="/ProductFormDebt" element={<PrivateRoute element={<ProductFormDebt />} />} />
         <Route path="/ProductFormMarket" element={<PrivateRoute element={<ProductFormMarket />} />} />
         <Route path="/ProductFormCar" element={<PrivateRoute element={<ProductFormCar />} />} />
+        <Route path="/ProductFormSack" element={<PrivateRoute element={<ProductFormSack />} />} />
         <Route path="/view" element={<View />} />
         <Route path="/ForgotPassword" element={<ForgotPassword />} />
         <Route path="/ChangePassword/:token" element={<PrivateRouteChl element={<ChangePassword />}/>} />
@@ -92,6 +95,7 @@ function App() {
         <Route path="/Amadeni" element={<PrivateRoute element={<AmadeniPage />} />} />
         <Route path="/Abishyuyeideni" element={<PrivateRoute element={<AbishyuyedeniPage />} />} />
         <Route path="/Marketreport" element={<PrivateRoute element={<MarketPage/>} />} />
+        <Route path="/Raporoyimifuka" element={<PrivateRoute element={<ImifukaPage/>} />} />
         <Route path="/Raporoyimodoka" element={<PrivateRoute element={<ImodokaPage/>} />} />
 
       </Routes>
