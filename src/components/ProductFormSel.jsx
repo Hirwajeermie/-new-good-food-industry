@@ -347,7 +347,7 @@ const ProductFormSel = () => {
 
          
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-4 gap-4 sm:gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-2 gap-4 sm:gap-8">
             <ProductGrid title="NEW FOOD" fieldName="NF" rows={formData.NF} titleColor="text-indigo-600" />
             <ProductGrid title="IFUNGURO RYIZA" fieldName="IF" rows={formData.IF} titleColor="text-indigo-600" />
             <ProductGrid title="ISEZERANO" fieldName="IS" rows={formData.IS} titleColor="text-indigo-600" />
