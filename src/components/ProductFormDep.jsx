@@ -27,8 +27,8 @@ const ProductFormDep= () => {
       Shambre: "",
       Kurya: "",
       Urugendo: "",
-      Amafarangaasabwakubyacurujwe: "",
-      Amafarangaaverishije: "",
+      Amafarangaasabwakubyacurujwe: 0,
+      Amafarangaaverishije: 0,
       Andimafaranga: "",
     },
   });
@@ -60,8 +60,8 @@ const ProductFormDep= () => {
       room: nfd.expenses['Shambre'],
       food: nfd.expenses['Kurya'],
       travel: nfd.expenses['Urugendo'],
-      r_amount: nfd.expenses['Amafaranga asabwa kubyacurujwe'],
-      inc_amount: nfd.expenses['Amafaranga averishijwe'],
+      r_amount: 0,
+      inc_amount:0,
       g_amount: nfd.expenses['Andi mafaranga'],
     }
     const scheme = pS
@@ -80,8 +80,8 @@ const ProductFormDep= () => {
           Shambre: "",
           Kurya: "",
           Urugendo: "",
-          Amafarangaasabwakubyacurujwe: "",
-          Amafarangaaverishije: "",
+          Amafarangaasabwakubyacurujwe: 0,
+          Amafarangaaverishije: 0,
           Andimafaranga: "",
         },
       })
@@ -113,7 +113,7 @@ const ProductFormDep= () => {
  
   const firstRowExpenses = ["Mazutu", "Abakarani", "Tandboy"];
   const secondRowExpenses = ["Shoferi", "Shambre", "Kurya"];
-  const thirdRowExpenses = ["Urugendo", "Amafaranga asabwa kubyacurujwe","Amafaranga averishijwe"];
+  const thirdRowExpenses = ["Urugendo"];
   const fouthRowExpenses = ["Andi mafaranga"];
 
   return (
