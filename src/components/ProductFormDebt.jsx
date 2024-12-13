@@ -110,7 +110,7 @@ function ProductFormDebt() {
                 { name: "date", label: "Itariki", type: "date" },
                 { name: "reporter", label: "Utanze Raporo", type: "text" },
                 { name: "client", label: "umukiliya", type: "text" },
-                { name: "weight", label: "IBIRO YATWAYE", type: "number", step: "0.01" },
+                { name: "weight", label: "IBYO YATWAYE", type: "text", step: "0.01" },
                 { name: "g_amount", label: "AMAFARANGA", type: "number", step: "0.01" },
                 { name: "p_amount", label: "AYO YISHYUYE", type: "number", step: "0.01" },
                 { name: "r_amount", label: "ASIGAYE", type: "number", step: "0.01" }

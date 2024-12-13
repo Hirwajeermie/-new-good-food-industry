@@ -1,5 +1,5 @@
 import React, { useState, useMemo, useRef, useEffect } from 'react'
-import { f, pS } from '../../../public/functions'
+import { adcm, f, pS } from '../../../public/functions'
 
 const IbisanzwePage = () => {
 
@@ -119,9 +119,9 @@ const  hasFetched = useRef(false),
                    <tr className="hover:bg-indigo-50">
                       <td className="border bg-gray-400 border-indigo-200 p-2">{item.date}</td>
                       <td className="border border-indigo-200 p-2">{item.reporter}</td>
-                      <td className="border border-indigo-200 p-2">{item.incoming_c}kg</td>
+                      <td className="border border-indigo-200 p-2">{adcm(item.incoming_c)} kg</td>
                       <td className="border border-indigo-200 p-2">{avai_f.toString()}</td>
-                      <td className="border border-indigo-200 p-2">{item.waste_f}kg</td>
+                      <td className="border border-indigo-200 p-2">{adcm(item.waste_f)}kg</td>
                       <td className="border border-indigo-200 p-2">{item.comment}</td>
                     </tr>
                     <tr>
@@ -173,10 +173,10 @@ const  hasFetched = useRef(false),
                                           <tr key={weight} className="hover:bg-indigo-50">
                                             {weight === '25' && (
                                               <>
-                                                <td rowSpan="3" className="border border-indigo-200 p-2">{item.f_e['NF']}kg</td>
-                                                <td rowSpan="3" className="border border-indigo-200 p-2">{item.f_e['IF']}kg</td>
-                                                <td rowSpan="3" className="border border-indigo-200 p-2">{item.f_e['IS']}kg</td>
-                                                <td rowSpan="3" className="border border-indigo-200 p-2">{item.f_e['MA']}kg</td>
+                                                <td rowSpan="3" className="border border-indigo-200 p-2">{adcm(item.f_e['NF'])}kg</td>
+                                                <td rowSpan="3" className="border border-indigo-200 p-2">{adcm(item.f_e['IF'])}kg</td>
+                                                <td rowSpan="3" className="border border-indigo-200 p-2">{adcm(item.f_e['IS'])}kg</td>
+                                                <td rowSpan="3" className="border border-indigo-200 p-2">{adcm(item.f_e['MA'])}kg</td>
                                               </>
                                             )}
                                             <td className="border border-indigo-200 p-2">{weight}kg</td>
@@ -197,17 +197,17 @@ const  hasFetched = useRef(false),
                                       )
                                   })}
                                 <tr className="font-bold bg-indigo-50">
-                                  <td colSpan="4" className="border border-indigo-200 p-2">{Object.values(item.f_e).reduce((acc, curr) => acc + Number(curr), 0)}</td>
+                                  <td colSpan="4" className="border border-indigo-200 p-2">{adcm(Object.values(item.f_e).reduce((acc, curr) => acc + Number(curr), 0))} KG</td>
                                   <td className="border border-indigo-200 p-2">total</td>
-                                  <td className="border border-indigo-200 p-2">{Object.entries(item.new_food).reduce((acc, [key,value]) => acc + (Number(key)*value), 0)}</td>
+                                  <td className="border border-indigo-200 p-2">{adcm(Object.entries(item.new_food).reduce((acc, [key,value]) => acc + (Number(key)*value), 0))} KG</td>
                                   <td className="border border-indigo-200 p-2">total</td>
-                                  <td className="border border-indigo-200 p-2">{Object.entries(item.isezerano).reduce((acc, [key,value]) => acc + (Number(key)*value), 0)}</td>
+                                  <td className="border border-indigo-200 p-2">{adcm(Object.entries(item.isezerano).reduce((acc, [key,value]) => acc + (Number(key)*value), 0))} KG</td>
                                   <td className="border border-indigo-200 p-2">total</td>
-                                  <td className="border border-indigo-200 p-2">{Object.entries(item.ifunguro).reduce((acc, [key,value]) => acc + (Number(key)*value), 0)}</td>
+                                  <td className="border border-indigo-200 p-2">{adcm(Object.entries(item.ifunguro).reduce((acc, [key,value]) => acc + (Number(key)*value), 0))} KG</td>
                                   <td className="border border-indigo-200 p-2">total</td>
-                                  <td className="border border-indigo-200 p-2">{Object.entries(item.magaju).reduce((acc, [key,value]) => acc + (Number(key)*value), 0)}</td>
+                                  <td className="border border-indigo-200 p-2">{adcm(Object.entries(item.magaju).reduce((acc, [key,value]) => acc + (Number(key)*value), 0))} KG</td>
                                   <td className="border border-indigo-200 p-2">total</td>
-                                  <td className="border border-indigo-200 p-2">{item.envelopes * 2}</td>
+                                  <td className="border border-indigo-200 p-2">{adcm(item.envelopes * 2)} KG</td>
                                 </tr>
                               </tbody>
                             </table>

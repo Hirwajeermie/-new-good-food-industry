@@ -65,6 +65,7 @@ function ProductFormBranSel() {
         price: "",
         g_amount: "",
         pm:"",
+        comment: "",
         r_amount: "",
         p_name: "",
 
@@ -109,7 +110,7 @@ function ProductFormBranSel() {
                 { name: "price", label: "Igiciro", type: "number" },
                 { name: "g_amount", label: "Amafaranga yose hamwe", type: "number", readOnly: true },
                 { name: "r_amount", label: "Amafaranga asigaye", type: "number" },          
-                { name: "r_name", label: "Amazina y'uwishyuye", type: "number" },         
+                { name: "p_name", label: "Amazina y'uwishyuye", type: "text" },         
               ].map((field) => (
                 <div key={field.name}>
                   <label className="block text-xs sm:text-sm font-medium text-indigo-600 mb-1">
@@ -139,7 +140,7 @@ function ProductFormBranSel() {
       <select
         className="w-full px-2 py-1 sm:px-3 sm:py-2 border rounded border-indigo-300 
                       focus:ring focus:ring-indigo-200 "
-        value={FormData.pm}
+        value={formData.pm}
         onChange={handleChange}
         name="pm"
       >

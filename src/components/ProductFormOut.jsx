@@ -12,6 +12,7 @@ const ProductFormOut = () => {
     loc: '',
     comment: '',
     pm: '',
+    p_name: '',
     p_sold:{
       NF: [
         { ibiro: '', imifuka: 0, price: '', total: 0 },
@@ -295,7 +296,7 @@ const ProductFormOut = () => {
   //   }
   // }; 
   const emptyVar = Object.keys(formData).find((key)=> !formData[key] && key != 'date')
-  if (emptyVar) return
+  if (emptyVar) return console.log(emptyVar)
   let nfd = structuredClone(formData)
   nfd.p_sold.NF = transformSData(nfd.p_sold.NF)
   nfd.p_sold.IS = transformSData(nfd.p_sold.IS)
@@ -313,6 +314,7 @@ const ProductFormOut = () => {
       loc: '',
       comment: '',
       pm: '',
+      p_name: '',
       p_sold:{
         NF: [
           { ibiro: '', imifuka: 0, price: '', total: 0 },
@@ -464,7 +466,7 @@ const ProductFormOut = () => {
              <input
                type="text"
                id="amazinay'uwishyuye"
-               name="reporter"
+               name="p_name"
                value={formData.p_name}
                onChange={handleInputChange}
                className="w-full px-3 py-2 border rounded"

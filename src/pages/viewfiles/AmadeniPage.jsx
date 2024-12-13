@@ -100,7 +100,7 @@ import { HardDrive } from "lucide-react";
                   Izina RY'umukiliya
                 </th>
                 <th className="border p-3 text-left text-sm font-semibold text-gray-700">
-                  IBYO YATWAYE (KG)
+                  IBYO YATWAYE
                 </th>
                 <th className="border p-3 text-left text-sm font-semibold text-gray-700">
                   AMAFARANGA ASABWA (RWF)
@@ -129,7 +129,7 @@ import { HardDrive } from "lucide-react";
                     {item.client}
                   </td>
                   <td className="border p-3 text-sm text-gray-600">
-                    {adcm(item.weight)}
+                    {(item.weight)}
                   </td>
                   <td className="border p-3 text-sm text-gray-600">
                     {adcm(item.g_amount)}

@@ -50,7 +50,7 @@ function App() {
         <Route path="/HomeReport" element={<PrivateRoute element={<HomeReport />} />} />
         <Route path="/login" element={<LoginForm />} />
         <Route path="/" element={<NewGoodFoodWebsite />} />
-        <Route path="/products" element={<PrivateRoute element={<ProductPage />} />} />
+        <Route path="/products" element={<ProductPage />} />
         <Route path="/ProductForm" element={<PrivateRoute element={<ProductForm />} />} />
         <Route path="/ProductFormPre" element={<PrivateRoute element={<ProductFormPre />} />} />
         <Route path="/ProductFormChe" element={<PrivateRoute element={<ProductFormChe />} />} />

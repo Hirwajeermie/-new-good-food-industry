@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { f, pS } from "../../../public/functions";
+import { adcm, f, pS } from "../../../public/functions";
 
 
 
@@ -125,7 +125,9 @@ function MarketPage() {
                 <th className="border p-3 text-left text-sm font-semibold text-gray-700 md:table-cell">
                 Amafaranga Bishyuye Kuri Bank
                 </th>
-
+                <th className="border p-3 text-left text-sm font-semibold text-gray-700 md:table-cell">
+                Total
+                </th>
                 <th className="border p-3 text-left text-sm font-semibold text-gray-700 md:table-cell">
                 Icyongeweho
                 </th>
@@ -141,28 +143,31 @@ function MarketPage() {
                     {item.reporter}
                   </td>
                   <td className="border p-3 text-sm text-gray-600 md:table-cell">
-                    {item.commande}
+                    {adcm(item.commande)}
                   </td>
                   <td className="border p-3 text-sm text-gray-600 md:table-cell">
-                    {item.returned}
+                    {adcm(item.returned)}
                   </td>
                   <td className="border p-3 text-sm text-gray-600 md:table-cell">
-                    {item.expenses}
+                    {adcm(item.expenses)}
                   </td>
                   <td className="border p-3 text-sm text-gray-600 md:table-cell">
-                    {item.debts}
+                    {adcm(item.debts)}
                   </td>
                   <td className="border p-3 text-sm text-gray-600 md:table-cell">
-                    {item.p_debts}
+                    {adcm(item.p_debts)}
                   </td>
                   <td className="border p-3 text-sm text-gray-600 md:table-cell">
-                    {item.cash}
+                    {adcm(item.cash)}
                   </td>
                   <td className="border p-3 text-sm text-gray-600 md:table-cell">
-                    {item.phone}
+                    {adcm(item.phone)}
                   </td>
                   <td className="border p-3 text-sm text-gray-600 md:table-cell">
-                    {item.bank}
+                    {adcm(item.bank)}
+                  </td>
+                  <td className="border p-3 text-sm text-gray-600 md:table-cell">
+                    {adcm(item.total)}
                   </td>
                   <td className="border p-3 text-sm text-gray-600 md:table-cell">
                     {item.comment}
