@@ -15,7 +15,7 @@ function ImodokaPage() {
       const fetchRecs = async ()=>{
         let schema = pS
         schema.body = JSON.stringify({date: {}})
-        let recs = await f('mrReport',pS)
+        let recs = await f('c_Report',pS)
          if (recs.success) {
           setRecords(recs.metadata.report)
         }
@@ -29,7 +29,7 @@ function ImodokaPage() {
     e.preventDefault()
     let schema = pS
     schema.body = JSON.stringify({date})
-    let recs = await f('mrReport',pS)
+    let recs = await f('c_Report',pS)
      if (recs.success) {
           setRecords(recs.metadata.report)
         }
@@ -143,31 +143,34 @@ function ImodokaPage() {
                     {item.reporter}
                   </td>
                   <td className="border p-3 text-sm text-gray-600 md:table-cell">
-                    {adcm(item.commande)}
+                    {adcm(item.driva)}
                   </td>
                   <td className="border p-3 text-sm text-gray-600 md:table-cell">
-                    {adcm(item.returned)}
+                    {adcm(item.prake)}
                   </td>
                   <td className="border p-3 text-sm text-gray-600 md:table-cell">
-                    {adcm(item.expenses)}
+                    {adcm(item.h_money)}
                   </td>
                   <td className="border p-3 text-sm text-gray-600 md:table-cell">
-                    {adcm(item.debts)}
+                    {adcm(item.mazutu)}
                   </td>
                   <td className="border p-3 text-sm text-gray-600 md:table-cell">
-                    {adcm(item.p_debts)}
+                    {adcm(item.amavuta)}
                   </td>
                   <td className="border p-3 text-sm text-gray-600 md:table-cell">
-                    {adcm(item.cash)}
+                    {adcm(item.piyese)}
                   </td>
                   <td className="border p-3 text-sm text-gray-600 md:table-cell">
                     {adcm(item.phone)}
                   </td>
                   <td className="border p-3 text-sm text-gray-600 md:table-cell">
-                    {adcm(item.bank)}
+                    {adcm(item.umukanishi)}
                   </td>
                   <td className="border p-3 text-sm text-gray-600 md:table-cell">
-                    {adcm(item.total)}
+                    {adcm(item.a_money)}
+                  </td>
+                  <td className="border p-3 text-sm text-gray-600 md:table-cell">
+                    {adcm(item.ramain_money)}
                   </td>
                   <td className="border p-3 text-sm text-gray-600 md:table-cell">
                     {item.comment}
