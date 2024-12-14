@@ -23,6 +23,8 @@ const HomePages = () => {
     { name: 'Market Report', path: '/Marketreport' },
     { name: 'Raporo Yimfuka', path: '/Raporoyimifuka' },
     { name: 'Raporo Yimodoka', path: '/Raporoyimodoka' },
+    { name: 'Amafaranga Yatanze Kuruhande', path: '/Kuruhande' },
+
   ];
 
   // Filter links based on search query

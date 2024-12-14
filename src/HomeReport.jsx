@@ -23,6 +23,7 @@ const HomePages = () => {
     { name: 'Market report', path: '/ProductFormMarket' },
     { name: 'Raporo Yimifuka', path: '/ProductFormSack' },
     { name: 'Raporo Yimodoka', path: '/ProductFormCar' },
+    { name: 'Amafaranga Yatanze Kuruhande', path: '/ProductFormAther' },
     
   ];
 
