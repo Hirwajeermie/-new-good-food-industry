@@ -15,7 +15,7 @@ function ImodokaPage() {
       const fetchRecs = async ()=>{
         let schema = pS
         schema.body = JSON.stringify({date: {}})
-        let recs = await f('c_Report',pS)
+        let recs = await f('carsreport',pS)
          if (recs.success) {
           setRecords(recs.metadata.report)
         }
@@ -29,7 +29,7 @@ function ImodokaPage() {
     e.preventDefault()
     let schema = pS
     schema.body = JSON.stringify({date})
-    let recs = await f('c_Report',pS)
+    let recs = await f('carsreport',pS)
      if (recs.success) {
           setRecords(recs.metadata.report)
         }
@@ -114,13 +114,13 @@ function ImodokaPage() {
                 Amavuta y'imodoka
                 </th>
                 <th className="border p-3 text-left text-sm font-semibold text-gray-700 md:table-cell">
-                Amavuta y'imodoka
-                </th>
-                <th className="border p-3 text-left text-sm font-semibold text-gray-700 md:table-cell">
                 piyese yaguzwe
                 </th>
                 <th className="border p-3 text-left text-sm font-semibold text-gray-700 md:table-cell">
                 Umukanishi
+                </th>
+                <th className="border p-3 text-left text-sm font-semibold text-gray-700 md:table-cell">
+                Ikinamba
                 </th>
                 <th className="border p-3 text-left text-sm font-semibold text-gray-700 md:table-cell">
                 Andi mafaranga
@@ -143,34 +143,34 @@ function ImodokaPage() {
                     {item.reporter}
                   </td>
                   <td className="border p-3 text-sm text-gray-600 md:table-cell">
-                    {adcm(item.driva)}
+                    {adcm(item.driver)}
                   </td>
                   <td className="border p-3 text-sm text-gray-600 md:table-cell">
-                    {adcm(item.prake)}
+                    {adcm(item.plate_no)}
                   </td>
                   <td className="border p-3 text-sm text-gray-600 md:table-cell">
-                    {adcm(item.h_money)}
+                    {adcm(item.inc_money)}
                   </td>
                   <td className="border p-3 text-sm text-gray-600 md:table-cell">
-                    {adcm(item.mazutu)}
+                    {adcm(item.diesel)}
                   </td>
                   <td className="border p-3 text-sm text-gray-600 md:table-cell">
-                    {adcm(item.amavuta)}
+                    {adcm(item.oil)}
                   </td>
                   <td className="border p-3 text-sm text-gray-600 md:table-cell">
-                    {adcm(item.piyese)}
+                    {adcm(item.pieces)}
                   </td>
                   <td className="border p-3 text-sm text-gray-600 md:table-cell">
-                    {adcm(item.phone)}
+                    {adcm(item.mechanic)}
                   </td>
                   <td className="border p-3 text-sm text-gray-600 md:table-cell">
-                    {adcm(item.umukanishi)}
+                    {adcm(item.wash)}
                   </td>
                   <td className="border p-3 text-sm text-gray-600 md:table-cell">
-                    {adcm(item.a_money)}
+                    {adcm(item.o_m)}
                   </td>
                   <td className="border p-3 text-sm text-gray-600 md:table-cell">
-                    {adcm(item.ramain_money)}
+                    {adcm(item.total)}
                   </td>
                   <td className="border p-3 text-sm text-gray-600 md:table-cell">
                     {item.comment}

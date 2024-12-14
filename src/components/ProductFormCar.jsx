@@ -5,15 +5,16 @@ function ProductFormCar() {
   const [formData, setFormData] = useState({
     date: "",
     reporter: "",
-    driva: "",
-    prake: "",
-    h_money: "",
-    mazutu:"",
-    amavuta:"",
-    piyese: "",
-    umukanishi: "",
-    a_money: "", 
+    driver: "",
+    plate_no: "",
+    inc_money: "",
+    diesel:"",
+    oil: "",
+    pieces: "",
+    mechanic: "", 
+    o_m:"",
     comment: "",
+    wash: "",
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [errors, setErrors] = useState({});
@@ -42,8 +43,8 @@ function ProductFormCar() {
   const validateForm = () => {
     const newErrors = {};
     const requiredFields = [
-      'date', 'reporter', 'commande', 
-      'returned', 'expenses', 'debts', 'p_debts',
+      'date', 'reporter', 'driver', 
+      'plate_no', 'inc_money', 'diesel', 'oil','pieces','mechanic','o_m','comment','wash',
     ];
     
     requiredFields.forEach(field => {
@@ -51,20 +52,6 @@ function ProductFormCar() {
         newErrors[field] = `${field} is required`;
       }
     });
-
-    
-    if (formData.amafarangaYararimo && parseFloat(formData.amafarangaYararimo) < 0) {
-      newErrors.amafarangaYararimo = "Amount cannot be negative";
-    }
-
-    if (formData.ayoYishyuye && parseFloat(formData.ayoYishyuye) < 0) {
-      newErrors.ayoYishyuye = "Amount cannot be negative";
-    }
-
-    if (formData.asigaye && parseFloat(formData.asigaye) < 0) {
-      newErrors.asigaye = "Amount cannot be negative";
-    }
-
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -79,20 +66,21 @@ function ProductFormCar() {
 
        let schema = pS
         schema.body = JSON.stringify(formData)
-        let recs = await f('mrController',pS)
+        let recs = await f('carsController',pS)
         if (recs.success) {
           setFormData({
             date: "",
             reporter: "",
-            commande: "",
-            returned: "",
-            expenses: "",
-            debts:"",
-            cash: "",
-            phone: "",
-            bank: "", 
-            p_debts:"",
+            driver: "",
+            plate_no: "",
+            inc_money: "",
+            diesel:"",
+            oil: "",
+            pieces: "",
+            mechanic: "", 
+            o_m:"",
             comment: "",
+            wash: "",
           });
         }
     }
@@ -126,14 +114,15 @@ function ProductFormCar() {
               {[
                 { name: "date", label: "Itariki", type: "date" },
                 { name: "reporter", label: "Utanze Raporo", type: "text" },
-                { name: "driva", label: "Amazina y'umushoferi", type: "number", step: "0.01" },
-                { name: "prake", label: "Prake", type: "text" },
-                { name: "h_money", label: "Amafaranga Yakoreye", type: "number", step: "0.01" },
-                { name: "mazutu", label: "Mazutu", type: "number", step: "0.01" },
-                { name: "amavuta", label: "Amavuta y'imodoka", type: "number", step: "0.01" },
-                { name: "piyese", label: "piyese yaguzwe", type: "number", step: "0.01" },
-                { name: "umukanishi", label: "Umukanishi", type: "number", step: "0.01" },
-                { name: "a_money", label: "Andi mafaranga", type: "number", step: "0.01" },
+                { name: "driver", label: "Amazina y'umushoferi", type: "text", step: "0.01" },
+                { name: "plate_no", label: "Prake", type: "text" },
+                { name: "inc_money", label: "Amafaranga Yakoreye", type: "number", step: "0.01" },
+                { name: "diesel", label: "Mazutu", type: "number", step: "0.01" },
+                { name: "oil", label: "Amavuta y'imodoka", type: "number", step: "0.01" },
+                { name: "pieces", label: "piyese yaguzwe", type: "number", step: "0.01" },
+                { name: "mechanic", label: "Umukanishi", type: "number", step: "0.01" },
+                { name: "wash", label: "Ikinamba", type: "number", step: "0.01" },
+                { name: "o_m", label: "Andi mafaranga", type: "number", step: "0.01" },
                
               ].map((field) => (
                 <div key={field.name} className="relative">

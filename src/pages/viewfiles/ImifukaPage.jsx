@@ -11,7 +11,7 @@ const  hasFetched = useRef(false),
         const fetchRecs = async ()=>{
           let schema = pS
           schema.body = JSON.stringify({date: {}})
-          let recs = await f('packaging-report',pS)
+          let recs = await f('sacksReport',pS)
            if (recs.success) {
           setRecords(recs.metadata.report)
         }
@@ -33,7 +33,7 @@ const  hasFetched = useRef(false),
       e.preventDefault()
       let schema = pS
       schema.body = JSON.stringify({date})
-      let recs = await f('packaging-report',pS)
+      let recs = await f('sacksReport',pS)
        if (recs.success) {
           setRecords(recs.metadata.report)
         }
@@ -91,94 +91,99 @@ const  hasFetched = useRef(false),
         </div>
        
         
-        <div className="overflow-x-auto mb-8">
-          <table className="min-w-full bg-white border border-indigo-200">
+        <div className="w-full overflow-x-auto mb-6">
+          <table className="w-full bg-white border border-indigo-200 text-sm md:text-base">
             <thead>
               <tr className="bg-indigo-50">
                 <th className="border border-indigo-200 p-2 text-left">Date</th>
-                <th className="border border-indigo-200 p-2 text-left">Buranda Yavuyemo</th>
+                <th className="border border-indigo-200 p-2 text-left">Utanze Raporo</th>
                 <th className="border border-indigo-200 p-2 text-left">Icyongeweho</th>
               </tr>
-              
             </thead>
               {records.map((item, index) => {
-                let isNFAvai = Object.values(item.new_food).find(el=> el),
-                isIFAvai = Object.values(item.ifunguro).find(el=> el),
-                 isISAvai = Object.values(item.isezerano).find(el=> el),
-                 isMAAvai = Object.values(item.magaju).find(el=> el),
-                 avai_f = []
-                 isNFAvai? avai_f.push('NF'): null
-                 isIFAvai? avai_f.push('IF'): null
-                 isISAvai? avai_f.push('IS'): null
-                 isMAAvai? avai_f.push('MA'): null
-                 return (
-                  <tbody key={index}>
-                   <tr className="hover:bg-indigo-50">
-                      <td className="border bg-gray-400 border-indigo-200 p-2">{item.date}</td>
-                      <td className="border border-indigo-200 p-2">{item.reporter}</td>
-                      <td className="border border-indigo-200 p-2">{item.comment}</td>
-                    </tr>
-  
-                    <tr>
-                      <td colSpan={7}>
-                        <div className="overflow-x-auto">
-                          <table className="min-w-full bg-white border border-indigo-200">
-                            <thead>
-                              <tr className="bg-indigo-50">
-                                <th className="border border-indigo-200 p-2">IBIRO</th>
-                                <th className="border border-indigo-200 p-2">INGANO</th>
-                                <th className="border border-indigo-200 p-2">IBIRO</th>
-                                <th className="border border-indigo-200 p-2">INGANO</th>
-                                <th className="border border-indigo-200 p-2">IBIRO</th>
-                                <th className="border border-indigo-200 p-2">INGANO</th>
-                                <th className="border border-indigo-200 p-2">IBIRO</th>
-                                <th className="border border-indigo-200 p-2">IMIFUKA</th>
-                                <th className="border border-indigo-200 p-2">IBIRO</th>
-                                <th className="border border-indigo-200 p-2">IMIFUKA</th>
+                return(<tbody key={index}>
+                  <tr key={index} className="hover:bg-indigo-50" style={!item.reporter ? {background: '#ff000040'}: {}}>
+                    <td className="border bg-gray-400 border-indigo-200 p-2">{item.date}</td>
+                    <td className="border border-indigo-200 p-2">{item.reporter}</td>
+                    <td className="border border-indigo-200 p-2">{item.comment}</td>
+                  </tr>
+                  <tr style={!item.reporter ? {background: '#ff000040'}: {}}>
+                    <td colSpan={4}>
+                      <div className="w-full overflow-x-auto">
+                        <table className="w-full bg-white border border-indigo-200 text-sm md:text-base">
+                          <thead>
+                            <tr className="bg-indigo-50">
+                              {['NEW FOOD', 'ISEZERANO', 'IFUNGURO', 'ISEZERANO ENVELOPE', 'ENVELOPE'].map((section) => (
+                                <React.Fragment key={section}>
+                                  <th colSpan="3" className="border border-indigo-200 p-2 text-center">{section}</th>
+                                </React.Fragment>
+                              ))}
+                            </tr>
+                            <tr className="bg-indigo-50">
+                              {['NEW FOOD', 'ISEZERANO', 'IFUNGURO', 'MAGAJU', 'ENVELOPE'].map((section) => (
+                                <React.Fragment key={section}>
+                                  <th className="border border-indigo-200 p-2">{!item.reporter ? 'Ibiro': 'Ibiro' }</th>
+                                  <th className="border border-indigo-200 p-2">{!item.reporter ? 'Imifuka yasohotse': 'Imifuka yiyongeye' }</th>
+                                  <th className="border border-indigo-200 p-2">{!item.reporter ? 'Imifuka yasigaye': 'Imifuka yosehamwe' }</th>
+                                </React.Fragment>
+                              ))}
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {['25', '10', '5'].map((weight) => {return (
+                              <tr key={weight} className="hover:bg-indigo-50">
+                                 <td className="border border-indigo-200 p-2">{Number(weight)}</td>
+                                <td className="border border-indigo-200 p-2">{item.ls.NF[weight]}</td>
+                                <td className="border border-indigo-200 p-2">{item.r_sacks.NF[weight]}</td>
+
+                                <td className="border border-indigo-200 p-2">{Number(weight)}</td>
+                                <td className="border border-indigo-200 p-2">{item.ls.IS[weight]}</td>
+                                <td className="border border-indigo-200 p-2">{item.r_sacks.IS[weight]}</td>
+                               
+                                <td className="border border-indigo-200 p-2">{Number(weight)}</td>
+                                <td className="border border-indigo-200 p-2">{item.ls.IF[weight]}</td>
+                                <td className="border border-indigo-200 p-2">{item.r_sacks.IF[weight]}</td>
+
+                                <td className="border border-indigo-200 p-2">{Number(weight)}</td>
+                                <td className="border border-indigo-200 p-2">{item.ls.MA[weight]}</td>
+                                <td className="border border-indigo-200 p-2">{item.r_sacks.MA[weight]}</td>
+                                {weight === '25' && (
+                                  <>
+                                    <td rowSpan="3" className="border border-indigo-200 p-2">{(Number('2'))}</td>
+                                    <td rowSpan="3" className="border border-indigo-200 p-2">{item.ls.envelope[2] || item.ls.envelope}</td>
+                                    <td rowSpan="3" className="border border-indigo-200 p-2">{item.r_sacks.envelope[2].toString() || item.r_sacks.envelope.toString()}</td>
+
+                                  </>
+                                )}
                               </tr>
-                              </thead>
-                              <tbody>
-                                {['25', '10', '5'].map((weight) => {
-                                  // console.log(item)
-                                  return (
-                                          <tr key={weight} className="hover:bg-indigo-50">
-                                            <td className="border border-indigo-200 p-2">{weight}kg</td>
-                                            <td className="border border-indigo-200 p-2">{item.new_food[weight]}</td>
-                                            <td className="border border-indigo-200 p-2">{weight}kg</td>
-                                            <td className="border border-indigo-200 p-2">{item.isezerano[weight]}</td>
-                                            <td className="border border-indigo-200 p-2">{weight}kg</td>
-                                            <td className="border border-indigo-200 p-2">{item.ifunguro[weight]}</td>
-                                            <td className="border border-indigo-200 p-2">{weight}kg</td>
-                                            <td className="border border-indigo-200 p-2">{item.magaju[weight]}</td>
-                                            {weight === '25' && (
-                                              <>
-                                                <td rowSpan="3" className="border border-indigo-200 p-2">{2}kg</td>
-                                                <td rowSpan="3" className="border border-indigo-200 p-2">{item.envelopes}</td>
-                                              </>
-                                            )}
-                                          </tr>
-                                      )
-                                  })}
-                                <tr className="font-bold bg-indigo-50">
-                                  <td colSpan="4" className="border border-indigo-200 p-2">{adcm(Object.values(item.f_e).reduce((acc, curr) => acc + Number(curr), 0))} KG</td>
-                                  <td className="border border-indigo-200 p-2">total</td>
-                                  <td className="border border-indigo-200 p-2">{adcm(Object.entries(item.new_food).reduce((acc, [key,value]) => acc + (Number(key)*value), 0))} KG</td>
-                                  <td className="border border-indigo-200 p-2">total</td>
-                                  <td className="border border-indigo-200 p-2">{adcm(Object.entries(item.isezerano).reduce((acc, [key,value]) => acc + (Number(key)*value), 0))} KG</td>
-                                  <td className="border border-indigo-200 p-2">total</td>
-                                  <td className="border border-indigo-200 p-2">{adcm(Object.entries(item.ifunguro).reduce((acc, [key,value]) => acc + (Number(key)*value), 0))} KG</td>
-                                  <td className="border border-indigo-200 p-2">total</td>
-                                  <td className="border border-indigo-200 p-2">{adcm(Object.entries(item.magaju).reduce((acc, [key,value]) => acc + (Number(key)*value), 0))} KG</td>
-                                  <td className="border border-indigo-200 p-2">total</td>
-                                  <td className="border border-indigo-200 p-2">{adcm(item.envelopes * 2)} KG</td>
-                                </tr>
-                              </tbody>
-                            </table>
-                        </div>
-                      </td>
-                    </tr>
-                  </tbody>
-                 )
+                            )})}
+                            {/* <tr className="font-bold bg-indigo-50">
+                              <td className="border border-indigo-200 p-2">{}</td>
+                              <td className="border border-indigo-200 p-2">{adcm(Object.values(item.ls.NF).reduce((sum,index)=>(sum+ (index)),0))}</td>
+                              <td className="border border-indigo-200 p-2" colSpan="2">Total:  {adcm(Object.entries(item.ls.NF).reduce((sum,[key,index])=>(sum+ (key*index)),0))} KG</td>
+                              
+                              <td className="border border-indigo-200 p-2"></td>
+                              <td className="border border-indigo-200 p-2">{adcm(Object.values(item.ls.IS).reduce((sum,index)=>(sum+ (index)),0))}</td>
+                              <td className="border border-indigo-200 p-2" colSpan="2">Total: {adcm(Object.entries(item.ls.IS).reduce((sum,[key,index])=>(sum+ (key*index)),0))} KG</td>
+                              
+                              <td className="border border-indigo-200 p-2"></td>
+                              <td className="border border-indigo-200 p-2">{adcm(Object.values(item.ls.IF).reduce((sum,index)=>(sum+ (index)),0))}</td>
+                              <td className="border border-indigo-200 p-2" colSpan="2">Total: {adcm(Object.entries(item.ls.IF).reduce((sum,[key,index])=>(sum+ (key*index)),0))} KG</td>
+                              
+                              <td className="border border-indigo-200 p-2"></td>
+                              <td className="border border-indigo-200 p-2">{adcm(Object.values(item.ls.MA).reduce((sum,index)=>(sum+ (index)),0))}</td>
+                              <td className="border border-indigo-200 p-2" colSpan="2">Total: {adcm(Object.entries(item.ls.MA).reduce((sum,[key,index])=>(sum+ (key*index)),0))} KG</td>
+                              
+                              <td className="border border-indigo-200 p-2">{adcm(item.ls.envelope['2']* Number('2'))}</td>
+                              <td className="border border-indigo-200 p-2">{item.ls.envelope['2']}</td>
+                              <td className="border border-indigo-200 p-2" colSpan="2">Total</td>
+                            </tr> */}
+                          </tbody>
+                        </table>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>)
               })}
           </table>
         </div>

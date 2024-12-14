@@ -10,21 +10,21 @@ const ProductFormSack = () => {
   const [isezerano, setIsezerano] = useState('');
   const [magaju, setMagaju] = useState('');
   const [inganoYaEnvelope, setInganoYaEnvelope] = useState('');
-  const [isEnvelope5kg, setIsEnvelope2kg] = useState('');
+  const [isEnvelope5kg, setIsEnvelope2kg] = useState(0);
   const [successMessage, setSuccessMessage] = useState(''); // Success message state
 
-  const handleInganoChange = (e) => {
-    const input = e.target.value;
-    setInganoYaEnvelope(input);
+  // const handleInganoChange = (e) => {
+  //   const input = e.target.value;
+  //   setIsEnvelope2kg(input);
 
     
-    if (input && !isNaN(input)) {
-      const inganoValue = parseInt(input, 10);
-      setIsEnvelope2kg(Math.floor(inganoValue / 2));
-    } else {
-      setIsEnvelope2kg(''); // Reset IS envelope 2kg if input is cleared
-    }
-  };
+  //   if (input && !isNaN(input)) {
+  //     const inganoValue = parseInt(input, 10);
+  //     setIsEnvelope2kg(Math.floor(inganoValue / 2));
+  //   } else {
+  //     setIsEnvelope2kg(''); // Reset IS envelope 2kg if input is cleared
+  //   }
+  // };
 
   const [newFoodIbiro, setNewFoodIbiro] = useState({ '25': 0, '10': 0, '5': 0 });
   const [ifunguroIbiro, setIfunguroIbiro] = useState({ '25': 0, '10': 0, '5': 0 });
@@ -32,29 +32,29 @@ const ProductFormSack = () => {
   const [magajuIbiro, setMagajuIbiro] = useState({ '25': 0, '10': 0, '5': 0 });
   const [envelope, setEnvelope] = useState({ ingano: 0, isEnvelope: 0, buranda: 0 });
   const [comments, setComments] = useState('');
-  const [sack_no_NF, setSack_no_NF] = useState('');
-  const [sack_no_IF, setSack_no_IF] = useState('');
-  const [sack_no_IS, setSack_no_IS] = useState('');
-  const [sack_no_MA, setSack_no_MA] = useState('');
+  // const [sack_no_NF, setSack_no_NF] = useState('');
+  // const [sack_no_IF, setSack_no_IF] = useState('');
+  // const [sack_no_IS, setSack_no_IS] = useState('');
+  // const [sack_no_MA, setSack_no_MA] = useState('');
 
 
-  const handleCheckboxChange = (item) => {
-    setSelectedAmafu((prev) => ({
-      ...prev,
-      [item]: !prev[item],
-    }));
-  };
+  // const handleCheckboxChange = (item) => {
+  //   setSelectedAmafu((prev) => ({
+  //     ...prev,
+  //     [item]: !prev[item],
+  //   }));
+  // };
 
-  const calculateTotal = (ibiro) => Object.entries(ibiro).reduce((acc, [key, value]) => { return acc + (Number(key) * value); }, 0);
+  const calculateTotal = (ibiro) => Object.entries(ibiro).reduce((acc, [key, value]) => { return acc +  value; }, 0);
   const calculateImifuka = (ibiroValue) => Math.floor(ibiroValue / 25);
   const icumiImifuka = (ibiroValue) => Math.floor(ibiroValue / 10);
   const bitanuImifuka = (ibiroValue) => Math.floor(ibiroValue / 5);
 
-  const handleNewFoodChange = (key, value) => setNewFoodIbiro(prev => ({ ...prev, [key]: Math.round(Number(value)/Number(key)) }));
-  const handleIfunguroChange = (key, value) => setIfunguroIbiro(prev => ({ ...prev, [key]: Math.round(Number(value)/Number(key)) }));
-  const handleIsezeranoChange = (key, value) => setIsezeranoIbiro(prev => ({ ...prev, [key]: Math.round(Number(value)/Number(key)) }));
-  const handleMagajuChange = (key, value) => setMagajuIbiro(prev => ({ ...prev, [key]: Math.round(Number(value)/Number(key)) }));
-  const handleEnvelopeChange = (key, value) => setEnvelope(prev => ({ ...prev, [key]: Math.round(Number(value)/Number(key)) }));
+  const handleNewFoodChange = (key, value) => setNewFoodIbiro(prev => ({ ...prev, [key]: Math.round(Number(value)) }));
+  const handleIfunguroChange = (key, value) => setIfunguroIbiro(prev => ({ ...prev, [key]: Math.round(Number(value)) }));
+  const handleIsezeranoChange = (key, value) => setIsezeranoIbiro(prev => ({ ...prev, [key]: Math.round(Number(value)) }));
+  const handleMagajuChange = (key, value) => setMagajuIbiro(prev => ({ ...prev, [key]: Math.round(Number(value)) }));
+  // const handleEnvelopeChange = (key, value) => setEnvelope(prev => ({ ...prev, [key]: Math.round(Number(value)) }));
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -67,10 +67,10 @@ const ProductFormSack = () => {
         magaju: magajuIbiro,
         envelope:  Number(isEnvelope5kg),
         comment: comments,
-        sack_no_IF,
-        sack_no_IS,
-        sack_no_MA,
-        sack_no_NF
+        // sack_no_IF,
+        // sack_no_IS,
+        // sack_no_MA,
+        // sack_no_NF
     };
 
     
@@ -78,7 +78,7 @@ const ProductFormSack = () => {
     setTimeout(() => setSuccessMessage(''), 3000); 
     const scheme = pS
     scheme.body = JSON.stringify(formData)
-    let res = await f('packaging',scheme)
+    let res = await f('sacksController',scheme)
     if (res.success) {
         setDate('');
         setUtanzeRaporo('');
@@ -90,10 +90,10 @@ const ProductFormSack = () => {
         setMagajuIbiro({ '25': 0, '10': 0, '5': 0 });
         setEnvelope({ ingano: 0, isEnvelope: 0, buranda: 0 });
         setComments('');
-        setSack_no_NF('')
-        setSack_no_IF('')
-        setSack_no_IS('')
-        setSack_no_MA('')
+        // setSack_no_NF('')
+        // setSack_no_IF('')
+        // setSack_no_IS('')
+        // setSack_no_MA('')
     }
     // Reset form fields
   };
@@ -162,18 +162,21 @@ const ProductFormSack = () => {
                       placeholder={`NF: ${[25, 10, 5][index]}KG`}
                       className="bg-gray-200 p-2 rounded"
                       name='nf'
-                      onChange={(e) => handleNewFoodChange(key, e.target.value)}
+                      value={key}
+                      disabled
+                      readOnly
                     />
                     <input
                       type="text"
-                      value={[calculateImifuka, icumiImifuka, bitanuImifuka][index](newFoodIbiro[key]* Number(key))}
+                      value={newFoodIbiro[key]}
+                      onChange={(e) => handleNewFoodChange(key, e.target.value)}
                       className="bg-gray-200 p-2 rounded"
                       
                     />
                   </React.Fragment>
                 ))}
                 <p className="col-span-2 text-left font-bold text-indigo-600">
-                  Total: {calculateTotal(newFoodIbiro)} KG
+                  Total: IMIFUKA {calculateTotal(newFoodIbiro)}
                 </p>
               </div>
             </div>
@@ -190,18 +193,21 @@ const ProductFormSack = () => {
                       name='if'
                       placeholder={`IF: ${[25, 10, 5][index]}KG`}
                       className="bg-gray-200 p-2 rounded"
-                      onChange={(e) => handleIfunguroChange(key, e.target.value)}
+                      value={key}
+                      disabled
+                      readOnly
                     />
                     <input
                       type="text"
-                      value={[calculateImifuka, icumiImifuka, bitanuImifuka][index](ifunguroIbiro[key]* Number(key))}
+                      onChange={(e) => handleIfunguroChange(key, e.target.value)}
+                      value={(ifunguroIbiro[key])}
                       className="bg-gray-200 p-2 rounded"
                       
                     />
                   </React.Fragment>
                 ))}
                 <p className="col-span-2 text-left font-bold text-indigo-600">
-                  Total: {calculateTotal(ifunguroIbiro)} KG
+                  Total: IMIFUKA {calculateTotal(ifunguroIbiro)}
                 </p>
               </div>
             </div>
@@ -219,18 +225,21 @@ const ProductFormSack = () => {
                       name='is'
                       placeholder={`IS: ${[25, 10, 5][index]}KG`}
                       className="bg-gray-200 p-2 rounded"
-                      onChange={(e) => handleIsezeranoChange(key, e.target.value)}
+                      readOnly
+                      disabled
+                      value={key}
                     />
                     <input
                       type="text"
-                      value={[calculateImifuka, icumiImifuka, bitanuImifuka][index](isezeranoIbiro[key]* Number(key))}
+                      value={(isezeranoIbiro[key])}
+                      onChange={(e) => handleIsezeranoChange(key, e.target.value)}
                       className="bg-gray-200 p-2 rounded"
                       
                     />
                   </React.Fragment>
                 ))}
                 <p className="col-span-2 text-left font-bold text-indigo-600">
-                  Total: {calculateTotal(isezeranoIbiro)} KG
+                  Total: IMIFUKA {calculateTotal(isezeranoIbiro)}
                 </p>
               </div>
             </div>
@@ -248,18 +257,21 @@ const ProductFormSack = () => {
                     name='mag'
                       placeholder={`IS E: ${[25, 10, 5, 2][index]}KG`}
                       className="bg-gray-200 p-2 rounded"
-                      onChange={(e) => handleMagajuChange(key, e.target.value)}
-                    />
+                      readOnly
+                      disabled
+                      value={key}
+                      />
                     <input
                       type="text"
-                      value={[calculateImifuka, icumiImifuka, bitanuImifuka][index](magajuIbiro[key]* Number(key))}
+                      onChange={(e) => handleMagajuChange(key, e.target.value)}
+                      value={(magajuIbiro[key])}
                       className="bg-gray-200 p-2 rounded"
                       
                     />
                   </React.Fragment>
                 ))}
                 <p className="col-span-2 text-left font-bold text-indigo-600">
-                  Total: {calculateTotal(magajuIbiro)} KG
+                  Total: IMIFUKA {calculateTotal(magajuIbiro)}
                 </p>
               </div>
             </div>
@@ -272,11 +284,12 @@ const ProductFormSack = () => {
 
            <input 
              type="number"
-             value={inganoYaEnvelope}
+             value={2}
              placeholder="IS:2KG"
              name='envelope'
              className="bg-gray-200 p-2 rounded"
-             onChange={handleInganoChange}
+             readOnly
+             disabled
           />
           <label className="block text-indigo-600 font-semibold mb-2">Ingano</label>
          <input
@@ -284,8 +297,7 @@ const ProductFormSack = () => {
              placeholder="0"
              className="bg-gray-200 p-2 rounded"
              value={isEnvelope5kg}
-             onChange={handleEnvelopeChange}
-             readOnly
+             onChange={(e)=>setIsEnvelope2kg(e.target.value)}
 
           />
       </div>
