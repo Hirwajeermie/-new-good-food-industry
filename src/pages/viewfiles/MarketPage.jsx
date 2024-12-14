@@ -129,6 +129,9 @@ function MarketPage() {
                 Total
                 </th>
                 <th className="border p-3 text-left text-sm font-semibold text-gray-700 md:table-cell">
+                Amafaranga yaverishijwe
+                </th>
+                <th className="border p-3 text-left text-sm font-semibold text-gray-700 md:table-cell">
                 Icyongeweho
                 </th>
               </tr>
@@ -168,6 +171,9 @@ function MarketPage() {
                   </td>
                   <td className="border p-3 text-sm text-gray-600 md:table-cell">
                     {adcm(item.total)}
+                  </td>
+                  <td className="border p-3 text-sm text-gray-600 md:table-cell">
+                    {adcm(item.totaltotal)}
                   </td>
                   <td className="border p-3 text-sm text-gray-600 md:table-cell">
                     {item.comment}
