@@ -8,7 +8,7 @@ import Isezerano22 from "../assets/Isezerano22.png"
 import Isez11 from "../assets/Isez11.png"
 import Ifunguro99 from "../assets/Ifunguro99.png"
 import ifung10 from "../assets/ifung10.png"
-import iseze05 from "../assets/iseze05.png"
+import iseze055 from "../assets/iseze055.png"
 
 const ProductPage = () => {
   const [selectedProduct, setSelectedProduct] = useState(null);
@@ -55,7 +55,7 @@ const ProductPage = () => {
     },
     {
       id: 6,
-      img: hawunga,
+      img: Isez11,
       name: 'IFUNGURO RYIZA',
       description: '5 Kilograms',
       details: 'Easy-to-store 5kg flour package'
@@ -76,18 +76,12 @@ const ProductPage = () => {
     },
     {
       id: 9,
-      img: iseze05,
+      img: ifung10,
       name: 'IFUNGURO RYIZA',
-      description: '50 Kilograms',
+      description: '10 Kilograms',
       details: 'Easy-to-store 5kg flour package'
     },
-    {
-      id: 9,
-      img: hawunga,
-      name: 'ISEZERANO',
-      description: '50 Kilograms',
-      details: 'Easy-to-store 5kg flour package'
-    }
+   
   
   ];
 
