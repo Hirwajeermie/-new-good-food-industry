@@ -29,7 +29,7 @@ function KuruhandePage() {
     e.preventDefault()
     let schema = pS
     schema.body = JSON.stringify({date})
-    let recs = await f('br_Report',pS)
+    let recs = await f('moReport',pS)
      if (recs.success) {
           setRecords(recs.metadata.report)
         }

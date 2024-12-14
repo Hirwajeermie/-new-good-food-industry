@@ -139,7 +139,6 @@ function MarketPage() {
             <tbody>
               {records.map((item, index) => {
                 let inc_money = Number(item.total) - Number(item.commande)
-                console.log(inc_money)
                 return(
                 <tr key={index} className="hover:bg-gray-50">
                   <td className="border p-3 text-sm text-gray-600 md:table-cell">
