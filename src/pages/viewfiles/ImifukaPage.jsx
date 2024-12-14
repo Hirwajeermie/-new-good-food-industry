@@ -130,7 +130,7 @@ const  hasFetched = useRef(false),
                             </tr>
                           </thead>
                           <tbody>
-                            {['25', '10', '5'].map((weight) => {console.log(item.r_sacks.envelope);return (
+                            {['25', '10', '5'].map((weight) => {console.log(item.ls.envelope);return (
                               <tr key={weight} className="hover:bg-indigo-50">
                                  <td className="border border-indigo-200 p-2">{Number(weight)}</td>
                                 <td className="border border-indigo-200 p-2">{item.ls.NF[weight]}</td>
@@ -150,7 +150,7 @@ const  hasFetched = useRef(false),
                                 {weight === '25' && (
                                   <>
                                     <td rowSpan="3" className="border border-indigo-200 p-2">{(Number('2'))}</td>
-                                    <td rowSpan="3" className="border border-indigo-200 p-2">{item.ls.envelope['2'] || item.ls.envelope}</td>
+                                    <td rowSpan="3" className="border border-indigo-200 p-2">{item.ls.envelope['2'] || item.ls.envelope.toString()}</td>
                                     <td rowSpan="3" className="border border-indigo-200 p-2">{item.r_sacks.envelope['2'].toString()}</td>
 
                                   </>
