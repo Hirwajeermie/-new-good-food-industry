@@ -15,7 +15,7 @@ function KuruhandePage() {
       const fetchRecs = async ()=>{
         let schema = pS
         schema.body = JSON.stringify({date: {}})
-        let recs = await f('br_Report',pS)
+        let recs = await f('moReport',pS)
          if (recs.success) {
           setRecords(recs.metadata.report)
         }
@@ -112,8 +112,6 @@ function KuruhandePage() {
             </thead>
             <tbody>
               {records.map((item, index) => {
-                let inc_money = Number(item.total) - Number(item.commande)
-                console.log(inc_money)
                 return(
                 <tr key={index} className="hover:bg-gray-50">
                   <td className="border p-3 text-sm text-gray-600 md:table-cell">
@@ -123,11 +121,11 @@ function KuruhandePage() {
                     {item.reporter}
                   </td>
                   <td className="border p-3 text-sm text-gray-600 md:table-cell">
-                    {adcm(item.a_money)}
+                    {adcm(item.amount)}
                   </td>
                   
                   <td className="border p-3 text-sm text-gray-600 md:table-cell" >
-                    {adcm(item.w_money)}
+                    {adcm(item.reason)}
                   </td>
                   <td className="border p-3 text-sm text-gray-600 md:table-cell">
                     {item.comment}

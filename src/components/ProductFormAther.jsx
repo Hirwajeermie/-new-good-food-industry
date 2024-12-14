@@ -5,8 +5,8 @@ function ProductFormAther() {
   const [formData, setFormData] = useState({
     date: "",
     reporter: "",
-    a_money: "", 
-    w_money: "",
+    amount: "", 
+    reason: "",
     comment: "",
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -35,8 +35,8 @@ function ProductFormAther() {
   const validateForm = () => {
     const newErrors = {};
     const requiredFields = [
-      'date', 'reporter', 'commande', 
-      'returned', 'expenses', 'debts', 'p_debts',
+      'date', 'reporter', 'amount', 
+      'reason', 'comment'
     ];
     
     requiredFields.forEach(field => {
@@ -44,20 +44,6 @@ function ProductFormAther() {
         newErrors[field] = `${field} is required`;
       }
     });
-
-    
-    if (formData.amafarangaYararimo && parseFloat(formData.amafarangaYararimo) < 0) {
-      newErrors.amafarangaYararimo = "Amount cannot be negative";
-    }
-
-    if (formData.ayoYishyuye && parseFloat(formData.ayoYishyuye) < 0) {
-      newErrors.ayoYishyuye = "Amount cannot be negative";
-    }
-
-    if (formData.asigaye && parseFloat(formData.asigaye) < 0) {
-      newErrors.asigaye = "Amount cannot be negative";
-    }
-
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -72,13 +58,13 @@ function ProductFormAther() {
 
        let schema = pS
         schema.body = JSON.stringify(formData)
-        let recs = await f('mrController',pS)
+        let recs = await f('moController',pS)
         if (recs.success) {
           setFormData({
             date: "",
             reporter: "",
-            a_money: "",
-            w_money: "",
+            amount: "",
+            reason: "",
             comment: "",
           });
         }
@@ -106,39 +92,21 @@ function ProductFormAther() {
         <div className="bg-white shadow-md rounded-lg p-6 sm:p-8 md:p-10">
           <form onSubmit={handleSubmit} className="space-y-6">
             <h1 className="text-2xl sm:text-3xl font-bold text-center text-indigo-700 mb-6">
-              MARKET REPORT 
+            ANDIMAFRANGA YATANZWE KURUHANDE
             </h1>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {[
                 { name: "date", label: "Itariki", type: "date" },
                 { name: "reporter", label: "Utanze Raporo", type: "text" },
-                { name: "a_money", label: "Amafaranga yatanzwe", type: "text" },
+                { name: "amount", label: "Amafaranga yatanzwe", type: "text" },
                
               ].map((field) => (
                 <div key={field.name} className="relative">
                   <label className="block text-sm font-medium text-indigo-600 mb-1">
                     {field.label}
                   </label>
-                  {field.type === 'select' ? (
-                    <select
-                      name={field.name}
-                      value={formData[field.name]}
-                      onChange={handleChange}
-                      className={`w-full px-3 py-2 border rounded 
-                        ${errors[field.name] 
-                          ? 'border-red-500 focus:ring-red-200' 
-                          : 'border-indigo-300 focus:ring-indigo-200'}
-                        focus:outline-none focus:ring-2`}
-                      required
-                    >
-                      {field.options.map((option) => (
-                        <option key={option.value} value={option.value}>
-                          {option.label}
-                        </option>
-                      ))}
-                    </select>
-                  ) : (
+                  {(
                     <input
                       type={field.type}
                       name={field.name}
@@ -167,8 +135,8 @@ function ProductFormAther() {
                 Impamvu yatanzwe
               </label>
               <textarea
-                name="comment"
-                value={formData.w_money}
+                name="reason"
+                value={formData.reason}
                 onChange={handleChange}
                 className="w-full px-3 py-2 border rounded border-indigo-300 
                   focus:outline-none focus:ring-2 focus:ring-indigo-200"
