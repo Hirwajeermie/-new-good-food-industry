@@ -1,45 +1,55 @@
 import React, { useState } from 'react';
 import { Home, Menu } from 'lucide-react';
 import hawunga from "../assets/kawunga.png"
+import new50 from "../assets/new50.png"
+import new10 from "../assets/new10.png"
+import Newfood44 from "../assets/Newfood44.png"
+import Isezerano22 from "../assets/Isezerano22.png"
+import Isez11 from "../assets/Isez11.png"
+import Ifunguro99 from "../assets/Ifunguro99.png"
+import ifung10 from "../assets/ifung10.png"
+import iseze05 from "../assets/iseze05.png"
 
 const ProductPage = () => {
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const products = [
+
+    
     
     {
       id: 1,
-      img: hawunga,
+      img: Newfood44,
       name: 'NEW FOOD',
       description: '25 Kilograms',
       details: 'Premium wheat flour processed with care'
     },
     {
       id: 2,
-      img: hawunga,
+      img: new10,
       name: 'NEW FOOD',
       description: '10 Kilograms',
       details: 'Traditional Rwandan flour blend'
     },
     {
       id: 3,
-      img: hawunga,
+      img: new50,
       name: 'NEW FOOD',
       description: '5 Kilograms',
       details: 'Nutritious and authentic local flour'
     },
     {
       id: 4,
-      img: hawunga,
-      name: 'IFUNGURO RYIZA',
+      img: Isezerano22,
+      name: 'ISEZERANO',
       description: '25 Kilograms',
       details: 'Protein-rich flour for balanced nutrition'
     },
     {
       id: 5,
-      img: hawunga,
-      name: 'IFUNGURO RYIZA',
+      img: Isez11,
+      name: 'ISEZERANO',
       description: '10 Kilograms',
       details: 'Easy-to-store 5kg flour package'
     },
@@ -52,22 +62,22 @@ const ProductPage = () => {
     },
     {
       id: 7,
-      img: hawunga,
-      name: 'ISEZERANO',
+      img: Ifunguro99,
+      name: 'IFUNGURO RYIZA',
       description: '25 Kilograms',
       details: 'Easy-to-store 5kg flour package'
     },
     {
       id: 8,
-      img: hawunga,
-      name: 'ISEZERANO',
+      img: ifung10,
+      name: 'IFUNGURO RYIZA',
       description: '10 Kilograms',
       details: 'Easy-to-store 5kg flour package'
     },
     {
       id: 9,
-      img: hawunga,
-      name: 'ISEZERANO',
+      img: iseze05,
+      name: 'IFUNGURO RYIZA',
       description: '50 Kilograms',
       details: 'Easy-to-store 5kg flour package'
     },
@@ -159,7 +169,7 @@ const ProductPage = () => {
               <img
                 src={product.img}
                 alt={product.name}
-                className="w-full h-32 md:h-48 object-cover"
+                className="w-full h-full md:h-full object-cover"
               />
               <div className="p-2 md:p-4">
                 <h2 className="text-sm md:text-xl font-semibold text-red-600 mb-1 md:mb-2 truncate">
@@ -191,7 +201,7 @@ const ProductPage = () => {
               <img
                 src={selectedProduct.img}
                 alt={selectedProduct.name}
-                className="w-full h-48 md:h-64 object-cover rounded-lg mb-4"
+                className="w-full h-full md:h-64 object-cover rounded-lg mb-4"
               />
               <p className="text-sm md:text-base text-gray-700">
                 {selectedProduct.details}

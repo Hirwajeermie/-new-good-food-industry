@@ -5,8 +5,8 @@ import React, { useState } from 'react';
 import { Link, Element } from 'react-scroll';
 import { FaWhatsapp, FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaInstagram, FaFacebook, FaYoutube } from 'react-icons/fa';
 import Newfood44 from "../assets/Newfood44.png"
-import Ifunguro22 from "../assets/Ifunguro22.png"
-import Isezerano33 from "../assets/Isezerano33.png"
+import Ifunguro99 from "../assets/Ifunguro99.png"
+import Isezerano22 from "../assets/Isezerano22.png"
 import envilope11 from "../assets/envilope11.png"
 import MASAK88 from "../assets/MASAK88.png"
 
@@ -132,12 +132,12 @@ const NewGoodFoodWebsite = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
                 {[
                   { 
-                    title: 'Our Goal', 
-                    text: 'Provide high-quality kawunga and maize flour at competitive prices.' 
+                    title: 'Our Vision', 
+                    text: 'To be the leading maize milling company in Rwanda, renowned for delivering high-quality, nutritious maize flour while driving sustainable growth, empowering farmers, and reducing post-harvest losses.' 
                   },
                   { 
                     title: 'Our Mission', 
-                    text: 'Deliver nutritious and affordable food products to our community.' 
+                    text: 'To enhance food security and economic prosperity in Rwanda by providing reliable maize drying and milling solutions, promoting fair trade with farmers, and producing affordable, high-quality maize flour for all.' 
                   }
                 ].map(({ title, text }) => (
                   <div 
@@ -161,8 +161,8 @@ const NewGoodFoodWebsite = () => {
               <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-4 gap-4">
                 {[
                   { img: Newfood44, name: "NEWFOOD" },
-                  { img: Ifunguro22, name: "IFUNGURO RYIZA" },
-                  { img: Isezerano33, name: "ISEZERANO" },
+                  { img: Ifunguro99, name: "IFUNGURO RYIZA" },
+                  { img: Isezerano22, name: "ISEZERANO" },
                   { img: envilope11, name: "ISEZERANO ENVELOPE" },
                 ].map(({ img, name }) => (
                   <div
@@ -172,7 +172,7 @@ const NewGoodFoodWebsite = () => {
                     <img 
                       src={img} 
                       alt={name} 
-                      className="w-full h-20 md:h-full object-cover"
+                      className="w-full h-full md:h-full object-cover"
                     />
                     <div className="p-3 text-center bg-red-600 text-white text-sm md:text-base">
                       {name}
