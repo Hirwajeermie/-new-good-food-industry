@@ -172,7 +172,7 @@ const ProductFormChe = () => {
               Ingano Yibigiye Gutunganywa
               </label>
               <input 
-                type="text" 
+                type="number" 
                 placeholder="Ibiro" 
                 className="w-full p-2 border rounded-md" 
                 value={incoming_c}
