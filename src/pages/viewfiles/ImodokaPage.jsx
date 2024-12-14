@@ -46,7 +46,7 @@ function ImodokaPage() {
     <div className="container mx-auto p-4 space-y-8">
       <div className="bg-white rounded-lg shadow-md p-6">
         <h2 className="text-2xl font-bold text-center text-indigo-800 mb-6">
-        RAPORO YA MARKET REPORT
+        RAPORO YIMODOKA
         </h2>
 
         
