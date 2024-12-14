@@ -137,7 +137,10 @@ function MarketPage() {
               </tr>
             </thead>
             <tbody>
-              {records.map((item, index) => (
+              {records.map((item, index) => {
+                let inc_money = Number(item.total) - Number(item.commande)
+                console.log(inc_money)
+                return(
                 <tr key={index} className="hover:bg-gray-50">
                   <td className="border p-3 text-sm text-gray-600 md:table-cell">
                     {item.date}
@@ -172,14 +175,14 @@ function MarketPage() {
                   <td className="border p-3 text-sm text-gray-600 md:table-cell">
                     {adcm(item.total)}
                   </td>
-                  <td className="border p-3 text-sm text-gray-600 md:table-cell">
-                    {adcm(item.totaltotal)}
+                  <td className="border p-3 text-sm text-gray-600 md:table-cell" style={inc_money == item.commande ? {backgroundColor :'#00800059'}: {backgroundColor: '#ff000057'}}>
+                    {adcm(inc_money)}
                   </td>
                   <td className="border p-3 text-sm text-gray-600 md:table-cell">
                     {item.comment}
                   </td>
                 </tr>
-              ))}
+              )})}
             </tbody>
           </table>
         </div>
