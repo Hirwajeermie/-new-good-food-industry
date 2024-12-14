@@ -24,6 +24,7 @@ const HomePages = () => {
     { name: 'Raporo Yimfuka', path: '/Raporoyimifuka' },
     { name: 'Raporo Yimodoka', path: '/Raporoyimodoka' },
     { name: 'Amafaranga Yatanze Kuruhande', path: '/Kuruhande' },
+    { name: 'Ibyaguzwe Kuruhanze', path: '/KuruhandeIbyaguzwe' },
 
   ];
 

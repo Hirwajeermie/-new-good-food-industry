@@ -24,6 +24,7 @@ const HomePages = () => {
     { name: 'Raporo Yimifuka', path: '/ProductFormSack' },
     { name: 'Raporo Yimodoka', path: '/ProductFormCar' },
     { name: 'Amafaranga Yatanze Kuruhande', path: '/ProductFormAther' },
+    { name: 'Ibyaguzwe Kuruhande', path: '/ProductFormKur' },
     
   ];
 
