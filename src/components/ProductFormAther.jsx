@@ -92,7 +92,7 @@ function ProductFormAther() {
         <div className="bg-white shadow-md rounded-lg p-6 sm:p-8 md:p-10">
           <form onSubmit={handleSubmit} className="space-y-6">
             <h1 className="text-2xl sm:text-3xl font-bold text-center text-indigo-700 mb-6">
-            ANDIMAFRANGA YATANZWE KURUHANDE
+            ANDI MAFARANGA YATANZWE KURUHANDE
             </h1>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">

@@ -95,7 +95,7 @@ function ProductFormKur() {
                 { name: "date", label: "Itariki", type: "date" },
                 { name: "reporter", label: "Utanze Raporo", type: "text" },
                 { name: "item", label: "Icyaguzwe", type: "text", step: "0.01" },
-                { name: "amount", label: "Ingano yaguzwe", type: "number", step: "0.01" },
+                { name: "amount", label: "Ingano yaguzwe", type: "text", step: "0.01" },
                 { name: "price", label: "Amafaranga Yishyuwe", type: "number", step: "0.01" },
                 
               ].map((field) => (
