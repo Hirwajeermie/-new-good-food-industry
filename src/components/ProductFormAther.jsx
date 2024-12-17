@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { f, pS } from "../../public/functions";
+import { f, pS, ShowMessage } from "../../public/functions";
 
 function ProductFormAther() {
   const [formData, setFormData] = useState({
@@ -10,7 +10,8 @@ function ProductFormAther() {
     comment: "",
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [errors, setErrors] = useState({});
+  const [errors, setErrors] = useState({}),[showM,setShowM] = useState(false),
+    [message,setMessage] = useState('')
 
 
 
@@ -58,7 +59,15 @@ function ProductFormAther() {
 
        let schema = pS
         schema.body = JSON.stringify(formData)
-        let recs = await f('moController',pS)
+        let recs = await f('moController',pS)    
+        setShowM(true)
+      setMessage({
+        message: recs.message,
+        decision: recs.success
+      })
+      setTimeout(() => {
+        setShowM(false);
+      }, 3000);
         if (recs.success) {
           setFormData({
             date: "",
@@ -88,6 +97,7 @@ function ProductFormAther() {
 
   return (
     <div className="min-h-screen bg-gray-50 p-4 sm:p-6 lg:p-8 flex items-center justify-center">
+      {showM ? <ShowMessage message={message.message} decision={message.decision}/>: null}
       <div className="w-full max-w-4xl">
         <div className="bg-white shadow-md rounded-lg p-6 sm:p-8 md:p-10">
           <form onSubmit={handleSubmit} className="space-y-6">

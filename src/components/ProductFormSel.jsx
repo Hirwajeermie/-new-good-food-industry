@@ -1,6 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useState, useEffect } from 'react';
-import { adcm, f, pS } from '../../public/functions';
+import { adcm, f, pS, ShowMessage } from '../../public/functions';
 
 const ProductFormSel = () => {
   const [formData, setFormData] = useState({
@@ -34,7 +34,10 @@ const ProductFormSel = () => {
     sack_no_IS: '',
     sack_no_MA: '',
     comment: '',
-  });
+  })
+  ,
+   [showM,setShowM] = useState(false),
+    [message,setMessage] = useState('')
   const handleGridInputChange = (fieldName, rowIndex, field, value) => {
     setFormData(prevData => {
       try {
@@ -167,6 +170,14 @@ const ProductFormSel = () => {
     const scheme = pS
     scheme.body = JSON.stringify(nfd)
     let res = await f('sales',scheme)
+            setShowM(true)
+      setMessage({
+        message: res.message,
+        decision: res.success
+      })
+      setTimeout(() => {
+        setShowM(false);
+      }, 3000)
     if (res.success) {
       setFormData({
         date: '',
@@ -206,6 +217,7 @@ const ProductFormSel = () => {
 
   return (
     <div className="min-h-screen bg-gray-50 py-4 sm:py-8">
+            {showM ? <ShowMessage message={message.message} decision={message.decision}/>: null}
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6">
         <h1 className="text-xl sm:text-2xl font-bold text-indigo-500 text-center mb-6 sm:mb-8">
         KAWUNGA YAGIYE KWISOKO

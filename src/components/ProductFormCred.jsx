@@ -16,7 +16,9 @@ function ProductFormCred() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [errors, setErrors] = useState({});
   const [records,setRecords] = useState([]),
-  hasFetched = useRef(false)
+  hasFetched = useRef(false),
+   [showM,setShowM] = useState(false),
+    [message,setMessage] = useState('')
   useEffect(()=>{
     if (!hasFetched.current) {
       const fetchRecs = async ()=>{
@@ -104,7 +106,15 @@ function ProductFormCred() {
       setIsSubmitted(true);
       const scheme = pS
       scheme.body = JSON.stringify(formData)
-      let res = await f('pdebtsController',scheme)
+      let res = await f('pdebtsController',scheme)        
+      setShowM(true)
+      setMessage({
+        message: res.message,
+        decision: res.success
+      })
+      setTimeout(() => {
+        setShowM(false);
+      }, 3000)
       if (res.success) {
         setFormData({
           reporter: "",
@@ -137,7 +147,8 @@ function ProductFormCred() {
   }, [isSubmitted]);
 
   return (
-    <div className="min-h-screen bg-gray-50 p-4 sm:p-6 lg:p-8 flex items-center justify-center">
+    <div className="min-h-screen bg-gray-50 p-4 sm:p-6 lg:p-8 flex items-center justify-center">      
+    {showM ? <ShowMessage message={message.message} decision={message.decision}/>: null}
       <div className="w-full max-w-4xl">
         <div className="bg-white shadow-md rounded-lg p-6 sm:p-8 md:p-10">
           <form onSubmit={handleSubmit} className="space-y-6">

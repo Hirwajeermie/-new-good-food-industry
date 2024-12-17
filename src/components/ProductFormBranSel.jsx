@@ -1,6 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useState, useEffect } from "react";
-import { f, pS } from "../../public/functions";
+import { f, pS, ShowMessage } from "../../public/functions";
 
 function ProductFormBranSel() {
   const [paymentMethod, setPaymentMethod] = useState('');
@@ -15,7 +15,9 @@ function ProductFormBranSel() {
     p_name: "",
     comment: "",
     pm:''
-  });
+  }),
+   [showM,setShowM] = useState(false),
+   [message,setMessage] = useState('')
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleChange = (e) => {
@@ -55,7 +57,15 @@ function ProductFormBranSel() {
     setIsSubmitted(true);
     const scheme = pS
     scheme.body = JSON.stringify(formData)
-    let res = await f('leftoversOutController',scheme)
+    let res = await f('leftoversOutController',scheme)        
+    setShowM(true)
+      setMessage({
+        message: res.message,
+        decision: res.success
+      })
+      setTimeout(() => {
+        setShowM(false);
+      }, 3000)
     if (res.success) {
       const resetForm = {
         date: "",
@@ -91,7 +101,8 @@ function ProductFormBranSel() {
   }, [isSubmitted]);
 
   return (
-    <div className="min-h-screen bg-gray-50 p-4 sm:p-6 lg:p-8">
+    <div className="min-h-screen bg-gray-50 p-4 sm:p-6 lg:p-8">      
+    {showM ? <ShowMessage message={message.message} decision={message.decision}/>: null}
       <div className="max-w-4xl mx-auto">
         <div className="bg-white shadow-md rounded-lg p-6 sm:p-8">
           <form onSubmit={handleSubmit} className="space-y-6">

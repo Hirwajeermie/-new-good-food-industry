@@ -1,6 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useEffect, useRef, useState } from 'react';
-import { adcm, f, pS } from '../../../public/functions';
+import { adcm, f, pS, ShowMessage } from '../../../public/functions';
 
 const IbishyashyaPage = () => {
     const [records,setRecords] = useState([]),
@@ -15,13 +15,23 @@ const IbishyashyaPage = () => {
     [date,setDate] = useState({
       start: null,
       stop: null
-    })
+    }),
+    [showM,setShowM] = useState(false),
+    [message,setMessage] = useState('')
     useEffect(()=>{
       if (!hasFetched.current) {
         const fetchRecs = async ()=>{
           let schema = pS
           schema.body = JSON.stringify({date: {}})
           let recs = await f('stock-1-report',pS)
+          setShowM(true)
+          setMessage({
+            message: recs.message,
+            decision: recs.success
+          })
+          setTimeout(() => {
+            setShowM(false);
+          }, 3000);
            if (recs.success) {
               setRecords(recs.metadata.report)
               setTotals(
@@ -39,6 +49,15 @@ const IbishyashyaPage = () => {
       let schema = pS
       schema.body = JSON.stringify({date})
       let recs = await f('stock-1-report',pS)
+      setShowM(true)
+      setMessage({
+        message: recs.message,
+        decision: recs.success
+      })
+      setTimeout(() => {
+        setShowM(false);
+      }, 3000);
+      
        if (recs.success) {
           setRecords(recs.metadata.report)
           setTotals(
@@ -56,6 +75,7 @@ const IbishyashyaPage = () => {
   return (
     <div className="container mx-auto p-4">
       {/* Title Section */}
+      {showM ? <ShowMessage message={message.message} decision={message.decision}/>: null}
       <div className="mb-6">
       
         <h2 className="text-xl mt-2 text-center">RAPORO Y'IBIGORI BYINJIYE MU RUGANDA</h2>

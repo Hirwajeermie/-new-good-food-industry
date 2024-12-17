@@ -1,6 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useState } from 'react';
-import { f, pS } from '../../public/functions';
+import { f, pS, ShowMessage } from '../../public/functions';
 
 const ProductFormOut = () => {
   const [paymentMethod, setPaymentMethod] = useState('');
@@ -37,6 +37,9 @@ const ProductFormOut = () => {
       envelope: [{ ibiro: '', imifuka: 0, price: '', total: 0 }],
     }
   })
+  ,
+   [showM,setShowM] = useState(false),
+    [message,setMessage] = useState('')
   const ProductRowSimple = ({ prefix, size, onValueChange,object,key }) => {
     let index
     size == '25'? index = 0: size == '10'? index = 1 : size == '5'? index = 2 : index = 0
@@ -306,6 +309,14 @@ const ProductFormOut = () => {
   const scheme = pS
   scheme.body = JSON.stringify(nfd)
   let res = await f('sales-nr',scheme)
+  setShowM(true)
+  setMessage({
+    message: res.message,
+    decision: res.success
+  })
+  setTimeout(() => {
+    setShowM(false);
+  }, 3000)
   if (res.success) {
     setFormData({
       date: '',
@@ -342,10 +353,9 @@ const ProductFormOut = () => {
   }
   nfd = formData
  };
-
-
  return (
    <div className="min-h-screen bg-gray-50 p-6">
+          {showM ? <ShowMessage message={message.message} decision={message.decision}/>: null}
      <div className="max-w-7xl mx-auto">
        <h1 className="text-xl font-bold mb-6 text-center text-indigo-600">
          UWAGEMUYE KWISOKO

@@ -1,10 +1,12 @@
 import React, { useState, useMemo, useRef, useEffect } from 'react'
-import { adcm, f, pS } from '../../../public/functions'
+import { adcm, f, pS, ShowMessage } from '../../../public/functions'
 
 const IbisanzwePage = () => {
 
 const  hasFetched = useRef(false),
-  [records,setRecords] = useState([])
+  [records,setRecords] = useState([]),
+  [showM,setShowM] = useState(false),
+    [message,setMessage] = useState('')
 
     useEffect(()=>{
       if (!hasFetched.current) {
@@ -12,6 +14,14 @@ const  hasFetched = useRef(false),
           let schema = pS
           schema.body = JSON.stringify({date: {}})
           let recs = await f('packaging-report',pS)
+        setShowM(true)
+          setMessage({
+            message: recs.message,
+            decision: recs.success
+          })
+          setTimeout(() => {
+            setShowM(false);
+          }, 3000);
            if (recs.success) {
           setRecords(recs.metadata.report)
         }
@@ -34,6 +44,14 @@ const  hasFetched = useRef(false),
       let schema = pS
       schema.body = JSON.stringify({date})
       let recs = await f('packaging-report',pS)
+    setShowM(true)
+      setMessage({
+        message: recs.message,
+        decision: recs.success
+      })
+      setTimeout(() => {
+        setShowM(false);
+      }, 3000);
        if (recs.success) {
           setRecords(recs.metadata.report)
         }
@@ -47,6 +65,7 @@ const  hasFetched = useRef(false),
     }
   return (
     <div className="container mx-auto p-4 space-y-8">
+            {showM ? <ShowMessage message={message.message} decision={message.decision}/>: null}
       <div className="bg-white rounded-lg shadow-md p-4">
         <h2 className="text-2xl font-bold text-center text-indigo-800 mb-4">
           IBIGORI BYAKOBOWE

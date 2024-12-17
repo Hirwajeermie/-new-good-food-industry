@@ -1,8 +1,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/no-unescaped-entities */
 import React, { useState } from 'react';
-import { f, pS, setData } from '../../public/functions';
-
+import { f, pS, setData, ShowMessage } from '../../public/functions';
 const ProductForm = () => {
   
   const [calc,setCalc] = useState(0),
@@ -20,6 +19,8 @@ const ProductForm = () => {
       r_amount: '',
       date: ''
   }),
+  [showM,setShowM] = useState(false),
+    [message,setMessage] = useState(''),
   changeVals = (e)=>{
     let{name,value} = e.target;
     setFormVars(prevD=>({
@@ -35,6 +36,14 @@ const ProductForm = () => {
     const scheme = pS
     scheme.body = JSON.stringify(formVars)
     let res = await f('record-stock-1',scheme)
+    setShowM(true)
+      setMessage({
+        message: res.message,
+        decision: res.success
+      })
+      setTimeout(() => {
+        setShowM(false);
+      }, 3000);
     if (res.success) {
       setFormVars({
         dist_names: '',
@@ -55,7 +64,7 @@ const ProductForm = () => {
   return (
     <form onSubmit={recProd}>
 <div className="p-6 bg-indigo-100 min-h-screen">
-
+{showM ? <ShowMessage message={message.message} decision={message.decision}/>: null}
     
       <div className="bg-white p-6 rounded-lg shadow-md">
         <h2 className="text-center font-semibold text-indigo-600 mb-4">IBIGORI BISHYASHYA BY'INJIYE MURU STOKE</h2>

@@ -1,5 +1,5 @@
 import React, { useState, useMemo, useRef, useEffect } from 'react'
-import { adcm, f, pS } from '../../../public/functions'
+import { adcm, f, pS, ShowMessage } from '../../../public/functions'
 
 
 const IbyinjiyePage = () => {
@@ -8,13 +8,23 @@ const IbyinjiyePage = () => {
     [date,setDate] = useState({
       start: null,
       stop: null
-    })
+    }),
+  [showM,setShowM] = useState(false),
+    [message,setMessage] = useState('')
     useEffect(()=>{
       if (!hasFetched.current) {
         const fetchRecs = async ()=>{
           let schema = pS
           schema.body = JSON.stringify({date: {}})
           let recs = await f('packaging-track-report',pS)
+        setShowM(true)
+          setMessage({
+            message: recs.message,
+            decision: recs.success
+          })
+          setTimeout(() => {
+            setShowM(false);
+          }, 3000);
           if (recs.success) {
             setRecords(recs.metadata.report)
           }
@@ -29,6 +39,14 @@ const IbyinjiyePage = () => {
       let schema = pS
       schema.body = JSON.stringify({date})
       let recs = await f('packaging-track-report',pS)
+    setShowM(true)
+      setMessage({
+        message: recs.message,
+        decision: recs.success
+      })
+      setTimeout(() => {
+        setShowM(false);
+      }, 3000);
       if (recs.success) {
         setRecords(recs.metadata.report)
       }
@@ -43,6 +61,7 @@ const IbyinjiyePage = () => {
 
   return (
     <div className="container mx-auto p-4 max-w-full">
+      {showM ? <ShowMessage message={message.message} decision={message.decision}/>: null}
       <div className="bg-white rounded-lg shadow-md p-4 w-full overflow-x-auto">
         <h2 className="text-2xl font-bold text-center text-indigo-800 mb-6">
           RAPORO Y'IFU YINJIYE MURI STOCK
