@@ -33,7 +33,7 @@ import { adcm, f, pS, ShowMessage } from "../../../public/functions";
       fetchRecs()
       hasFetched.current = true
     }
-  },[]),
+  },[])
 
   async function handleSubmit(e) {
     e.preventDefault()
