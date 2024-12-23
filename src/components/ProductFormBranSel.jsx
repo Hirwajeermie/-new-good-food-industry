@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { f, pS } from "../../public/functions";
 
 function ProductFormBranSel() {
+
   const [paymentMethod, setPaymentMethod] = useState('');
   const [formData, setFormData] = useState({
     date: "",
@@ -14,7 +15,7 @@ function ProductFormBranSel() {
     r_amount: "",
     p_name: "",
     comment: "",
-    pm:''
+    pm:[]
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
 
@@ -53,8 +54,10 @@ function ProductFormBranSel() {
 
     
     setIsSubmitted(true);
-    const scheme = pS
-    scheme.body = JSON.stringify(formData)
+    const scheme = pS,
+    nfde = structuredClone(formData)
+    nfde.pm = nfde.pm.toString()
+    scheme.body = JSON.stringify(nfde)
     let res = await f('leftoversOutController',scheme)
     if (res.success) {
       const resetForm = {
@@ -64,7 +67,7 @@ function ProductFormBranSel() {
         weight: "",
         price: "",
         g_amount: "",
-        pm:"",
+        pm:[],
         comment: "",
         r_amount: "",
         p_name: "",
@@ -90,6 +93,15 @@ function ProductFormBranSel() {
     };
   }, [isSubmitted]);
 
+const handleselectChange = (e) => {
+    // Convert HTMLOptionsCollection to array and get selected values
+    const selectedValues = Array.from(e.target.selectedOptions).map(option => option.value);
+    setFormData(prev => ({
+      ...prev,
+      pm: selectedValues
+    }));
+  };
+
   return (
     <div className="min-h-screen bg-gray-50 p-4 sm:p-6 lg:p-8">
       <div className="max-w-4xl mx-auto">
@@ -110,7 +122,7 @@ function ProductFormBranSel() {
                 { name: "price", label: "Igiciro", type: "number" },
                 { name: "g_amount", label: "Amafaranga yose hamwe", type: "number", readOnly: true },
                 { name: "r_amount", label: "Amafaranga asigaye", type: "number" },          
-                { name: "p_name", label: "Amazina y'uwishyuye", type: "text" },         
+                // { name: "p_name", label: "Amazina y'uwishyuye", type: "text" },         
               ].map((field) => (
                 <div key={field.name}>
                   <label className="block text-xs sm:text-sm font-medium text-indigo-600 mb-1">
@@ -139,10 +151,13 @@ function ProductFormBranSel() {
       </label>
       <select
         className="w-full px-2 py-1 sm:px-3 sm:py-2 border rounded border-indigo-300 
-                      focus:ring focus:ring-indigo-200 "
-        value={formData.pm}
-        onChange={handleChange}
+                   focus:ring focus:ring-indigo-200 focus:border-indigo-500
+                   bg-white"
+        // value={formData.pm}
+        onChange={handleselectChange}
         name="pm"
+        multiple={true}
+        size={5} // Show 5 options at once
       >
         <option value="">Hitamo</option>
         <option value="momo">Momo</option>
@@ -157,8 +172,27 @@ function ProductFormBranSel() {
         </p>
       )}
     </div>
-    
-           
+    {[{ name: "p_name", label: "Amazina y'uwishyuye", type: "text" },         
+              ].map((field) => (
+                <div key={field.name}>
+                  <label className="block text-xs sm:text-sm font-medium text-indigo-600 mb-1">
+                    {field.label}
+                  </label>
+                  <input
+                    type={field.type}
+                    name={field.name}
+                    value={formData[field.name]}
+                    onChange={handleChange}
+                    readOnly={field.readOnly}
+                    className={`w-full px-2 py-1 sm:px-3 sm:py-2 border rounded border-indigo-300 
+                      focus:ring focus:ring-indigo-200 
+                      ${field.readOnly ? 'bg-gray-100' : ''}`}
+                    required={!field.readOnly}
+                  />
+                </div>
+                
+              ))}
+
             <div>
               <label className="block text-xs sm:text-sm font-medium text-indigo-600 mb-1">
                 Icyongerwaho

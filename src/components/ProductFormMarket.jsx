@@ -138,7 +138,7 @@ function ProductFormMarket() {
                 { name: "expenses", label: "Expenses", type: "number", step: "0.01" },
                 { name: "debts", label: "Amadeni", type: "number", step: "0.01" },
                 { name: "p_debts", label: "Abishyuye Amadeni", type: "number", step: "0.01" },
-                { name: "cash", label: "Amafaranga Bishyuye Cash", type: "number", step: "0.01" },
+                { name: "cash", label: "Amafaranga Azanye Cash", type: "number", step: "0.01" },
                 { name: "phone", label: "Amafaranga Bishyuye Kuri Telephone", type: "number", step: "0.01" },
                 { name: "bank", label: "Amafaranga Bishyuye Kuri Bank", type: "number", step: "0.01" },
                

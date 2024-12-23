@@ -117,7 +117,7 @@ function MarketPage() {
                 Uburyo yishyuyemo
                 </th>*/}
                 <th className="border p-3 text-left text-sm font-semibold text-gray-700 md:table-cell">
-                Amafaranga Bishyuye Cash
+                Amafaranga Azanye Cash
                 </th>
                 <th className="border p-3 text-left text-sm font-semibold text-gray-700 md:table-cell">
                 Amafaranga Bishyuye Kuri Telephone
@@ -175,7 +175,7 @@ function MarketPage() {
                   <td className="border p-3 text-sm text-gray-600 md:table-cell">
                     {adcm(item.total)}
                   </td>
-                  <td className="border p-3 text-sm text-gray-600 md:table-cell" style={inc_money == item.commande ? {backgroundColor :'#00800059'}: {backgroundColor: '#ff000057'}}>
+                  <td className="border p-3 text-sm text-gray-600 md:table-cell" style={inc_money == 0 ? {backgroundColor :'#0505ff96'}: {backgroundColor: 'red'}}>
                     {adcm(inc_money)}
                   </td>
                   <td className="border p-3 text-sm text-gray-600 md:table-cell">

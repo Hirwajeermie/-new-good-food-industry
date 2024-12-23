@@ -8,11 +8,11 @@ const ProductFormOut = () => {
   const [formData,setFormData] = useState({
     date: '',
     reporter: '',
-    distributor: '',
+    distributor: 'aa',
     loc: '',
     comment: '',
-    pm: '',
-    p_name: '',
+    pm: 'aa',
+    p_name: 'aa',
     p_sold:{
       NF: [
         { ibiro: '', imifuka: 0, price: '', total: 0 },
@@ -310,11 +310,11 @@ const ProductFormOut = () => {
     setFormData({
       date: '',
       reporter: '',
-      distributor: '',
+      distributor: 'aa',
       loc: '',
       comment: '',
-      pm: '',
-      p_name: '',
+      pm: 'aa',
+      p_name: 'aa',
       p_sold:{
         NF: [
           { ibiro: '', imifuka: 0, price: '', total: 0 },
@@ -377,7 +377,7 @@ const ProductFormOut = () => {
                required
              />
            </div>
-           <div>
+           {/* <div>
              <label htmlFor="ugemuye" className="block text-sm font-medium mb-1 text-indigo-600">Umucuruzi</label>
              <input
                type="text"
@@ -388,7 +388,7 @@ const ProductFormOut = () => {
                className="w-full px-3 py-2 border rounded"
                required
              />
-           </div>
+           </div> */}
            <div>
              <label htmlFor="umucuruzi" className="block text-sm font-medium mb-1 text-indigo-600">Aho yakoreye</label>
              <input
@@ -437,7 +437,7 @@ const ProductFormOut = () => {
            </div>
          </div>
 
-         <div className="mb-2">
+         {/* <div className="mb-2">
       <label className="block text-xs sm:text-sm font-medium text-indigo-600 mb-1 ">
         Uburyo bishyuyemo:
       </label>
@@ -460,8 +460,8 @@ const ProductFormOut = () => {
           Uhisemo: <span className="font-semibold">{formData.pm}</span>
         </p>
       )}
-    </div>
-    <div>
+    </div> */}
+    {/* <div>
              <label  className="block text-sm font-medium mb-1 text-indigo-600">Amazina y'uwishyuye</label>
              <input
                type="text"
@@ -472,7 +472,7 @@ const ProductFormOut = () => {
                className="w-full px-3 py-2 border rounded"
                required
              />
-           </div>
+           </div> */}
     
          <div className="flex justify-start">
            <div className="flex flex-col w-full">

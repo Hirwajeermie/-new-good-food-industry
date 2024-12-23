@@ -90,10 +90,10 @@ const IbyasohotsePage = () => {
               <tr className="bg-indigo-50">
                 <th className="border border-indigo-200 p-2 text-left">Date</th>
                 <th className="border border-indigo-200 p-2 text-left">Utanze Raporo</th>
-                <th className="border border-indigo-200 p-2 text-left">Umucuruzi</th>
+                {/* <th className="border border-indigo-200 p-2 text-left">Umucuruzi</th> */}
                 <th className="border border-indigo-200 p-2 text-left">Aho yakoreye</th>
-                <th className="border border-indigo-200 p-2 text-left">Uburyo bishyuyemo</th>
-                <th className="border border-indigo-200 p-2 text-left">Amazina y'uwishyuye</th>
+                {/* <th className="border border-indigo-200 p-2 text-left">Uburyo bishyuyemo</th> */}
+                {/* <th className="border border-indigo-200 p-2 text-left">Amazina y'uwishyuye</th> */}
                 <th className="border border-indigo-200 p-2 text-left">Icyongeweho</th>
                 
               </tr>
@@ -104,10 +104,10 @@ const IbyasohotsePage = () => {
                     <tr className="hover:bg-indigo-50">
                       <td className="border bg-gray-400 border-indigo-200 p-2">{item.date}</td>
                       <td className="border border-indigo-200 p-2">{item.reporter}</td>
-                      <td className="border border-indigo-200 p-2">{item.distributor}</td>
+                      {/* <td className="border border-indigo-200 p-2">{item.distributor}</td> */}
                       <td className="border border-indigo-200 p-2">{item.loc}</td>
-                      <td className="border border-indigo-200 p-2">{item.pm}</td>
-                      <td className="border border-indigo-200 p-2">{item.p_name}</td>
+                      {/* <td className="border border-indigo-200 p-2">{item.pm}</td> */}
+                      {/* <td className="border border-indigo-200 p-2">{item.p_name}</td> */}
                       <td className="border border-indigo-200 p-2">{item.comment}</td>
                     </tr>
                     <tr>
@@ -184,7 +184,7 @@ const IbyasohotsePage = () => {
                               <tr className="bg-indigo-50">
                                 <th colSpan="4" className="border border-indigo-200 p-2 text-center">NEW FOOD</th>
                                 <th colSpan="4" className="border border-indigo-200 p-2 text-center">ISEZERANO</th>
-                                <th colSpan="4" className="border border-indigo-200 p-2 text-center">IFUNGURO</th>
+                                <th colSpan="4" className="border border-indigo-200 p-2 text-center">IFUNGURO RYIZA</th>
                                 <th colSpan="4" className="border border-indigo-200 p-2 text-center">ISEZERANO ENVELOPE</th>
                                 <th colSpan="4" className="border border-indigo-200 p-2 text-center">ENVELOPE</th>
                               </tr>
@@ -215,9 +215,9 @@ const IbyasohotsePage = () => {
 
 
                                   <td className="border border-indigo-200 p-2">{weight}kg</td>
-                                  <td className="border border-indigo-200 p-2">{item.p_sold.IS.weights[weight]}</td>
-                                  <td className="border border-indigo-200 p-2">{adcm(item.p_sold.IS.pricings[weight])}RWF</td>
-                                  <td className="border border-indigo-200 p-2">{adcm(item.p_sold.IS.totals[weight])} FRW</td>
+                                  <td className="border border-indigo-200 p-2">{item.p_sold.IF.weights[weight]}</td>
+                                  <td className="border border-indigo-200 p-2">{adcm(item.p_sold.IF.pricings[weight])}RWF</td>
+                                  <td className="border border-indigo-200 p-2">{adcm(item.p_sold.IF.totals[weight])} FRW</td>
 
                                   <td className="border border-indigo-200 p-2">{weight}kg</td>
                                   <td className="border border-indigo-200 p-2">{item.p_sold.MA.weights[weight]}</td>

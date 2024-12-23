@@ -6,7 +6,6 @@ const HomePages = () => {
   const navigate = useNavigate();
 
   const links = [
-
     { name: 'Ibigori bishyashya', path: '/Ibishyashya' },
     { name: 'Gutunganywa 1', path: '/Gutunganya' },
     { name: 'Ibigori byakobowe', path: '/ibisanzwe' },
@@ -21,11 +20,10 @@ const HomePages = () => {
     { name: 'Amadeni', path: '/Amadeni' },
     { name: 'Abishyuye amadeni', path: '/Abishyuyeideni' },
     { name: 'Market Report', path: '/Marketreport' },
-    { name: 'Raporo Yimfuka', path: '/Raporoyimifuka' },
-    { name: 'Raporo Yimodoka', path: '/Raporoyimodoka' },
+    { name: `Raporo Y'imfuka`, path: '/Raporoyimifuka' },
+    { name: `Raporo Y'imodoka`, path: '/Raporoyimodoka' },
     { name: 'Amafaranga Yatanze Kuruhande', path: '/Kuruhande' },
     { name: 'Ibyaguzwe Kuruhanze', path: '/KuruhandeIbyaguzwe' },
-
   ];
 
   // Filter links based on search query
