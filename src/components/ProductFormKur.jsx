@@ -1,52 +1,26 @@
 import React, { useState, useEffect, useRef } from "react";
-import { f, pS } from "../../public/functions";
+import { f, pS, ShowMessage } from "../../public/functions";
 
 function ProductFormKur() {
   const [formData, setFormData] = useState({
     reporter: "",
-    a_buy: "",
-    p_debt: "",
-    p_name: "",
-    pm: "",
+    item: "",
+    amount: "",
+    price: "",
     comment: "",
     date: "",
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [errors, setErrors] = useState({});
-  const [records,setRecords] = useState([]),
-  hasFetched = useRef(false)
-  useEffect(()=>{
-    if (!hasFetched.current) {
-      const fetchRecs = async ()=>{
-        let schema = pS
-        schema.body = JSON.stringify({date: {}})
-        let recs = await f('gDebts',pS)
-        setRecords(recs.metadata.report)
-      }
-      fetchRecs()
-      hasFetched.current = true
-    }
-  },[])
+  const [errors, setErrors] = useState({}),
+   [showM,setShowM] = useState(false),
+    [message,setMessage] = useState('')
   
-  const paymentMethods = [
-    { value: "", label: "Hitamo Uburyo" },
-    { value: "Cash", label: "Cash" },
-    { value: "Mobile Money", label: "Mobile Money" },
-    { value: "Bank Transfer", label: "Bank Transfer" },
-    { value: "Credit Card", label: "Credit Card" },
-    { value: "Other", label: "Ubundi buryo" }
-  ];
-  const clientpayment  = records.map(rec=>({value: rec.id, label: rec.names}));
-  clientpayment.unshift({value:'', label: 'hitamo uwishyuye'})
   const handleChange = (e) => {
     const { name, value } = e.target;
-    name == 'client' ? changeVars(value) : null
     setFormData((prevData) => ({
       ...prevData, 
       [name]: value
     }));
-
-    
     if (errors[name]) {
       setErrors((prevErrors) => {
         const newErrors = { ...prevErrors };
@@ -54,21 +28,12 @@ function ProductFormKur() {
         return newErrors;
       });
     }
-  },
-  changeVars = (value)=>{
-    let target = records.find(r=> r.id == value) 
-    if (target) {
-      setFormData((prevData) => ({
-        ...prevData, 
-        debt: target.debt
-      }));
-    }
   }
   const validateForm = () => {
     const newErrors = {};
     const requiredFields = [
-      'reporter', 'client', 'debt', 
-      'p_debt', 'pm', 'r_debt', 'comment','date'
+      'reporter', 'item', 'amount', 
+      'price', 'comment', 'date'
     ];
     
     requiredFields.forEach(field => {
@@ -76,19 +41,6 @@ function ProductFormKur() {
         newErrors[field] = `${field} is required`;
       }
     });
-
-    
-    if (formData.amafarangaYararimo && parseFloat(formData.amafarangaYararimo) < 0) {
-      newErrors.amafarangaYararimo = "Amount cannot be negative";
-    }
-
-    if (formData.ayoYishyuye && parseFloat(formData.ayoYishyuye) < 0) {
-      newErrors.ayoYishyuye = "Amount cannot be negative";
-    }
-
-    if (formData.asigaye && parseFloat(formData.asigaye) < 0) {
-      newErrors.asigaye = "Amount cannot be negative";
-    }
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -102,14 +54,21 @@ function ProductFormKur() {
       setIsSubmitted(true);
       const scheme = pS
       scheme.body = JSON.stringify(formData)
-      let res = await f('pdebtsController',scheme)
+      let res = await f('ebController',scheme)        
+      setShowM(true)
+      setMessage({
+        message: res.message,
+        decision: res.success
+      })
+      setTimeout(() => {
+        setShowM(false);
+      }, 3000)
       if (res.success) {
         setFormData({
           reporter: "",
-          a_buy: "",
-          p_debt: "",
-          p_name: "",
-          pm: "",
+          item: "",
+          amount: "",
+          price: "",
           comment: "",
           date: "",
         });
@@ -134,6 +93,7 @@ function ProductFormKur() {
 
   return (
     <div className="min-h-screen bg-gray-50 p-4 sm:p-6 lg:p-8 flex items-center justify-center">
+    {showM ? <ShowMessage message={message.message} decision={message.decision}/>: null}
       <div className="w-full max-w-4xl">
         <div className="bg-white shadow-md rounded-lg p-6 sm:p-8 md:p-10">
           <form onSubmit={handleSubmit} className="space-y-6">
@@ -145,15 +105,9 @@ function ProductFormKur() {
               {[
                 { name: "date", label: "Itariki", type: "date" },
                 { name: "reporter", label: "Utanze Raporo", type: "text" },
-                { name: "a_buy", label: "Icyaguzwe", type: "text", step: "0.01" },
-                { name: "k_sell", label: "Ingano yaguzwe", type: "number", step: "0.01" },
-                { name: "p_name", label: "Amazina y'uwishyuye", type: "text", step: "0.01" },
-                { 
-                  name: "pm", 
-                  label: "Uburyo bishyuye", 
-                  type: "select", 
-                  options: paymentMethods 
-                },
+                { name: "item", label: "Icyaguzwe", type: "text", step: "0.01" },
+                { name: "amount", label: "Ingano yaguzwe", type: "text", step: "0.01" },
+                { name: "price", label: "Amafaranga Yishyuwe", type: "number", step: "0.01" },
                 
               ].map((field) => (
                 <div key={field.name} className="relative">

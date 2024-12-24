@@ -76,3 +76,10 @@ export function adcm(n) {
     return n
   }
 }
+export const ShowMessage = ({message,decision})=>{
+  return (
+    <div style={decision? {position: 'fixed', top :'60px',right: '30px',padding: '10px 20px 10px 20px' ,boxSizing: 'border-box',borderRadius: '10px', width: '300px', height: '80px',color:'white',textTransform: 'capitalize', backgroundColor: 'green'} : {position: 'fixed', top :'60px',right: '30px',padding: '10px 20px 10px 20px' ,boxSizing: 'border-box',borderRadius: '10px', width: '300px', height: '80px',color:'white',textTransform: 'capitalize', backgroundColor: 'red'}}>
+      <span>{message}</span>
+    </div>
+  )
+}

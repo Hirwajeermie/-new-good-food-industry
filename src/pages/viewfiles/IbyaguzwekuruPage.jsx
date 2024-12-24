@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { adcm, f, pS } from "../../../public/functions";
+import { adcm, f, pS, ShowMessage } from "../../../public/functions";
 
 
 
@@ -9,13 +9,23 @@ function IbyaguzwekuruPage() {
   [date,setDate] = useState({
     start: null,
     stop: null
-  })
+  }),
+  [showM,setShowM] = useState(false),
+    [message,setMessage] = useState('')
   useEffect(()=>{
     if (!hasFetched.current) {
       const fetchRecs = async ()=>{
         let schema = pS
         schema.body = JSON.stringify({date: {}})
-        let recs = await f('mrReport',pS)
+        let recs = await f('ebReport',pS)
+        setShowM(true)
+          setMessage({
+            message: recs.message,
+            decision: recs.success
+          })
+          setTimeout(() => {
+            setShowM(false);
+          }, 3000);
          if (recs.success) {
           setRecords(recs.metadata.report)
         }
@@ -29,7 +39,15 @@ function IbyaguzwekuruPage() {
     e.preventDefault()
     let schema = pS
     schema.body = JSON.stringify({date})
-    let recs = await f('mrReport',pS)
+    let recs = await f('ebReport',pS)
+    setShowM(true)
+      setMessage({
+        message: recs.message,
+        decision: recs.success
+      })
+      setTimeout(() => {
+        setShowM(false);
+      }, 3000);
      if (recs.success) {
           setRecords(recs.metadata.report)
         }
@@ -44,9 +62,10 @@ function IbyaguzwekuruPage() {
 
   return (
     <div className="container mx-auto p-4 space-y-8">
+            {showM ? <ShowMessage message={message.message} decision={message.decision}/>: null}
       <div className="bg-white rounded-lg shadow-md p-6">
         <h2 className="text-2xl font-bold text-center text-indigo-800 mb-6">
-        RAPORO YA MARKET REPORT
+        RAPORO Y'IBYAGUZWE KURUHANDE
         </h2>
 
         
@@ -105,10 +124,7 @@ function IbyaguzwekuruPage() {
                 Ingano yaguzwe
                 </th>
                 <th className="border p-3 text-left text-sm font-semibold text-gray-700 md:table-cell">
-                Amazina y'uwishyuye
-                </th>
-                <th className="border p-3 text-left text-sm font-semibold text-gray-700 md:table-cell">
-                Uburyo yishyuyemo
+                Amafaranga Yishyuwe
                 </th>
                 <th className="border p-3 text-left text-sm font-semibold text-gray-700 md:table-cell">
                 Icyongeweho
@@ -117,8 +133,6 @@ function IbyaguzwekuruPage() {
             </thead>
             <tbody>
               {records.map((item, index) => {
-                let inc_money = Number(item.total) - Number(item.commande)
-                console.log(inc_money)
                 return(
                 <tr key={index} className="hover:bg-gray-50">
                   <td className="border p-3 text-sm text-gray-600 md:table-cell">
@@ -128,19 +142,13 @@ function IbyaguzwekuruPage() {
                     {item.reporter}
                   </td>
                   <td className="border p-3 text-sm text-gray-600 md:table-cell">
-                    {adcm(item.a_buy)}
+                    {adcm(item.item)}
                   </td>
                   <td className="border p-3 text-sm text-gray-600 md:table-cell">
-                    {adcm(item.p_debt)}
+                    {adcm(item.amount)}
                   </td>
                   <td className="border p-3 text-sm text-gray-600 md:table-cell">
-                    {adcm(item.p_name)}
-                  </td>
-                  <td className="border p-3 text-sm text-gray-600 md:table-cell">
-                    {adcm(item.pm)}
-                  </td>
-                  <td className="border p-3 text-sm text-gray-600 md:table-cell">
-                    {adcm(item.p_debts)}
+                    {adcm(item.price)}
                   </td>
                   <td className="border p-3 text-sm text-gray-600 md:table-cell">
                     {item.comment}

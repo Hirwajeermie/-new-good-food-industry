@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { f, pS } from "../../public/functions";
+import { f, pS, ShowMessage } from "../../public/functions";
 
 const ProductFormEmp= () => {
   const [workers, setWorkers] = useState([]);
@@ -7,6 +7,8 @@ const ProductFormEmp= () => {
   const [showSuccess, setShowSuccess] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false),
   [records,setRecords] = useState([]),
+   [showM,setShowM] = useState(false),
+    [message,setMessage] = useState('')
   hasFetched = useRef(false)
   // useEffect(()=>{
   //   if (!hasFetched.current) {
@@ -41,7 +43,15 @@ const ProductFormEmp= () => {
     const worker  = workers.findLast((element) => true);
     const scheme = pS
     scheme.body = JSON.stringify(worker)
-    let res = await f('employeesController',scheme)
+    let res = await f('employeesController',scheme)        
+    setShowM(true)
+      setMessage({
+        message: res.message,
+        decision: res.success
+      })
+      setTimeout(() => {
+        setShowM(false);
+      }, 3000)
     if(res.success){
       setWorkers([])
     }
@@ -61,6 +71,7 @@ const ProductFormEmp= () => {
 
   return (
     <div className="w-full min-h-screen p-2 sm:p-4">
+      {showM ? <ShowMessage message={message.message} decision={message.decision}/>: null}
       {showSuccess && <SuccessAlert />}
       
       <h1 className="text-indigo-600 text-xl sm:text-2xl font-bold mb-4 text-center">

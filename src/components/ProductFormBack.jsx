@@ -1,6 +1,6 @@
  
  import React, { useState } from 'react';
-import { f, pS } from '../../public/functions';
+import { f, pS, ShowMessage } from '../../public/functions';
  
  
 
@@ -33,7 +33,9 @@ import { f, pS } from '../../public/functions';
     ],
     envelope: [{ ibiro: '', imifuka: 0}],
     
-  })
+  }),
+   [showM,setShowM] = useState(false),
+    [message,setMessage] = useState('')
   const ProductRowSimple = ({ prefix, size, onValueChange }) => {
     let index
       size == '25'? index = 0: size == '10'? index = 1 : size == '5'? index = 2 : index = 0
@@ -150,6 +152,14 @@ import { f, pS } from '../../public/functions';
     const scheme = pS
     scheme.body = JSON.stringify(nfd)
     let res = await f('returnsController',scheme)
+        setShowM(true)
+      setMessage({
+        message: res.message,
+        decision: res.success
+      })
+      setTimeout(() => {
+        setShowM(false);
+      }, 3000)
     nfd = formData
     if (res.success) {
       setFormData({
@@ -195,6 +205,7 @@ import { f, pS } from '../../public/functions';
   }
    return (
     <div className="min-h-screen bg-gray-50 p-6 relative">
+      {showM ? <ShowMessage message={message.message} decision={message.decision}/>: null}
       {showPopup && (
         <div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 z-50 bg-green-500 text-white px-6 py-3 rounded shadow-lg">
           Your report has been submitted successfully!!!

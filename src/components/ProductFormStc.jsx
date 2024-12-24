@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { f, pS } from '../../public/functions';
+import { f, pS, ShowMessage } from '../../public/functions';
 
 
 const ProductFormStc = () => {
@@ -29,7 +29,9 @@ const ProductFormStc = () => {
       ],
       envelope: [{ ibiro: '', imifuka: 0,current: 0, total: 0}],
     comment: ''
-  });
+  }),
+   [showM,setShowM] = useState(false),
+    [message,setMessage] = useState('')
   const ProductRowDetailed = ({ prefix, size, onValueChange }) => {
     let index
       size == '25'? index = 0: size == '10'? index = 1 : size == '5'? index = 2 : index = 0
@@ -165,7 +167,6 @@ const ProductFormStc = () => {
 
   const handleSubmit = async(e) => {
     e.preventDefault();
-    console.log('Form submitted with data:', formData);
     const transformSData = (data) => {
       const proportions = [25, 10, 5];
       const result = {
@@ -199,6 +200,14 @@ const ProductFormStc = () => {
     const scheme = pS
     scheme.body = JSON.stringify(nfd)
     let res = await f('stockController',scheme)
+            setShowM(true)
+      setMessage({
+        message: res.message,
+        decision: res.success
+      })
+      setTimeout(() => {
+        setShowM(false);
+      }, 3000)
     if (res.success) {
       setFormData({
         date: '',
@@ -243,6 +252,7 @@ const ProductFormStc = () => {
 
   return (
     <div className="min-h-screen bg-gray-50 p-4 sm:p-6">
+      {showM ? <ShowMessage message={message.message} decision={message.decision}/>: null}
       <div className="max-w-7xl mx-auto">
         {showSuccessMessage && (
           <div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 bg-green-500 text-white px-6 py-3 rounded shadow-lg z-50">

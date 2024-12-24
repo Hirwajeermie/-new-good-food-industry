@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react';
-import { adcm, f, pS } from '../../../public/functions';
+import { adcm, f, pS, ShowMessage } from '../../../public/functions';
 
 const Ibigiyegutunganywa = () => {
   const [additionalInfo, setAdditionalInfo] = useState('THIS COMMENTS FOR REPORT'),
@@ -8,12 +8,22 @@ const Ibigiyegutunganywa = () => {
   [date,setDate] = useState({
     start: null,
     stop: null
-  })
+  }),
+  [showM,setShowM] = useState(false),
+    [message,setMessage] = useState('')
   useEffect(()=>{
     const fetchRecs = async ()=>{
       let schema = pS
       schema.body = JSON.stringify({date: {}})
       let recs = await f('preparation-report',pS)
+        setShowM(true)
+          setMessage({
+            message: recs.message,
+            decision: recs.success
+          })
+          setTimeout(() => {
+            setShowM(false);
+          }, 3000);
        if (recs.success) {
           setRecords(recs.metadata.report)
         }
@@ -26,6 +36,14 @@ const Ibigiyegutunganywa = () => {
     let schema = pS
     schema.body = JSON.stringify({date})
     let recs = await f('preparation-report',pS)
+    setShowM(true)
+      setMessage({
+        message: recs.message,
+        decision: recs.success
+      })
+      setTimeout(() => {
+        setShowM(false);
+      }, 3000);
      if (recs.success) {
           setRecords(recs.metadata.report)
         }
@@ -39,6 +57,7 @@ const Ibigiyegutunganywa = () => {
   }
   return (
     <div className="container mx-auto p-4">
+            {showM ? <ShowMessage message={message.message} decision={message.decision}/>: null}
       <div className="mb-6">
        
         <h2 className="text-xl mt-2 text-center">RAPORO Y&apos;IBIGORI BIGIYE GUTUNGANYWA</h2>

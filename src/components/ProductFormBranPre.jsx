@@ -1,6 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useState } from "react";
-import { f, pS } from "../../public/functions";
+import { f, pS, ShowMessage } from "../../public/functions";
 
 function ProductFormBranPre() {
   const [formData, setFormData] = useState({
@@ -10,7 +10,9 @@ function ProductFormBranPre() {
     buranda2: "",
     buranda3: "",
     comment: "",
-  });
+  }),
+   [showM,setShowM] = useState(false),
+    [message,setMessage] = useState('')
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleChange = (e) => {
@@ -39,6 +41,14 @@ function ProductFormBranPre() {
     const scheme = pS
     scheme.body = JSON.stringify(formData)
     let res = await f('leftoversController',scheme)
+            setShowM(true)
+      setMessage({
+        message: res.message,
+        decision: res.success
+      })
+      setTimeout(() => {
+        setShowM(false);
+      }, 3000)
     if (res.success) {
       setFormData({
         date: "",
@@ -58,6 +68,7 @@ function ProductFormBranPre() {
 
   return (
     <div className="min-h-screen bg-gray-50 p-6">
+        {showM ? <ShowMessage message={message.message} decision={message.decision}/>: null}
       <div className="max-w-7xl mx-auto">
         <form onSubmit={handleSubmit} className="space-y-8">
           {/* Header Section */}

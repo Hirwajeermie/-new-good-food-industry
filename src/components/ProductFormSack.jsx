@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { f, pS } from '../../public/functions';
+import { f, pS, ShowMessage } from '../../public/functions';
 
 const ProductFormSack = () => {
   
@@ -11,7 +11,10 @@ const ProductFormSack = () => {
   const [magaju, setMagaju] = useState('');
   const [inganoYaEnvelope, setInganoYaEnvelope] = useState('');
   const [isEnvelope5kg, setIsEnvelope2kg] = useState(0);
-  const [successMessage, setSuccessMessage] = useState(''); // Success message state
+  const [successMessage, setSuccessMessage] = useState('')
+  ,
+   [showM,setShowM] = useState(false),
+    [message,setMessage] = useState('')
 
   // const handleInganoChange = (e) => {
   //   const input = e.target.value;
@@ -79,6 +82,14 @@ const ProductFormSack = () => {
     const scheme = pS
     scheme.body = JSON.stringify(formData)
     let res = await f('sacksController',scheme)
+      setShowM(true)
+      setMessage({
+        message: res.message,
+        decision: res.success
+      })
+      setTimeout(() => {
+        setShowM(false);
+      }, 3000)
     if (res.success) {
         setDate('');
         setUtanzeRaporo('');
@@ -100,12 +111,11 @@ const ProductFormSack = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      {showM ? <ShowMessage message={message.message} decision={message.decision}/>: null}
       <div className="container mx-auto p-4">
         <h2 className="text-2xl font-bold text-indigo-700 mb-4 text-center">
           RAPORO Y'IMIFUKA
         </h2>
-
-
         <form onSubmit={handleSubmit} className="bg-indigo-50 p-4 md:p-6 rounded-lg shadow-lg">
           {/* (Your form fields and structure here) */}
 

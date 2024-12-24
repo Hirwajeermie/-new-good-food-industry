@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { f, pS } from '../../public/functions';
+import { f, pS, ShowMessage } from '../../public/functions';
 
 const ProductFormChe = () => {
   
@@ -16,7 +16,10 @@ const ProductFormChe = () => {
     ifunguro: false,
     isezerano: false,
     magaju: false,
-  });
+  })
+  ,
+   [showM,setShowM] = useState(false),
+    [message,setMessage] = useState('')
 
   const [inganoYaEnvelope, setInganoYaEnvelope] = useState('');
   const [isEnvelope5kg, setIsEnvelope2kg] = useState('');
@@ -97,6 +100,14 @@ const ProductFormChe = () => {
     const scheme = pS
     scheme.body = JSON.stringify(formData)
     let res = await f('packaging',scheme)
+      setShowM(true)
+      setMessage({
+        message: res.message,
+        decision: res.success
+      })
+      setTimeout(() => {
+        setShowM(false);
+      }, 3000)
     if (res.success) {
         setDate('');
         setUtanzeRaporo('');
@@ -130,6 +141,7 @@ const ProductFormChe = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
+            {showM ? <ShowMessage message={message.message} decision={message.decision}/>: null}
       <div className="container mx-auto p-4">
         <h2 className="text-2xl font-bold text-indigo-700 mb-4 text-center">
           IBIGORI BIGIYE GUKOBORWA

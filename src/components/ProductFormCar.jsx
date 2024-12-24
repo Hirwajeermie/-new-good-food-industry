@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { f, pS } from "../../public/functions";
+import { f, pS, ShowMessage } from "../../public/functions";
 
 function ProductFormCar() {
   const [formData, setFormData] = useState({
@@ -15,7 +15,9 @@ function ProductFormCar() {
     o_m:"",
     comment: "",
     wash: "",
-  });
+  }),
+   [showM,setShowM] = useState(false),
+    [message,setMessage] = useState('')
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [errors, setErrors] = useState({});
 
@@ -62,11 +64,17 @@ function ProductFormCar() {
     if (validateForm()) {
       
       setIsSubmitted(true);
-
-
-       let schema = pS
-        schema.body = JSON.stringify(formData)
-        let recs = await f('carsController',pS)
+      let schema = pS
+      schema.body = JSON.stringify(formData)
+      let recs = await f('carsController',pS)        
+      setShowM(true)
+      setMessage({
+        message: recs.message,
+        decision: recs.success
+      })
+      setTimeout(() => {
+        setShowM(false);
+      }, 3000)
         if (recs.success) {
           setFormData({
             date: "",
@@ -102,7 +110,8 @@ function ProductFormCar() {
   }, [isSubmitted]);
 
   return (
-    <div className="min-h-screen bg-gray-50 p-4 sm:p-6 lg:p-8 flex items-center justify-center">
+    <div className="min-h-screen bg-gray-50 p-4 sm:p-6 lg:p-8 flex items-center justify-center">      
+    {showM ? <ShowMessage message={message.message} decision={message.decision}/>: null}
       <div className="w-full max-w-4xl">
         <div className="bg-white shadow-md rounded-lg p-6 sm:p-8 md:p-10">
           <form onSubmit={handleSubmit} className="space-y-6">

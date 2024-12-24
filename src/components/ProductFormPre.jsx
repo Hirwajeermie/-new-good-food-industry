@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
-import { f, pS } from '../../public/functions';
+import { f, pS, ShowMessage } from '../../public/functions';
 
 const ProductFormPre = () => {
   const [formData, setFormData] = useState({
@@ -10,7 +10,10 @@ const ProductFormPre = () => {
     prepared_c: '',
     reporter: '',
     comment: ''
-  });
+  })
+  ,
+   [showM,setShowM] = useState(false),
+    [message,setMessage] = useState('')
 
 
 
@@ -28,6 +31,14 @@ const ProductFormPre = () => {
     const scheme = pS
     scheme.body = JSON.stringify(formData)
     let res = await f('record-prepared-c',scheme)
+            setShowM(true)
+      setMessage({
+        message: res.message,
+        decision: res.success
+      })
+      setTimeout(() => {
+        setShowM(false);
+      }, 3000)
     if (res.success) {
       setFormData({
         date: '',
@@ -43,6 +54,7 @@ const ProductFormPre = () => {
 
   return (
     <div className="mx-auto p-4">
+      {showM ? <ShowMessage message={message.message} decision={message.decision}/>: null}
       <h2 className="text-2xl font-bold text-indigo-700 mb-4 text-center">IBIGORI BIGIYE GUTUNGANYWA</h2>
       <form onSubmit={handleSubmit} className="bg-indigo-50 p-6 rounded-lg shadow-lg">
         
@@ -81,8 +93,6 @@ const ProductFormPre = () => {
             />
           </div>
         </div>
-
-    
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
           <div>
             <label className="block text-gray-700">Ibigori bigiye Gukoborwa</label>

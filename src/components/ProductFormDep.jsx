@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { f, pS } from "../../public/functions";
+import { f, pS, ShowMessage } from "../../public/functions";
 
 const ExpenseBox = ({ title, value, onChange }) => (
   <div className="space-y-2">
@@ -31,7 +31,10 @@ const ProductFormDep= () => {
       Amafarangaaverishije: 0,
       Andimafaranga: "",
     },
-  });
+  })
+  ,
+   [showM,setShowM] = useState(false),
+    [message,setMessage] = useState('')
 
   const [showMessage, setShowMessage] = useState(false);
 
@@ -67,6 +70,14 @@ const ProductFormDep= () => {
     const scheme = pS
     scheme.body = JSON.stringify(nfd)
     let res = await f('expensesController',scheme)
+      setShowM(true)
+      setMessage({
+        message: res.message,
+        decision: res.success
+      })
+      setTimeout(() => {
+        setShowM(false);
+      }, 3000)
     if (res.success) {
       setFormData({
         date: "",
@@ -118,6 +129,7 @@ const ProductFormDep= () => {
 
   return (
     <div className="min-h-screen bg-gray-50 p-4 sm:p-6">
+            {showM ? <ShowMessage message={message.message} decision={message.decision}/>: null}
       <div className="max-w-7xl mx-auto">
         {showMessage && (
           <div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 bg-green-500 text-white px-6 py-2 rounded shadow-lg">

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { adcm, f, pS } from "../../../public/functions";
+import { adcm, f, pS, ShowMessage } from "../../../public/functions";
 
 
 
@@ -9,13 +9,23 @@ function KuruhandePage() {
   [date,setDate] = useState({
     start: null,
     stop: null
-  })
+  }),
+  [showM,setShowM] = useState(false),
+    [message,setMessage] = useState('')
   useEffect(()=>{
     if (!hasFetched.current) {
       const fetchRecs = async ()=>{
         let schema = pS
         schema.body = JSON.stringify({date: {}})
         let recs = await f('moReport',pS)
+        setShowM(true)
+          setMessage({
+            message: recs.message,
+            decision: recs.success
+          })
+          setTimeout(() => {
+            setShowM(false);
+          }, 3000);
          if (recs.success) {
           setRecords(recs.metadata.report)
         }
@@ -29,7 +39,15 @@ function KuruhandePage() {
     e.preventDefault()
     let schema = pS
     schema.body = JSON.stringify({date})
-    let recs = await f('br_Report',pS)
+    let recs = await f('moReport',pS)
+    setShowM(true)
+      setMessage({
+        message: recs.message,
+        decision: recs.success
+      })
+      setTimeout(() => {
+        setShowM(false);
+      }, 3000);
      if (recs.success) {
           setRecords(recs.metadata.report)
         }
@@ -43,7 +61,8 @@ function KuruhandePage() {
   }
 
   return (
-    <div className="container mx-auto p-4 space-y-8">
+    <div className="container mx-auto p-4 space-y-8"> 
+    {showM ? <ShowMessage message={message.message} decision={message.decision}/>: null}
       <div className="bg-white rounded-lg shadow-md p-6">
         <h2 className="text-2xl font-bold text-center text-indigo-800 mb-6">
         RAPORO Y'AMAFARANGA YATAZWE KURUHANDE
