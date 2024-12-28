@@ -63,7 +63,7 @@ function DepansePage () {
       {showM ? <ShowMessage message={message.message} decision={message.decision}/>: null}
       <div className="bg-white rounded-lg shadow-md p-6">
         <h2 className="text-2xl font-bold text-center text-blue-800 mb-6">
-          RAPORO YAMAFARANGA YASOHOTSE
+          RAPORO YA DEPANSE
         </h2>
 
         <div>
