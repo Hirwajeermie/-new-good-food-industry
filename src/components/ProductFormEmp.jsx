@@ -9,7 +9,7 @@ const ProductFormEmp= () => {
   [records,setRecords] = useState([]),
    [showM,setShowM] = useState(false),
     [message,setMessage] = useState('')
-  hasFetched = useRef(false)
+  const hasFetched = useRef(false)
   // useEffect(()=>{
   //   if (!hasFetched.current) {
   //     const fetchRecs = async ()=>{

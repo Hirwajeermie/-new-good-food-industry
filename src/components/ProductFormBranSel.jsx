@@ -18,6 +18,8 @@ function ProductFormBranSel() {
     pm:[]
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [showM, setShowM] = useState(false);
+  const [message, setMessage] = useState({ message: '', decision: '' });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
