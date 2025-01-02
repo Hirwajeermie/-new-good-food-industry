@@ -25,6 +25,7 @@ const HomePages = () => {
     { name: 'Raporo Yimodoka', path: '/ProductFormCar' },
     { name: 'Amafaranga Yatanze Kuruhande', path: '/ProductFormAther' },
     { name: 'Ibyaguzwe Kuruhande', path: '/ProductFormKur' },
+    { name: 'Facture Report', path: '/FactureReportForm' },
     
   ];
 
