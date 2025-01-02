@@ -24,6 +24,7 @@ import ProductFormCar  from './components/ProductFormCar';
 import ProductFormSack  from './components/ProductFormSack';
 import ProductFormAther  from './components/ProductFormAther';
 import ProductFormKur  from './components/ProductFormKur';
+import FactureReportForm from './components/FactureReportForm';
 
 //import LoginHome from './components/LoginHome';
 import HomePages from './HomePages';
@@ -45,6 +46,7 @@ import ImodokaPage from './pages/viewfiles/ImodokaPage';
 import ImifukaPage from './pages/viewfiles/ImifukaPage';
 import KuruhandePage from './pages/viewfiles/KuruhandePage';
 import IbyaguzwekuruPage from './pages/viewfiles/IbyaguzwekuruPage';
+import FacturePage from './pages/viewfiles/FacturePage';
 import ForgotPassword from './ForgotPassword';
 import ChangePassword from './ChangePassword';
 import BannerSlider from './BannerSlider';
@@ -76,6 +78,7 @@ function App() {
         <Route path="/ProductFormSack" element={<PrivateRoute element={<ProductFormSack />} />} />
         <Route path="/ProductFormAther" element={<PrivateRoute element={<ProductFormAther />} />} />
         <Route path="/ProductFormKur" element={<PrivateRoute element={<ProductFormKur />} />} />
+        <Route path="/FactureReportForm" element={<PrivateRoute element={<FactureReportForm />} />} />
         <Route path="/view" element={<View />} />
         <Route path="/ForgotPassword" element={<ForgotPassword />} />
         <Route path="/ChangePassword/:token" element={<PrivateRouteChl element={<ChangePassword />}/>} />
@@ -105,7 +108,7 @@ function App() {
         <Route path="/Raporoyimodoka" element={<PrivateRoute element={<ImodokaPage/>} />} />
         <Route path="/Kuruhande" element={<PrivateRoute element={<KuruhandePage/>} />} />
         <Route path="/KuruhandeIbyaguzwe" element={<PrivateRoute element={<IbyaguzwekuruPage/>} />} />
-
+        <Route path="/FactureReport" element={<PrivateRoute element={<FacturePage/>} />} />
       </Routes>
     </Router>
   );

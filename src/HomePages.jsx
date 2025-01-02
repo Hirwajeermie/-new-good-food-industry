@@ -24,6 +24,7 @@ const HomePages = () => {
     { name: `Raporo Y'imodoka`, path: '/Raporoyimodoka' },
     { name: 'Amafaranga Yatanze Kuruhande', path: '/Kuruhande' },
     { name: 'Ibyaguzwe Kuruhanze', path: '/KuruhandeIbyaguzwe' },
+    { name: 'Facture Report', path: '/FactureReport' },
   ];
 
   // Filter links based on search query
