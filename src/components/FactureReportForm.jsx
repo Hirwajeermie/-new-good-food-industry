@@ -3,35 +3,21 @@ import { f, pS } from "../../public/functions";
 
 function FactureReportForm() {
   const [formData, setFormData] = useState({
-    date: "",
     reporter: "",
-    su_tin: "",
-    sup_name: "",
-    n_good: "",
-    r_numbr: "",
-    r_issue: "",
-    a_vat: "",
-    vat: "",
+    s_tin: "",
+    s_name: "",
+    n_goods: "",
+    r_number: "",
+    r_date: "",
+    amount_vat: "",
+    VAT: "",
     comment: "",
+    date: "",
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [errors, setErrors] = useState({});
-  const [records,setRecords] = useState([]),
-  hasFetched = useRef(false),
+  const [errors, setErrors] = useState({}),
    [showM,setShowM] = useState(false),
     [message,setMessage] = useState('')
-  useEffect(()=>{
-    if (!hasFetched.current) {
-      const fetchRecs = async ()=>{
-        let schema = pS
-        schema.body = JSON.stringify({date: {}})
-        let recs = await f('gDebts',pS)
-        setRecords(recs.metadata.report)
-      }
-      fetchRecs()
-      hasFetched.current = true
-    }
-  },[])
   
 
   
@@ -64,28 +50,15 @@ function FactureReportForm() {
   const validateForm = () => {
     const newErrors = {};
     const requiredFields = [
-      'reporter', 'client', 'debt', 
-      'p_debt', 'pm', 'r_debt', 'comment','date'
+      'reporter ', 's_tin ', 's_name ', 
+      'n_goods ', 'r_number ', 'r_date ', 'amount_vat ','VAT ', 'comment ', 'date'
     ];
-    
+    console.log(formData['reporter'],requiredFields)
     requiredFields.forEach(field => {
-      if (!formData[field] || formData[field].toString().trim() === '') {
+      if (!formData[field]) {
         newErrors[field] = `${field} is required`;
       }
     });
-
-    
-    if (formData.amafarangaYararimo && parseFloat(formData.amafarangaYararimo) < 0) {
-      newErrors.amafarangaYararimo = "Amount cannot be negative";
-    }
-
-    if (formData.ayoYishyuye && parseFloat(formData.ayoYishyuye) < 0) {
-      newErrors.ayoYishyuye = "Amount cannot be negative";
-    }
-
-    if (formData.asigaye && parseFloat(formData.asigaye) < 0) {
-      newErrors.asigaye = "Amount cannot be negative";
-    }
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -93,13 +66,13 @@ function FactureReportForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    console.log(formData)
     if (validateForm()) {
      
       setIsSubmitted(true);
       const scheme = pS
       scheme.body = JSON.stringify(formData)
-      let res = await f('pdebtsController',scheme)        
+      let res = await f('invoiceController',scheme)        
       setShowM(true)
       setMessage({
         message: res.message,
@@ -110,16 +83,16 @@ function FactureReportForm() {
       }, 3000)
       if (res.success) {
         setFormData({
-          date: "",
           reporter: "",
-          su_tin: "",
-          sup_name: "",
-          n_good: "",
-          r_numbr: "",
-          r_issue: "",
-          a_vat: "",
-          vat: "",
+          s_tin: "",
+          s_name: "",
+          n_goods: "",
+          r_number: "",
+          r_date: "",
+          amount_vat: "",
+          VAT: "",
           comment: "",
+          date: "",
         });
       }
     }
@@ -154,13 +127,13 @@ function FactureReportForm() {
               {[
                 { name: "date", label: "Itariki", type: "date" },
                 { name: "reporter", label: "Utanze Raporo", type: "text" },
-                { name: "su_tin", label: "Supplier Tin", type: "text" },
-                { name: "sup_name", label: "Supplier Name", type: "number", step: "0.01" },
-                { name: "n_good", label: "Natural Of Goods", type: "number", step: "0.01" },
-                { name: "r_numbr", label: "Receipt Number", type: "text", step: "0.01" },
-                { name: "r_issue", label: "Receipt Issue Date", type: "text", step: "0.01" },
-                { name: "a_vat", label: "Amaunt Without VAT", type: "number", step: "0.01" },
-                { name: "vat", label: "VAT", type: "number", step: "0.01" }
+                { name: "s_tin", label: "Supplier Tin", type: "text" },
+                { name: "s_name", label: "Supplier Name", type: "text", step: "0.01" },
+                { name: "n_goods", label: "Natural Of Goods", type: "number", step: "0.01" },
+                { name: "r_number", label: "Receipt Number", type: "text", step: "0.01" },
+                { name: "r_date", label: "Receipt Issue Date", type: "datw", step: "0.01" },
+                { name: "amount_vat", label: "Amount Without VAT", type: "number", step: "0.01" },
+                { name: "VAT", label: "VAT", type: "number", step: "0.01" }
                 
               ].map((field) => (
                 <div key={field.name} className="relative">

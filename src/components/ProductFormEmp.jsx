@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { f, pS, ShowMessage } from "../../public/functions";
-import './ProductFormEmp.css'
+// import './ProductFormEmp.css'
 
 const ProductFormEmp= () => {
   const [workers, setWorkers] = useState([]);

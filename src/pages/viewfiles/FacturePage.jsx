@@ -14,7 +14,7 @@ function FacturePage() {
       const fetchRecs = async ()=>{
         let schema = pS
         schema.body = JSON.stringify({date: {}})
-        let recs = await f('pdebtsReport',pS)
+        let recs = await f('invoiceReport',pS)
           setShowM(true)
           setMessage({
             message: recs.message,
@@ -36,7 +36,7 @@ function FacturePage() {
     e.preventDefault()
     let schema = pS
     schema.body = JSON.stringify({date})
-    let recs = await f('pdebtsReport',pS)
+    let recs = await f('invoiceReport',pS)
       setShowM(true)
       setMessage({
         message: recs.message,
@@ -147,16 +147,16 @@ function FacturePage() {
                     {item.reporter}
                   </td>
                   <td className="border p-3 text-sm text-gray-600 md:table-cell">
-                    {item.su_tin}
+                    {item.s_tin}
                   </td>
                   <td className="border p-3 text-sm text-gray-600 md:table-cell">
-                    {adcm(item.sup_name)}
+                    {adcm(item.s_name)}
                   </td>
                   <td className="border p-3 text-sm text-gray-600 md:table-cell">
-                    {adcm(item.n_good)}
+                    {adcm(item.n_goods)}
                   </td>
                   <td className="border p-3 text-sm text-gray-600 md:table-cell">
-                    {adcm(item.r_numbr)}
+                    {adcm(item.r_number)}
                   </td>
                   <td className="border p-3 text-sm text-gray-600 md:table-cell">
                     {item.r_issue}
