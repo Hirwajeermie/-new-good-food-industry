@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { f, pS } from "../../public/functions";
+import { f, pS, ShowMessage } from "../../public/functions";
 
 function FactureReportForm() {
   const [formData, setFormData] = useState({
@@ -50,23 +50,20 @@ function FactureReportForm() {
   const validateForm = () => {
     const newErrors = {};
     const requiredFields = [
-      'reporter ', 's_tin ', 's_name ', 
-      'n_goods ', 'r_number ', 'r_date ', 'amount_vat ','VAT ', 'comment ', 'date'
+      'reporter', 's_tin', 's_name', 
+      'n_goods', 'r_number', 'r_date', 'amount_vat','VAT', 'comment', 'date'
     ];
-    console.log(formData['reporter'],requiredFields)
     requiredFields.forEach(field => {
       if (!formData[field]) {
         newErrors[field] = `${field} is required`;
       }
     });
-
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData)
     if (validateForm()) {
      
       setIsSubmitted(true);
@@ -129,9 +126,9 @@ function FactureReportForm() {
                 { name: "reporter", label: "Utanze Raporo", type: "text" },
                 { name: "s_tin", label: "Supplier Tin", type: "text" },
                 { name: "s_name", label: "Supplier Name", type: "text", step: "0.01" },
-                { name: "n_goods", label: "Natural Of Goods", type: "number", step: "0.01" },
+                { name: "n_goods", label: "Natural Of Goods", type: "text", step: "0.01" },
                 { name: "r_number", label: "Receipt Number", type: "text", step: "0.01" },
-                { name: "r_date", label: "Receipt Issue Date", type: "datw", step: "0.01" },
+                { name: "r_date", label: "Receipt Issue Date", type: "date", step: "0.01" },
                 { name: "amount_vat", label: "Amount Without VAT", type: "number", step: "0.01" },
                 { name: "VAT", label: "VAT", type: "number", step: "0.01" }
                 

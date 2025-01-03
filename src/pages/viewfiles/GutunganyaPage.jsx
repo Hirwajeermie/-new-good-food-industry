@@ -10,7 +10,8 @@ const Ibigiyegutunganywa = () => {
     stop: null
   }),
   [showM,setShowM] = useState(false),
-    [message,setMessage] = useState('')
+    [message,setMessage] = useState(''),
+    [totals,setTotals]= useState({})
   useEffect(()=>{
     const fetchRecs = async ()=>{
       let schema = pS
@@ -26,6 +27,7 @@ const Ibigiyegutunganywa = () => {
           }, 3000);
        if (recs.success) {
           setRecords(recs.metadata.report)
+          setTotals(recs.metadata.mainTotals)
         }
     }
     fetchRecs()
@@ -130,7 +132,26 @@ const Ibigiyegutunganywa = () => {
           </tbody>
         </table>
       </div>
-    
+        {/* Subsection Table */}
+            <div className="mb-6">
+              <h2 className="text-xl mb-2 text-center">IBYAGOSOWE</h2>
+              <div className="overflow-x-auto">
+                <table className="min-w-full border-collapse border border-indigo-500">
+                  <thead className="bg-indigo-100">
+                    <tr>
+                      <th className="border border-indigo-500 px-4 py-2">Igiteranyo cy'Ibigori Byagosowe bisigaye</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {/* Replace with dynamic data */}
+                    <tr>
+                      <td className="border border-indigo-500 px-4 py-2">{adcm(totals.mtotal)} KG</td>
+                    </tr>
+                    {/* Add more rows as needed */}
+                  </tbody>
+                </table>
+              </div>
+            </div>
 
     </div>
   );

@@ -94,6 +94,10 @@ const ProductFormDep= () => {
           Amafarangaasabwakubyacurujwe: 0,
           Amafarangaaverishije: 0,
           Andimafaranga: "",
+          Discount:"",
+          Umucuruzi:"",
+          KVCS:"",
+          Parking:"",
         },
       })
     }
@@ -124,8 +128,8 @@ const ProductFormDep= () => {
  
   const firstRowExpenses = ["Mazutu", "Abakarani", "Tandboy"];
   const secondRowExpenses = ["Shoferi", "Shambre", "Kurya"];
-  const thirdRowExpenses = ["Urugendo"];
-  const fouthRowExpenses = ["Andi mafaranga"];
+  const thirdRowExpenses = ["Urugendo", "Discount", "Umucuruzi"];
+  const fouthRowExpenses = ["Andi mafaranga", "KVCS", "Parking"];
 
   return (
     <div className="min-h-screen bg-gray-50 p-4 sm:p-6">
@@ -138,7 +142,7 @@ const ProductFormDep= () => {
         )}
         <form onSubmit={handleSubmit} className="space-y-6">
           <h1 className="text-xl font-bold text-center text-indigo-700 mb-6">
-            AMAFARANGA YASOHOTSE
+            DEPANSE
           </h1>
 
           

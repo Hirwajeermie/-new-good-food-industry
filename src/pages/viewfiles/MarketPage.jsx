@@ -151,7 +151,7 @@ function MarketPage() {
                 Total
                 </th>
                 <th className="border p-3 text-left text-sm font-semibold text-gray-700 md:table-cell">
-                Amafaranga yaverishijwe
+                Ikinyuranyo
                 </th>
                 <th className="border p-3 text-left text-sm font-semibold text-gray-700 md:table-cell">
                 Icyongeweho

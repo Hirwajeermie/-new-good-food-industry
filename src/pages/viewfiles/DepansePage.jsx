@@ -129,6 +129,18 @@ function DepansePage () {
                 <th className="border p-3 text-left text-sm font-semibold text-gray-700">
                   Shambre
                 </th>
+                <th className="border p-3 text-left text-sm font-semibold text-gray-700">
+                 Discount
+                </th>
+                <th className="border p-3 text-left text-sm font-semibold text-gray-700">
+                Umucuruzi
+                </th>
+                <th className="border p-3 text-left text-sm font-semibold text-gray-700">
+                KVCS
+                </th>
+                <th className="border p-3 text-left text-sm font-semibold text-gray-700">
+                Parking
+                </th>
                 
               </tr>
             </thead>

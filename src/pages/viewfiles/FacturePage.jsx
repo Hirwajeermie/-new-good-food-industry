@@ -159,13 +159,13 @@ function FacturePage() {
                     {adcm(item.r_number)}
                   </td>
                   <td className="border p-3 text-sm text-gray-600 md:table-cell">
-                    {item.r_issue}
+                    {item.r_date}
                   </td>
                   <td className="border p-3 text-sm text-gray-600 md:table-cell">
-                    {adcm(item.a_vat)}
+                    {adcm(item.amount_vat)}
                   </td>
                   <td className="border p-3 text-sm text-gray-600 md:table-cell">
-                    {adcm(item.vat)}
+                    {adcm(item.VAT)}
                   </td>
                   <td className="border p-3 text-sm text-gray-600 md:table-cell">
                     {item.comment}
