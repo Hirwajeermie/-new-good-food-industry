@@ -156,9 +156,14 @@ function DepansePage () {
                     <td className="border p-3 text-sm text-gray-600">{adcm(item.boys)} RWF</td>
                     <td className="border p-3 text-sm text-gray-600">{adcm(item.driver)} RWF</td>
                     <td className="border p-3 text-sm text-gray-600">{adcm(item.room)} RWF</td>
+                    <td className="border p-3 text-sm text-gray-600">{adcm(item.discount)} RWF</td>
+                    <td className="border p-3 text-sm text-gray-600">{adcm(item.seller)} RWF</td>
+                    <td className="border p-3 text-sm text-gray-600">{adcm(item.kvcs)} RWF</td>
+                    <td className="border p-3 text-sm text-gray-600">{adcm(item.parking)} RWF</td>
+
                   </tr>
                   <tr>
-                    <td colSpan={8}>
+                    <td colSpan={12}>
                       <table className="min-w-full bg-white border border-gray-300">
                         <thead>
                           <tr className="bg-gray-100">

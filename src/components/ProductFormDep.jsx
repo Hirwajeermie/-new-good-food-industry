@@ -27,6 +27,10 @@ const ProductFormDep= () => {
       Shambre: "",
       Kurya: "",
       Urugendo: "",
+      Umucuruzi: "",
+      KVCS: '',
+      Parking: '',
+      Discount: '',
       Amafarangaasabwakubyacurujwe: 0,
       Amafarangaaverishije: 0,
       Andimafaranga: "",
@@ -65,6 +69,10 @@ const ProductFormDep= () => {
       travel: nfd.expenses['Urugendo'],
       r_amount: 0,
       inc_amount:0,
+      parking: nfd.expenses.Parking,
+      discount: nfd.expenses.Discount,
+      seller: nfd.expenses.Umucuruzi,
+      kvcs: nfd.expenses.KVCS,
       g_amount: nfd.expenses['Andi mafaranga'],
     }
     const scheme = pS
