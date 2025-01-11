@@ -49,8 +49,8 @@ const ProductFormOut = () => {
       updatedFormData.p_taken[object] = [...updatedFormData.p_taken[object]];
       updatedFormData.p_taken[object][index] = {
         ...updatedFormData.p_taken[object][index],
-        ibiro: Number(value),
-        imifuka: Math.round(Number(value) / Number(size)),
+        ibiro: Math.round(Number(value) * Number(size)),
+        imifuka: Math.round(Number(value)),
       };
     
       setFormData(updatedFormData);
@@ -82,13 +82,13 @@ const ProductFormOut = () => {
     size == '25'? index = 0: size == '10'? index = 1 : size == '5'? index = 2 : index = 0
     const seFdata = (e,size)=>{
       const { name, value } = e.target;
-      let objName = (name == 'ibiro') ? 'imifuka' : 'total'
+      let objName = (name == 'imifuka') ? 'ibiro' : 'total'
       const updatedFormData = { ...formData };
       updatedFormData.p_sold[object] = [...updatedFormData.p_sold[object]];
       updatedFormData.p_sold[object][index] = {
         ...updatedFormData.p_sold[object][index],
         [name]: Number(value),
-        [objName]: objName == 'imifuka' ? (Math.round(Number(value) / Number(size))) : Math.round(Number(value)) * Number(updatedFormData.p_sold[object][index].imifuka),
+        [objName]: objName == 'ibiro' ? (Math.round(Number(value) * Number(size))) : Math.round(Number(value)) * Number(updatedFormData.p_sold[object][index].imifuka),
       };
       setFormData(updatedFormData);
       
@@ -98,19 +98,19 @@ const ProductFormOut = () => {
         <input
           type="number"
           placeholder={`${prefix}:${size}KG`}
-          defaultValue={formData.p_sold[object][index]?.ibiro || ''}
+          defaultValue={formData.p_sold[object][index]?.imifuka || ''}
           onBlur={(e)=>seFdata(e,size)}
-          name='ibiro'
+          name='imifuka'
           className="w-full px-3 py-2 text-sm border rounded"
         />
         <input
           type="text"
-          value={formData.p_sold[object][index]?.imifuka || ''}
+          value={formData.p_sold[object][index]?.ibiro || ''}
           readOnly
           className="w-full px-3 py-2 text-sm border rounded bg-gray-100"
         />
         <input
-          type="text"
+          type="number"
           defaultValue={formData.p_sold[object][index]?.price || ''}
           onBlur={(e)=>seFdata(e,size)}
           name='price'
@@ -130,8 +130,8 @@ const ProductFormOut = () => {
     <div className="bg-white rounded shadow-sm p-4">
       <h3 className="font-medium mb-3">{title}</h3>
       <div className="grid grid-cols-2 gap-4 mb-2">
-        <span className="text-sm font-medium">Ibiro</span>
         <span className="text-sm font-medium">Imifuka</span>
+        <span className="text-sm font-medium">Ibiro</span>
       </div>
       <ProductRowSimple prefix={prefix} object={object}  size="25" />
       <ProductRowSimple prefix={prefix} object={object} size="10" />
@@ -143,8 +143,8 @@ const ProductFormOut = () => {
     <div className="bg-white rounded shadow-sm p-4">
       <h3 className="font-medium mb-3">{title}</h3>
       <div className="grid grid-cols-4 gap-4 mb-2">
-        <span className="text-sm font-medium">Ibiro</span>
         <span className="text-sm font-medium">Imifuka</span>
+        <span className="text-sm font-medium">Ibiro</span>
         <span className="text-sm font-medium">Igiciro kumufuka</span>
         <span className="text-sm font-medium">Amafaranga yose hamwe yimifuka</span>
       </div>
@@ -195,13 +195,13 @@ const ProductFormOut = () => {
   const DetailedEnvelopeSection = () => {
     const seFdata = (e,size)=>{
       const { name, value } = e.target;
-      let objName = (name == 'ibiro') ? 'imifuka' : 'total'
+      let objName = (name == 'imifuka') ? 'ibiro' : 'total'
       const updatedFormData = { ...formData };
       updatedFormData.p_sold['envelope'] = [...updatedFormData.p_sold['envelope']];
       updatedFormData.p_sold['envelope'][0] = {
         ...updatedFormData.p_sold['envelope'][0],
         [name]: Number(value),
-        [objName]: objName == 'imifuka' ? (Math.round(Number(value) / Number(size))) : Math.round(Number(value)) * Number(updatedFormData.p_sold['envelope'][0].imifuka),
+        [objName]: objName == 'ibiro' ? (Math.round(Number(value) * Number(size))) : Math.round(Number(value)) * Number(updatedFormData.p_sold['envelope'][0].imifuka),
       };
       setFormData(updatedFormData);
       
@@ -211,30 +211,30 @@ const ProductFormOut = () => {
       <div className="bg-white rounded shadow-sm p-4">
         <h3 className="font-medium mb-3">IS YA ENVELOPE</h3>
         <div className="grid grid-cols-4 gap-4 mb-2">
-          <span className="text-sm font-medium">Ibiro</span>
           <span className="text-sm font-medium">envelope</span>
-          <span className="text-sm font-medium">Igiciro kuranvelope</span>
-          <span className="text-sm font-medium">Amafaranga yose hamwe kuranvelope</span>
+          <span className="text-sm font-medium">Ibiro</span>
+          <span className="text-sm font-medium">Igiciro kuri envelope</span>
+          <span className="text-sm font-medium">Amafaranga yose hamwe kuri envelope</span>
         </div>
         <div className="grid grid-cols-4 gap-4">
           <input
             type="number"
             placeholder="IS:2KG"
-            name='ibiro'
-            defaultValue={formData.p_sold['envelope'][0]?.ibiro || ''}
+            name='imifuka'
+            defaultValue={formData.p_sold['envelope'][0]?.imifuka || ''}
             onBlur={e=>seFdata(e,2)}
             className="w-full px-3 py-2 text-sm border rounded"
           />
           <input
             type="text"
-            value={formData.p_sold['envelope'][0]?.imifuka || ''}
+            value={formData.p_sold['envelope'][0]?.ibiro || ''}
             readOnly
             className="w-full px-3 py-2 text-sm border rounded bg-gray-100"
           />
           <input
             type="text"
             defaultValue={formData.p_sold['envelope'][0]?.price || ''}
-            onBlur={e=>seFdata(e,5)}
+            onBlur={e=>seFdata(e,2)}
             name='price'
             className="w-full px-3 py-2 text-sm border rounded"
           />
