@@ -32,12 +32,11 @@ const ProductFormChe = () => {
     
     if (input && !isNaN(input)) {
       const inganoValue = parseInt(input, 10);
-      setIsEnvelope2kg(Math.floor(inganoValue / 2));
+      setIsEnvelope2kg(Math.floor(inganoValue * 2));
     } else {
       setIsEnvelope2kg(''); // Reset IS envelope 2kg if input is cleared
     }
   };
-
   const [newFoodIbiro, setNewFoodIbiro] = useState({ '25': 0, '10': 0, '5': 0 });
   const [ifunguroIbiro, setIfunguroIbiro] = useState({ '25': 0, '10': 0, '5': 0 });
   const [isezeranoIbiro, setIsezeranoIbiro] = useState({ '25': 0, '10': 0, '5': 0 });
@@ -62,12 +61,11 @@ const ProductFormChe = () => {
   const calculateImifuka = (ibiroValue) => Math.floor(ibiroValue / 25);
   const icumiImifuka = (ibiroValue) => Math.floor(ibiroValue / 10);
   const bitanuImifuka = (ibiroValue) => Math.floor(ibiroValue / 5);
-
-  const handleNewFoodChange = (key, value) => setNewFoodIbiro(prev => ({ ...prev, [key]: Math.round(Number(value)/Number(key)) }));
-  const handleIfunguroChange = (key, value) => setIfunguroIbiro(prev => ({ ...prev, [key]: Math.round(Number(value)/Number(key)) }));
-  const handleIsezeranoChange = (key, value) => setIsezeranoIbiro(prev => ({ ...prev, [key]: Math.round(Number(value)/Number(key)) }));
-  const handleMagajuChange = (key, value) => setMagajuIbiro(prev => ({ ...prev, [key]: Math.round(Number(value)/Number(key)) }));
-  const handleEnvelopeChange = (key, value) => setEnvelope(prev => ({ ...prev, [key]: Math.round(Number(value)/Number(key)) }));
+  const handleNewFoodChange = (key, value) => setNewFoodIbiro(prev => ({ ...prev, [key]: Math.round(Number(value)) }));
+  const handleIfunguroChange = (key, value) => setIfunguroIbiro(prev => ({ ...prev, [key]: Math.round(Number(value)) }));
+  const handleIsezeranoChange = (key, value) => setIsezeranoIbiro(prev => ({ ...prev, [key]: Math.round(Number(value)) }));
+  const handleMagajuChange = (key, value) => setMagajuIbiro(prev => ({ ...prev, [key]: Math.round(Number(value)) }));
+  const handleEnvelopeChange = (key, value) => setEnvelope(prev => ({ ...prev, [key]: Math.round(Number(value)) }));
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -99,6 +97,7 @@ const ProductFormChe = () => {
     setTimeout(() => setSuccessMessage(''), 3000); 
     const scheme = pS
     scheme.body = JSON.stringify(formData)
+    console.log(formData)
     let res = await f('packaging',scheme)
       setShowM(true)
       setMessage({
@@ -324,8 +323,8 @@ const ProductFormChe = () => {
             <div>
               <h2 className="text-center text-white bg-indigo-500 py-2 font-semibold">NEW FOOD</h2>
               <div className="grid grid-cols-2 gap-2">
-                <p className="text-center text-indigo-600 font-medium">Ibiro</p>
                 <p className="text-center text-indigo-600 font-medium">Imifuka</p>
+                <p className="text-center text-indigo-600 font-medium">Ibiro</p>
                 {['25', '10', '5'].map((key, index) => (
                   <React.Fragment key={key}>
                     <input
@@ -338,7 +337,7 @@ const ProductFormChe = () => {
                     />
                     <input
                       type="text"
-                      value={[calculateImifuka, icumiImifuka, bitanuImifuka][index](newFoodIbiro[key]* Number(key))}
+                      value={(newFoodIbiro[key]* Number(key))}
                       className="bg-gray-200 p-2 rounded"
                       
                     />
@@ -353,8 +352,8 @@ const ProductFormChe = () => {
             <div>
               <h2 className="text-center text-white bg-indigo-500 py-2 font-semibold">IFUNGURO RYIZA</h2>
               <div className="grid grid-cols-2 gap-2">
-                <p className="text-center text-indigo-600 font-medium">Ibiro</p>
                 <p className="text-center text-indigo-600 font-medium">Imifuka</p>
+                <p className="text-center text-indigo-600 font-medium">Ibiro</p>
                 {['25', '10', '5'].map((key, index) => (
                   <React.Fragment key={key}>
                     <input
@@ -366,7 +365,7 @@ const ProductFormChe = () => {
                     />
                     <input
                       type="text"
-                      value={[calculateImifuka, icumiImifuka, bitanuImifuka][index](ifunguroIbiro[key]* Number(key))}
+                      value={(ifunguroIbiro[key]* Number(key))}
                       className="bg-gray-200 p-2 rounded"
                       
                     />
@@ -382,8 +381,8 @@ const ProductFormChe = () => {
             <div>
               <h2 className="text-center text-white bg-indigo-500 py-2 font-semibold">ISEZERANO</h2>
               <div className="grid grid-cols-2 gap-2">
-                <p className="text-center text-indigo-600 font-medium">Ibiro</p>
                 <p className="text-center text-indigo-600 font-medium">Imifuka</p>
+                <p className="text-center text-indigo-600 font-medium">Ibiro</p>
                 {['25', '10', '5'].map((key, index) => (
                   <React.Fragment key={key}>
                     <input
@@ -395,7 +394,7 @@ const ProductFormChe = () => {
                     />
                     <input
                       type="text"
-                      value={[calculateImifuka, icumiImifuka, bitanuImifuka][index](isezeranoIbiro[key]* Number(key))}
+                      value={(isezeranoIbiro[key]* Number(key))}
                       className="bg-gray-200 p-2 rounded"
                       
                     />
@@ -411,8 +410,8 @@ const ProductFormChe = () => {
             <div>
               <h2 className="text-center text-white bg-indigo-500 py-2 font-semibold">Isezerano Envelope</h2>
               <div className="grid grid-cols-2 gap-2">
-                <p className="text-center text-indigo-600 font-medium">Ibiro</p>
                 <p className="text-center text-indigo-600 font-medium">Envelope</p>
+                <p className="text-center text-indigo-600 font-medium">Ibiro</p>
                 {['25', '10', '5' ].map((key, index) => (
                   <React.Fragment key={key}>
                     <input
@@ -424,7 +423,7 @@ const ProductFormChe = () => {
                     />
                     <input
                       type="text"
-                      value={[calculateImifuka, icumiImifuka, bitanuImifuka][index](magajuIbiro[key]* Number(key))}
+                      value={(magajuIbiro[key]* Number(key))}
                       className="bg-gray-200 p-2 rounded"
                       
                     />

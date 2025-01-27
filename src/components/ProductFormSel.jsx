@@ -49,7 +49,7 @@ const ProductFormSel = () => {
   
         if (field === 'ibiro') {
           const proportion = fieldName === 'envelope' ? 2 : [25, 10, 5][rowIndex];
-          newFlourData[rowIndex].imifuka = proportion ? Math.round(value / proportion) : '';
+          newFlourData[rowIndex].imifuka = proportion ? Math.round(value) : '';
         }
         if (field === 'price' || field === 'ibiro') {
           newFlourData[rowIndex].total = (newFlourData[rowIndex].imifuka * newFlourData[rowIndex].price).toFixed(2) || '';
@@ -75,10 +75,10 @@ const ProductFormSel = () => {
       <div className="p-4 sm:p-6">
         <div className="grid grid-cols-4 gap-2 sm:gap-6 mb-4">
           <div className="text-center">
-            <span className="text-xs sm:text-sm font-medium text-indigo-600">Ibiro</span>
+            <span className="text-xs sm:text-sm font-medium text-indigo-600">Imifuka</span>
           </div>
           <div className="text-center">
-            <span className="text-xs sm:text-sm font-medium text-indigo-600">Imifuka</span>
+            <span className="text-xs sm:text-sm font-medium text-indigo-600">Ibiro</span>
           </div>
           <div className="text-center">
             <span className="text-xs sm:text-sm font-medium whitespace-pre-wrap text-indigo-600">
@@ -92,7 +92,7 @@ const ProductFormSel = () => {
           </div>
         </div>
 
-        {rows.map((row, index) => (
+        {rows.map((row, index) => { return (
           <div key={index} className="grid grid-cols-4 gap-2 sm:gap-6 mb-4">
             <input
               type="number"
@@ -103,7 +103,7 @@ const ProductFormSel = () => {
             />
             <input
               type="text"
-              value={row.imifuka}
+              value={isEnvelope ?   Number(row.imifuka) * 2:  Number(row.imifuka) * [25, 10, 5][index]}
               readOnly
               className="w-full px-2 sm:px-4 py-1 sm:py-2 text-sm sm:text-base border rounded bg-gray-50"
             />
@@ -120,7 +120,7 @@ const ProductFormSel = () => {
               className="w-full px-2 sm:px-4 py-1 sm:py-2 text-sm sm:text-base border rounded bg-gray-50"
             />
           </div>
-        ))}
+        )})}
 
         <div className="text-right font-bold mt-4 sm:mt-6 text-sm sm:text-base text-indigo-600">
           Total: {adcm(rows.reduce((sum, row) => sum + (parseFloat(row.total) || 0), 0).toFixed(2))} RWF
