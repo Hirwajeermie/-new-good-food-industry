@@ -18,6 +18,7 @@ const HomePages = () => {
     { name: 'Depanse', path: '/Depanse' },
     { name: 'List Yabakozi', path: '/List Yabakozi' },
     { name: 'Amadeni', path: '/Amadeni' },
+    { name: 'Amadeni Yabakozi', path: '/AmadeniB' },
     { name: 'Abishyuye amadeni', path: '/Abishyuyeideni' },
     { name: 'Market Report', path: '/Marketreport' },
     { name: `Raporo Y'imfuka`, path: '/Raporoyimifuka' },
@@ -25,6 +26,7 @@ const HomePages = () => {
     { name: 'Amafaranga Yatanze Kuruhande', path: '/Kuruhande' },
     { name: 'Ibyaguzwe Kuruhanze', path: '/KuruhandeIbyaguzwe' },
     { name: 'Facture Report', path: '/FactureReport' },
+    { name: 'Facture Sell Report', path: '/FactureSellReport' },
   ];
 
   // Filter links based on search query

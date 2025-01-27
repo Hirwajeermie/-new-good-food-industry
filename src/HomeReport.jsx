@@ -19,6 +19,7 @@ const HomePages = () => {
     { name: 'Depanse', path: '/ProductFormDep' }, 
     { name: 'List Yabakozi Nimishahara', path: '/ProductFormEmp' },
     { name: 'Amadeni', path: '/ProductFormDebt' },
+    { name: 'Amadeni Yabakozi', path: '/ProductFormDebtB' },
     { name: 'Abishyuye amadeni', path: '/ProductFormCred' },
     { name: 'Market report', path: '/ProductFormMarket' },
     { name: 'Raporo Yimifuka', path: '/ProductFormSack' },
@@ -26,6 +27,7 @@ const HomePages = () => {
     { name: 'Amafaranga Yatanze Kuruhande', path: '/ProductFormAther' },
     { name: 'Ibyaguzwe Kuruhande', path: '/ProductFormKur' },
     { name: 'Facture Report', path: '/FactureReportForm' },
+    { name: 'Facture Sell Report', path: '/FactureSellReportForm' },
     
   ];
 

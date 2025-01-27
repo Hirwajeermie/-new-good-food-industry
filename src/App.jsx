@@ -16,6 +16,7 @@ import ProductFormDep from './components/ProductFormDep';
 import ProductFormEmp from './components/ProductFormEmp';
 import ProductFormCred from './components/ProductFormCred';
 import ProductFormDebt from './components/ProductFormDebt';
+import ProductFormDebtB from './components/ProductFormDebtB';
 import PrivateRoute from './components/PrivateRoute';
 import NewGoodFoodWebsite from './components/Website';
 import ProductPage from './components/ProductPage';
@@ -25,6 +26,7 @@ import ProductFormSack  from './components/ProductFormSack';
 import ProductFormAther  from './components/ProductFormAther';
 import ProductFormKur  from './components/ProductFormKur';
 import FactureReportForm from './components/FactureReportForm';
+import FactureSellReportForm from './components/FactureSellReportForm';
 
 //import LoginHome from './components/LoginHome';
 import HomePages from './HomePages';
@@ -40,6 +42,7 @@ import Buranda2Page from './pages/viewfiles/Buranda2Page';
 import DepansePage from './pages/viewfiles/DepansePage';
 import AbakoziPage from './pages/viewfiles/AbakoziPage';
 import AmadeniPage from './pages/viewfiles/AmadeniPage';
+import Amadeni2Page from './pages/viewfiles/Amadeni2Page';
 import AbishyuyedeniPage from './pages/viewfiles/AbishyuyedeniPage';
 import MarketPage from './pages/viewfiles/MarketPage';
 import ImodokaPage from './pages/viewfiles/ImodokaPage';
@@ -47,6 +50,7 @@ import ImifukaPage from './pages/viewfiles/ImifukaPage';
 import KuruhandePage from './pages/viewfiles/KuruhandePage';
 import IbyaguzwekuruPage from './pages/viewfiles/IbyaguzwekuruPage';
 import FacturePage from './pages/viewfiles/FacturePage';
+import FactureSellPage from './pages/viewfiles/FactureSellPage';
 import ForgotPassword from './ForgotPassword';
 import ChangePassword from './ChangePassword';
 import BannerSlider from './BannerSlider';
@@ -73,12 +77,14 @@ function App() {
         <Route path="/ProductFormEmp" element={<PrivateRoute element={<ProductFormEmp />} />} />
         <Route path="/ProductFormCred" element={<PrivateRoute element={<ProductFormCred />} />} />
         <Route path="/ProductFormDebt" element={<PrivateRoute element={<ProductFormDebt />} />} />
+        <Route path="/ProductFormDebtB" element={<PrivateRoute element={<ProductFormDebtB />} />} />
         <Route path="/ProductFormMarket" element={<PrivateRoute element={<ProductFormMarket />} />} />
         <Route path="/ProductFormCar" element={<PrivateRoute element={<ProductFormCar />} />} />
         <Route path="/ProductFormSack" element={<PrivateRoute element={<ProductFormSack />} />} />
         <Route path="/ProductFormAther" element={<PrivateRoute element={<ProductFormAther />} />} />
         <Route path="/ProductFormKur" element={<PrivateRoute element={<ProductFormKur />} />} />
         <Route path="/FactureReportForm" element={<PrivateRoute element={<FactureReportForm />} />} />
+        <Route path="/FactureSellReportForm" element={<PrivateRoute element={<FactureSellReportForm />} />} />
         <Route path="/view" element={<View />} />
         <Route path="/ForgotPassword" element={<ForgotPassword />} />
         <Route path="/ChangePassword/:token" element={<PrivateRouteChl element={<ChangePassword />}/>} />
@@ -102,6 +108,7 @@ function App() {
         <Route path="/Depanse" element={<PrivateRoute element={<DepansePage />} />} />
         <Route path="/List Yabakozi" element={<PrivateRoute element={<AbakoziPage />} />} />
         <Route path="/Amadeni" element={<PrivateRoute element={<AmadeniPage />} />} />
+        <Route path="/AmadeniB" element={<PrivateRoute element={<Amadeni2Page />} />} />
         <Route path="/Abishyuyeideni" element={<PrivateRoute element={<AbishyuyedeniPage />} />} />
         <Route path="/Marketreport" element={<PrivateRoute element={<MarketPage/>} />} />
         <Route path="/Raporoyimifuka" element={<PrivateRoute element={<ImifukaPage/>} />} />
@@ -109,6 +116,7 @@ function App() {
         <Route path="/Kuruhande" element={<PrivateRoute element={<KuruhandePage/>} />} />
         <Route path="/KuruhandeIbyaguzwe" element={<PrivateRoute element={<IbyaguzwekuruPage/>} />} />
         <Route path="/FactureReport" element={<PrivateRoute element={<FacturePage/>} />} />
+        <Route path="/FactureSellReport" element={<PrivateRoute element={<FactureSellPage/>} />} />
       </Routes>
     </Router>
   );
