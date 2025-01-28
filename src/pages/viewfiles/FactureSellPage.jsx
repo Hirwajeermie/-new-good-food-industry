@@ -14,7 +14,7 @@ function FactureSellPage() {
       const fetchRecs = async ()=>{
         let schema = pS
         schema.body = JSON.stringify({date: {}})
-        let recs = await f('invoiceReport',pS)
+        let recs = await f('invoiceSellReport',pS)
           setShowM(true)
           setMessage({
             message: recs.message,
@@ -165,7 +165,7 @@ function FactureSellPage() {
                     {adcm(item.amount_vat)}
                   </td>
                   <td className="border p-3 text-sm text-gray-600 md:table-cell">
-                    {adcm(item.VAT)}
+                    {adcm(item.vat)}
                   </td>
                   <td className="border p-3 text-sm text-gray-600 md:table-cell">
                     {item.comment}

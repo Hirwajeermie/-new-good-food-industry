@@ -69,7 +69,7 @@ function FactureSellReportForm() {
       setIsSubmitted(true);
       const scheme = pS
       scheme.body = JSON.stringify(formData)
-      let res = await f('invoiceController',scheme)        
+      let res = await f('invoiceSellController',scheme)        
       setShowM(true)
       setMessage({
         message: res.message,

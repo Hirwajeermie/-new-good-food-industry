@@ -16,7 +16,7 @@ import { HardDrive } from "lucide-react";
       const fetchRecs = async ()=>{
         let schema = pS
         schema.body = JSON.stringify({date: {}})
-        let recs = await f('debtsReport',pS)
+        let recs = await f('empdebtsReport',pS)
         setShowM(true)
           setMessage({
             message: recs.message,
@@ -138,13 +138,13 @@ import { HardDrive } from "lucide-react";
                     {item.reporter}
                   </td>
                   <td className="border p-3 text-sm text-gray-600">
-                    {item.c_name}
+                    {item.emp_name}
                   </td>
                   <td className="border p-3 text-sm text-gray-600">
-                    {(item.p_number)}
+                    {(item.phone)}
                   </td>
                   <td className="border p-3 text-sm text-gray-600">
-                    {adcm(item.a_adv)}
+                    {adcm(item.salary_advance)}
                   </td>
                   <td className="border p-3 text-sm text-gray-600">
                     {adcm(item.comment)}
