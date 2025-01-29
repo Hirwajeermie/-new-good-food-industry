@@ -36,7 +36,7 @@ function FactureSellPage() {
     e.preventDefault()
     let schema = pS
     schema.body = JSON.stringify({date})
-    let recs = await f('invoiceReport',pS)
+    let recs = await f('invoiceSellReport',pS)
       setShowM(true)
       setMessage({
         message: recs.message,
