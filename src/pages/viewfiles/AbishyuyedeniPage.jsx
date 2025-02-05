@@ -15,7 +15,7 @@ function AbishyuyeAmadeniPage() {
         let schema = pS
         schema.body = JSON.stringify({date: {}})
         let recs = await f('pdebtsReport',pS)
-setShowM(true)
+          setShowM(true)
           setMessage({
             message: recs.message,
             decision: recs.success
@@ -67,7 +67,7 @@ setShowM(true)
 
         
         <div>
-          <div  className="block md:inline-block text-gray-700 hover:text-indigo-600 transition-colors duration-300 cursor-pointer py-2 md:py-0 ">
+          <div className="block md:inline-block text-gray-700 hover:text-indigo-600 transition-colors duration-300 cursor-pointer py-2 md:py-0 ">
             <form onSubmit={handleSubmit}>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-indigo-600">
                 <div>
@@ -171,42 +171,35 @@ setShowM(true)
             </tbody>
           </table>
         </div>
-
-        
-        {/* <div className="md:hidden space-y-4 mt-6">
-          {formData.submittedData.map((item, index) => (
-            <div 
-              key={index} 
-              className="bg-white border border-gray-200 rounded-lg shadow-sm p-4"
-            >
-              <div className="grid grid-cols-2 gap-2">
-                <div className="font-semibold text-sm text-gray-700">Itariki</div>
-                <div className="text-sm text-gray-600">{item.itariki}</div>
-
-                <div className="font-semibold text-sm text-gray-700">Utanze Raporo</div>
-                <div className="text-sm text-gray-600">{item.utanzeRaporo}</div>
-
-                <div className="font-semibold text-sm text-gray-700">Izina RY'umukiliya</div>
-                <div className="text-sm text-gray-600">{item.umukiliya}</div>
-
-                <div className="font-semibold text-sm text-gray-700">AMAFARANGA YARARIMO</div>
-                <div className="text-sm text-gray-600">{item.amafarangaYararimo}</div>
-
-                <div className="font-semibold text-sm text-gray-700">AYO YISHYUYE</div>
-                <div className="text-sm text-gray-600">{item.ayoYishyuye}</div>
-
-                <div className="font-semibold text-sm text-gray-700">UBURYO YISHYUYEMO</div>
-                <div className="text-sm text-gray-600">{item.uburyoYishyuyemo}</div>
-
-                <div className="font-semibold text-sm text-gray-700">ASIGAYE</div>
-                <div className="text-sm text-gray-600">{item.asigaye}</div>
-
-                <div className="font-semibold text-sm text-gray-700">Icyongerwaho</div>
-                <div className="text-sm text-gray-600">{item.comment}</div>
-              </div>
-            </div>
-          ))}
-        </div> */}
+      </div>
+      <div className="mb-6">
+        <h2 className="text-xl mb-2 text-center">RAPORO YA TOTAL YEREKEYE AMADENI</h2>
+        <div className="overflow-x-auto">
+          <table className="min-w-full border-collapse border border-indigo-500">
+            <thead className="bg-indigo-100">
+            <tr className="bg-gray-100">
+            <th className="border p-3 text-left text-sm font-semibold text-gray-700">
+                  AMADENI TOTAL (RWF)
+                </th>
+                <th className="border p-3 text-left text-sm font-semibold text-gray-700">
+                  AYISHYUWE (RWF)
+                </th>
+                <th className="border p-3 text-left text-sm font-semibold text-gray-700">
+                  ASIGAYE (RWF)
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {/* Replace with dynamic data */}
+              <tr className="hover:bg-gray-50">
+                    <td className="border p-3 text-sm text-gray-600">{adcm(records.reduce((sum, elem) => sum + (elem.debt || 0), 0))} RWF</td>
+                    <td className="border p-3 text-sm text-gray-600">{adcm(records.reduce((sum, elem) => sum + (elem.p_debt || 0), 0))} RWF</td>
+                    <td className="border p-3 text-sm text-gray-600">{adcm(records.reduce((sum, elem) => sum + (elem.r_debt || 0), 0))} RWF</td>
+                  </tr>
+              {/* Add more rows as needed */}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   );

@@ -1,6 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useEffect, useRef, useState } from "react";
-import { f, pS, ShowMessage } from "../../../public/functions";
+import { adcm, f, pS, ShowMessage } from "../../../public/functions";
 
  function AbakoziPage() {
   const [records,setRecords] = useState([]),
@@ -134,7 +134,7 @@ import { f, pS, ShowMessage } from "../../../public/functions";
                   Salary Advance
                 </th>
                  <th className="border p-3 text-left text-sm font-semibold text-gray-700">
-                  Remain Salary
+                  Remaining Salary
                 </th>
               </tr>
             </thead>
@@ -154,19 +154,19 @@ import { f, pS, ShowMessage } from "../../../public/functions";
                     {item.title}
                   </td>
                   <td className="border p-3 text-sm text-gray-600">
-                    {item.salary}
+                    {adcm(item.salary)}
                   </td>
                   <td className="border p-3 text-sm text-gray-600">
-                    {item.saving}
+                    {adcm(item.saving)}
                   </td>
                   <td className="border p-3 text-sm text-gray-600">
-                    {item.social}
+                    {adcm(item.social)}
                   </td>
                    <td className="border p-3 text-sm text-gray-600">
-                    {item.advance}
+                    {adcm(item.advance)}
                   </td>
                    <td className="border p-3 text-sm text-gray-600">
-                    {item.r_salary}
+                    {adcm(item.r_salary)}
                   </td>
                 </tr>
               ))}
@@ -174,6 +174,43 @@ import { f, pS, ShowMessage } from "../../../public/functions";
           </table>
         </div>
       </div>
+       <div className="mb-6">
+              <h2 className="text-xl mb-2 text-center">TOTAL Y'AMAFARANGA MU GIHE CYAHISWEMO</h2>
+              <div className="overflow-x-auto">
+                <table className="min-w-full border-collapse border border-indigo-500">
+                  <thead className="bg-indigo-100">
+                  <tr className="bg-gray-100">
+                    <th className="border p-3 text-left text-sm font-semibold text-gray-700">
+                      Salary
+                    </th>
+                    <th className="border p-3 text-left text-sm font-semibold text-gray-700">
+                      Saving
+                    </th>
+                    <th className="border p-3 text-left text-sm font-semibold text-gray-700">
+                      Social
+                    </th>
+                    <th className="border p-3 text-left text-sm font-semibold text-gray-700">
+                      Salary Advance
+                    </th>
+                    <th className="border p-3 text-left text-sm font-semibold text-gray-700">
+                      Remaining Salary
+                    </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {/* Replace with dynamic data */}
+                    <tr className="hover:bg-gray-50">
+                          <td className="border p-3 text-sm text-gray-600">{adcm(records.reduce((sum, elem) => sum + (elem.salary || 0), 0))} RWF</td>
+                          <td className="border p-3 text-sm text-gray-600">{adcm(records.reduce((sum, elem) => sum + (elem.saving || 0), 0))} RWF</td>
+                          <td className="border p-3 text-sm text-gray-600">{adcm(records.reduce((sum, elem) => sum + (elem.social || 0), 0))} RWF</td>
+                          <td className="border p-3 text-sm text-gray-600">{adcm(records.reduce((sum, elem) => sum + (elem.advance || 0), 0))} RWF</td>
+                          <td className="border p-3 text-sm text-gray-600">{adcm(records.reduce((sum, elem) => sum + (elem.r_salary || 0), 0))} RWF</td>
+                        </tr>
+                    {/* Add more rows as needed */}
+                  </tbody>
+                </table>
+              </div>
+            </div>
     </div>
   );
 }

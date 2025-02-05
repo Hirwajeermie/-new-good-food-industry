@@ -172,9 +172,10 @@ const IbishyashyaPage = () => {
           <table className="min-w-full border-collapse border border-indigo-500">
             <thead className="bg-indigo-100">
               <tr>
-                <th className="border border-indigo-500 px-4 py-2">Ingano y'Ibigori Byari Bihari</th>
-                <th className="border border-indigo-500 px-4 py-2">Ingano y'Ibigori Byiyongereye</th>
-                <th className="border border-indigo-500 px-4 py-2">Igiteranyo cy'Ibigori Bihari</th>
+                <th className="border border-indigo-500 px-4 py-2">Ingano y'Ibigori Byari Bihari (Total)</th>
+                <th className="border border-indigo-500 px-4 py-2">Ingano y'Ibigori Byiyongereye (Total)</th>
+                <th className="border border-indigo-500 px-4 py-2">Igiteranyo cy'Ibigori Bihari (Total)</th>
+                <th className="border border-indigo-500 px-4 py-2">Igiteranyo cy'Amafaranga Y'ishyuwe (Total)</th>
               </tr>
             </thead>
             <tbody>
@@ -183,6 +184,8 @@ const IbishyashyaPage = () => {
                 <td className="border border-indigo-500 px-4 py-2">{adcm(totals.initamount)} KG</td>
                 <td className="border border-indigo-500 px-4 py-2">{adcm(totals.added)} KG</td>
                 <td className="border border-indigo-500 px-4 py-2">{adcm(totals.mtotal)} KG</td>
+                <td className="border border-indigo-500 px-4 py-2">{adcm(records.reduce((sum, elem) => sum + (elem.amount_paid || 0), 0))} FRW</td>
+
               </tr>
               {/* Add more rows as needed */}
             </tbody>
