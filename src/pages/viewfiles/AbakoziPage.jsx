@@ -104,7 +104,43 @@ import { adcm, f, pS, ShowMessage } from "../../../public/functions";
             </form>
           </div>
         </div>
-
+        <div className="mb-6">
+              <h2 className="text-xl mb-2 text-center">TOTAL Y'AMAFARANGA</h2>
+              <div className="overflow-x-auto">
+                <table className="min-w-full border-collapse border border-indigo-500">
+                  <thead className="bg-indigo-100">
+                  <tr className="bg-gray-100">
+                    <th className="border p-3 text-left text-sm font-semibold text-gray-700">
+                      Salary
+                    </th>
+                    <th className="border p-3 text-left text-sm font-semibold text-gray-700">
+                      Saving
+                    </th>
+                    <th className="border p-3 text-left text-sm font-semibold text-gray-700">
+                      Social
+                    </th>
+                    <th className="border p-3 text-left text-sm font-semibold text-gray-700">
+                      Salary Advance
+                    </th>
+                    <th className="border p-3 text-left text-sm font-semibold text-gray-700">
+                      Remaining Salary
+                    </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {/* Replace with dynamic data */}
+                    <tr className="hover:bg-gray-50">
+                          <td className="border p-3 text-sm text-gray-600">{adcm(records.reduce((sum, elem) => sum + (elem.salary || 0), 0))} RWF</td>
+                          <td className="border p-3 text-sm text-gray-600">{adcm(records.reduce((sum, elem) => sum + (elem.saving || 0), 0))} RWF</td>
+                          <td className="border p-3 text-sm text-gray-600">{adcm(records.reduce((sum, elem) => sum + (elem.social || 0), 0))} RWF</td>
+                          <td className="border p-3 text-sm text-gray-600">{adcm(records.reduce((sum, elem) => sum + (elem.advance || 0), 0))} RWF</td>
+                          <td className="border p-3 text-sm text-gray-600">{adcm(records.reduce((sum, elem) => sum + (elem.r_salary || 0), 0))} RWF</td>
+                        </tr>
+                    {/* Add more rows as needed */}
+                  </tbody>
+                </table>
+              </div>
+            </div>
         <div className="overflow-x-auto">
           <table className="min-w-full bg-white border border-gray-300">
             <thead>
@@ -174,43 +210,6 @@ import { adcm, f, pS, ShowMessage } from "../../../public/functions";
           </table>
         </div>
       </div>
-       <div className="mb-6">
-              <h2 className="text-xl mb-2 text-center">TOTAL Y'AMAFARANGA MU GIHE CYAHISWEMO</h2>
-              <div className="overflow-x-auto">
-                <table className="min-w-full border-collapse border border-indigo-500">
-                  <thead className="bg-indigo-100">
-                  <tr className="bg-gray-100">
-                    <th className="border p-3 text-left text-sm font-semibold text-gray-700">
-                      Salary
-                    </th>
-                    <th className="border p-3 text-left text-sm font-semibold text-gray-700">
-                      Saving
-                    </th>
-                    <th className="border p-3 text-left text-sm font-semibold text-gray-700">
-                      Social
-                    </th>
-                    <th className="border p-3 text-left text-sm font-semibold text-gray-700">
-                      Salary Advance
-                    </th>
-                    <th className="border p-3 text-left text-sm font-semibold text-gray-700">
-                      Remaining Salary
-                    </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {/* Replace with dynamic data */}
-                    <tr className="hover:bg-gray-50">
-                          <td className="border p-3 text-sm text-gray-600">{adcm(records.reduce((sum, elem) => sum + (elem.salary || 0), 0))} RWF</td>
-                          <td className="border p-3 text-sm text-gray-600">{adcm(records.reduce((sum, elem) => sum + (elem.saving || 0), 0))} RWF</td>
-                          <td className="border p-3 text-sm text-gray-600">{adcm(records.reduce((sum, elem) => sum + (elem.social || 0), 0))} RWF</td>
-                          <td className="border p-3 text-sm text-gray-600">{adcm(records.reduce((sum, elem) => sum + (elem.advance || 0), 0))} RWF</td>
-                          <td className="border p-3 text-sm text-gray-600">{adcm(records.reduce((sum, elem) => sum + (elem.r_salary || 0), 0))} RWF</td>
-                        </tr>
-                    {/* Add more rows as needed */}
-                  </tbody>
-                </table>
-              </div>
-            </div>
     </div>
   );
 }

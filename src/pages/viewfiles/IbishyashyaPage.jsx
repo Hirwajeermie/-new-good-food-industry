@@ -118,7 +118,28 @@ const IbishyashyaPage = () => {
             </form>
           </div>
         </div>
+        <div className="mb-6">
+        <h2 className="text-xl mb-2 text-center">TOTAL YIBIGORI BYINJIYE NAMAFARANGA YASOHOTSE</h2>
+        <div className="overflow-x-auto">
+          <table className="min-w-full border-collapse border border-indigo-500">
+            <thead className="bg-indigo-100">
+              <tr>
+                <th className="border border-indigo-500 px-4 py-2">Igiteranyo cyibigori byinjiye (Total)</th>
+                <th className="border border-indigo-500 px-4 py-2">Igiteranyo cy'afaranga yasohotse (Total)</th>
+              </tr>
+            </thead>
+            <tbody>
+              {/* Replace with dynamic data */}
+              <tr>
+              <td className="border border-indigo-500 px-4 py-2">{adcm(records.filter(rec=> rec.dist_names != null).reduce((sum, elem) => sum + (elem.weight || 0), 0))} KG</td>
+              <td className="border border-indigo-500 px-4 py-2">{adcm(records.filter(rec=> rec.dist_names != null).reduce((sum, elem) => sum + (elem.amount_paid || 0), 0))} FRW</td>
 
+              </tr>
+              {/* Add more rows as needed */}
+            </tbody>
+          </table>
+        </div>
+      </div>
       {/* Main Table */}
       <div className="overflow-x-auto mb-8">
         <table className="min-w-full border-collapse border border-indigo-500">
@@ -164,8 +185,6 @@ const IbishyashyaPage = () => {
           </tbody>
         </table>
       </div>
-
-      {/* Subsection Table */}
       <div className="mb-6">
         <h2 className="text-xl mb-2 text-center">AMAKURU YUBUBIKO BUHARI</h2>
         <div className="overflow-x-auto">
@@ -175,7 +194,6 @@ const IbishyashyaPage = () => {
                 <th className="border border-indigo-500 px-4 py-2">Ingano y'Ibigori Byari Bihari (Total)</th>
                 <th className="border border-indigo-500 px-4 py-2">Ingano y'Ibigori Byiyongereye (Total)</th>
                 <th className="border border-indigo-500 px-4 py-2">Igiteranyo cy'Ibigori Bihari (Total)</th>
-                <th className="border border-indigo-500 px-4 py-2">Igiteranyo cy'Amafaranga Y'ishyuwe (Total)</th>
               </tr>
             </thead>
             <tbody>
@@ -184,7 +202,6 @@ const IbishyashyaPage = () => {
                 <td className="border border-indigo-500 px-4 py-2">{adcm(totals.initamount)} KG</td>
                 <td className="border border-indigo-500 px-4 py-2">{adcm(totals.added)} KG</td>
                 <td className="border border-indigo-500 px-4 py-2">{adcm(totals.mtotal)} KG</td>
-                <td className="border border-indigo-500 px-4 py-2">{adcm(records.reduce((sum, elem) => sum + (elem.amount_paid || 0), 0))} FRW</td>
 
               </tr>
               {/* Add more rows as needed */}
@@ -192,6 +209,7 @@ const IbishyashyaPage = () => {
           </table>
         </div>
       </div>
+      {/* Subsection Table */}
     </div>
   );
 };

@@ -103,7 +103,28 @@ setShowM(true)
             </form>
           </div>
         </div>
+        <div className="mb-6">
+        <h2 className="text-xl mb-2 text-center">AMAKURU YA BURANDA YINJIYE NIYASOHOTSE</h2>
+        <div className="overflow-x-auto">
+          <table className="min-w-full border-collapse border border-indigo-500">
+            <thead className="bg-indigo-100">
+              <tr>
+                <th className="border border-indigo-500 px-4 py-2">Ingano ya buranda Yinjiye</th>
+                <th className="border border-indigo-500 px-4 py-2">Ingano ya buranda Yasohotse</th>
+              </tr>
+            </thead>
+            <tbody>
+              {/* Replace with dynamic data */}
+              <tr>
+                <td className="border border-indigo-500 px-4 py-2">{adcm(records.reduce((sum, elem) => sum + (elem.w_incoming || 0), 0))} KG</td>
+                <td className="border border-indigo-500 px-4 py-2">{adcm(records.reduce((sum, elem) => sum + (elem.w_tot || 0), 0))} KG</td>
 
+              </tr>
+              {/* Add more rows as needed */}
+            </tbody>
+          </table>
+        </div>
+      </div>
         <div className="overflow-x-auto">
           <table className="min-w-full bg-white border border-gray-300">
             <thead>
@@ -151,28 +172,6 @@ setShowM(true)
                   </td>
                 </tr>
               ))}
-            </tbody>
-          </table>
-        </div>
-      </div>
-        <div className="mb-6">
-        <h2 className="text-xl mb-2 text-center">AMAKURU Y'IBYINJIYE NIBYASOHOTSE</h2>
-        <div className="overflow-x-auto">
-          <table className="min-w-full border-collapse border border-indigo-500">
-            <thead className="bg-indigo-100">
-              <tr>
-                <th className="border border-indigo-500 px-4 py-2">Ingano ya buranda Yinjiye</th>
-                <th className="border border-indigo-500 px-4 py-2">Ingano ya buranda Yasohotse</th>
-              </tr>
-            </thead>
-            <tbody>
-              {/* Replace with dynamic data */}
-              <tr>
-                <td className="border border-indigo-500 px-4 py-2">{adcm(records.reduce((sum, elem) => sum + (elem.w_incoming || 0), 0))} KG</td>
-                <td className="border border-indigo-500 px-4 py-2">{adcm(records.reduce((sum, elem) => sum + (elem.w_tot || 0), 0))} KG</td>
-
-              </tr>
-              {/* Add more rows as needed */}
             </tbody>
           </table>
         </div>

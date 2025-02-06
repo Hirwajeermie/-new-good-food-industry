@@ -103,7 +103,72 @@ function DepansePage () {
             </form>
           </div>
         </div>
-        
+        <div className="mb-6">
+        <h2 className="text-xl mb-2 text-center">TOTAL YA DEPANSE ZAGARAGAYE</h2>
+        <div className="overflow-x-auto">
+          <table className="min-w-full border-collapse border border-indigo-500">
+            <thead className="bg-indigo-100">
+            <tr className="bg-gray-100">
+                <th className="border p-3 text-left text-sm font-semibold text-gray-700">
+                  MAZUTU
+                </th>
+                <th className="border p-3 text-left text-sm font-semibold text-gray-700">
+                  ABAKARANI
+                </th>
+                <th className="border p-3 text-left text-sm font-semibold text-gray-700">
+                  TAND BOY
+                </th>
+                <th className="border p-3 text-left text-sm font-semibold text-gray-700">
+                  Shoferi
+                </th>
+                <th className="border p-3 text-left text-sm font-semibold text-gray-700">
+                  Shambre
+                </th>
+                <th className="border p-3 text-left text-sm font-semibold text-gray-700">
+                 Discount
+                </th>
+                <th className="border p-3 text-left text-sm font-semibold text-gray-700">
+                Umucuruzi
+                </th>
+                <th className="border p-3 text-left text-sm font-semibold text-gray-700">
+                KVCS
+                </th>
+                <th className="border p-3 text-left text-sm font-semibold text-gray-700">
+                Parking
+                </th>
+                <th className="border p-3 text-left text-sm font-semibold text-gray-700">
+                Kurya
+                </th>
+                <th className="border p-3 text-left text-sm font-semibold text-gray-700">
+                Urugendo
+                </th>
+                <th className="border p-3 text-left text-sm font-semibold text-gray-700">
+                Andi mafaranga
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {/* Replace with dynamic data */}
+              <tr className="hover:bg-gray-50">
+                    <td className="border p-3 text-sm text-gray-600">{adcm(records.reduce((sum, elem) => sum + (elem.diesel || 0), 0))} RWF</td>
+                    <td className="border p-3 text-sm text-gray-600">{adcm(records.reduce((sum, elem) => sum + (elem.lifters || 0), 0))} RWF</td>
+                    <td className="border p-3 text-sm text-gray-600">{adcm(records.reduce((sum, elem) => sum + (elem.boys || 0), 0))} RWF</td>
+                    <td className="border p-3 text-sm text-gray-600">{adcm(records.reduce((sum, elem) => sum + (elem.driver || 0), 0))} RWF</td>
+                    <td className="border p-3 text-sm text-gray-600">{adcm(records.reduce((sum, elem) => sum + (elem.room || 0), 0))} RWF</td>
+                    <td className="border p-3 text-sm text-gray-600">{adcm(records.reduce((sum, elem) => sum + (elem.discount || 0), 0))} RWF</td>
+                    <td className="border p-3 text-sm text-gray-600">{adcm(records.reduce((sum, elem) => sum + (elem.seller || 0), 0))} RWF</td>
+                    <td className="border p-3 text-sm text-gray-600">{adcm(records.reduce((sum, elem) => sum + (elem.kvcs || 0), 0))} RWF</td>
+                    <td className="border p-3 text-sm text-gray-600">{adcm(records.reduce((sum, elem) => sum + (elem.parking || 0), 0))} RWF</td>
+                    <td className="border p-3 text-sm text-gray-600">{adcm(records.reduce((sum, elem) => sum + (elem.food || 0), 0))} RWF</td>
+                    <td className="border p-3 text-sm text-gray-600">{adcm(records.reduce((sum, elem) => sum + (elem.travel || 0), 0))} RWF</td>
+                    <td className="border p-3 text-sm text-gray-600">{adcm(records.reduce((sum, elem) => sum + (elem.g_amount || 0), 0))} RWF</td>
+                    {/* <td className="border p-3 text-sm text-gray-600">{adcm(records.reduce((sum, elem) => sum + (elem.o_m || 0), 0))} RWF</td> */}
+                  </tr>
+              {/* Add more rows as needed */}
+            </tbody>
+          </table>
+        </div>
+      </div>
         <div className="overflow-x-auto">
           <table className="min-w-full bg-white border border-gray-300">
             <thead>
@@ -201,72 +266,6 @@ function DepansePage () {
               })}
           </table>
         
-        </div>
-      </div>
-      <div className="mb-6">
-        <h2 className="text-xl mb-2 text-center">TOTAL YA DEPANSE ZAGARAGAYE</h2>
-        <div className="overflow-x-auto">
-          <table className="min-w-full border-collapse border border-indigo-500">
-            <thead className="bg-indigo-100">
-            <tr className="bg-gray-100">
-                <th className="border p-3 text-left text-sm font-semibold text-gray-700">
-                  MAZUTU
-                </th>
-                <th className="border p-3 text-left text-sm font-semibold text-gray-700">
-                  ABAKARANI
-                </th>
-                <th className="border p-3 text-left text-sm font-semibold text-gray-700">
-                  TAND BOY
-                </th>
-                <th className="border p-3 text-left text-sm font-semibold text-gray-700">
-                  Shoferi
-                </th>
-                <th className="border p-3 text-left text-sm font-semibold text-gray-700">
-                  Shambre
-                </th>
-                <th className="border p-3 text-left text-sm font-semibold text-gray-700">
-                 Discount
-                </th>
-                <th className="border p-3 text-left text-sm font-semibold text-gray-700">
-                Umucuruzi
-                </th>
-                <th className="border p-3 text-left text-sm font-semibold text-gray-700">
-                KVCS
-                </th>
-                <th className="border p-3 text-left text-sm font-semibold text-gray-700">
-                Parking
-                </th>
-                <th className="border p-3 text-left text-sm font-semibold text-gray-700">
-                Kurya
-                </th>
-                <th className="border p-3 text-left text-sm font-semibold text-gray-700">
-                Urugendo
-                </th>
-                <th className="border p-3 text-left text-sm font-semibold text-gray-700">
-                Andi mafaranga
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {/* Replace with dynamic data */}
-              <tr className="hover:bg-gray-50">
-                    <td className="border p-3 text-sm text-gray-600">{adcm(records.reduce((sum, elem) => sum + (elem.diesel || 0), 0))} RWF</td>
-                    <td className="border p-3 text-sm text-gray-600">{adcm(records.reduce((sum, elem) => sum + (elem.lifters || 0), 0))} RWF</td>
-                    <td className="border p-3 text-sm text-gray-600">{adcm(records.reduce((sum, elem) => sum + (elem.boys || 0), 0))} RWF</td>
-                    <td className="border p-3 text-sm text-gray-600">{adcm(records.reduce((sum, elem) => sum + (elem.driver || 0), 0))} RWF</td>
-                    <td className="border p-3 text-sm text-gray-600">{adcm(records.reduce((sum, elem) => sum + (elem.room || 0), 0))} RWF</td>
-                    <td className="border p-3 text-sm text-gray-600">{adcm(records.reduce((sum, elem) => sum + (elem.discount || 0), 0))} RWF</td>
-                    <td className="border p-3 text-sm text-gray-600">{adcm(records.reduce((sum, elem) => sum + (elem.seller || 0), 0))} RWF</td>
-                    <td className="border p-3 text-sm text-gray-600">{adcm(records.reduce((sum, elem) => sum + (elem.kvcs || 0), 0))} RWF</td>
-                    <td className="border p-3 text-sm text-gray-600">{adcm(records.reduce((sum, elem) => sum + (elem.parking || 0), 0))} RWF</td>
-                    <td className="border p-3 text-sm text-gray-600">{adcm(records.reduce((sum, elem) => sum + (elem.food || 0), 0))} RWF</td>
-                    <td className="border p-3 text-sm text-gray-600">{adcm(records.reduce((sum, elem) => sum + (elem.travel || 0), 0))} RWF</td>
-                    <td className="border p-3 text-sm text-gray-600">{adcm(records.reduce((sum, elem) => sum + (elem.g_amount || 0), 0))} RWF</td>
-                    {/* <td className="border p-3 text-sm text-gray-600">{adcm(records.reduce((sum, elem) => sum + (elem.o_m || 0), 0))} RWF</td> */}
-                  </tr>
-              {/* Add more rows as needed */}
-            </tbody>
-          </table>
         </div>
       </div>
     </div>
