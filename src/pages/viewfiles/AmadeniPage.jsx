@@ -114,18 +114,18 @@ import { HardDrive } from "lucide-react";
                 </th>
                 {/* <th className="border p-3 text-left text-sm font-semibold text-gray-700">
                   AYO YISHYUYE TOTAL (RWF)
-                </th>
+                </th> */}
                 <th className="border p-3 text-left text-sm font-semibold text-gray-700">
                   ASIGAYE TOTAL (RWF)
-                </th> */}
+                </th>
               </tr>
             </thead>
             <tbody>
               {/* Replace with dynamic data */}
               <tr className="hover:bg-gray-50">
                     <td className="border p-3 text-sm text-gray-600">{adcm(records.reduce((sum, elem) => sum + (elem.g_amount || 0), 0))} RWF</td>
-                    {/* <td className="border p-3 text-sm text-gray-600">{adcm(records.reduce((sum, elem) => sum + (elem.p_amount || 0), 0))} RWF</td>
-                    <td className="border p-3 text-sm text-gray-600">{adcm(records.reduce((sum, elem) => sum + (elem.r_amount || 0), 0))} RWF</td> */}
+                    {/* <td className="border p-3 text-sm text-gray-600">{adcm(records.reduce((sum, elem) => sum + (elem.p_amount || 0), 0))} RWF</td> */}
+                    <td className="border p-3 text-sm text-gray-600">{adcm(records.reduce((sum, elem) => sum + (elem.r_amount || 0), 0))} RWF</td>
                   </tr>
               {/* Add more rows as needed */}
             </tbody>

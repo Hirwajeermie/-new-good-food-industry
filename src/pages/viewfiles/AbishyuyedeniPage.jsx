@@ -3,6 +3,7 @@ import { adcm, f, pS, ShowMessage } from "../../../public/functions";
 
 function AbishyuyeAmadeniPage() {
   const [records,setRecords] = useState([]),
+  [totals,setTotals] = useState({r_debts : 0}),
   hasFetched = useRef(false),
   [date,setDate] = useState({
     start: null,
@@ -25,6 +26,8 @@ function AbishyuyeAmadeniPage() {
           }, 3000);
          if (recs.success) {
           setRecords(recs.metadata.report)
+          setTotals(recs.metadata.mainTotals)
+
         }
       }
       fetchRecs()
@@ -47,6 +50,7 @@ setShowM(true)
       }, 3000);
      if (recs.success) {
           setRecords(recs.metadata.report)
+          setTotals(recs.metadata.mainTotals)
         }
   }
   function handleChange(e) {
@@ -56,7 +60,6 @@ setShowM(true)
       [name]: value
     })))
   }
-
   return (
     <div className="container mx-auto p-4 space-y-8">
 {showM ? <ShowMessage message={message.message} decision={message.decision}/>: null}
@@ -125,7 +128,7 @@ setShowM(true)
               <tr className="hover:bg-gray-50">
                     {/* <td className="border p-3 text-sm text-gray-600">{adcm(records.reduce((sum, elem) => sum + (elem.debt || 0), 0))} RWF</td> */}
                     <td className="border p-3 text-sm text-gray-600">{adcm(records.reduce((sum, elem) => sum + (elem.p_debt || 0), 0))} RWF</td>
-                    <td className="border p-3 text-sm text-gray-600">{adcm(records.reduce((sum, elem) => sum + (elem.r_debt || 0), 0))} RWF</td>
+                    <td className="border p-3 text-sm text-gray-600">{adcm(totals.r_debts)} RWF</td>
                   </tr>
               {/* Add more rows as needed */}
             </tbody>
