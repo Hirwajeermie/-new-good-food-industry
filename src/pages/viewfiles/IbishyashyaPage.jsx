@@ -65,6 +65,7 @@ const IbishyashyaPage = () => {
           )
         }
     }
+    console.log(adcm(records.filter(rec=> rec.act_type == 'minus')))
     function handleChange(e) {
       const {name,value} = e.target
       setDate((prevD=>({
@@ -125,14 +126,16 @@ const IbishyashyaPage = () => {
             <thead className="bg-indigo-100">
               <tr>
                 <th className="border border-indigo-500 px-4 py-2">Igiteranyo cyibigori byinjiye (Total)</th>
+                <th className="border border-indigo-500 px-4 py-2">Igiteranyo cyibigori byasohotse (Total)</th>
                 <th className="border border-indigo-500 px-4 py-2">Igiteranyo cy'afaranga yasohotse (Total)</th>
               </tr>
             </thead>
             <tbody>
               {/* Replace with dynamic data */}
               <tr>
-              <td className="border border-indigo-500 px-4 py-2">{adcm(records.filter(rec=> rec.dist_names != null).reduce((sum, elem) => sum + (elem.weight || 0), 0))} KG</td>
-              <td className="border border-indigo-500 px-4 py-2">{adcm(records.filter(rec=> rec.dist_names != null).reduce((sum, elem) => sum + (elem.amount_paid || 0), 0))} FRW</td>
+              <td className="border border-indigo-500 px-4 py-2">{adcm(records.filter(rec=> rec.act_type != 'minus').reduce((sum, elem) => sum + (elem.weight || 0), 0))} KG</td>
+              <td className="border border-indigo-500 px-4 py-2">{adcm(records.filter(rec=> rec.act_type == 'minus').reduce((sum, elem) => sum + elem.weight, 0))} KG</td>
+              <td className="border border-indigo-500 px-4 py-2">{adcm(records.filter(rec=> rec.dist_names != 'minus').reduce((sum, elem) => sum + (elem.amount_paid || 0), 0))} FRW</td>
 
               </tr>
               {/* Add more rows as needed */}
@@ -164,7 +167,7 @@ const IbishyashyaPage = () => {
             {
               records.map((element,index) => {
                return (
-                <tr key={index} style={!element.dist_names ? {backgroundColor: '#ff000040'}: null}>
+                <tr key={index} style={element.act_type == 'minus' ? {backgroundColor: '#ff000040'}: null}>
                     <td className="border bg-gray-400 border-indigo-500 px-4 py-2">({element.date})</td>
                     <td className="border border-indigo-500 px-4 py-2">{element.dist_names}</td>
                     <td className="border border-indigo-500 px-4 py-2">{element.dist_plate_no}</td>
