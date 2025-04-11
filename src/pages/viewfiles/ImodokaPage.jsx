@@ -106,7 +106,55 @@ function ImodokaPage() {
             </form>
           </div>
         </div>
-
+        <div className="mb-6">
+        <h2 className="text-xl mb-2 text-center">SUMMARY</h2>
+        <div className="overflow-x-auto">
+          <table className="min-w-full border-collapse border border-indigo-500">
+            <thead className="bg-indigo-100">
+            <tr className="bg-gray-100">
+              <th className="border p-3 text-left text-sm font-semibold text-gray-700 md:table-cell">
+                Amafaranga Yakoreye (Total)
+                </th>
+                <th className="border p-3 text-left text-sm font-semibold text-gray-700 md:table-cell">
+                Mazutu (Total)
+                </th>
+                <th className="border p-3 text-left text-sm font-semibold text-gray-700 md:table-cell">
+                Amavuta y'imodoka (Total)
+                </th>
+                <th className="border p-3 text-left text-sm font-semibold text-gray-700 md:table-cell">
+                piyese yaguzwe (Total)
+                </th>
+                <th className="border p-3 text-left text-sm font-semibold text-gray-700 md:table-cell">
+                Umukanishi (Total)
+                </th>
+                <th className="border p-3 text-left text-sm font-semibold text-gray-700 md:table-cell">
+                Ikinamba (Total)
+                </th>
+                <th className="border p-3 text-left text-sm font-semibold text-gray-700 md:table-cell">
+                Andi mafaranga (Total)
+                </th>
+                <th className="border p-3 text-left text-sm font-semibold text-gray-700 md:table-cell">
+                Amafaranga Asigaye (Total)
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {/* Replace with dynamic data */}
+              <tr className="hover:bg-gray-50">
+                    <td className="border p-3 text-sm text-gray-600">{adcm(records.reduce((sum, elem) => sum + (elem.inc_money || 0), 0))} RWF</td>
+                    <td className="border p-3 text-sm text-gray-600">{adcm(records.reduce((sum, elem) => sum + (elem.diesel || 0), 0))} RWF</td>
+                    <td className="border p-3 text-sm text-gray-600">{adcm(records.reduce((sum, elem) => sum + (elem.oil || 0), 0))} RWF</td>
+                    <td className="border p-3 text-sm text-gray-600">{adcm(records.reduce((sum, elem) => sum + (elem.pieces || 0), 0))} RWF</td>
+                    <td className="border p-3 text-sm text-gray-600">{adcm(records.reduce((sum, elem) => sum + (elem.mechanic || 0), 0))} RWF</td>
+                    <td className="border p-3 text-sm text-gray-600">{adcm(records.reduce((sum, elem) => sum + (elem.wash || 0), 0))} RWF</td>
+                    <td className="border p-3 text-sm text-gray-600">{adcm(records.reduce((sum, elem) => sum + (elem.o_m || 0), 0))} RWF</td>
+                    <td className="border p-3 text-sm text-gray-600">{adcm(records.reduce((sum, elem) => sum + (elem.total || 0), 0))} RWF</td>
+                  </tr>
+              {/* Add more rows as needed */}
+            </tbody>
+          </table>
+        </div>
+      </div>
         <div className="overflow-x-auto">
           <table className="min-w-full bg-white border border-gray-300">
             <thead>

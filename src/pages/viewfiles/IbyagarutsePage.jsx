@@ -130,7 +130,7 @@ const IbyagarutsePage= () => {
                               <th colSpan="2" className="border border-indigo-200 p-2 text-left">NEW FOOD</th>
                               <th colSpan="2" className="border border-indigo-200 p-2 text-left">ISEZERANO</th>
                               <th colSpan="2" className="border border-indigo-200 p-2 text-left">IFUNGURO</th>
-                              <th colSpan="2" className="border border-indigo-200 p-2 text-left">IFUNGURO RYIZA</th>
+                              <th colSpan="2" className="border border-indigo-200 p-2 text-left">ISEZERANO ENVELOPE</th>
                               <th colSpan="2" className="border border-indigo-200 p-2 text-left">ENVELOPE</th>
                             </tr>
                             <tr className="bg-indigo-50">

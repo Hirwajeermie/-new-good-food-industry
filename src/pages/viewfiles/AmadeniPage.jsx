@@ -103,7 +103,35 @@ import { HardDrive } from "lucide-react";
             </form>
           </div>
         </div>
-
+        <div className="mb-6">
+        <h2 className="text-xl mb-2 text-center">RAPORO YA TOTAL YEREKEYE AMADENI</h2>
+        <div className="overflow-x-auto">
+          <table className="min-w-full border-collapse border border-indigo-500">
+            <thead className="bg-indigo-100">
+            <tr className="bg-gray-100">
+            <th className="border p-3 text-left text-sm font-semibold text-gray-700">
+                  TOTAL YAMADENI YATANZWE (RWF)
+                </th>
+                {/* <th className="border p-3 text-left text-sm font-semibold text-gray-700">
+                  AYO YISHYUYE TOTAL (RWF)
+                </th> */}
+                <th className="border p-3 text-left text-sm font-semibold text-gray-700">
+                  ASIGAYE TOTAL (RWF)
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {/* Replace with dynamic data */}
+              <tr className="hover:bg-gray-50">
+                    <td className="border p-3 text-sm text-gray-600">{adcm(records.reduce((sum, elem) => sum + (elem.g_amount || 0), 0))} RWF</td>
+                    {/* <td className="border p-3 text-sm text-gray-600">{adcm(records.reduce((sum, elem) => sum + (elem.p_amount || 0), 0))} RWF</td> */}
+                    <td className="border p-3 text-sm text-gray-600">{adcm(records.reduce((sum, elem) => sum + (elem.r_amount || 0), 0))} RWF</td>
+                  </tr>
+              {/* Add more rows as needed */}
+            </tbody>
+          </table>
+        </div>
+      </div>
         <div className="overflow-x-auto">
           <table className="min-w-full bg-white border border-gray-300">
             <thead>
@@ -159,7 +187,7 @@ import { HardDrive } from "lucide-react";
                     {adcm(item.r_amount)}
                   </td>
                   <td className="border p-3 text-sm text-gray-600">
-                    {adcm(item.comment)}
+                    {(item.comment)}
                   </td>
                   
                 </tr>

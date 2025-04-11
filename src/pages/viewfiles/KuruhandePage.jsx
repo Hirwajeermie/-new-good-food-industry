@@ -106,7 +106,27 @@ function KuruhandePage() {
             </form>
           </div>
         </div>
-
+        <div className="mb-6">
+        <h2 className="text-xl mb-2 text-center">TOTAL Y'AMAFARANGA YATANZWE</h2>
+        <div className="overflow-x-auto">
+          <table className="min-w-full border-collapse border border-indigo-500">
+            <thead className="bg-indigo-100">
+            <tr className="bg-gray-100">
+                <th className="border p-3 text-left text-sm font-semibold text-gray-700">
+                  Amafaranga yatanzwe Total (RWF)
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {/* Replace with dynamic data */}
+              <tr className="hover:bg-gray-50">
+                    <td className="border p-3 text-sm text-gray-600">{adcm(records.reduce((sum, elem) => sum + (elem.amount || 0), 0))} RWF</td>
+                  </tr>
+              {/* Add more rows as needed */}
+            </tbody>
+          </table>
+        </div>
+      </div>
         <div className="overflow-x-auto">
           <table className="min-w-full bg-white border border-gray-300">
             <thead>

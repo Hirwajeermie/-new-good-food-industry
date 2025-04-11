@@ -5,9 +5,9 @@ function ProductFormDebtB() {
   const [formData, setFormData] = useState({
     date: "",
     reporter: "",
-    c_name: "",
-    p_number: "",
-    a_adv: "",
+    emp_name: "",
+    phone: "",
+    salary_advance: "",
     comment: "",
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -36,8 +36,8 @@ function ProductFormDebtB() {
   const validateForm = () => {
     const newErrors = {};
     const requiredFields = [
-      'date', 'reporter', 'c_name', 
-      'p_number', 'a_adv', 'comment'
+      'date', 'reporter', 'emp_name', 
+      'phone', 'salary_advance', 'comment'
     ];
     
     requiredFields.forEach(field => {
@@ -47,13 +47,6 @@ function ProductFormDebtB() {
     });
 
     // Additional validations
-    if (formData.weight && parseFloat(formData.weight) < 0) {
-      newErrors.weight = "Weight cannot be negative";
-    }
-
-    if (formData.g_amount && parseFloat(formData.g_amount) < 0) {
-      newErrors.g_amount = "Amount cannot be negative";
-    }
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -65,7 +58,7 @@ function ProductFormDebtB() {
       setIsSubmitted(true);
       const scheme = pS
     scheme.body = JSON.stringify(formData)
-    let res = await f('debtsController',scheme)
+    let res = await f('EmpdebtsController',scheme)
       setShowM(true)
       setMessage({
         message: res.message,
@@ -78,9 +71,9 @@ function ProductFormDebtB() {
       setFormData({
         date: "",
         reporter: "",
-        c_name: "",
-        p_number: "",
-        a_adv: "",
+        emp_name: "",
+        phone: "",
+        salary_advance: "",
         comment: "",
       });
     }
@@ -116,9 +109,9 @@ function ProductFormDebtB() {
               {[
                 { name: "date", label: "Itariki", type: "date" },
                 { name: "reporter", label: "Utanze Raporo", type: "text" },
-                { name: "c_name", label: "Customer Name", type: "text" },
-                { name: "p_number", label: "Phone Number", type: "number", step: "0.01" },
-                { name: "a_adv", label: "Salary Advance", type: "number", step: "0.01" },
+                { name: "emp_name", label: "Customer Name", type: "text" },
+                { name: "phone", label: "Phone Number", type: "text", step: "0.01" },
+                { name: "salary_advance", label: "Salary Advance", type: "number", step: "0.01" },
               ].map((field) => (
                 <div key={field.name} className="relative">
                   <label className="block text-sm font-medium text-indigo-600 mb-1">
