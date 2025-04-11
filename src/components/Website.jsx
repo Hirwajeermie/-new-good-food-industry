@@ -9,6 +9,8 @@ import Ifunguro99 from "../assets/Ifunguro99.png"
 import Isezerano22 from "../assets/Isezerano22.png"
 import envilope11 from "../assets/envilope11.png"
 import MASAK88 from "../assets/MASAK88.png"
+import Igiko from "../assets/Igiko.png"
+import Manemane from "../assets/Manemane.png"
 
 const ContactIcons = () => {
   return (
@@ -133,11 +135,11 @@ const NewGoodFoodWebsite = () => {
                 {[
                   { 
                     title: 'Our Vision', 
-                    text: 'To be the leading maize milling company in Rwanda, renowned for delivering high-quality, nutritious maize flour while driving sustainable growth, empowering farmers, and reducing post-harvest losses.' 
+                    text: 'To become Rwanda’s leading producer of maize and grain-based porridge flour—recognized for delivering nutritious, affordable products that nourish families, uplift farmers, reduce post-harvest losses, and fuel sustainable growth across the nation’s food system.' 
                   },
                   { 
                     title: 'Our Mission', 
-                    text: 'To enhance food security and economic prosperity in Rwanda by providing reliable maize drying and milling solutions, promoting fair trade with farmers, and producing affordable, high-quality maize flour for all.' 
+                    text: 'Strengthen food security and drive inclusive economic growth in Rwanda by providing dependable maize drying and milling solutions, championing fair trade with farmers, and producing affordable, high-quality maize and grain-based porridge flour that nourishes every home' 
                   }
                 ].map(({ title, text }) => (
                   <div 
@@ -163,7 +165,9 @@ const NewGoodFoodWebsite = () => {
                   { img: Newfood44, name: "NEWFOOD" },
                   { img: Ifunguro99, name: "IFUNGURO RYIZA" },
                   { img: Isezerano22, name: "ISEZERANO" },
+                  { img: Manemane, name: "MANEMANE" },
                   { img: envilope11, name: "ISEZERANO ENVELOPE" },
+                  { img: Igiko, name: "IGIKOMA" },
                 ].map(({ img, name }) => (
                   <div
                     key={name} 
@@ -205,7 +209,7 @@ const NewGoodFoodWebsite = () => {
                   <div className="grid grid-cols-2 gap-4">
                     {[
                       'NEW FOOD FLOUR', 'IFUNGURO RYIZA FLOUR', 'ISEZERANO FLOUR', 
-                       'IS/ENVELOPE/5KG','IS/ENVELOPE/2KG', 'KAWUNGA UMWERU'
+                       'IS/ENVELOPE/5KG','MANEMANE','IGIKOMA','IS/ENVELOPE/2KG', 'KAWUNGA UMWERU'
                     ].map(item => (
                       <div key={item} className="flex items-center">
                         <svg className="w-5 h-5 mr-3 text-indigo-500" fill="currentColor" viewBox="0 0 20 20">
@@ -224,7 +228,7 @@ const NewGoodFoodWebsite = () => {
                       <h2 className="text-2xl font-bold text-red-600">What We Provide</h2>
                     </div>
                     <p className="text-gray-700 leading-relaxed mb-6">
-                      We specialize in processing high-quality kawunga directly from farms, ensuring pure, unadulterated flour that meets the highest standards of quality and nutrition.
+                    At the heart of our operations is a commitment to excellence in food processing. We deliver premium-quality kawunga (maize flour) and nutritious, grain-based composite porridge flour—sourced directly from trusted local farmers. Our products are crafted to meet the highest standards of purity, taste, and nutritional value, serving a growing demand for safe, affordable, and health-conscious food solutions. Whether for households, institutions, or commercial partners, we ensure consistent quality and reliable supply, all while driving sustainable impact across Rwanda’s agricultural value chain.
                     </p>
                   </div>
                   <div className="bg-white p-4 rounded-lg shadow-md">

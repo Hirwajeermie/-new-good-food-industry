@@ -9,6 +9,8 @@ import Isez11 from "../assets/Isez11.png"
 import Ifunguro99 from "../assets/Ifunguro99.png"
 import ifung10 from "../assets/ifung10.png"
 import envilope11 from "../assets/envilope11.png"
+import Igiko from "../assets/Igiko.png"
+import Manemane from "../assets/Manemane.png"
 
 const ProductPage = () => {
   const [selectedProduct, setSelectedProduct] = useState(null);
@@ -51,45 +53,57 @@ const ProductPage = () => {
       img: Isez11,
       name: 'ISEZERANO',
       description: '10 Kilograms',
-      details: 'Easy-to-store 5kg flour package'
+      details: 'Easy-to-store 10kg flour package'
     },
     {
       id: 6,
       img: Isez11,
       name: 'IFUNGURO RYIZA',
       description: '5 Kilograms',
-      details: 'Easy-to-store 5kg flour package'
+      details: 'Easy-to-store 10kg flour package'
     },
     {
       id: 7,
       img: Ifunguro99,
       name: 'IFUNGURO RYIZA',
       description: '25 Kilograms',
-      details: 'Easy-to-store 5kg flour package'
+      details: 'Easy-to-store 25kg flour package'
     },
     {
       id: 8,
       img: ifung10,
       name: 'IFUNGURO RYIZA',
       description: '10 Kilograms',
-      details: 'Easy-to-store 5kg flour package'
+      details: 'Easy-to-store 10kg flour package'
     },
     {
       id: 9,
       img: ifung10,
       name: 'IFUNGURO RYIZA',
       description: '10 Kilograms',
-      details: 'Easy-to-store 5kg flour package'
+      details: 'Easy-to-store 10kg flour package'
     },
     {
       id: 10,
       img: envilope11,
       name: 'ISEZERANO  ENVELOPE',
       description: '10 Kilograms',
-      details: 'Easy-to-tore 5kg flour package'
+      details: 'Easy-to-store 2kg flour package'
     },
-   
-  
+    {
+      id: 10,
+      img: Igiko,
+      name: 'IGIKOMA',
+      description: '10 Kilograms',
+      details: 'Easy-to-1tore 1kg flour package'
+    },
+    {
+      id: 10,
+      img: Manemane,
+      name: 'MANEMANE',
+      description: '10 Kilograms',
+      details: 'Easy-to-store 25kg flour package'
+    },
   ];
 
   const handleProductClick = (product) => {
