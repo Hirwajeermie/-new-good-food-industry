@@ -97,6 +97,8 @@ const ProductPage = () => {
       description: '10 Kilograms',
       details: 'Easy-to-1tore 1kg flour package'
     },
+
+    
     {
       id: 10,
       img: Manemane,

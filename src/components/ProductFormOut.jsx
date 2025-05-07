@@ -437,7 +437,7 @@ const ProductFormOut = () => {
              
              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-indigo-600">
                <DetailedProductSection title="ISEZERANO" object={'IS'} prefix="IS" />
-               <DetailedProductSection title="ISEZERANO ENVELOPE" object={'MA'} prefix="MA" />
+               <DetailedProductSection title="MANEMANE" object={'MA'} prefix="MA" />
              </div>
              
              

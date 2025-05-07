@@ -254,7 +254,7 @@ import { f, pS, ShowMessage } from '../../public/functions';
                <SimpleProductSection title="NEW FOOD" prefix="NF" />
                <SimpleProductSection title="IFUNGURO RYIZA" prefix="IF" />
                <SimpleProductSection title="ISEZERANO" prefix="IS" />
-               <SimpleProductSection title="ISEZERANO ENVELOPE" prefix="MA" />
+               <SimpleProductSection title="MANEMANE" prefix="MA" />
                <SimpleEnvelopeSection />
              </div>
            </div>

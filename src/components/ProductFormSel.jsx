@@ -333,7 +333,7 @@ const ProductFormSel = () => {
           </div>
           <div>
             <label className="block text-xs sm:text-sm font-medium mb-2 text-indigo-600">
-              Nimero Y'umufuka wi Isezerano
+              Nimero Y'umufuka wa manemane
             </label>
             <input
               type="text"
@@ -363,7 +363,7 @@ const ProductFormSel = () => {
             <ProductGrid title="NEW FOOD" fieldName="NF" rows={formData.NF} titleColor="text-indigo-600" />
             <ProductGrid title="IFUNGURO RYIZA" fieldName="IF" rows={formData.IF} titleColor="text-indigo-600" />
             <ProductGrid title="ISEZERANO" fieldName="IS" rows={formData.IS} titleColor="text-indigo-600" />
-            <ProductGrid title="ISEZERANO ENVELOPE" fieldName="MA" rows={formData.MA} titleColor="text-indigo-600" />
+            <ProductGrid title="MANEMANE" fieldName="MA" rows={formData.MA} titleColor="text-indigo-600" />
           </div>
 
           <div className="max-w-4xl text-indigo-600">

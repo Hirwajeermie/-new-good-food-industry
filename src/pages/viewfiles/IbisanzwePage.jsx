@@ -147,7 +147,7 @@ const  hasFetched = useRef(false),
               <th className="border border-indigo-200 text-x p-2 text-left">No yumufuka wa New Food</th>
               <th className="border border-indigo-200 p-2 text-left">No yumufuka w'Ifunguro ryiza</th>
               <th className="border border-indigo-200 p-2 text-left">No yumufuka wi Isezerano</th>
-              <th className="border border-indigo-200 p-2 text-left">No yumufuka wi Isezerano Envelope</th>
+              <th className="border border-indigo-200 p-2 text-left">No yumufuka wa manemane</th>
                    </tr>
                     <tr>
                     <td className="border border-indigo-200 p-2">{item.sack_no_NF}</td>
@@ -165,7 +165,7 @@ const  hasFetched = useRef(false),
                                 <th colSpan="2" className="border border-indigo-200 p-2 text-left">NEW FOOD</th>
                                 <th colSpan="2" className="border border-indigo-200 p-2 text-left">ISEZERANO</th>
                                 <th colSpan="2" className="border border-indigo-200 p-2 text-left">IFUNGURO</th>
-                                <th colSpan="2" className="border border-indigo-200 p-2 text-left">ISEZERANO ENVELOPE</th>
+                                <th colSpan="2" className="border border-indigo-200 p-2 text-left">MANEMANE</th>
                                 <th colSpan="2" className="border border-indigo-200 p-2 text-left">ENVELOPE</th>
                               </tr>
                               <tr className="bg-indigo-50">
