@@ -107,9 +107,9 @@ import { f, pS, ShowMessage } from '../../public/functions';
         <div className="grid grid-cols-2 gap-4">
           <input
             type="number"
-            placeholder="IS:2KG"
+            placeholder="IS:5KG"
             defaultValue={formData['envelope'][0]?.ibiro || ''}
-            onBlur={e=>seFdata(e,2)}
+            onBlur={e=>seFdata(e,5)}
             className="w-full px-3 py-2 text-sm border rounded"
           />
           <input

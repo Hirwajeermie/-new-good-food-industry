@@ -32,7 +32,7 @@ const ProductFormChe = () => {
     
     if (input && !isNaN(input)) {
       const inganoValue = parseInt(input, 10);
-      setIsEnvelope2kg(Math.floor(inganoValue * 2));
+      setIsEnvelope2kg(Math.floor(inganoValue * 5));
     } else {
       setIsEnvelope2kg(''); // Reset IS envelope 2kg if input is cleared
     }
@@ -122,7 +122,7 @@ const ProductFormChe = () => {
           magaju: false,
         });
         setInganoYaEnvelope('') ;
-        setIsEnvelope2kg('');
+        setIsEnvelope5kg('');
         setNewFoodIbiro({ '25': 0, '10': 0, '5': 0 });
         setIfunguroIbiro({ '25': 0, '10': 0, '5': 0 });
         setIsezeranoIbiro({ '25': 0, '10': 0, '5': 0 });
@@ -197,7 +197,7 @@ const ProductFormChe = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
             <div>
               <h3 className="text-xl font-bold text-indigo-700 mb-4">UBWOKO BW'AMAFU</h3>
-              {['NewFood', 'Ifunguro Ryiza', 'Isezerano', 'Isezerano Envelope'].map((item) => (
+              {['NewFood', 'Ifunguro Ryiza', 'Isezerano', 'Isezerano Envelope','Manemane'].map((item) => (
                 <div key={item} className="mb-2">
                   <label className="inline-flex items-center">
                     <input 
@@ -256,6 +256,16 @@ const ProductFormChe = () => {
                 onChange={(e) => setMagaju(e.target.value)}
                 required
               />
+               <label className="block text-indigo-700 font-medium mb-2">Manemane</label>
+              <input 
+                type="text" 
+                placeholder="Ibiro" 
+                name='maWeight'
+                className="w-full p-2 border rounded-md" 
+                value={magaju}
+                onChange={(e) => setMagaju(e.target.value)}
+                required
+              />
             </div>
             
             <div>
@@ -298,6 +308,18 @@ const ProductFormChe = () => {
               />
               <label className="block text-indigo-700 font-medium mb-2">
                 Nimero y'umufuka wi Isezerano Envelope
+              </label>
+              <input 
+                type="text" 
+                placeholder="Nimero" 
+                className="w-full p-2 border rounded-md" 
+                value={sack_no_MA}
+                name='sack_no'
+                onChange={(e) => setSack_no_MA(e.target.value)}
+                required
+              />
+                <label className="block text-indigo-700 font-medium mb-2">
+                Nimero y'umufuka wa manemane
               </label>
               <input 
                 type="text" 
@@ -408,9 +430,9 @@ const ProductFormChe = () => {
 
           
             <div>
-              <h2 className="text-center text-white bg-indigo-500 py-2 font-semibold">manemane</h2>
+              <h2 className="text-center text-white bg-indigo-500 py-2 font-semibold">MANEMANE</h2>
               <div className="grid grid-cols-2 gap-2">
-                <p className="text-center text-indigo-600 font-medium">Envelope</p>
+                <p className="text-center text-indigo-600 font-medium">Imifuka</p>
                 <p className="text-center text-indigo-600 font-medium">Ibiro</p>
                 {['25', '10', '5' ].map((key, index) => (
                   <React.Fragment key={key}>
@@ -444,7 +466,7 @@ const ProductFormChe = () => {
            <input 
              type="number"
              value={inganoYaEnvelope}
-             placeholder="IS:2KG"
+             placeholder="IS:5KG"
              name='envelope'
              className="bg-gray-200 p-2 rounded"
              onChange={handleInganoChange}

@@ -178,7 +178,7 @@ const ProductFormOut = () => {
             type="number"
             placeholder="IS:5KG"
             defaultValue={formData.p_taken['envelope'][0]?.ibiro || ''}
-            onBlur={e=>seFdata(e,2)}
+            onBlur={e=>seFdata(e,5)}
             className="w-full px-3 py-2 text-sm border rounded"
           />
           <input
@@ -219,10 +219,10 @@ const ProductFormOut = () => {
         <div className="grid grid-cols-4 gap-4">
           <input
             type="number"
-            placeholder="IS:2KG"
+            placeholder="IS:5KG"
             name='imifuka'
             defaultValue={formData.p_sold['envelope'][0]?.imifuka || ''}
-            onBlur={e=>seFdata(e,2)}
+            onBlur={e=>seFdata(e,5)}
             className="w-full px-3 py-2 text-sm border rounded"
           />
           <input
@@ -234,7 +234,7 @@ const ProductFormOut = () => {
           <input
             type="text"
             defaultValue={formData.p_sold['envelope'][0]?.price || ''}
-            onBlur={e=>seFdata(e,2)}
+            onBlur={e=>seFdata(e,5)}
             name='price'
             className="w-full px-3 py-2 text-sm border rounded"
           />

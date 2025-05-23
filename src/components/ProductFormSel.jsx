@@ -103,7 +103,7 @@ const ProductFormSel = () => {
             />
             <input
               type="text"
-              value={isEnvelope ?   Number(row.imifuka) * 2:  Number(row.imifuka) * [25, 10, 5][index]}
+              value={isEnvelope ?   Number(row.imifuka) * 5:  Number(row.imifuka) * [25, 10, 5][index]}
               readOnly
               className="w-full px-2 sm:px-4 py-1 sm:py-2 text-sm sm:text-base border rounded bg-gray-50"
             />
@@ -368,7 +368,7 @@ const ProductFormSel = () => {
 
           <div className="max-w-4xl text-indigo-600">
             <ProductGrid
-              title="ISEZERANO ENVELOPE/2KG"
+              title="ISEZERANO ENVELOPE/5KG"
               fieldName="envelope"
               rows={formData.envelope}
               titleColor="text-indigo-600"
