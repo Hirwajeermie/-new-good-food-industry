@@ -117,6 +117,7 @@ const IbyagurishijwePage = () => {
                 <th className="border bg-indigo-100 p-2 text-left text-indigo-500">No Y'umufuka w'Ifunguro ryiza</th>
                 <th className="border bg-indigo-100 p-2 text-left text-indigo-500">No Y'umufuka wi Isezerano</th>
                 <th className="border bg-indigo-100 p-2 text-left text-indigo-500">No Y'umufuka wi Isezerano Envelope</th>
+                <th className="border bg-indigo-100 p-2 text-left text-indigo-500">No Y'umufuka wa manemane</th>
                 <th className="border bg-indigo-100 p-2 text-left text-indigo-500">Icyongerwaho</th>
               </tr>
             </thead>
@@ -131,6 +132,7 @@ const IbyagurishijwePage = () => {
                     <td className="border p-2">{item.sack_no_IF}</td>
                     <td className="border p-2">{item.sack_no_IS}</td>
                     <td className="border p-2">{item.sack_no_MA}</td>
+                    <td className="border p-2">{item.sack_no_MAN}</td>
                     <td className="border p-2">{item.comment}</td>
                   </tr>
                   <tr>
