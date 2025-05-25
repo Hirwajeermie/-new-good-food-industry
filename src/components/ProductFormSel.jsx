@@ -330,10 +330,21 @@ const ProductFormSel = () => {
               className="w-full max-w-md px-2 sm:px-4 py-1 sm:py-2 text-sm sm:text-base border rounded focus:outline-none focus:ring-1"
               required
             />
+             <label className="block text-xs sm:text-sm font-medium mb-2 text-indigo-600">
+              Nimero Y'umufuka wa Manemane
+            </label>
+            <input
+              type="text"
+              name="sack_no_IF"
+              value={formData.sack_no_IF}
+              onChange={handleInputChange}
+              className="w-full max-w-md px-2 sm:px-4 py-1 sm:py-2 text-sm sm:text-base border rounded focus:outline-none focus:ring-1"
+              required
+            />
           </div>
           <div>
             <label className="block text-xs sm:text-sm font-medium mb-2 text-indigo-600">
-              Nimero Y'umufuka wa manemane
+              Nimero Y'umufuka wa Isezerano
             </label>
             <input
               type="text"
