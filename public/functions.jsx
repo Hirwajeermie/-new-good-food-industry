@@ -1,8 +1,8 @@
 export async function f(url,options){
     try {
       Object.assign(options.headers,{'authorization': getdata('token') ? 'Bearer '+getdata('token') : null})
-      let z = await fetch('https://cfp.onrender.com/' +url,options);
-      let y = await z.json();         
+      let z = await fetch('http://127.0.0.1:3001/'+url,options);
+      let y = await z.json();
       
       return y;
     } catch (error) {

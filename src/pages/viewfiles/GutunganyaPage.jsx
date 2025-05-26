@@ -32,7 +32,6 @@ const Ibigiyegutunganywa = () => {
     }
     fetchRecs()
   },[])
-
   async function handleSubmit(e) {
     e.preventDefault()
     let schema = pS
@@ -48,6 +47,7 @@ const Ibigiyegutunganywa = () => {
       }, 3000);
      if (recs.success) {
           setRecords(recs.metadata.report)
+          setTotals(recs.metadata.mainTotals)
         }
   }
   function handleChange(e) {

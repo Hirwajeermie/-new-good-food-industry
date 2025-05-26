@@ -294,8 +294,8 @@ const ProductFormSack = () => {
 
            <input 
              type="number"
-             value={2}
-             placeholder="IS:2KG"
+             value={5}
+             placeholder="IS:5KG"
              name='envelope'
              className="bg-gray-200 p-2 rounded"
              readOnly

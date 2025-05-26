@@ -10,19 +10,21 @@ const ProductFormChe = () => {
   const [ifunguro, setIfunguro] = useState('');
   const [isezerano, setIsezerano] = useState('');
   const [magaju, setMagaju] = useState('');
+  const [isezeranoEnv, setIsezeranoEnv] = useState('');
   const [buranda, setBuranda] = useState('');
   const [selectedAmafu, setSelectedAmafu] = useState({
     newFood: false,
     ifunguro: false,
     isezerano: false,
     magaju: false,
+    manemane: false,
   })
   ,
    [showM,setShowM] = useState(false),
     [message,setMessage] = useState('')
 
   const [inganoYaEnvelope, setInganoYaEnvelope] = useState('');
-  const [isEnvelope5kg, setIsEnvelope2kg] = useState('');
+  const [isEnvelope5kg, setIsEnvelope5kg] = useState('');
   const [successMessage, setSuccessMessage] = useState(''); // Success message state
 
   const handleInganoChange = (e) => {
@@ -32,9 +34,9 @@ const ProductFormChe = () => {
     
     if (input && !isNaN(input)) {
       const inganoValue = parseInt(input, 10);
-      setIsEnvelope2kg(Math.floor(inganoValue * 5));
+      setIsEnvelope5kg(Math.floor(inganoValue * 5));
     } else {
-      setIsEnvelope2kg(''); // Reset IS envelope 2kg if input is cleared
+      setIsEnvelope5kg(''); // Reset IS envelope 2kg if input is cleared
     }
   };
   const [newFoodIbiro, setNewFoodIbiro] = useState({ '25': 0, '10': 0, '5': 0 });
@@ -48,6 +50,7 @@ const ProductFormChe = () => {
   const [sack_no_IF, setSack_no_IF] = useState('');
   const [sack_no_IS, setSack_no_IS] = useState('');
   const [sack_no_MA, setSack_no_MA] = useState('');
+  const [sack_no_ISENV, setSack_no_ISENV] = useState('');
 
 
   const handleCheckboxChange = (item) => {
@@ -78,18 +81,20 @@ const ProductFormChe = () => {
         IF: Number(ifunguro),
         IS: Number(isezerano),
         MA: Number(magaju),
+        ISENV: Number(isezeranoEnv),
         waste_e:  Number(buranda),
         new_food: newFoodIbiro,
         ifunguro: ifunguroIbiro,
         isezerano: isezeranoIbiro,
         magaju: magajuIbiro,
-        envelope:  Number(isEnvelope5kg),
+        envelope:  Number(inganoYaEnvelope),
         comment: comments,
         waste_f: Number(waste_f),
         sack_no_IF,
         sack_no_IS,
         sack_no_MA,
-        sack_no_NF
+        sack_no_NF,
+        sack_no_ISENV,
     };
 
     
@@ -128,12 +133,14 @@ const ProductFormChe = () => {
         setIsezeranoIbiro({ '25': 0, '10': 0, '5': 0 });
         setMagajuIbiro({ '25': 0, '10': 0, '5': 0 });
         setEnvelope({ ingano: 0, isEnvelope: 0, buranda: 0 });
+        setIsezeranoEnv('')
         setComments('');
         setwaste_f('')
         setSack_no_NF('')
         setSack_no_IF('')
         setSack_no_IS('')
         setSack_no_MA('')
+        setSack_no_ISENV('')
     }
     // Reset form fields
   };
@@ -252,8 +259,8 @@ const ProductFormChe = () => {
                 placeholder="Ibiro" 
                 name='maWeight'
                 className="w-full p-2 border rounded-md" 
-                value={magaju}
-                onChange={(e) => setMagaju(e.target.value)}
+                value={isezeranoEnv}
+                onChange={(e) => setIsezeranoEnv(e.target.value)}
                 required
               />
                <label className="block text-indigo-700 font-medium mb-2">Manemane</label>
@@ -325,9 +332,9 @@ const ProductFormChe = () => {
                 type="text" 
                 placeholder="Nimero" 
                 className="w-full p-2 border rounded-md" 
-                value={sack_no_MA}
+                value={sack_no_ISENV}
                 name='sack_no'
-                onChange={(e) => setSack_no_MA(e.target.value)}
+                onChange={(e) => setSack_no_ISENV(e.target.value)}
                 required
               />
             </div>
