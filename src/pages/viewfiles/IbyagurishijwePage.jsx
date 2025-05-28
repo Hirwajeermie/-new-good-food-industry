@@ -131,12 +131,12 @@ const IbyagurishijwePage = () => {
                     <td className="border p-2">{item.sack_no_NF}</td>
                     <td className="border p-2">{item.sack_no_IF}</td>
                     <td className="border p-2">{item.sack_no_IS}</td>
+                    <td className="border p-2">{item.sack_no_ISENV}</td>
                     <td className="border p-2">{item.sack_no_MA}</td>
-                    <td className="border p-2">{item.sack_no_MAN}</td>
                     <td className="border p-2">{item.comment}</td>
                   </tr>
                   <tr>
-                    <td colSpan={9}>
+                    <td colSpan={10}>
                       <div className="overflow-x-auto">
                         <table className="min-w-full border-collapse border">
                           <thead>
@@ -145,7 +145,7 @@ const IbyagurishijwePage = () => {
                               <th colSpan="4" className="border bg-gray-100 p-2 text-left text-indigo-500">IFUNGURO</th>
                               <th colSpan="4" className="border bg-gray-100 p-2 text-left text-indigo-500">ISEZERANO</th>
                               <th colSpan="4" className="border bg-gray-100 p-2 text-left text-indigo-500">ISEZERANO ENVELOPE</th>
-                              <th colSpan="4" className="border bg-gray-100 p-2 text-left text-indigo-500">IS ENVELOPE/2KG</th>
+                              <th colSpan="4" className="border bg-gray-100 p-2 text-left text-indigo-500">IS ENVELOPE/5KG</th>
                             </tr> 
                             <tr className="bg-gray-50">
                               {['NEW FOOD', 'IFUNGURO', 'ISEZERANO', 'MAGAJU'].map(product => (

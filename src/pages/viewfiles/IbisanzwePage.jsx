@@ -155,6 +155,7 @@ const  hasFetched = useRef(false),
                     <td className="border border-indigo-200 p-2">{item.sack_no_IF}</td>
                     <td className="border border-indigo-200 p-2">{item.sack_no_IS}</td>
                     <td className="border border-indigo-200 p-2">{item.sack_no_MA}</td>
+                    <td className="border border-indigo-200 p-2">{item.sack_no_ISENV}</td>
                     </tr>
                     <tr>
                       <td colSpan={7}>
@@ -173,7 +174,7 @@ const  hasFetched = useRef(false),
                                 <th className="border border-indigo-200 p-2">NF</th>
                                 <th className="border border-indigo-200 p-2">IF</th>
                                 <th className="border border-indigo-200 p-2">IS</th>
-                                <th className="border border-indigo-200 p-2">MG</th>
+                                <th className="border border-indigo-200 p-2">MA</th>
                                 <th className="border border-indigo-200 p-2">IBIRO</th>
                                 <th className="border border-indigo-200 p-2">IMIFUKA</th>
                                 <th className="border border-indigo-200 p-2">IBIRO</th>

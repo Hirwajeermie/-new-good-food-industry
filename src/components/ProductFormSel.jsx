@@ -33,6 +33,7 @@ const ProductFormSel = () => {
     sack_no_IF: '',
     sack_no_IS: '',
     sack_no_MA: '',
+    sack_no_ISENV: '',
     comment: '',
   })
   ,
@@ -209,6 +210,7 @@ const ProductFormSel = () => {
         sack_no_IF: '',
         sack_no_IS: '',
         sack_no_MA: '',
+        sack_no_ISENV: '',
         comment: '',
       })
     }
@@ -335,8 +337,8 @@ const ProductFormSel = () => {
             </label>
             <input
               type="text"
-              name="sack_no_IF"
-              value={formData.sack_no_IF}
+              name="sack_no_MA"
+              value={formData.sack_no_MA}
               onChange={handleInputChange}
               className="w-full max-w-md px-2 sm:px-4 py-1 sm:py-2 text-sm sm:text-base border rounded focus:outline-none focus:ring-1"
               required
@@ -359,8 +361,8 @@ const ProductFormSel = () => {
             </label>
             <input
               type="text"
-              name="sack_no_MA"
-              value={formData.sack_no_MA}
+              name="sack_no_ISENV"
+              value={formData.sack_no_ISENV}
               onChange={handleInputChange}
               className="w-full max-w-md px-2 sm:px-4 py-1 sm:py-2 text-sm sm:text-base border rounded focus:outline-none focus:ring-1"
               required
