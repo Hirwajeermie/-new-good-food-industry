@@ -98,7 +98,7 @@ const ProductFormSel = () => {
               type="number"
               defaultValue={row.ibiro}
               onBlur={(e) =>{ handleGridInputChange(fieldName, index, 'ibiro', e.target.value);e.preventDefault()}}
-              placeholder={`${title.slice(0, 2)}:${isEnvelope ? 2 : [25, 10, 5][index]}`}
+              placeholder={`${title.slice(0, 2)}:${isEnvelope ? 5 : [25, 10, 5][index]}`}
               className="w-full px-2 sm:px-4 py-1 sm:py-2 text-sm sm:text-base border rounded focus:outline-none focus:ring-1"
             />
             <input

@@ -132,7 +132,7 @@ const  hasFetched = useRef(false),
                         <table className="w-full bg-white border border-indigo-200 text-sm md:text-base">
                           <thead>
                             <tr className="bg-indigo-50">
-                              {['NEW FOOD', 'ISEZERANO', 'IFUNGURO', 'ISEZERANO ENVELOPE', 'ENVELOPE'].map((section) => (
+                              {['NEW FOOD', 'ISEZERANO', 'IFUNGURO', 'Manemane', 'ENVELOPE'].map((section) => (
                                 <React.Fragment key={section}>
                                   <th colSpan="3" className="border border-indigo-200 p-2 text-center">{section}</th>
                                 </React.Fragment>

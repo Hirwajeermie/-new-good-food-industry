@@ -256,7 +256,7 @@ const ProductFormSack = () => {
 
           
             <div>
-              <h2 className="text-center text-white bg-indigo-500 py-2 font-semibold">Isezerano Envelope</h2>
+              <h2 className="text-center text-white bg-indigo-500 py-2 font-semibold">Manemane</h2>
               <div className="grid grid-cols-2 gap-2">
                 <p className="text-center text-indigo-600 font-medium">Ibiro</p>
                 <p className="text-center text-indigo-600 font-medium">Ingano</p>
@@ -294,8 +294,8 @@ const ProductFormSack = () => {
 
            <input 
              type="number"
-             value={2}
-             placeholder="IS:2KG"
+             value={5}
+             placeholder="IS:5KG"
              name='envelope'
              className="bg-gray-200 p-2 rounded"
              readOnly
