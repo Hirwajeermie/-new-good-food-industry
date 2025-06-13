@@ -129,7 +129,7 @@ const IbyinjiyePage = () => {
                         <table className="w-full bg-white border border-indigo-200 text-sm md:text-base">
                           <thead>
                             <tr className="bg-indigo-50">
-                              {['NEW FOOD', 'ISEZERANO', 'IFUNGURO', 'ISEZERANO ENVELOPE', 'ENVELOPE'].map((section) => (
+                              {['NEW FOOD', 'ISEZERANO', 'IFUNGURO', 'MANEMANE', 'ENVELOPE'].map((section) => (
                                 <React.Fragment key={section}>
                                   <th colSpan="4" className="border border-indigo-200 p-2 text-center">{section}</th>
                                 </React.Fragment>
@@ -171,7 +171,7 @@ const IbyinjiyePage = () => {
 
                                 {weight === '25' && (
                                   <>
-                                    <td rowSpan="3" className="border border-indigo-200 p-2">{(Number('2'))}</td>
+                                    <td rowSpan="3" className="border border-indigo-200 p-2">{(Number('5'))}</td>
                                     <td rowSpan="3" className="border border-indigo-200 p-2">{item.ls.envelope['2']}</td>
                                     <td rowSpan="3" className="border border-indigo-200 p-2">{item.reporter? item.r_weights.envelope['2'] - item.ls.envelope['2']: item.r_weights.envelope['2'] + item.ls.envelope['2']}</td>
                                     <td rowSpan="3" className="border border-indigo-200 p-2">{item.r_weights.envelope['2']}</td>
