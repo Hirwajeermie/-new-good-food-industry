@@ -210,7 +210,7 @@ const  hasFetched = useRef(false),
                                             <td className="border border-indigo-200 p-2">{item.magaju[weight]}</td>
                                             {weight === '25' && (
                                               <>
-                                                <td rowSpan="3" className="border border-indigo-200 p-2">{2}kg</td>
+                                                <td rowSpan="3" className="border border-indigo-200 p-2">{5}kg</td>
                                                 <td rowSpan="3" className="border border-indigo-200 p-2">{item.envelopes}</td>
                                               </>
                                             )}
@@ -228,7 +228,7 @@ const  hasFetched = useRef(false),
                                   <td className="border border-indigo-200 p-2">total</td>
                                   <td className="border border-indigo-200 p-2">{adcm(Object.entries(item.magaju).reduce((acc, [key,value]) => acc + (Number(key)*value), 0))} KG</td>
                                   <td className="border border-indigo-200 p-2">total</td>
-                                  <td className="border border-indigo-200 p-2">{adcm(item.envelopes * 2)} KG</td>
+                                  <td className="border border-indigo-200 p-2">{adcm(item.envelopes * 5)} KG</td>
                                 </tr>
                               </tbody>
                             </table>
