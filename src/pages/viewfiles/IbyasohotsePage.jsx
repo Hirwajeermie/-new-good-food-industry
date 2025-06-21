@@ -204,7 +204,7 @@ const IbyasohotsePage = () => {
                                 <th colSpan="4" className="border border-indigo-200 p-2 text-center">NEW FOOD</th>
                                 <th colSpan="4" className="border border-indigo-200 p-2 text-center">ISEZERANO</th>
                                 <th colSpan="4" className="border border-indigo-200 p-2 text-center">IFUNGURO RYIZA</th>
-                                <th colSpan="4" className="border border-indigo-200 p-2 text-center">ISEZERANO ENVELOPE</th>
+                                <th colSpan="4" className="border border-indigo-200 p-2 text-center">MANEMANE</th>
                                 <th colSpan="4" className="border border-indigo-200 p-2 text-center">ENVELOPE</th>
                               </tr>
                               <tr className="bg-indigo-50">

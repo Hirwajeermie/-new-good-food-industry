@@ -144,7 +144,7 @@ const IbyagurishijwePage = () => {
                               <th colSpan="4" className="border bg-gray-100 p-2 text-left text-indigo-500">NEW FOOD</th>
                               <th colSpan="4" className="border bg-gray-100 p-2 text-left text-indigo-500">IFUNGURO</th>
                               <th colSpan="4" className="border bg-gray-100 p-2 text-left text-indigo-500">ISEZERANO</th>
-                              <th colSpan="4" className="border bg-gray-100 p-2 text-left text-indigo-500">ISEZERANO ENVELOPE</th>
+                              <th colSpan="4" className="border bg-gray-100 p-2 text-left text-indigo-500">MANEMANE</th>
                               <th colSpan="4" className="border bg-gray-100 p-2 text-left text-indigo-500">IS ENVELOPE/5KG</th>
                             </tr> 
                             <tr className="bg-gray-50">
