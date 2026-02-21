@@ -269,7 +269,7 @@ const ProductFormOut = () => {
     if(data.length){
       data.forEach((item, index) => {
           data.length == 1 ? index = 2 : index
-          const proportion = (data.length == 1) ? '2': proportions[index].toString() ; 
+          const proportion = (data.length == 1) ? '5': proportions[index].toString() ; 
           result.weights[proportion] = item.imifuka;
           result.pricings[proportion] = parseFloat(item.price) || 0;
           result.totals[proportion] = parseFloat(item.total) || 0;

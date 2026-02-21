@@ -172,9 +172,9 @@ const IbyinjiyePage = () => {
                                 {weight === '25' && (
                                   <>
                                     <td rowSpan="3" className="border border-indigo-200 p-2">{(Number('5'))}</td>
-                                    <td rowSpan="3" className="border border-indigo-200 p-2">{item.ls.envelope['2']}</td>
-                                    <td rowSpan="3" className="border border-indigo-200 p-2">{item.reporter? item.r_weights.envelope['2'] - item.ls.envelope['2']: item.r_weights.envelope['2'] + item.ls.envelope['2']}</td>
-                                    <td rowSpan="3" className="border border-indigo-200 p-2">{item.r_weights.envelope['2']}</td>
+                                    <td rowSpan="3" className="border border-indigo-200 p-2">{item.ls.envelope['5']}</td>
+                                    <td rowSpan="3" className="border border-indigo-200 p-2">{item.reporter? item.r_weights.envelope['5'] - item.ls.envelope['5']: item.r_weights.envelope['5'] + item.ls.envelope['5']}</td>
+                                    <td rowSpan="3" className="border border-indigo-200 p-2">{item.r_weights.envelope['5']}</td>
                                   </>
                                 )}
                               </tr>
@@ -196,8 +196,8 @@ const IbyinjiyePage = () => {
                               <td className="border border-indigo-200 p-2">{adcm(Object.values(item.ls.MA).reduce((sum,index)=>(sum+ (index)),0))}</td>
                               <td className="border border-indigo-200 p-2" colSpan="2">Total: {adcm(Object.entries(item.ls.MA).reduce((sum,[key,index])=>(sum+ (key*index)),0))} KG</td>
                               
-                              <td className="border border-indigo-200 p-2">{adcm(item.ls.envelope['2']* Number('2'))}</td>
-                              <td className="border border-indigo-200 p-2">{item.ls.envelope['2']}</td>
+                              <td className="border border-indigo-200 p-2">{adcm(item.ls.envelope['5']* Number('5'))}</td>
+                              <td className="border border-indigo-200 p-2">{item.ls.envelope['5']}</td>
                               <td className="border border-indigo-200 p-2" colSpan="2">Total</td>
                             </tr>
                           </tbody>

@@ -244,10 +244,10 @@ const IbyasohotsePage = () => {
                                   <td className="border border-indigo-200 p-2">{adcm(item.p_sold.MA.totals[weight])} FRW</td>
                                   {weight === '25' && (
                                     <>
-                                      <td rowSpan="3" className="border border-indigo-200 p-2">{2}kg</td>
-                                      <td rowSpan="3" className="border border-indigo-200 p-2">{item.p_sold.envelope.weights[2]}</td>
-                                      <td rowSpan="3" className="border border-indigo-200 p-2">{item.p_sold.envelope.pricings[2]} RWF</td>
-                                      <td rowSpan="3" className="border border-indigo-200 p-2">{adcm(item.p_sold.envelope.totals[2])} FRW</td>
+                                      <td rowSpan="3" className="border border-indigo-200 p-2">{5}kg</td>
+                                      <td rowSpan="3" className="border border-indigo-200 p-2">{item.p_sold.envelope.weights[5]}</td>
+                                      <td rowSpan="3" className="border border-indigo-200 p-2">{item.p_sold.envelope.pricings[5]} RWF</td>
+                                      <td rowSpan="3" className="border border-indigo-200 p-2">{adcm(item.p_sold.envelope.totals[5])} FRW</td>
                                     </>
                                   )}
                                 </tr>

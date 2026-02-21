@@ -14,7 +14,6 @@ dist-ssr
 /public/*.jsx
 
 # Editor directories and files
-.vscode/*
 !.vscode/extensions.json
 .idea
 .DS_Store
@@ -24,3 +23,4 @@ dist-ssr
 *.sln
 *.sw?
 public/functions.jsx
+config.bat
