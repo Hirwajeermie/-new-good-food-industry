@@ -286,7 +286,7 @@ const NewGoodFoodWebsite = () => {
             </div>
             <div className='text-black'>
               <p className="text-xl font-semibold">RWANDA, KIGALI CITY </p>
-              <p className="text-xl font-semibold">Nyarugenge District  </p>
+              <p className="text-xl font-semibold">Kicukiro District  </p>
               <p className="text-xl font-semibold">Masaka Sector </p>
               <p className="text-xl font-semibold">Gitagara Cell </p>
             </div>
